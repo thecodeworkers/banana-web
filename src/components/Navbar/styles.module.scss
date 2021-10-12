@@ -1,5 +1,6 @@
-$white: orange;
+$white: #fff;
 $height: 2.938rem;
+$helveticaNeue: 'HelveticaNeue';
 
 @mixin common($width) {
 	width: $width;
@@ -8,34 +9,43 @@ $height: 2.938rem;
 	align-items: center;
 }
 
+._mainChild {
+  background-color: $white;
+  width: 90%;
+  display: flex;
+  height: inherit;
+}
+
 ._parent {
   position: fixed;
 	width: 100%;
 	display: flex;
-	flex-direction: row;
-	align-items: center;
+	justify-content: center;
 	top: 0.8rem;
-	left: 0;
 	box-sizing: border-box;
 	z-index: 999;
-	padding: 0 5% 0 5%;
 	height: 2.938rem;
 }
 
 ._childOne {
 	@include common(60%);
-	background-color: #fff
+  padding-left: 1.5rem;
 }
 
 ._childTwo {
 	@include common(20%);
-	background-color: #fff
+
+  & p {
+    font-family: $helveticaNeue;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
 }
 
 ._childThree {
 	@include common(20%);
 	justify-content: flex-end;
-	background-color: #fff
+  padding-right: 1.5rem;
 }
 
 ._toggleParent {
