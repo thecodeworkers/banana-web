@@ -1,9 +1,11 @@
+import { Banner } from "../components"
+
 
 const HomePage = () => {
   return (
    
       <div>
-        <p>BANANA CREATIVE </p>
+       <Banner />
       </div>
    
   )
