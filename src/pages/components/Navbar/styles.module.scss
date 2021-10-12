@@ -1,0 +1,43 @@
+$white: orange;
+$height: 2.938rem;
+
+@mixin common($width) {
+	width: $width;
+	height: inherit;
+	display: flex;
+	align-items: center;
+}
+
+._parent {
+  position: fixed;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	top: 0.8rem;
+	left: 0;
+	box-sizing: border-box;
+	z-index: 999;
+	padding: 0 5% 0 5%;
+	height: 2.938rem;
+}
+
+._childOne {
+	@include common(60%);
+	background-color: #fff
+}
+
+._childTwo {
+	@include common(20%);
+	background-color: #fff
+}
+
+._childThree {
+	@include common(20%);
+	justify-content: flex-end;
+	background-color: #fff
+}
+
+._toggleParent {
+	cursor: pointer;
+}
