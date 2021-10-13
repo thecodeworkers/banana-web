@@ -16,7 +16,34 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@store": [
+        "./src/store"
+      ],
+      "@store/*": [
+        "./src/store/*"
+      ],
+      "@components": [
+        "./src/components"
+      ],
+      "@graphql/*": [
+        "./src/graphql/*"
+      ],
+      "@utils": [
+        "./src/utils"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@styles/*": [
+        "./public/styles/*"
+      ],
+      "@icons/*": [
+        "./public/icons/*"
+      ]
+    }
   },
   "include": [
     "next-env.d.ts",

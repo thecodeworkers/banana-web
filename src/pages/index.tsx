@@ -1,11 +1,12 @@
+import { Navbar } from '@components'
 
 const HomePage = () => {
   return (
-   
+    <div>
       <div>
-        <p>BANANA CREATIVE </p>
+        <Navbar />
       </div>
-   
+    </div>
   )
 }
 
