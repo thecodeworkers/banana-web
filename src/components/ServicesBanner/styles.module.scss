@@ -1,0 +1,21 @@
+
+ ._serviceBanner{
+   margin: 0 2rem;
+ }
+ ._titleContainer{
+    margin-bottom: 1rem;
+ }
+ ._subtitleContainer{
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+ }
+
+._servicesContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+._scrollContain{
+  position: absolute;
+  width: 100%;
+}

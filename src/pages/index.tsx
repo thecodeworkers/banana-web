@@ -1,4 +1,4 @@
-import { Banner } from "../components"
+import { Banner, ServicesBanner } from "../components"
 
 
 const HomePage = () => {
@@ -6,6 +6,8 @@ const HomePage = () => {
    
       <div>
        <Banner />
+       <ServicesBanner background={'black'} />
+       <ServicesBanner background={'white'} />
       </div>
    
   )
