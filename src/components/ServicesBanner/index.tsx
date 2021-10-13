@@ -31,11 +31,11 @@ const ServiceBanner = ({ background }) => {
 						{ background == 'black' ?
 							<div className={'_scrollContainer'} style={{ transform: `translate(calc(-${pos}px + 200px))` }}>
 								<div className={styles._scrollContain} ><p className={'_scrollTitle'}>We Think</p></div>
-							</div> 
+							</div>
 							:
 							<div className={'_scrollContainer'} style={{ transform: `translate(calc(+${pos}px + 200px))` }}>
 							<div className={styles._scrollContain} ><p className={'_scrollTitle'}>We Create</p></div>
-						</div> 
+						</div>
 						}
 
 						<div className={'_content'}>
@@ -64,7 +64,7 @@ const ServiceBanner = ({ background }) => {
 			<style jsx>{`
 	._serviceBannerContainer{
 		width: 100%;
-		background: ${background == 'black' ? 'black' : 'white'};
+		background: ${background == 'black' ? 'white' : 'black'};
 	}
 	._serviceBannerContent{
 		margin-left: 0.5%;
@@ -77,7 +77,7 @@ const ServiceBanner = ({ background }) => {
 		display: grid;
 		grid-template-columns: repeat(${services.length}, 1fr);
 		width: 100%;
-	} 
+	}
 	._title{
 		font-size: 3.5rem;
 		font-weight: 700;
