@@ -1,0 +1,104 @@
+$helveticaNeue: 'HelveticaNeue';
+
+@mixin layout($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+._main {
+  height: 100vh;
+  padding-top: 7rem;
+  width: 95%;
+  margin: 0 auto;
+}
+
+._motion {
+  @include layout(100%, 35%);
+  position: relative;
+}
+
+._purpose {
+  @include layout(100%, 15%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+._information {
+  @include layout(100%, 15%);
+  display: flex;
+  align-items: center;
+}
+
+._purposeTexts {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  & p {
+    font-family: $helveticaNeue;
+  }
+}
+
+._line {
+  border: none;
+  border-bottom: solid 2px #000;
+}
+
+._btnSuperParent {
+  display: flex;
+  justify-content: flex-end;
+}
+
+._btnParent {
+  width: 18.4375rem;
+}
+
+._services {
+  padding-top: 1rem;
+  @include layout(100%, 35%);
+
+  & p {
+    width: 35%;
+    font-family: $helveticaNeue;
+    line-height: 1.5rem;
+  }
+}
+
+._servicesBtnParent {
+  margin-bottom: 1rem;
+  width: 18.4375rem;
+}
+
+._bottomBtnParent {
+  width: 7rem;
+}
+
+._linksParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+
+  & a {
+    font-family: $helveticaNeue;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  & a:hover {
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+}
+
+._boxParent {
+  cursor: pointer;
+  transition: all 0.6s;
+
+  &:hover {
+    transform: translateY(0.3rem);
+    transition: all 0.6s;
+  }
+}

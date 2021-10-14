@@ -1,10 +1,11 @@
-import { Navbar } from '@components'
+import { Navbar, Hero } from '@components'
 
 const HomePage = () => {
   return (
     <div>
       <div>
         <Navbar />
+        <Hero />
       </div>
     </div>
   )
