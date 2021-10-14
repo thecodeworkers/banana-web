@@ -133,6 +133,9 @@ const ServiceBanner = ({ background }) => {
 		._contentTitle{
 			font-size: 1.6rem;
 		}
+    ._serviceBannerContent{
+      padding: 1rem 0
+    }
 	}
 `}</style>
 		</>

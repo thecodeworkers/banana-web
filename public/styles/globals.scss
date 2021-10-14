@@ -1,3 +1,5 @@
+@import './index.scss';
+
 html,
 body {
   padding: 0;
@@ -30,5 +32,5 @@ p{
 
 @font-face {
   font-family: "HelveticaNeue";
-  src: url('../public/fonts/HELVETICANEUE.TTF');
+  src: url('../fonts/HELVETICANEUE.TTF');
 }
