@@ -49,6 +49,10 @@ display: flex;
   margin-bottom: 0.5rem;
 }
 
+._buttonContainer{
+  width: 18.375rem;
+}
+
 @include responsive(sm) {
   ._title{
    font-size: 4rem;

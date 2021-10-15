@@ -3,6 +3,7 @@ import { Halo } from '@icons/resource'
 import { branchData } from './data'
 import logo from '@icons/logo-white.png'
 import Image from 'next/image'
+import { GeneralButton } from '@components'
 
 const SecondBanner = () => {
   const data: any = branchData
@@ -23,9 +24,13 @@ const SecondBanner = () => {
             </div>
           </div>
 
-          <div>
-            <button type={'button'}>See Portfolio </button>
+          <div className={styles._buttonContainer}>
+
+           <GeneralButton background={'#ffffff'} text={'See Portfolio'}
+           icon={true} iconColor={'#000000'} textColor={'#000000'} />
+
           </div>
+
           <div className={'_branchsContainer'}>
             {data.branch.map((item, index) => {
               return (
