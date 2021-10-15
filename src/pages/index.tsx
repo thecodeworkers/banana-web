@@ -1,4 +1,9 @@
-import { Navbar, Hero, Contact } from '@components'
+import {
+  Navbar, Hero, Banner, ServicesBanner,
+  SecondBanner, ThirdBanner, Contact
+} from '@components'
+
+
 
 const HomePage = () => {
   return (
@@ -6,9 +11,15 @@ const HomePage = () => {
       <div>
         <Navbar />
         <Hero />
-        <Contact />
-      </div>
-    </div>
+        <Banner withButton={false} background={'./Banner.png'} buttonText={''} method={''} />
+        <SecondBanner />
+        <ServicesBanner background={'black'} />
+        <ServicesBanner background={'white'} />
+        <ThirdBanner />
+        <Banner withButton={true} background={'./Classroom.png'} buttonText={'Banana Classroom'} method={''}/>
+        <Contact/>
+      </div >
+    </div >
   )
 }
 

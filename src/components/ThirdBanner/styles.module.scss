@@ -1,0 +1,84 @@
+
+@import '../../../public/styles/index.scss';
+
+._bannerContainer{
+  width: 100%;
+  min-height: 80vh;
+  background:black;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0;
+}
+._container {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+._content{
+display: flex;
+}
+._title{
+  font-size: 6.5rem;
+  font-weight: 700;
+  color: white;
+  position: relative;
+  & b {
+    color: #134EBF;
+  }
+}
+._subtitleContainer{
+display: flex;
+justify-content: space-between;
+padding-bottom: 1.5rem;
+}
+
+._haloContainer{
+  position:relative
+}
+._imageContainer{
+  position: absolute;
+  top: -50px;
+  right: -45px;
+  width: 250px;
+  height: 150px;
+}
+
+._subtitle{
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: white;
+  text-align: center;
+}
+
+._stepsContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@include responsive(lg) {
+  ._stepsContainer{
+    display: none;
+  }
+}
+
+
+@include responsive(md) {
+  ._title{
+    font-size: 2.75rem;
+  }
+  ._bannerContainer{
+    min-height: 50vh;
+  }
+  ._subtitle{
+    font-size: 1rem;
+  }
+  ._imageContainer{
+    width: 210px;
+    height: 100px;
+    top: -40px;
+  }
+ }
+
+
