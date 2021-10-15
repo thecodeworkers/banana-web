@@ -1,15 +1,16 @@
-import { Navbar,Banner, ServicesBanner, SecondBanner,ThirdBanner } from '@components'
+import { Navbar, Hero, Banner, ServicesBanner, SecondBanner, ThirdBanner } from '@components'
 
 const HomePage = () => {
   return (
     <div>
       <div>
-       <Navbar />
-       <Banner />
-       <SecondBanner />
-       <ServicesBanner background={'black'} />
-       <ServicesBanner background={'white'} />
-      <ThirdBanner />
+        <Navbar />
+        <Hero />
+        <Banner />
+        <SecondBanner />
+        <ServicesBanner background={'black'} />
+        <ServicesBanner background={'white'} />
+        <ThirdBanner />
       </div>
     </div>
   )
