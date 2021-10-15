@@ -12,7 +12,7 @@ const Banner = ({ withButton, background, buttonText, method }) => {
       {
         withButton ?
           <div className={styles._buttonContainer}>
-            <GeneralButton icon={true} text={buttonText} height='2.5rem' method={method} />
+            <GeneralButton icon={true} text={buttonText} method={method} />
           </div>
           : null
       }
@@ -28,8 +28,13 @@ const Banner = ({ withButton, background, buttonText, method }) => {
           display: flex;
           justify-content: center;
           align-items: flex-end;
-          object-fit: fill;
+          background-repeat: no-repeat
       }
+      @media(max-width: 576px) {
+        ._banner{
+          background-size: 150% 100%
+        }
+        }
       `}</style>
     </>
   )

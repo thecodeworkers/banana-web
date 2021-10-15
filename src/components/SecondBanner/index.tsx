@@ -87,9 +87,11 @@ const SecondBanner = () => {
         }
         ._imageContainer{
           position: absolute;
-          left: 0;
+          left: 90px;
           bottom: 0;
           top: 20px;
+          width: 170px;
+          height:218px
         }
       }
       `}</style>

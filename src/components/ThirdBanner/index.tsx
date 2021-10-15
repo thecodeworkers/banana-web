@@ -12,12 +12,12 @@ const ThirdBanner = () => {
             <p className={styles._title}>We have the nutrients your <b>brand</b> needs to keep on growing</p>
           </div>
           <div className={styles._subtitleContainer}>
-            <p className={styles._subtitle}>analisis</p>
+            <p className={styles._subtitle}>analysis</p>
             <div className={styles._stepsContainer}>
               <StepFull height={150} width={250} />
             </div>
 
-            <p className={styles._subtitle}>desarrollo de estrategias</p>
+            <p className={styles._subtitle}>strategy development</p>
             <div className={styles._stepsContainer}>
               <StepShort height={150} width={250} />
             </div>
@@ -26,7 +26,7 @@ const ThirdBanner = () => {
               <div className={styles._imageContainer}>
                 <Halo />
               </div>
-              <p className={styles._subtitle}>implementacion</p>
+              <p className={styles._subtitle}>implementation</p>
 
             </div>
 

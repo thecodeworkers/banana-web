@@ -16,8 +16,8 @@ const HomePage = () => {
         <ServicesBanner background={'black'} />
         <ServicesBanner background={'white'} />
         <ThirdBanner />
-        <Banner withButton={true} background={'./Classroom.png'} buttonText={'Banana Classroom'} method={''}/>
         <Contact/>
+        <Banner withButton={true} background={'./Classroom.png'} buttonText={'Banana Classroom'} method={''}/>
       </div >
     </div >
   )
