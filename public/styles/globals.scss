@@ -22,8 +22,21 @@ p{
   padding: 0;
 }
 
+*:focus {
+  outline: none;
+}
 
 @font-face {
   font-family: "HelveticaNeue";
   src: url('../fonts/HELVETICANEUE.TTF');
+}
+
+@font-face {
+  font-family: "HelveticaNeueMedium";
+  src: url('../public/fonts/HELVETICANEUEMEDIUM.TTF');
+}
+
+@font-face {
+  font-family: "HelveticaNeueBold";
+  src: url('../public/fonts/HELVETICANEUEBOLD.TTF');
 }

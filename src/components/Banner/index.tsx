@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import styles from './styles.module.scss'
 import { GeneralButton } from '@components'
-import Image  from 'next/image'
 
 const Banner = ({ withButton, background, buttonText, method }) => {
   //   const image = data?.Imagen
