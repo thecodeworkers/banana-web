@@ -1,4 +1,4 @@
-import { Navbar, Hero } from '@components'
+import { Navbar, Hero, Contact } from '@components'
 
 const HomePage = () => {
   return (
@@ -6,6 +6,7 @@ const HomePage = () => {
       <div>
         <Navbar />
         <Hero />
+        <Contact />
       </div>
     </div>
   )
