@@ -16,7 +16,7 @@ const SecondBanner = () => {
             <div className={styles._titleContainer}>
               <p className={styles._title}>Planting ideas, </p>
               <p className={styles._title}>harvesting realities
-                <span className={'_imageContainer'}><Halo /></span> </p>
+                <div className={'_imageContainer'}><Halo /></div> </p>
             </div>
             <div className={styles._logoContainer}>
               <Image src={logo} alt="logo-icon" width={47} height={41} quality={100} />
@@ -43,6 +43,8 @@ const SecondBanner = () => {
         position: absolute;
         left: 470px;
         top: -50px;
+        width:302px;
+        height:218px
       }
       ._branchsContainer{
         display: grid;
@@ -62,6 +64,7 @@ const SecondBanner = () => {
           left: 0;
           bottom: 0;
           top: 60px;
+
         }
       }
       @media(max-width: 768px) {
