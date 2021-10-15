@@ -2,20 +2,22 @@
  @import '../../../public/styles/index.scss';
 
  ._serviceBanner{
-   width: 95%;
-   margin: 0 2%;
+  width: 95%;
+  margin: 0 2%;
  }
+
  ._titleContainer{
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
  }
+
  ._subtitleContainer{
-    margin-top: 1rem;
-    margin-bottom: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
  }
 
 ._servicesContainer{
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 ._scrollContain{

@@ -50,18 +50,17 @@ display: flex;
 }
 
 @include responsive(sm) {
- ._title{
+  ._title{
    font-size: 4rem;
- }
+  }
 }
 @include responsive(md) {
-._logoContainer{
+  ._logoContainer{
   display: none;
-}
-._bannerContainer{
+  }
+  ._bannerContainer{
   height: 80vh;
-}
-
+  }
 
 }
 

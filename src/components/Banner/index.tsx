@@ -29,6 +29,7 @@ const Banner = ({ withButton, background, buttonText, method }) => {
           display: flex;
           justify-content: center;
           align-items: flex-end;
+          object-fit: fill;
       }
       `}</style>
     </>

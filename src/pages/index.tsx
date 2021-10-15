@@ -8,7 +8,7 @@ const HomePage = () => {
       <div>
         <Navbar />
         <Hero />
-        <Banner withButton={false} background={'./Banner.png'} buttonText={''} method={''} />
+        {/* <Banner withButton={false} background={'./Banner.png'} buttonText={''} method={''} /> */}
         <SecondBanner />
         <ServicesBanner background={'black'} />
         <ServicesBanner background={'white'} />

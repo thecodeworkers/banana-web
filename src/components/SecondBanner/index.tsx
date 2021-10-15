@@ -16,7 +16,7 @@ const SecondBanner = () => {
             <div className={styles._titleContainer}>
               <p className={styles._title}>Planting ideas, </p>
               <p className={styles._title}>harvesting realities
-                <div className={'_imageContainer'}><Halo /></div> </p>
+                <b className={'_imageContainer'}><Halo /></b> </p>
             </div>
             <div className={styles._logoContainer}>
               <Image src={logo} alt="logo-icon" width={47} height={41} quality={100} />
