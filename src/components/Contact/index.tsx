@@ -17,7 +17,7 @@ const Contact = () => {
   const calculateInitialWidth = () => setWidth(result ?? 0)
 
   const nextStep = () => {
-    if (width < 100) {
+    if (currentStep < steps) {
       setWidth((width: number) => width + result)
       setCurrentStep((currentStep: number) => ++currentStep)
     }
