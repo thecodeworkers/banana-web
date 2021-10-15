@@ -1,13 +1,18 @@
 @import '../../../public/styles/index.scss';
 
 ._bannerContainer{
-   width: 100%;
-   height: 55vh;
+  width: 100%;
+  height: 55vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 ._banner{
     background-size: cover;
     background-position: center;
     height: 100%;
     width: 100%;
-    object-fit: cover;
+}
+._buttonContainer{
+  width: 18.4375rem;
 }

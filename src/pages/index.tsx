@@ -6,11 +6,12 @@ const HomePage = () => {
       <div>
         <Navbar />
         <Hero />
-        <Banner />
+        <Banner withButton={false} background={'Banner.png'} buttonText={''} method={''} />
         <SecondBanner />
         <ServicesBanner background={'black'} />
         <ServicesBanner background={'white'} />
         <ThirdBanner />
+        <Banner withButton={true} background={'Classroom.png'} buttonText={'Banana Classroom'} method={''}/>
       </div>
     </div>
   )
