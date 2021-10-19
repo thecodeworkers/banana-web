@@ -1,6 +1,6 @@
 import {
   Navbar, Hero, Banner, ServicesBanner,
-  SecondBanner, ThirdBanner, Contact, ClientsBanner
+  SecondBanner, ThirdBanner, Contact, ClientsBanner, Footer
 } from '@components'
 
 
@@ -11,7 +11,7 @@ const HomePage = () => {
       <div>
         <Navbar />
         <Hero />
-        <Banner withButton={false} background={'./Banner.png'} buttonText={''} method={''} />
+        <Banner withButton={false} background={'./Banner.gif'} buttonText={''} method={''} />
         <SecondBanner />
         <ServicesBanner background={'black'} />
         <ServicesBanner background={'white'} />
@@ -19,6 +19,7 @@ const HomePage = () => {
         <Contact/>
         <Banner withButton={true} background={'./Classroom.png'} buttonText={'Banana Classroom'} method={''}/>
         <ClientsBanner />
+        <Footer />
       </div >
     </div >
   )
