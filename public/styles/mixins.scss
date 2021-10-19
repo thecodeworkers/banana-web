@@ -21,6 +21,7 @@
       @content;
     }
   }
+
   @if $size == md {
     @media (max-width: 768px) {
       @content;
