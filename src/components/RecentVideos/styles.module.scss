@@ -1,0 +1,41 @@
+$helveticaNeue: 'HelveticaNeue';
+$helveticaMedium: 'HelveticaNeueMedium';
+
+._main {
+  background-color: black;
+  width: 100%;
+  padding: 5rem 2.5% 3rem 2.5%;
+  margin: 0 auto;
+}
+
+._titleParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  position: relative;
+  display: inline-block;
+}
+
+._underscore {
+  border: none;
+  border-bottom: 0.3125rem solid white;
+  width: 2.25rem;
+  margin-left: 1rem;
+  position: absolute;
+  bottom: 1em;
+  right: -3.4375rem;
+  bottom: 0.6rem;
+}
+
+._title {
+  font-family: $helveticaMedium;
+  font-weight: 700;
+  font-size: 2.8125rem;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+._carouselParent {
+  margin-top: 4.75rem;
+}

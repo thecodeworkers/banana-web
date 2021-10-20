@@ -1,9 +1,7 @@
 import {
   Navbar, Hero, Banner, ServicesBanner,
-  SecondBanner, ThirdBanner, Contact
+  SecondBanner, ThirdBanner, Contact, RecentVideos
 } from '@components'
-
-
 
 const HomePage = () => {
   return (
@@ -17,6 +15,7 @@ const HomePage = () => {
         <ServicesBanner background={'white'} />
         <ThirdBanner />
         <Contact/>
+        <RecentVideos />
         <Banner withButton={true} background={'./Classroom.png'} buttonText={'Banana Classroom'} method={''}/>
       </div >
     </div >
