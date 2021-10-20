@@ -1,7 +1,11 @@
 import {
   Navbar, Hero, Banner, ServicesBanner,
-  SecondBanner, ThirdBanner, Contact, RecentVideos
+  SecondBanner, ThirdBanner, Contact, ClientsBanner, Footer,
+  Testimonials, RecentVideos
 } from '@components'
+
+
+
 
 const HomePage = () => {
   return (
@@ -9,14 +13,17 @@ const HomePage = () => {
       <div>
         <Navbar />
         <Hero />
-        <Banner withButton={false} background={'./Banner.png'} buttonText={''} method={''} />
+        <Banner withButton={false} background={'./Banner.gif'} buttonText={''} method={''} />
         <SecondBanner />
         <ServicesBanner background={'black'} />
         <ServicesBanner background={'white'} />
         <ThirdBanner />
-        <Contact/>
+        <Contact />
         <RecentVideos />
-        <Banner withButton={true} background={'./Classroom.png'} buttonText={'Banana Classroom'} method={''}/>
+        <Banner withButton={true} background={'./Classroom.png'} buttonText={'Banana Classroom'} method={''} />
+        <Testimonials />
+        <ClientsBanner />
+        <Footer />
       </div >
     </div >
   )

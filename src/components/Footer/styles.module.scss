@@ -1,0 +1,83 @@
+@import '../../../public/styles/index.scss';
+
+._container{
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 25vh;
+}
+
+._head{
+  width: 95%;
+  margin: 1rem auto;
+}
+
+._socialBanner{
+ display: flex;
+ justify-content: flex-end;
+ align-items: center;
+}
+._socialMedia{
+  width: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+._sectionsContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+
+._sections{
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+}
+
+._line {
+  margin: 1rem 0;
+  border: none;
+  border-bottom: solid 1px #fff;
+}
+
+._contactContainer{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+}
+
+._contactNumber{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+._text{
+  color: #fff;
+  font-size: 0.875rem;
+}
+
+._mb1 {
+  margin-bottom: 1rem;
+}
+
+._logoContainer{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@include responsive(md) {
+  ._contactContainer{
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+  }
+
+}
+

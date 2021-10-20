@@ -34,7 +34,7 @@ const Banner = ({ withButton, background, buttonText, method }) => {
         ._banner{
           background-size: 150% 100%
         }
-        }
+      }
       `}</style>
     </>
   )
