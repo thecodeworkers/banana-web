@@ -105,6 +105,8 @@
 
   ._contactMail{
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
   }
   ._text{
     margin-bottom: 0.5rem
