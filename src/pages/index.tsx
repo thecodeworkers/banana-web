@@ -18,12 +18,12 @@ const HomePage = () => {
         <ServicesBanner background={'black'} />
         <ServicesBanner background={'white'} />
 
-    { <ThirdBanner />   /*
+      <ThirdBanner />
         <Contact/>
         <Banner withButton={true} background={'./Classroom.png'} buttonText={'Banana Classroom'} method={''}/>
         <Testimonials/>
         <ClientsBanner />
-        <Footer /> */}
+        <Footer />
       </div >
     </div >
   )

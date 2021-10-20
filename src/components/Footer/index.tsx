@@ -56,7 +56,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className={styles._contactNumber}>
+          <div className={styles._contactMail}>
             <div>
               <p className={styles._text}>¿Buscas trabajar con nosotros?</p>
             </div>
