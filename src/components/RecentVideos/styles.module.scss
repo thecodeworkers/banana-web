@@ -6,6 +6,7 @@ $helveticaMedium: 'HelveticaNeueMedium';
   width: 100%;
   padding: 5rem 2.5% 3rem 2.5%;
   margin: 0 auto;
+  position: relative;
 }
 
 ._titleParent {
@@ -36,6 +37,33 @@ $helveticaMedium: 'HelveticaNeueMedium';
   color: white;
 }
 
+._topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+._rightText {
+  color: white;
+  font-family: $helveticaNeue;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 ._carouselParent {
-  margin-top: 4.75rem;
+  margin-top: 4.5rem;
+  margin-bottom: 2.4rem;
+  padding-left: 2rem;
+  position: relative;
+}
+
+._shadow {
+  position: absolute;
+  background-color: black;
+  width: 2.5rem;
+  right: -0.625rem;
+  filter: blur(28px);
+  height: 100%;
+  z-index: 4;
 }
