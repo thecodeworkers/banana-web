@@ -5,7 +5,9 @@
   min-height: 80vh;
   background:black;
   padding: 3rem 0;
-  flex-direction: row;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
 }
 
 ._container {
@@ -76,7 +78,7 @@
  }
  ._testimonialContainer{
    width: 90%;
-   margin-left: 4rem;
+  //  margin-left: 4rem;
  }
  ._line{
    display: none;
@@ -85,5 +87,9 @@
    width: 40%;
    margin-top: 1rem;
    margin-left: 2rem;
+ }
+
+ ._bannerContainer{
+   height: 100vh;
  }
 }
