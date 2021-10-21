@@ -1,7 +1,7 @@
 import {
   Navbar, Hero, Banner, ServicesBanner,
   SecondBanner, ThirdBanner, Contact, ClientsBanner, Footer,
-  Testimonials
+  Testimonials, RecentVideos
 } from '@components'
 
 
@@ -11,15 +11,16 @@ const HomePage = () => {
   return (
     <div>
       <div>
-         <Navbar />
-         {/* <Hero /> */}
-       <Banner withButton={false} background={'./Banner.gif'} buttonText={''} method={''} />
+        {/* <Navbar />
+        <Hero />
+        <Banner withButton={false} background={'./Banner.gif'} buttonText={''} method={''} />
         <SecondBanner />
         {/* <ServicesBanner background={'black'} />
         <ServicesBanner background={'white'} /> */}
 
       {/* <ThirdBanner /> */}
         <Contact/>
+        <RecentVideos />
         <Banner withButton={true} background={'./Classroom.png'} buttonText={'Banana Classroom'} method={''}/>
         <Testimonials/>
         <ClientsBanner />

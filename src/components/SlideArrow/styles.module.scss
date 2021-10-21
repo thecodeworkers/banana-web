@@ -18,6 +18,10 @@
   right: 30px;
  }
 
+ ._hide {
+   display: none;
+ }
+
  @include responsive(md) {
   ._leftArrow{
     display: none;
