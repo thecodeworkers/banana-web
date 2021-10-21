@@ -1,3 +1,5 @@
+@import '../../../public/styles/index.scss';
+
 $helveticaNeue: 'HelveticaNeue';
 
 @mixin layout($width, $height) {
@@ -101,4 +103,21 @@ $helveticaNeue: 'HelveticaNeue';
     transform: translateY(0.3rem);
     transition: all 0.6s;
   }
+}
+
+
+@include responsive(md) {
+ ._btnSuperParent{
+  justify-content: flex-start;
+ }
+ ._services {
+  & p {
+    width: 100%;
+    font-size: 0.9375rem;
+  }
+}
+._information{
+  display: none;
+}
+
 }
