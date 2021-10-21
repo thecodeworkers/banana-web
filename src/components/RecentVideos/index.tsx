@@ -1,23 +1,46 @@
 import styles from './styles.module.scss'
+import { SlideArrow } from '@components'
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import Image from 'next/image'
-import rightArrow from '@icons/right-arrow.png'
-import { SlideArrow } from '@components'
+import { RightArrow } from '@icons/svg';
 
 const RecentVideos = () => {
 
   const settings = {
-    dots: true,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: '40px',
     nextArrow: <SlideArrow direction='right' />,
-    prevArrow: <SlideArrow direction='' showLeft={false} />
-  };
+    prevArrow: <SlideArrow direction='' showLeft={false} />,
+    responsive: [
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 2,
+          centerPadding: '20px',
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          centerPadding: '5px'
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 2,
+          centerPadding: '10px',
+          swipeToSlide: true
+        }
+      }
+    ]
+  }
 
   return (
     <div className={styles._main}>
@@ -34,36 +57,41 @@ const RecentVideos = () => {
 
         <Slider {...settings}>
           <div>
-            <iframe width="360" height="212"
-              src="https://www.youtube-nocookie.com/embed/4u856utdR94" >
+            <iframe className={styles._iframe}
+              src="https://www.youtube-nocookie.com/embed/GLc-5RZGQvY" >
             </iframe>
           </div>
           <div>
-            <iframe width="360" height="212"
-              src="https://www.youtube-nocookie.com/embed/4u856utdR94" >
+            <iframe className={styles._iframe}
+              src="https://www.youtube-nocookie.com/embed/IfcDV_0j4HA" >
             </iframe>
           </div>
           <div>
-            <iframe width="360" height="212"
-              src="https://www.youtube-nocookie.com/embed/4u856utdR94" >
+            <iframe className={styles._iframe}
+              src="https://www.youtube-nocookie.com/embed/VG76C_tkxKA" >
             </iframe>
           </div>
           <div>
-            <iframe width="360" height="212"
-              src="https://www.youtube-nocookie.com/embed/4u856utdR94" >
+            <iframe className={styles._iframe}
+              src="https://www.youtube-nocookie.com/embed/gsoC5L7D0y4" >
             </iframe>
           </div>
           <div>
-            <iframe width="360" height="212"
-              src="https://www.youtube-nocookie.com/embed/4u856utdR94" >
+            <iframe className={styles._iframe}
+              src="https://www.youtube-nocookie.com/embed/JoLBEp7Lr3Q" >
             </iframe>
           </div>
           <div>
-            <iframe width="360" height="212"
-              src="https://www.youtube-nocookie.com/embed/4u856utdR94" >
+            <iframe className={styles._iframe}
+              src="https://www.youtube-nocookie.com/embed/42y0EFZ37Pc" >
             </iframe>
           </div>
         </Slider>
+      </div>
+
+      <div className={styles._seeResponsive}>
+        <p>Ver más</p>
+        <RightArrow />
       </div>
     </div>
   )

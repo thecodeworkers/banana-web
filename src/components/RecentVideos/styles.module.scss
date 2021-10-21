@@ -1,3 +1,5 @@
+@import '../../../public/styles/index.scss';
+
 $helveticaNeue: 'HelveticaNeue';
 $helveticaMedium: 'HelveticaNeueMedium';
 
@@ -56,6 +58,7 @@ $helveticaMedium: 'HelveticaNeueMedium';
   margin-bottom: 2.4rem;
   padding-left: 2rem;
   position: relative;
+
 }
 
 ._shadow {
@@ -66,4 +69,57 @@ $helveticaMedium: 'HelveticaNeueMedium';
   filter: blur(28px);
   height: 100%;
   z-index: 4;
+}
+
+._seeResponsive {
+  display: none;
+}
+
+._iframe {
+  width: 22.5rem;
+  height: 13.25rem;
+}
+
+@include responsive(md) {
+
+  ._main {
+    padding: 3rem 5% 3rem 5%;
+  }
+
+  ._carouselParent {
+    margin-top: 3rem;
+    padding-left: 0;
+  }
+
+  ._rightText {
+    display: none;
+  }
+
+  ._title {
+    font-size: 2.1875rem;
+  }
+
+  ._seeResponsive {
+    display: flex;
+    flex-flow: row;
+    cursor: pointer;
+    align-items: center;
+
+    & p {
+      color: white;
+      font-family: $helveticaNeue;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+  }
+
+  ._iframe {
+    width: 18.375rem;
+    height: 10rem;
+  }
+
+  ._shadow {
+    display: none;
+  }
 }
