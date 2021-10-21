@@ -1,0 +1,28 @@
+@import '../../../public/styles/index.scss';
+
+._leftArrow{
+ position: absolute;
+ display: block;
+ cursor: pointer;
+ z-index: 9999;
+ top: 40%;
+ left: 30px;
+}
+
+._rightArrow{
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  z-index: 9999;
+  top: 40%;
+  right: 30px;
+ }
+
+ @include responsive(md) {
+  ._leftArrow{
+    display: none;
+  }
+  ._rightArrow{
+    display: none;
+  }
+ }
