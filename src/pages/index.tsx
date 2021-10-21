@@ -4,10 +4,8 @@ import {
   Testimonials, RecentVideos
 } from '@components'
 
-
-
-
 const HomePage = () => {
+
   return (
     <div>
       <div>
@@ -18,11 +16,11 @@ const HomePage = () => {
         {/* <ServicesBanner background={'black'} />
         <ServicesBanner background={'white'} /> */}
 
-      {/* <ThirdBanner /> */}
-        <Contact/>
+        {/* <ThirdBanner /> */}
+        <Contact />
         <RecentVideos />
-        <Banner withButton={true} background={'./Classroom.png'} buttonText={'Banana Classroom'} method={''}/>
-        <Testimonials/>
+        <Banner withButton={true} background={'./Classroom.png'} buttonText={'Banana Classroom'} method={''} />
+        <Testimonials />
         <ClientsBanner />
         <Footer />
       </div >
