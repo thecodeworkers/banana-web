@@ -1,5 +1,5 @@
 import styles from './styles.module.scss'
-import { Halo, StepFull, StepShort } from '@icons/resource'
+import { HaloWeb, StepFull, StepShort } from '@icons/resource'
 
 const ThirdBanner = () => {
 
@@ -24,7 +24,7 @@ const ThirdBanner = () => {
 
             <div className={styles._haloContainer}>
               <div className={styles._imageContainer}>
-                <Halo />
+                <HaloWeb />
               </div>
               <p className={styles._subtitle}>implementation</p>
 
@@ -33,9 +33,6 @@ const ThirdBanner = () => {
           </div>
         </div>
       </div>
-      <style jsx>{`
-
-      `}</style>
     </>
   )
 }

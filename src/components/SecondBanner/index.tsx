@@ -1,5 +1,5 @@
 import styles from './styles.module.scss'
-import { Halo } from '@icons/resource'
+import { HaloWeb, HaloResponsive } from '@icons/resource'
 import { branchData } from './data'
 import logo from '@icons/logo-white.png'
 import Image from 'next/image'
@@ -17,7 +17,7 @@ const SecondBanner = () => {
             <div className={styles._titleContainer}>
               <p className={styles._title}>Planting ideas, </p>
               <p className={styles._title}>harvesting realities
-                <b className={'_imageContainer'}><Halo /></b> </p>
+                <b className={'_imageContainer'}>< HaloWeb/></b> </p>
             </div>
             <div className={styles._logoContainer}>
               <Image src={logo} alt="logo-icon" width={47} height={41} quality={100} />

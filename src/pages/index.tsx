@@ -11,19 +11,18 @@ const HomePage = () => {
   return (
     <div>
       <div>
-         <Navbar />
-         <Hero />
-       {/* <Banner withButton={false} background={'./Banner.gif'} buttonText={''} method={''} />
-        <SecondBanner /> */}
-        {/* <ServicesBanner background={'black'} />
-        <ServicesBanner background={'white'} /> */}
-
-      {/* <ThirdBanner /> */}
-        {/* <Contact/>
-        <Banner withButton={true} background={'./Classroom.png'} buttonText={'Banana Classroom'} method={''}/>
-        <Testimonials/>
+        <Navbar />
+        <Hero />
+        <Banner withButton={false} background={'./Banner.gif'} buttonText={''} method={''} />
+        <SecondBanner />
+        <ServicesBanner background={'black'} />
+        <ServicesBanner background={'white'} />
+        <ThirdBanner />
+        <Contact />
+        <Banner withButton={true} background={'./Classroom.png'} buttonText={'Banana Classroom'} method={''} />
+        <Testimonials />
         <ClientsBanner />
-        <Footer /> */}
+        <Footer />
       </div >
     </div >
   )
