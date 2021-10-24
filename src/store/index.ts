@@ -49,6 +49,9 @@ const makeStore: any = ({ isServer }) => {
   const persistConfig = {
     key: 'bananaRoot',
     storage,
+    blacklist: [
+      'font'
+    ]
   }
 
   const persistedReducer = persistReducer(persistConfig, reducer)
