@@ -63,6 +63,6 @@ const makeStore: any = ({ isServer }) => {
   return store
 }
 
-const wrapper = createWrapper(makeStore)
+const wrapper: any = createWrapper(makeStore)
 
 export default wrapper
