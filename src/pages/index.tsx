@@ -8,6 +8,9 @@ import { fallbackRestUrl } from '@utils/path'
 
 const HomePage = () => {
   const { font: { italic, normal }} = useSelector((state: any) => state)
+
+ console.log(italic, 'italic');
+
   return (
     <div>
       <div>
