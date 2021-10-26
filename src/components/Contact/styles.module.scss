@@ -8,7 +8,6 @@ $gray: #C4C4C4;
 @mixin text($color) {
   color: $color;
   font-size: 3.875rem;
-  font-family: $helveticaMedium;
 }
 
 ._main {
@@ -37,7 +36,7 @@ $gray: #C4C4C4;
 }
 
 ._title {
-  font-family: $helveticaMedium;
+  font-family: 'NormalFont', sans-serif;
   font-weight: 700;
   font-size: 2.8125rem;
   margin: 0;
@@ -50,11 +49,13 @@ $gray: #C4C4C4;
 
 ._textOne {
   @include text($yellow);
+  font-family: 'NormalFont', sans-serif;
   font-weight: 700;
 }
 
 ._textTwo {
   @include text(black);
+  font-family: 'NormalFont', sans-serif;
   font-weight: 700;
 }
 

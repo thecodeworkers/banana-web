@@ -1,6 +1,9 @@
 const fonts = `
 font{
-    italic{
+    bold{
+    url
+    }
+    light{
       url
     }
     normal{

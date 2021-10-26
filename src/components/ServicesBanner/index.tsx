@@ -81,18 +81,25 @@ const ServiceBanner = ({ background }) => {
 	._title{
 		font-size: 3.5rem;
 		font-weight: 700;
+    font-family: 'BoldFont', sans-serif;
 		color: ${background == 'black' ? 'white' : 'black'};
 	}
 	._subtitle{
 		font-size: 1rem;
+    font-family: 'NormalFont', sans-serif;
+    font-weight: 400;
 		color: ${background == 'black' ? 'white' : 'black'};
  	}
 	._contentTitle{
 		font-size: 1.3rem;
+    font-family: 'NormalFont', sans-serif;
+    font-weight: 400;
 		color: ${background == 'black' ? 'white' : 'black'};
 	}
 	._contentSubtitle{
 		font-size: 1rem;
+    font-family: 'NormalFont', sans-serif;
+    font-weight: 400;
 		margin-top: 1rem;
 		margin-bottom: 1rem;
 		color: ${background == 'black' ? 'white' : 'black'};

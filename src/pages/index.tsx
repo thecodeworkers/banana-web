@@ -10,9 +10,7 @@ import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
 
 const HomePage = () => {
-  const { font: { italic, normal } } = useSelector((state: any) => state)
-
-  console.log(italic, 'italic');
+  const { font: { bold, normal, light } } = useSelector((state: any) => state)
 
   return (
     <div>
@@ -24,7 +22,7 @@ const HomePage = () => {
         <ServicesBanner background={'black'} />
         <ServicesBanner background={'white'} />
 
-        <ThirdBanner />
+        {/* <ThirdBanner /> */}
         <Contact />
         <RecentVideos />
         <Banner withButton={true} background={'./Classroom.png'} buttonText={'Banana Classroom'} method={''} />
@@ -34,13 +32,16 @@ const HomePage = () => {
       </div >
       <style jsx>{`
         @font-face {
-          font-family: 'ItalicFont';
-          src: url('${fallbackRestUrl}${italic?.url}');
-        }
-
-        @font-face {
           font-family: 'NormalFont';
           src: url('${fallbackRestUrl}${normal?.url}');
+        }
+        @font-face {
+          font-family: 'BoldFont';
+          src: url('${fallbackRestUrl}${bold?.url}');
+        }
+        @font-face {
+          font-family: 'LightFont';
+          src: url('${fallbackRestUrl}${light?.url}');
         }
         `}
       </style>

@@ -38,7 +38,8 @@ $helveticaNeue: 'HelveticaNeue';
   margin-bottom: 1rem;
 
   & p {
-    font-family: $helveticaNeue;
+    font-family: 'NormalFont', sans-serif;
+    font-weight: 400;
   }
 }
 
@@ -62,7 +63,8 @@ $helveticaNeue: 'HelveticaNeue';
 
   & p {
     width: 35%;
-    font-family: $helveticaNeue;
+    font-family: 'NormalFont', sans-serif;
+    font-weight: 400;
     line-height: 1.5rem;
   }
 }
@@ -84,8 +86,8 @@ $helveticaNeue: 'HelveticaNeue';
   width: 80%;
 
   & a {
-    font-family: $helveticaNeue;
-    font-weight: 600;
+    font-family: 'NormalFont', sans-serif;
+    font-weight: 400;
     font-size: 0.875rem;
   }
 
@@ -109,6 +111,12 @@ $helveticaNeue: 'HelveticaNeue';
 @include responsive(md) {
  ._btnSuperParent{
   justify-content: flex-start;
+ }
+ ._btnParent{
+   width: 100%;
+ }
+ ._servicesBtnParent{
+   width: 100%;
  }
  ._services {
   & p {
