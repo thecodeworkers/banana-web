@@ -1,8 +1,7 @@
 import styles from './styles.module.scss'
-import { HaloWeb, StepFull, StepShort } from '@icons/resource'
+import { StepFull, StepShort } from '@icons/resource'
 
 const ThirdBanner = () => {
-
 
   return (
     <>
@@ -24,7 +23,7 @@ const ThirdBanner = () => {
 
             <div className={styles._haloContainer}>
               <div className={styles._imageContainer}>
-                <HaloWeb />
+                {/* <HaloWeb /> */}
               </div>
               <p className={styles._subtitle}>implementation</p>
 

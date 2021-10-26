@@ -73,6 +73,7 @@ const ServiceBanner = ({ background }) => {
 	._serviceBannerContainer{
 		width: 100%;
 		background: ${background == 'black' ? 'white' : 'black'};
+    overflow-x: hidden;
 	}
 	._serviceBannerContent{
 		margin-left: 0.5%;
