@@ -1,67 +1,75 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState, useRef } from 'react'
 import styles from './styles.module.scss'
 import { serviceData } from './data'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 const ServiceBanner = ({ background }) => {
-	//   const image = data?.Imagen
-	const services: any = serviceData
-	const [pos, setPos] = useState(0)
+  //   const image = data?.Imagen
+  const services: any = serviceData
 
-	useEffect(() => {
-		const handleUserScroll = (event) => {
-			let scroll = window.scrollY
-			if (scroll > 200) setPos(scroll)
-		};
+  gsap.registerPlugin(ScrollTrigger)
 
-		window.addEventListener('scroll', handleUserScroll);
-		return () => window.removeEventListener('scroll', handleUserScroll);
-	})
+  const animation = (classParent: string, classChild: string, width: number) => {
+    gsap.to(`.${classParent}`, {
+      x: width,
+      scrollTrigger: {
+        trigger: `.${classChild}`,
+        scrub: true,
+      }
+    })
+  }
 
-	return (
-		<>
-			<div className={'_serviceBannerContainer'}>
-				<div className={'_serviceBannerContent'}>
-					<div className={styles._serviceBanner}>
-						<div className={styles._titleContainer}>
-							<p className={'_title'}>Servicios Roots  _</p>
-						</div>
-						<div className={styles._subtitleContainer}>
-							<p className={'_subtitle'}>La raíz de la que todo parte. Pensamos, planificamos y producimos.</p>
-						</div>
-						{ background == 'black' ?
-							<div className={'_scrollContainer'} style={{ transform: `translate(calc(-${pos}px + 200px))` }}>
-								<div className={styles._scrollContain} ><p className={'_scrollTitle'}>We Think</p></div>
-							</div>
-							:
-							<div className={'_scrollContainer'} style={{ transform: `translate(calc(+${pos}px + 200px))` }}>
-							<div className={styles._scrollContain} ><p className={'_scrollTitle'}>We Create</p></div>
-						</div>
-						}
+  useEffect(() => {
+    animation('_scrollContainer', '_scrollTitle', 400)
+    animation('_scrollContainerTwo', '_scrollTitleTwo', -400)
+  }, [])
 
-						<div className={'_content'}>
+  return (
+    <>
+      <div className={'_serviceBannerContainer'}>
+        <div className={'_serviceBannerContent'}>
+          <div className={styles._serviceBanner}>
+            <div className={styles._titleContainer}>
+              <p className={'_title'}>Servicios Roots  _</p>
+            </div>
+            <div className={styles._subtitleContainer}>
+              <p className={'_subtitle'}>La raíz de la que todo parte. Pensamos, planificamos y producimos.</p>
+            </div>
+            {background == 'black' ?
+              <div className={'_scrollContainer'} >
+                <div className={styles._scrollContain} ><p className={'_scrollTitle'}>We Think</p></div>
+              </div>
+              :
+              <div className={'_scrollContainerTwo'} >
+                <div className={styles._scrollContain} ><p className={'_scrollTitleTwo'}>We Create</p></div>
+              </div>
+            }
 
-							{services.map((item, index) => {
-								return (
-									<div className={styles._servicesContainer} key={index}>
-										<div className={'_contentTitleContainer'}>
-											<p className={'_contentTitle'}>{item.title}</p>
-										</div>
-										{item?.descriptions.map((el, index) => {
-											return (
-												<div key={index}>
-													<p className={'_contentSubtitle'}>{el.text}</p>
-												</div>
-											);
-										})}
-									</div>
-								)
-							}
-							)}
-						</div>
-					</div>
-				</div>
-			</div>
-			<style jsx>{`
+            <div className={'_content'}>
+
+              {services.map((item, index) => {
+                return (
+                  <div className={styles._servicesContainer} key={index}>
+                    <div className={'_contentTitleContainer'}>
+                      <p className={'_contentTitle'}>{item.title}</p>
+                    </div>
+                    {item?.descriptions.map((el, index) => {
+                      return (
+                        <div key={index}>
+                          <p className={'_contentSubtitle'}>{el.text}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )
+              }
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+      <style jsx>{`
 	._serviceBannerContainer{
 		width: 100%;
 		background: ${background == 'black' ? 'white' : 'black'};
@@ -110,10 +118,24 @@ const ServiceBanner = ({ background }) => {
 		position: absolute;
 		opacity: 0.2;
 		color: gray;
+    left: -18.75rem;
 	}
 	._scrollContainer {
 		width: 100%;
-		position: relative
+		position: relative;
+	}
+
+  ._scrollTitleTwo {
+		font-size: 12rem;
+		font-weight: 700;
+		position: absolute;
+		opacity: 0.2;
+		color: gray;
+    right: -18.75rem;
+	}
+	._scrollContainerTwo {
+		width: 100%;
+		position: relative;
 	}
 
 ._contentTitleContainer{
@@ -145,8 +167,8 @@ const ServiceBanner = ({ background }) => {
     }
 	}
 `}</style>
-		</>
-	)
+    </>
+  )
 }
 
 export default ServiceBanner
