@@ -1,8 +1,4 @@
-import {
-  Navbar, Hero, Banner, ServicesBanner,
-  SecondBanner, ThirdBanner, Contact, ClientsBanner, Footer,
-  RecentVideos, Testimonials
-} from '@components'
+import { Home } from '@components'
 import { useSelector } from 'react-redux'
 import { fallbackRestUrl } from '@utils/path'
 import wrapper from '@store'
@@ -15,20 +11,7 @@ const HomePage = () => {
   return (
     <div>
       <div>
-         <Navbar />
-        <Hero />
-        <Banner withButton={false} background={'./Banner.gif'} buttonText={''} method={''} />
-        <SecondBanner />
-        <ServicesBanner background={'black'} />
-        <ServicesBanner background={'white'} />
-
-        <ThirdBanner />
-        <Contact />
-        <RecentVideos />
-        <Banner withButton={true} background={'./Classroom.png'} buttonText={'Banana Classroom'} method={''} />
-        <Testimonials />
-        <ClientsBanner />
-        <Footer />
+          <Home/>
       </div >
       <style jsx>{`
         @font-face {

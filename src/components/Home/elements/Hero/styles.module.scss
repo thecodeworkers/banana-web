@@ -1,4 +1,4 @@
-@import '../../../public/styles/index.scss';
+@import '@styles/index.scss';
 
 $helveticaNeue: 'HelveticaNeue';
 
@@ -17,6 +17,7 @@ $helveticaNeue: 'HelveticaNeue';
 ._motion {
   @include layout(100%, 35%);
   position: relative;
+  margin-bottom: 1rem
 }
 
 ._purpose {

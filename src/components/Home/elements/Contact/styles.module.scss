@@ -1,4 +1,4 @@
-@import '../../../public/styles/mixins.scss';
+@import '@styles/index.scss';
 
 $yellow: #FFB703;
 $helveticaNeue: 'HelveticaNeue';
@@ -151,6 +151,7 @@ $gray: #C4C4C4;
   ._stepper {
     margin-left: 5%;
     margin-bottom: 3rem;
+    width: 90.5%;
   }
 
   ._stepsNumber {

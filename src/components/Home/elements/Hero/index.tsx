@@ -2,7 +2,7 @@ import styles from './styles.module.scss'
 import { GeneralButton, IconsButton } from '@components'
 import { BoxArrow } from '@icons/svg'
 import Image from 'next/image'
-import motion from '../../../public/motion-english.gif'
+import motion from '../../../../../public/motion-english.gif'
 
 const Hero = () => {
   return (

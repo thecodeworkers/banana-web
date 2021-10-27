@@ -166,6 +166,12 @@ const ServiceBanner = ({ background }) => {
     ._serviceBannerContent{
       padding: 1rem 0
     }
+    ._scrollTitle{
+      display:none
+    }
+    ._scrollTitleTwo{
+      display:none
+    }
 	}
 `}</style>
     </>

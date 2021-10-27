@@ -1,5 +1,5 @@
 
-@import '../../../public/styles/index.scss';
+@import '@styles/index.scss';
 
 ._bannerContainer{
   width: 100%;
@@ -58,6 +58,9 @@ padding-bottom: 1.5rem;
   justify-content: center;
   align-items: center;
 }
+._imageContainerResponsive{
+  display: none;
+}
 
 @include responsive(lg) {
   ._stepsContainer{
@@ -77,10 +80,15 @@ padding-bottom: 1.5rem;
     font-size: 1rem;
   }
   ._imageContainer{
-    width: 210px;
-    height: 100px;
-    top: -40px;
+    display: none;
+  }
+  ._imageContainerResponsive{
+    display: block;
+    position: absolute;
+    top: -30px;
+    right: 15px;
   }
  }
+
 
 

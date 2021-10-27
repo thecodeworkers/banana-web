@@ -1,4 +1,4 @@
-@import '../../../public/styles/index.scss';
+@import '@styles/index.scss';
 
 ._bannerContainer{
   width: 100%;
@@ -79,8 +79,8 @@
    font-size: 0.8125rem;
  }
  ._testimonialContainer{
-   width: 90%;
-  //  margin-left: 4rem;
+   width: 95%;
+   margin-left: 0;
  }
  ._line{
    display: none;
@@ -88,7 +88,7 @@
  ._buttonContainer{
    width: 40%;
    margin-top: 1rem;
-   margin-left: 2rem;
+    margin-left: -5px;
  }
 
  ._bannerContainer{
