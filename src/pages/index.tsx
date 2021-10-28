@@ -11,8 +11,8 @@ const HomePage = () => {
   return (
     <div>
       <div>
-          {/* <Home/> */}
-          <Menu />
+          <Home/>
+          {/* <Menu /> */}
       </div >
       <style jsx>{`
         @font-face {
