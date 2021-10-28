@@ -1,15 +1,15 @@
-import { Gallery } from './elements'
+import { Gallery, HeroAboutUs } from './elements'
+import { Navbar } from '@components'
 import Head from 'next/head'
-import { Hero } from '@components'
 
 const AboutUs = () => {
-
   return (
     <>
       <Head>
         <title>About us</title>
       </Head>
-      <Hero />
+      <Navbar />
+      <HeroAboutUs />
       <Gallery />
     </>
   )

@@ -37,7 +37,6 @@ $helveticaMedium: 'HelveticaNeueMedium';
   &:hover {
     transition: all 1s;
     filter: grayscale(0);
-    transform: scale(1.01);
   }
 
   &:hover ._teamDescription {
