@@ -1,6 +1,6 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
 import { GraphQlClient, actionObject } from '@utils'
-import { TestQuery } from '../../graphql'
+import { TestQuery } from '../../graphql/query/entries'
 import { GET_TEST, GET_TEST_ASYNC } from './action-types'
 
 function* getMovies() {

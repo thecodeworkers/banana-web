@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image'
 import logo from '@icons/banana-creative.png'
 import behance from '@icons/behance.png'
 import instagram from '@icons/instagram.png'
 import linkedin from '@icons/linkedin.png'
-import tcw from  '@icons/tcw-logo.svg'
+import tcw from '@icons/tcw-logo.svg'
+
 const Footer = () => {
 
   const sections =
@@ -48,11 +48,9 @@ const Footer = () => {
             <div>
               <p className={`${styles._text} ${styles._mb1}`}>Contacto:</p>
             </div>
-            <div>
-              <p className={styles._text}>+58 424 837 8858</p>
-            </div>
-            <div>
-              <p className={styles._text}>+58 424 187 2382</p>
+            <div className={styles._numbers}>
+              <p className={`${styles._text} ${styles._mb1}`}>+58 424 837 8858</p>
+              <p className={`${styles._text} ${styles._mb1}`}>+58 424 187 2382</p>
             </div>
           </div>
 
@@ -71,7 +69,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className={styles._contactNumber}>
+          <div className={styles._contactMedia}>
             <div>
               <p className={styles._text}>No te pierdas de nada, síguenos en:</p>
             </div>
@@ -96,15 +94,13 @@ const Footer = () => {
             <div>
               <p className={styles._text}> </p>
             </div>
-            <div>
+            <div className={styles._copyright}>
               <p className={styles._text}>Banana Creative. 2021 Copyright ©</p>
+              <div className={styles._logoContainer}>
+                <Image src={tcw} alt={'tcw'} width={40} height={40} quality={100} />
+              </div>
             </div>
           </div>
-
-          <div className={styles._logoContainer}>
-            <Image src={tcw} alt={'tcw'} width={40} height={40} quality={100} />
-          </div>
-
         </div>
       </div>
     </div>

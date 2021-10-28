@@ -1,0 +1,160 @@
+@import '@styles/index.scss';
+
+$yellow: #FFB703;
+$helveticaNeue: 'HelveticaNeue';
+$helveticaMedium: 'HelveticaNeueMedium';
+$gray: #C4C4C4;
+
+@mixin text($color) {
+  color: $color;
+  font-size: 3.875rem;
+}
+
+._main {
+  width: 95%;
+  margin: 0 auto;
+  padding-top: 5rem;
+}
+
+._titleParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  position: relative;
+  display: inline-block;
+}
+
+._underscore {
+  border: none;
+  border-bottom: 0.3125rem solid $yellow;
+  width: 2.25rem;
+  margin-left: 1rem;
+  position: absolute;
+  bottom: 1em;
+  right: -3.4375rem;
+  bottom: 0.6rem;
+}
+
+._title {
+  font-family: 'NormalFont', sans-serif;
+  font-weight: 700;
+  font-size: 2.8125rem;
+  margin: 0;
+  padding: 0;
+}
+
+._contentParent {
+  margin: 2.5rem 0;
+}
+
+._textOne {
+  @include text($yellow);
+  font-family: 'NormalFont', sans-serif;
+  font-weight: 700;
+}
+
+._textTwo {
+  @include text(black);
+  font-family: 'NormalFont', sans-serif;
+  font-weight: 700;
+}
+
+._formParent {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
+  & div:first-child {
+    width: 60%;
+  }
+}
+
+._input {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 100%;
+  padding: 0.6rem;
+  font-family: $helveticaNeue;
+  font-size: 0.875rem;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+._parentBtn {
+  width: 18.375rem;
+  display: block;
+  margin-left: auto;
+}
+
+._stepper {
+  width: 97.5%;
+  margin-left: auto;
+  height: 6px;
+  display: block;
+  background-color: $gray;
+  border-radius: 7.5px;
+  position: relative;
+}
+
+._step {
+  width: 80%;
+  background-color: $yellow;
+  height: inherit;
+  left: 0;
+  border-radius: 7.5px;
+}
+
+._stepsNumber {
+  margin-top: 5rem;
+  font-family: $helveticaNeue;
+  margin-left: 2.5%;
+  margin-bottom: 0.6rem;
+}
+
+//RESPONSIVE
+
+@include responsive(md) {
+
+  ._main {
+    width: 90%;
+  }
+
+  ._textOne, ._textTwo {
+    font-size: 2.125rem;
+  }
+
+  ._contentParent {
+    width: 100%;
+  }
+
+  ._formParent {
+    display: block;
+    width: 100%;
+
+    & div:first-child {
+      width: 100%;
+    }
+  }
+
+  ._parentBtn {
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  ._title {
+    font-size: 2.1875rem;
+  }
+
+  ._stepper {
+    margin-left: 5%;
+    margin-bottom: 3rem;
+    width: 90.5%;
+  }
+
+  ._stepsNumber {
+    margin-top: 3rem;
+  }
+}

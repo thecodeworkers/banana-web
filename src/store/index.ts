@@ -49,6 +49,9 @@ const makeStore: any = ({ isServer }) => {
   const persistConfig = {
     key: 'bananaRoot',
     storage,
+    blacklist: [
+      'font'
+    ]
   }
 
   const persistedReducer = persistReducer(persistConfig, reducer)
@@ -60,6 +63,6 @@ const makeStore: any = ({ isServer }) => {
   return store
 }
 
-const wrapper = createWrapper(makeStore)
+const wrapper: any = createWrapper(makeStore)
 
 export default wrapper
