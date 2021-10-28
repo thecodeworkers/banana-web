@@ -132,6 +132,7 @@ const Menu = () => {
               <Image src={linkedinBlack} alt={'linkedine'} width={20} height={20} quality={100} />
               <Image src={behanceBlack} alt={'behance'} width={30} height={18} quality={100} />
               <Image src={instagramBlack} alt={'instagram'} width={23} height={23} quality={100} />
+
             </div>
           </div>
           <div>
