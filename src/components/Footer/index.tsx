@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image'
 import logo from '@icons/banana-creative.png'
@@ -6,6 +5,7 @@ import behance from '@icons/behance.png'
 import instagram from '@icons/instagram.png'
 import linkedin from '@icons/linkedin.png'
 import tcw from '@icons/tcw-logo.svg'
+
 const Footer = () => {
 
   const sections =
