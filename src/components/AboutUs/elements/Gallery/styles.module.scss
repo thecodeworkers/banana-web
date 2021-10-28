@@ -94,6 +94,7 @@ $helveticaMedium: 'HelveticaNeueMedium';
 @include responsive(lg) {
   ._generalGallery {
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 
 	._teamPhoto {
@@ -103,12 +104,44 @@ $helveticaMedium: 'HelveticaNeueMedium';
 
 @include responsive(md) {
   ._generalGallery {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     width: 90%;
+    gap: 0;
+    box-sizing: border-box;
   }
 
 	._teamPhoto {
-		width: 100%;
+		width: calc(100% - 0.5rem);
+    height: 20vh;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+
+    &:nth-child(2n) {
+      margin-left: auto;
+    }
 	}
+
+  ._teamDescription {
+   padding: 0.5rem;
+  }
+
+  ._teamList {
+    list-style: none;
+
+    & > li {
+      font-family: $helveticaMedium;
+      font-weight: 700;
+      font-size: 0.8125rem;
+      color: #212121;
+    }
+
+    & li:nth-child(2) {
+      display: none;
+    }
+  }
+
+  ._imgParent {
+    display: none;
+  }
 }
 
