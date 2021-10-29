@@ -1,0 +1,121 @@
+@import '@styles/index.scss';
+
+$helveticaNeue: 'HelveticaNeue';
+$helveticaMedium: 'HelveticaNeueMedium';
+
+@mixin layout($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+._title {
+  font-size: 260px;
+  font-family: $helveticaMedium;
+  margin: 0;
+}
+
+._main {
+  height: 100vh;
+  padding-top: 7rem;
+  width: 95%;
+  margin: 0 auto;
+}
+
+._motion {
+  @include layout(100%, 50%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+._purpose {
+  @include layout(100%, 15%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+._purposeTexts {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  & p {
+    font-family: $helveticaNeue;
+  }
+}
+
+._line {
+  border: none;
+  border-bottom: solid 2px #000;
+}
+
+._btnSuperParent {
+  display: flex;
+  justify-content: flex-end;
+}
+
+._btnParent {
+  width: 18.4375rem;
+}
+
+._services {
+  @include layout(100%, 35%);
+  display: flex;
+  align-items: center;
+
+  & p {
+    width: 35%;
+    font-size: 18px;
+    font-family: $helveticaNeue;
+    line-height: 1.5rem;
+  }
+}
+
+._servicesBtnParent {
+  margin-bottom: 1rem;
+  width: 18.4375rem;
+}
+
+._bottomBtnParent {
+  width: 7rem;
+}
+
+
+@include responsive(md) {
+  ._main {
+    width: 90%;
+  }
+
+  ._title {
+    font-size: 96px;
+  }
+
+  ._motion {
+    justify-content: start;
+    height: 35%;
+  }
+
+  ._purposeTexts {
+    & p {
+      font-family: $helveticaNeue;
+      font-size: 0.875rem;
+    }
+  }
+
+  ._btnSuperParent {
+    justify-content: flex-start;
+  }
+
+  ._btnParent {
+    width: 55%;
+  }
+
+  ._services {
+    & p {
+      width: 100%;
+    }
+  }
+}
