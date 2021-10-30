@@ -6,7 +6,7 @@ import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
 
 const HomePage = () => {
-  const { font: { bold, normal, light } } = useSelector((state: any) => state)
+  const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
 
   return (
     <div>
@@ -26,6 +26,10 @@ const HomePage = () => {
         @font-face {
           font-family: 'LightFont';
           src: url('${fallbackRestUrl}${light?.url}');
+        }
+        @font-face {
+          font-family: 'NormalFont';
+          src: url('${fallbackRestUrl}${medium?.url}');
         }
         `}
       </style>

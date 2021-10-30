@@ -1,12 +1,9 @@
-import React, { FC, useEffect, useState, useRef } from 'react'
+import React, { useEffect } from 'react'
 import styles from './styles.module.scss'
-import { serviceData } from './data'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
-const ServiceBanner = ({ background }) => {
-  //   const image = data?.Imagen
-  const services: any = serviceData
+const ServiceBanner = ({ background, data }) => {
 
   gsap.registerPlugin(ScrollTrigger)
 
@@ -38,17 +35,17 @@ const ServiceBanner = ({ background }) => {
             </div>
             {background == 'black' ?
               <div className={'_scrollContainer'} >
-                <div className={styles._scrollContain} ><p className={'_scrollTitle'}>We Think</p></div>
+                <div className={styles._scrollContain} ><p className={'_scrollTitle'}>we think</p></div>
               </div>
               :
               <div className={'_scrollContainerTwo'} >
-                <div className={styles._scrollContain} ><p className={'_scrollTitleTwo'}>We Create</p></div>
+                <div className={styles._scrollContain} ><p className={'_scrollTitleTwo'}>we create</p></div>
               </div>
             }
 
             <div className={'_content'}>
 
-              {services.map((item, index) => {
+              {data.map((item, index) => {
                 return (
                   <div className={styles._servicesContainer} key={index}>
                     <div className={'_contentTitleContainer'}>
@@ -84,11 +81,11 @@ const ServiceBanner = ({ background }) => {
 	}
 	._content{
 		display: grid;
-		grid-template-columns: repeat(${services.length}, 1fr);
+		grid-template-columns: repeat(${data.length}, 1fr);
 		width: 100%;
 	}
 	._title{
-		font-size: 3.5rem;
+		font-size: 4.5rem;
 		font-weight: 700;
     font-family: 'BoldFont', sans-serif;
 		color: ${background == 'black' ? 'white' : 'black'};
@@ -100,8 +97,8 @@ const ServiceBanner = ({ background }) => {
 		color: ${background == 'black' ? 'white' : 'black'};
  	}
 	._contentTitle{
-		font-size: 1.3rem;
-    font-family: 'NormalFont', sans-serif;
+		font-size: 1.5rem;
+    font-family: 'MediumFont', sans-serif;
     font-weight: 400;
 		color: ${background == 'black' ? 'white' : 'black'};
 	}
@@ -109,17 +106,19 @@ const ServiceBanner = ({ background }) => {
 		font-size: 1rem;
     font-family: 'NormalFont', sans-serif;
     font-weight: 400;
-		margin-top: 1rem;
-		margin-bottom: 1rem;
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
 		color: ${background == 'black' ? 'white' : 'black'};
 	}
 	._scrollTitle{
-		font-size: 12rem;
+		font-size: 18rem;
+    font-family: 'NormalFont', sans-serif;
 		font-weight: 700;
 		position: absolute;
 		opacity: 0.2;
 		color: gray;
     left: -18.75rem;
+    top:-4.6875rem
 	}
 	._scrollContainer {
 		width: 100%;
@@ -127,12 +126,14 @@ const ServiceBanner = ({ background }) => {
 	}
 
   ._scrollTitleTwo {
-		font-size: 12rem;
+		font-size: 18rem;
+    font-family: 'NormalFont', sans-serif;
 		font-weight: 700;
 		position: absolute;
 		opacity: 0.2;
-		color: gray;
+		color: black;
     right: -18.75rem;
+    top:-4.6875rem
 	}
 	._scrollContainerTwo {
 		width: 100%;
@@ -171,6 +172,18 @@ const ServiceBanner = ({ background }) => {
     }
     ._scrollTitleTwo{
       display:none
+    }
+    ._title{
+      font-size: 2.1875rem;
+    }
+    ._subtitle{
+      font-size: 0.8125rem;
+    }
+    ._contentTitle{
+			font-size: 1.5rem
+		}
+    ._contentSubtitle{
+      font-size: 0.8125rem;
     }
 	}
 `}</style>

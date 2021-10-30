@@ -97,7 +97,7 @@ const Footer = () => {
             <div className={styles._copyright}>
               <p className={styles._text}>Banana Creative. 2021 Copyright ©</p>
               <div className={styles._logoContainer}>
-                <Image src={tcw} alt={'tcw'} width={40} height={40} quality={100} />
+                <Image src={tcw} alt={'tcw'} width={25} height={25} quality={100} />
               </div>
             </div>
           </div>

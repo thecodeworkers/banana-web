@@ -4,12 +4,13 @@
   background-color: black;
   display: flex;
   flex-direction: column;
+  padding: 2rem 0rem;
   width: 100%;
 }
 
 ._head{
   width: 95%;
-  margin: 1rem auto;
+  margin: 0 auto;
 }
 
 ._socialBanner{
@@ -79,7 +80,7 @@
 
 ._text{
   color: #fff;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-family: 'NormalFont', sans-serif;
 }
 
@@ -105,6 +106,10 @@
   ._contactContainer{
     grid-template-columns: repeat(1, 1fr);
     width: 100%;
+  }
+
+  ._sections{
+    font-size: 0.8125rem;
   }
 
   ._socialBanner{
@@ -135,7 +140,8 @@
     flex-direction: column;
   }
   ._text{
-    margin: 0.5rem 0
+    margin: 0.5rem 0;
+    font-size: 0.8125rem;
   }
 
   ._numbers{

@@ -4,6 +4,8 @@ import { SET_FONT } from './action-types'
 const initialState = {
   italic: {},
   normal: {},
+  medium:{},
+  bold:{}
 }
 
 const fontReducer = (state = initialState, { type, payload }: AnyAction) => {

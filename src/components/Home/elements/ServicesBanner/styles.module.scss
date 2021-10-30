@@ -25,3 +25,14 @@
   width: 100%;
 }
 
+@include responsive(md) {
+  ._subtitleContainer{
+    margin-bottom: 3rem;
+  }
+  ._servicesContainer{
+    margin-bottom: 2rem;
+  }
+  ._servicesContainer:last-child{
+    display: none;
+  }
+}
