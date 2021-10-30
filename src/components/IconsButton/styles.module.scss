@@ -18,6 +18,10 @@ $helveticaNeue: 'HelveticaNeue';
   }
 }
 
+._iconParentRight {
+  transform: rotate(-90deg);
+}
+
 ._main {
   display: flex;
   flex-direction: column;
@@ -31,4 +35,10 @@ $helveticaNeue: 'HelveticaNeue';
   0% { transform: translateY(0px) }
   50% { transform: translateY(0.375rem) }
   100% { transform: translateY(0px) }
+}
+
+@keyframes slideSide {
+  0% { transform: translateX(0px) }
+  50% { transform: translateX(0.375rem) }
+  100% { transform: translateX(0px) }
 }
