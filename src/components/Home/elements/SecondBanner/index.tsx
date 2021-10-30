@@ -18,12 +18,12 @@ const SecondBanner = () => {
               <p className={styles._title}>Planting ideas, </p>
               <div style ={{position:'relative'}}>
               <p className={styles._title}>harvesting realities</p>
-                 <b className={'_imageContainer'}>
+                 {/* <b className={'_imageContainer'}>
                   <Image src={haloWeb} alt="haloWEB" width={341} height={178} quality={100} />
-                 </b>
-                 <b className={'_imageContainerResponsive'}>
+                 </b> */}
+                 {/* <b className={'_imageContainerResponsive'}>
                   <Image src={haloResponsive} alt="haloResponsive" width={116} height={78} quality={100} />
-                 </b>
+                 </b> */}
                 </div>
             </div>
             <div className={styles._logoContainer}>
@@ -53,7 +53,7 @@ const SecondBanner = () => {
       <style jsx>{`
       ._imageContainer{
         position:absolute;
-        left: 470px;
+        right: 125px;
         top: -10px;
         width:302px;
         height:218px

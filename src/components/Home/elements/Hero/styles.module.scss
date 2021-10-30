@@ -41,6 +41,7 @@ $helveticaNeue: 'HelveticaNeue';
   & p {
     font-family: 'NormalFont', sans-serif;
     font-weight: 400;
+    font-size: 0.875rem;
   }
 }
 
@@ -67,6 +68,7 @@ $helveticaNeue: 'HelveticaNeue';
     font-family: 'NormalFont', sans-serif;
     font-weight: 400;
     line-height: 1.5rem;
+    font-size: 1rem;
   }
 }
 
@@ -87,7 +89,7 @@ $helveticaNeue: 'HelveticaNeue';
   width: 80%;
 
   & a {
-    font-family: 'NormalFont', sans-serif;
+    font-family: 'MediumFont', sans-serif;
     font-weight: 400;
     font-size: 0.875rem;
   }
@@ -122,11 +124,16 @@ $helveticaNeue: 'HelveticaNeue';
  ._services {
   & p {
     width: 100%;
-    font-size: 0.9375rem;
+    font-size: 0.8125rem;
   }
 }
 ._information{
   display: none;
+}
+._purposeTexts{
+  & p{
+    font-size: 0.875rem;
+  }
 }
 
 }

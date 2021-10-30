@@ -31,7 +31,7 @@ const Navbar = () => {
               src={logo}
               alt="logo-icon"
               width={22}
-              height={20}
+              height={22}
               quality={100}
             />
           </div>
@@ -44,8 +44,8 @@ const Navbar = () => {
             <Image
               src={toggle}
               alt="toggle-icon"
-              width={20}
-              height={18}
+              width={26}
+              height={26}
               quality={100}
             />
           </div>

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Navbar, Footer} from '@components';
+import { serviceData } from './data';
+import { serviceDataTwo } from './dataTwo';
 import {Banner, ClientsBanner, Contact, Hero, RecentsVideos,
   SecondBanner, ServicesBanner, TestimonialsBanner, ThirdBanner} from './elements'
 
@@ -11,8 +13,8 @@ const Home = () => {
         <Hero/>
         <Banner withButton={false} background={'./Banner.gif'} buttonText={''} method={''} />
         <SecondBanner />
-        <ServicesBanner background={'black'} />
-        <ServicesBanner background={'white'} />
+        <ServicesBanner background={'black'} data={serviceData} />
+        <ServicesBanner background={'white'} data={serviceDataTwo}/>
         <ThirdBanner />
         <Contact />
         <RecentsVideos />

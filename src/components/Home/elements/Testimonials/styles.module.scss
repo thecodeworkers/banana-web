@@ -29,14 +29,19 @@
   align-items: flex-start;
   margin-left: 7%;
 }
-
 ._titleContainer{
   margin-bottom: 2rem;
 }
 
 ._title{
   color: white;
-  font-size: 2.5rem;
+  font-size: 2.9375rem;
+  font-weight: 700;
+  font-family: 'BoldFont', sans-serif;
+}
+._bigTitle{
+  color: white;
+  font-size: 2.9375rem;
   font-weight: 700;
   font-family: 'BoldFont', sans-serif;
 }
@@ -74,9 +79,14 @@
  }
  ._title{
    font-size: 1.5rem;
+   margin-top: 1.5rem
+ }
+
+ ._bigTitle{
+   font-size: 2.1875rem;
  }
  ._subtitle{
-   font-size: 0.8125rem;
+   font-size: 0.8125rem
  }
  ._testimonialContainer{
    width: 95%;

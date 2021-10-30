@@ -9,6 +9,9 @@ font{
     normal{
       url
     }
+    medium{
+      url
+    }
   }
 `
 

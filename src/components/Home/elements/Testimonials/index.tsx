@@ -36,7 +36,7 @@ const Testimonials = () => {
       <Slider {...settings}>
         <div className={styles._container}>
         <div className={`_imageContainer`}>
-            <Image src={mantalon} alt="mantalon" width={500} height={400} quality={100} />
+            <Image src={mantalon} alt="mantalon" width={619} height={509} quality={100} />
           </div>
           <div className={`_imageContainerResponsive`}>
             <Image src={mantalonResponsive} alt="mantalon-responsive" width={323} height={386} quality={100} />
@@ -48,7 +48,7 @@ const Testimonials = () => {
               <p className={styles._subtitle}>2021 / Fashion</p>
             </div>
 
-            <p className={styles._title}>“We connect the dots to drive cultural relevance everywhere people connect”</p>
+            <p className={styles._bigTitle}>“We connect the dots to drive cultural relevance everywhere people connect”</p>
             <hr className={styles._line}></hr>
           </div>
 
@@ -59,8 +59,8 @@ const Testimonials = () => {
         </div>
         <div className={styles._container}>
         <div className={`_imageContainer`}>
-            <Image src={mantalon} alt="mantalon" width={500} height={400} quality={100} />
-          </div>
+            <Image src={mantalon} alt="mantalon" width={615} height={500} quality={100} />
+        </div>
           <div className={`_imageContainerResponsive`}>
             <Image src={mantalonResponsive} alt="mantalon-responsive" width={323} height={386} quality={100} />
           </div>
@@ -85,8 +85,8 @@ const Testimonials = () => {
     <style jsx>
       {`
        ._imageContainer{
-        width: 90%;
-        display:flex
+        display:flex;
+        height:100%
       }
       ._imageContainerResponsive{
         display:none
