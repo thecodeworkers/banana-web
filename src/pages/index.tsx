@@ -11,8 +11,8 @@ const HomePage = () => {
   return (
     <div>
       <div>
-          <Home/>
-          {/* <Menu /> */}
+        <Home />
+        <Menu />
       </div >
       <style jsx>{`
         @font-face {
@@ -20,7 +20,7 @@ const HomePage = () => {
           src: url('${fallbackRestUrl}${normal?.url}');
         }
         @font-face {
-          font-family: 'BoldFont';
+          font-family: 'c';
           src: url('${fallbackRestUrl}${bold?.url}');
         }
         @font-face {

@@ -1,10 +1,8 @@
-import { AboutUs } from "@components"
+import { AboutUs } from '@components'
 
 const AboutUsPage = () => {
   return (
-    <>
     <AboutUs />
-    </>
   )
 }
 
