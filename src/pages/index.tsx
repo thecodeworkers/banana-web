@@ -1,4 +1,4 @@
-import { Home, Menu } from '@components'
+import { Home } from '@components'
 import { useSelector } from 'react-redux'
 import { fallbackRestUrl } from '@utils/path'
 import wrapper from '@store'
@@ -12,7 +12,6 @@ const HomePage = () => {
     <div>
       <div>
         <Home />
-        <Menu />
       </div >
       <style jsx>{`
         @font-face {

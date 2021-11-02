@@ -158,6 +158,10 @@ $yellow: #FFB703;
   display: none;
 }
 
+._closeParent {
+  cursor: pointer;
+}
+
 @include responsive(md) {
   ._whiteSection{
     display: none;

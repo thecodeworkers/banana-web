@@ -4,9 +4,12 @@ import logo from '@icons/logo.png'
 import toggle from '@icons/toggle.png'
 import Image from 'next/image'
 import { parseHour, caracasParseHour } from '@utils'
+import { useDispatch } from 'react-redux'
+import { setStatus } from '@store/actions'
 
 const Navbar = () => {
 
+  const dispatch = useDispatch()
   const [currentHour, setCurrentHour] = useState(caracasParseHour)
 
   useEffect(() => {
@@ -21,6 +24,8 @@ const Navbar = () => {
     const parseDate: any = parseHour(caracasDate)
     setCurrentHour(parseDate)
   }
+
+  const openMenu = () => dispatch(setStatus({ classMenu: '_inAnimation' }))
 
   return (
     <div className={styles._parent}>
@@ -40,7 +45,7 @@ const Navbar = () => {
           <p> CARACAS {currentHour} </p>
         </div>
         <div className={styles._childThree}>
-          <div className={styles._toggleParent}>
+          <div className={styles._toggleParent} onClick={openMenu}>
             <Image
               src={toggle}
               alt="toggle-icon"

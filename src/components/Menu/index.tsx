@@ -12,26 +12,46 @@ import behanceBlack from '@icons/behance.png'
 import instagramBlack from '@icons/instagram.png'
 import linkedinBlack from '@icons/linkedin.png'
 import tcw from '@icons/tcw-logo.svg'
+import { useSelector, useDispatch } from 'react-redux'
+import { setStatus } from '@store/actions'
+import gsap from 'gsap'
+import { inAnimation, outAnimation } from './gsap'
+
+const commonStyles: any = `
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+`
+
+const sections =
+  [
+    { route: 'Home' },
+    { route: 'Servicios' },
+    { route: 'Portfolio' },
+    { route: 'Team' },
+    { route: 'Blog' },
+    { route: 'Classroom' },
+  ]
 
 const Menu = () => {
 
-  const sections =
-    [
-      { route: 'Home' },
-      { route: 'Servicios' },
-      { route: 'Portfolio' },
-      { route: 'Team' },
-      { route: 'Blog' },
-      { route: 'Classroom' },
-    ]
-
+  const dispatch = useDispatch()
+  const { classMenu } = useSelector((state: any) => state.intermitence)
   const [currentHour, setCurrentHour] = useState(caracasParseHour)
-  const [className, setClassname] = useState('_mainMenu')
 
   useEffect(() => {
     const interval = setInterval(getCurrentHour, 1000)
     return () => clearInterval(interval)
   }, [])
+
+  useEffect(() => {
+    const timeline: any = gsap.timeline()
+    if (classMenu == '_inAnimation') return inAnimation(timeline)
+    if (classMenu == '_outAnimation') return outAnimation(timeline)
+  }, [classMenu])
 
   const getCurrentHour = () => {
     const date = new Date()
@@ -41,15 +61,13 @@ const Menu = () => {
     setCurrentHour(parseDate)
   }
 
-  const classnameChange = () => {
-    setClassname('_animationMenu')
-  }
+  const closeMenu = () => dispatch(setStatus({ classMenu: '_outAnimation' }))
 
   return (
     <>
-      <div className={className}>
+      <div className={classMenu}>
         <div className={styles._whiteSection}>
-          <div className={styles._toggleParent} onClick={classnameChange}>
+          <div className={styles._toggleParent}>
             <Image
               src={logo}
               alt="logo-icon"
@@ -60,9 +78,16 @@ const Menu = () => {
           </div>
           <div className={styles._socialBanner}>
             <div className={styles._socialMedia}>
-              <Image src={behance} alt={'behance'} width={30} height={18} quality={100} />
-              <Image src={instagram} alt={'instagram'} width={23} height={23} quality={100} />
-              <Image src={linkedin} alt={'linkedine'} width={20} height={20} quality={100} />
+              <div className='_behanceParent'>
+                <Image src={behance} alt={'behance'} width={30} height={18} quality={100} />
+              </div>
+              <div className='_instagramParent'>
+                <Image src={instagram} alt={'instagram'} width={23} height={23} quality={100} />
+              </div>
+
+              <div className='_linkedinParent'>
+                <Image src={linkedin} alt={'linkedine'} width={20} height={20} quality={100} />
+              </div>
             </div>
             <p className={styles._copyright}>Banana creative. 2021 copyright ©</p>
           </div>
@@ -76,13 +101,13 @@ const Menu = () => {
             <div>
               <p className={styles._time}> CARACAS {currentHour} </p>
             </div>
-            <div>
-              <Image src={close} alt={'X'} width={16} height={16} quality={100} />
+            <div className={styles._closeParent}>
+              <Image src={close} alt={'X'} width={16} height={16} quality={100} onClick={closeMenu} />
             </div>
 
           </div>
           <div className={styles._body}>
-            {sections.map(function (item, index) {
+            {sections.map((item, index) => {
               return (
                 <div className={styles._routesContainer} key={index}>
                   <hr className={styles._underscore}></hr>
@@ -151,27 +176,36 @@ const Menu = () => {
 
       <style jsx>{`
         ._mainMenu {
-          display: flex;
-          width: 100%;
-          height: 100vh;
-          position: fixed;
-          top: 0;
-          z-index: 999;
-          right: 0;
+          ${commonStyles};
+          right: -100%;
         }
 
-        ._animationMenu {
-          display: flex;
-          width: 100%;
-          height: 100vh;
-          position: fixed;
-          top: 0;
-          z-index: 999s;
-          right: 0;
-          animation: slide 1s ease-in-out forwards;
+        ._inAnimation {
+          ${commonStyles};
+          animation: slideIn 1s linear forwards;
         }
 
-        @keyframes slide {
+        ._outAnimation {
+          ${commonStyles};
+          animation: slideOut 1s ease-in-out forwards;
+        }
+
+        ._linkedinParent, ._behanceParent, ._instagramParent {
+          opacity: 0;
+          transform: translateY(50px)
+        }
+
+        @keyframes slideIn {
+          from {
+            right: -100%;
+          }
+
+          to {
+            right: 0;
+          }
+        }
+
+        @keyframes slideOut {
           from {
             right: 0;
           }
@@ -187,5 +221,3 @@ const Menu = () => {
 }
 
 export default Menu
-
-// transform: translateX(0);

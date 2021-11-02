@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Navbar, Footer } from '@components'
 import { serviceData } from './data'
 import { serviceDataTwo } from './dataTwo'
@@ -7,11 +7,9 @@ import {
   SecondBanner, ServicesBanner, TestimonialsBanner, ThirdBanner
 } from './elements'
 
-
 const Home = () => {
-
   return (
-    <div >
+    <div>
       <Hero />
       <Banner withButton={false} background={'./Banner.gif'} buttonText={''} method={''} />
       <SecondBanner />
@@ -27,5 +25,5 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default Home
 

@@ -2,7 +2,7 @@ import { AnyAction } from 'redux'
 import { SET_MENU_STATUS } from './action-types'
 
 const initialState = {
-  menu: null,
+  classMenu: '_mainMenu',
 }
 
 const intermitencReducer = (state = initialState, { type, payload }: AnyAction) => {

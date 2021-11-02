@@ -1,9 +1,10 @@
-import { Navbar, Footer } from '@components'
+import { Navbar, Footer, Menu } from '@components'
 
 const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
+      <Menu />
       { children }
       <Footer />
     </>
