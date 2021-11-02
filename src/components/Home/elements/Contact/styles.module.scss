@@ -21,7 +21,6 @@ $gray: #C4C4C4;
   flex-direction: row;
   align-items: flex-end;
   position: relative;
-  display: inline-block;
 }
 
 ._underscore {
@@ -30,7 +29,6 @@ $gray: #C4C4C4;
   width: 2.25rem;
   margin-left: 1rem;
   position: absolute;
-  bottom: 1em;
   right: -3.4375rem;
   bottom: 0.6rem;
 }
@@ -113,8 +111,6 @@ $gray: #C4C4C4;
   margin-left: 2.5%;
   margin-bottom: 0.6rem;
 }
-
-//RESPONSIVE
 
 @include responsive(md) {
 
