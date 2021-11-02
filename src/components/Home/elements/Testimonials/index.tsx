@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState, useRef } from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image'
-import mantalon from '../../../../../public/mantalon.png'
+import mantalon from '../../../../../public/Mantalon.png'
 import mantalonResponsive from '../../../../../public/Mantalon-responsive.png'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
