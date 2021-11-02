@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import styles from './styles.module.scss';
+import React, { useEffect, useState } from 'react'
+import styles from './styles.module.scss'
 import { parseHour, caracasParseHour } from '@utils'
 import close from '@icons/close.svg'
 import Image from 'next/image'
