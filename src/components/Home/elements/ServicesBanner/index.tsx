@@ -6,7 +6,6 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 const ServiceBanner = ({ background, data }) => {
 
   gsap.registerPlugin(ScrollTrigger)
-
   const main = useRef(null)
 
   const animation = (classParent: string, classChild: string, width: number, height: number) => {
@@ -60,7 +59,7 @@ const ServiceBanner = ({ background, data }) => {
                         <div key={index}>
                           <p className={'_contentSubtitle'}>{el.text}</p>
                         </div>
-                      );
+                      )
                     })}
                   </div>
                 )

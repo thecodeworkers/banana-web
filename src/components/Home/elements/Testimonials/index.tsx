@@ -36,10 +36,10 @@ const Testimonials = () => {
         <Slider {...settings}>
           <div className={styles._container}>
             <div className={`_imageContainer`}>
-              <Image src={mantalon} alt="mantalon" width={619} height={509} quality={100} />
+              <Image src={mantalon} alt='mantalon' width={619} height={509} quality={100} />
             </div>
             <div className={`_imageContainerResponsive`}>
-              <Image src={mantalonResponsive} alt="mantalon-responsive" width={323} height={386} quality={100} />
+              <Image src={mantalonResponsive} alt='mantalon-responsive' width={323} height={386} quality={100} />
             </div>
 
             <div className={styles._testimonialContainer}>
@@ -59,10 +59,10 @@ const Testimonials = () => {
           </div>
           <div className={styles._container}>
             <div className={`_imageContainer`}>
-              <Image src={mantalon} alt="mantalon" width={615} height={500} quality={100} />
+              <Image src={mantalon} alt='mantalon' width={615} height={500} quality={100} />
             </div>
             <div className={`_imageContainerResponsive`}>
-              <Image src={mantalonResponsive} alt="mantalon-responsive" width={323} height={386} quality={100} />
+              <Image src={mantalonResponsive} alt='mantalon-responsive' width={323} height={386} quality={100} />
             </div>
 
             <div className={styles._testimonialContainer}>
