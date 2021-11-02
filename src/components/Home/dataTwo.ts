@@ -1,99 +1,99 @@
 export const serviceDataTwo = [
   {
-    title: "Corporate Design",
+    title: 'Corporate Design',
     descriptions: [
       {
-        text: "Brand Identity"
+        text: 'Brand Identity'
       },
       {
-        text: "Product Identity"
+        text: 'Product Identity'
       },
       {
-        text: "Packaging"
+        text: 'Packaging'
       },
       {
-        text: "Labeling"
+        text: 'Labeling'
       },
       {
-        text: "Editorial"
+        text: 'Editorial'
       },
       {
-        text: "Merchandising"
+        text: 'Merchandising'
       },
       {
-        text: "Digital Assets"
+        text: 'Digital Assets'
       },
       {
-        text: "Advertising"
+        text: 'Advertising'
       },
       {
-        text: "Stationery"
+        text: 'Stationery'
       }
     ]
   },
   {
-    title: "Multimedia Design",
+    title: 'Multimedia Design',
     descriptions: [
       {
-        text: "Animations 2D & 3D"
+        text: 'Animations 2D & 3D'
       },
       {
-        text: "Logo Animation"
+        text: 'Logo Animation'
       },
       {
-        text: "Digital Set Design"
+        text: 'Digital Set Design'
       },
       {
-        text: "Stop Motion"
+        text: 'Stop Motion'
       },
       {
-        text: "VFX"
+        text: 'VFX'
       }
     ]
   },
   {
-    title: "Digital Design",
+    title: 'Digital Design',
     descriptions: [
       {
-        text: "Social Media"
+        text: 'Social Media'
       },
       {
-        text: "Digital Content "
+        text: 'Digital Content '
       },
       {
-        text: "Web Design"
+        text: 'Web Design'
       },
       {
-        text: "UX / UI"
+        text: 'UX / UI'
       },
     ]
   },
   {
-    title: "Productions",
+    title: 'Productions',
     descriptions: [
       {
-        text: "Creative Direction"
+        text: 'Creative Direction'
       },
       {
-        text: "Photo Product for web, digital content and catalogues"
+        text: 'Photo Product for web, digital content and catalogues'
       },
       {
-        text: "Fashion Campaigns"
+        text: 'Fashion Campaigns'
       },
       {
-        text: "Product Campaigns"
+        text: 'Product Campaigns'
       },
       {
-        text: "Lookbook"
+        text: 'Lookbook'
       },
       {
-        text: "Concept & Event Design"
+        text: 'Concept & Event Design'
       },
       {
-        text: "Stands"
+        text: 'Stands'
       },
       {
-        text: "PR Strategy "
+        text: 'PR Strategy '
       }
     ]
   },

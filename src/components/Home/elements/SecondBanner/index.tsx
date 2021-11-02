@@ -16,15 +16,15 @@ const SecondBanner = () => {
           <div className={styles._content}>
             <div className={styles._titleContainer}>
               <p className={styles._title}>Planting ideas, </p>
-              <div style ={{position:'relative'}}>
-              <p className={styles._title}>harvesting realities</p>
-                 {/* <b className={'_imageContainer'}>
+              <div style={{ position: 'relative' }}>
+                <p className={styles._title}>harvesting realities</p>
+                {/* <b className={'_imageContainer'}>
                   <Image src={haloWeb} alt="haloWEB" width={341} height={178} quality={100} />
                  </b> */}
-                 {/* <b className={'_imageContainerResponsive'}>
+                {/* <b className={'_imageContainerResponsive'}>
                   <Image src={haloResponsive} alt="haloResponsive" width={116} height={78} quality={100} />
                  </b> */}
-                </div>
+              </div>
             </div>
             <div className={styles._logoContainer}>
               <Image src={logo} alt="logo-icon" width={47} height={41} quality={100} />

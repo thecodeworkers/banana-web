@@ -3,7 +3,7 @@ import { SlideArrow } from '@components'
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { RightArrow } from '@icons/svg';
+import { RightArrow } from '@icons/svg'
 
 const RecentVideos = () => {
 
@@ -35,8 +35,7 @@ const RecentVideos = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 2,
-          centerPadding: '10px',
-          swipeToSlide: true
+          centerPadding: '10px'
         }
       }
     ]

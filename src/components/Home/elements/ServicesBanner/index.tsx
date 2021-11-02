@@ -9,7 +9,7 @@ const ServiceBanner = ({ background, data }) => {
 
   const main = useRef(null)
 
-  const animation = (classParent: string, classChild: string, width: number, height: number ) => {
+  const animation = (classParent: string, classChild: string, width: number, height: number) => {
     gsap.to(`.${classParent}`, {
       x: width,
       scrollTrigger: {

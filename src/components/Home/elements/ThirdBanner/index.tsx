@@ -1,5 +1,5 @@
 import styles from './styles.module.scss'
-import { StepFull, StepShort} from '@icons/resource'
+import { StepFull, StepShort } from '@icons/resource'
 import haloWeb from '@icons/Halo.png'
 import haloResponsive from '@icons/HaloResponsive.png'
 import Image from 'next/image'
@@ -26,10 +26,10 @@ const ThirdBanner = () => {
 
             <div className={styles._haloContainer}>
               <div className={styles._imageContainer}>
-              <Image src={haloWeb} alt="haloWEB" width={341} height={178} quality={100} />
+                <Image src={haloWeb} alt='haloWEB' width={341} height={178} quality={100} />
               </div>
               <div className={styles._imageContainerResponsive}>
-              <Image src={haloResponsive} alt="haloResponsive" width={116} height={90} quality={100} />
+                <Image src={haloResponsive} alt='haloResponsive' width={116} height={90} quality={100} />
               </div>
               <p className={styles._subtitle}>implementation</p>
 

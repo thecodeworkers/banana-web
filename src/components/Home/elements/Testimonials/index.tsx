@@ -32,58 +32,58 @@ const Testimonials = () => {
 
   return (
     <>
-    <div className={styles._bannerContainer}>
-      <Slider {...settings}>
-        <div className={styles._container}>
-        <div className={`_imageContainer`}>
-            <Image src={mantalon} alt="mantalon" width={619} height={509} quality={100} />
-          </div>
-          <div className={`_imageContainerResponsive`}>
-            <Image src={mantalonResponsive} alt="mantalon-responsive" width={323} height={386} quality={100} />
-          </div>
-
-          <div className={styles._testimonialContainer}>
-            <div className={styles._titleContainer}>
-              <p className={styles._title}>Mantalon</p>
-              <p className={styles._subtitle}>2021 / Fashion</p>
+      <div className={styles._bannerContainer}>
+        <Slider {...settings}>
+          <div className={styles._container}>
+            <div className={`_imageContainer`}>
+              <Image src={mantalon} alt="mantalon" width={619} height={509} quality={100} />
+            </div>
+            <div className={`_imageContainerResponsive`}>
+              <Image src={mantalonResponsive} alt="mantalon-responsive" width={323} height={386} quality={100} />
             </div>
 
-            <p className={styles._bigTitle}>“We connect the dots to drive cultural relevance everywhere people connect”</p>
-            <hr className={styles._line}></hr>
-          </div>
+            <div className={styles._testimonialContainer}>
+              <div className={styles._titleContainer}>
+                <p className={styles._title}>Mantalon</p>
+                <p className={styles._subtitle}>2021 / Fashion</p>
+              </div>
 
-          <div className={styles._buttonContainer}>
-            <GeneralButton text={'See Portfolio'} icon={true} />
-          </div>
-
-        </div>
-        <div className={styles._container}>
-        <div className={`_imageContainer`}>
-            <Image src={mantalon} alt="mantalon" width={615} height={500} quality={100} />
-        </div>
-          <div className={`_imageContainerResponsive`}>
-            <Image src={mantalonResponsive} alt="mantalon-responsive" width={323} height={386} quality={100} />
-          </div>
-
-          <div className={styles._testimonialContainer}>
-            <div className={styles._titleContainer}>
-              <p className={styles._title}>Mantalon</p>
-              <p className={styles._subtitle}>2021 / Fashion</p>
+              <p className={styles._bigTitle}>“We connect the dots to drive cultural relevance everywhere people connect”</p>
+              <hr className={styles._line}></hr>
             </div>
 
-            <p className={styles._title}>“We connect the dots to drive cultural relevance everywhere people connect”</p>
-            <hr className={styles._line}></hr>
-          </div>
+            <div className={styles._buttonContainer}>
+              <GeneralButton text={'See Portfolio'} icon={true} />
+            </div>
 
-          <div className={styles._buttonContainer}>
-            <GeneralButton text={'See Portfolio'} icon={true} />
           </div>
+          <div className={styles._container}>
+            <div className={`_imageContainer`}>
+              <Image src={mantalon} alt="mantalon" width={615} height={500} quality={100} />
+            </div>
+            <div className={`_imageContainerResponsive`}>
+              <Image src={mantalonResponsive} alt="mantalon-responsive" width={323} height={386} quality={100} />
+            </div>
 
-        </div>
-      </Slider>
-    </div>
-    <style jsx>
-      {`
+            <div className={styles._testimonialContainer}>
+              <div className={styles._titleContainer}>
+                <p className={styles._title}>Mantalon</p>
+                <p className={styles._subtitle}>2021 / Fashion</p>
+              </div>
+
+              <p className={styles._title}>“We connect the dots to drive cultural relevance everywhere people connect”</p>
+              <hr className={styles._line}></hr>
+            </div>
+
+            <div className={styles._buttonContainer}>
+              <GeneralButton text={'See Portfolio'} icon={true} />
+            </div>
+
+          </div>
+        </Slider>
+      </div>
+      <style jsx>
+        {`
        ._imageContainer{
         display:flex;
         height:100%
@@ -103,7 +103,7 @@ const Testimonials = () => {
         }
       }
       `}
-    </style>
+      </style>
     </>
   )
 }

@@ -7,18 +7,18 @@ const Banner = ({ withButton, background, buttonText, method }) => {
 
   return (
     <>
-    <div className={styles._bannerContainer}>
-      <div className={'_banner'}  >
-      {
-        withButton ?
-          <div className={styles._buttonContainer}>
-            <GeneralButton icon={true} text={buttonText} method={method} />
-          </div>
-          : null
-      }
+      <div className={styles._bannerContainer}>
+        <div className={'_banner'}  >
+          {
+            withButton ?
+              <div className={styles._buttonContainer}>
+                <GeneralButton icon={true} text={buttonText} method={method} />
+              </div>
+              : null
+          }
+        </div>
       </div>
-    </div>
-    <style jsx>{`
+      <style jsx>{`
         ._banner{
           background-image: url(${background});
           background-size: cover;

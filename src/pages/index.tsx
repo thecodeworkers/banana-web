@@ -6,13 +6,12 @@ import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
 
 const HomePage = () => {
-  const {page: { pages }, font: { bold, normal, light, medium }} = useSelector((state: any) => state)
+  const { page: { pages }, font: { bold, normal, light, medium } } = useSelector((state: any) => state)
 
   return (
     <div>
       <div>
-          <Home/>
-          {/* <Menu /> */}
+        <Home />
       </div >
       <style jsx>{`
         @font-face {
