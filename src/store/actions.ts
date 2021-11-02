@@ -1,2 +1,2 @@
-export * from './test/action'
 export * from './page/action'
+export * from './font/action'

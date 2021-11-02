@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from './styles.module.scss'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
@@ -7,24 +7,28 @@ const ServiceBanner = ({ background, data }) => {
 
   gsap.registerPlugin(ScrollTrigger)
 
-  const animation = (classParent: string, classChild: string, width: number) => {
+  const main = useRef(null)
+
+  const animation = (classParent: string, classChild: string, width: number, height: number ) => {
     gsap.to(`.${classParent}`, {
       x: width,
       scrollTrigger: {
         trigger: `.${classChild}`,
         scrub: true,
+        scrollHeight: height
       }
     })
   }
 
   useEffect(() => {
-    animation('_scrollContainer', '_scrollTitle', 400)
-    animation('_scrollContainerTwo', '_scrollTitleTwo', -400)
+    const height = main?.current?.clientHeight || 0
+    animation('_scrollContainer', '_scrollTitle', 400, height)
+    animation('_scrollContainerTwo', '_scrollTitleTwo', -400, height)
   }, [])
 
   return (
     <>
-      <div className={'_serviceBannerContainer'}>
+      <div className={'_serviceBannerContainer'} ref={main}>
         <div className={'_serviceBannerContent'}>
           <div className={styles._serviceBanner}>
             <div className={styles._titleContainer}>

@@ -1,9 +1,7 @@
-const pages = `
-pages {
-  id
-  name
-  uri
-}
+const page = `
+  page(id: "1") {
+    name
+  }
 `
 
-export default pages
+export default page

@@ -50,7 +50,8 @@ const makeStore: any = ({ isServer }) => {
     key: 'bananaRoot',
     storage,
     blacklist: [
-      'font'
+      'font',
+      'page'
     ]
   }
 
