@@ -3,8 +3,25 @@ import { GeneralButton, IconsButton } from '@components'
 import { BoxArrow } from '@icons/svg'
 import Image from 'next/image'
 import motion from '../../../../../public/motion-english.gif'
+import { useDispatch, useSelector } from 'react-redux'
+import { getPage, setLanguage } from '@store/actions'
 
 const Hero = () => {
+
+  const dispatch = useDispatch()
+  const { intermittence: { languages, selectedLanguage } } = useSelector((state: any) => state)
+
+  const changeLanguage = () => {
+    const langs = Object.keys(languages)
+    const position = langs.reduce((prev: any, next: any, index: any) => {
+      if (selectedLanguage == next) prev = index
+      if (prev < index) return next
+      if (prev + 1 == langs.length) return 'es'
+      return prev
+    }, 0)
+    dispatch(getPage({ query: 'home', language: position }))
+  }
+
   return (
     <div className={styles._main}>
       <div className={styles._motion}>
@@ -42,7 +59,7 @@ const Hero = () => {
       <div className={styles._information}>
         <div className={styles._linksParent}>
           <div className={styles._bottomBtnParent}>
-            <GeneralButton icon={false} text='Español' height='2.5rem' />
+            <GeneralButton icon={false} text={languages[selectedLanguage]} method={changeLanguage} height='2.5rem' />
           </div>
           <a href="mailto:Hello@bananacreative.io">Hello@bananacreative.io</a>
           <a href="https://wa.me/584241872382" target='_blank' rel='noreferrer' > +58 424 187 2382 </a>

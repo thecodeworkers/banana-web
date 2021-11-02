@@ -1,16 +1,15 @@
 import { AnyAction } from 'redux'
-import { GET_PAGE_ASYNC } from './action-types'
+import { SET_LANGUAGE } from './action-types'
 
 const initialState = {
-  home: {},
-  header: {},
-  footer: {}
+  languages: { es: 'Español', en: 'English' },
+  selectedLanguage: 'es'
 }
 
 const pageReducer = (state = initialState, { type, payload }: AnyAction) => {
   switch (type) {
-    case GET_PAGE_ASYNC:
-      return { ...state, ...payload }
+    case SET_LANGUAGE:
+      return { ...state, selectedLanguage: payload }
     default:
       return state
   }

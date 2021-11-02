@@ -1,3 +1,5 @@
 export { default as fontQuery } from './fonts'
 export { default as TestQuery } from './testQuery'
-export { default as PagesQuery } from './pages'
+export { default as homePage } from './homePage'
+export { default as footerQuery } from './footer'
+export { default as headerQuery } from './header'
