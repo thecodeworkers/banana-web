@@ -63,24 +63,3 @@ export const parseDate = (currentDate) => {
 
   return `${day}/${month}/${year}`
 }
-
-export const parseHour = (data) => {
-  const date = new Date(data)
-  let minutes: any = date.getMinutes()
-  let hour: any = date.getHours()
-  const setHour = hour === 0 ? 12 : hour
-  hour = hour > 12 ? hour - 12 : setHour
-  hour = hour < 10 ? `0${hour}` : hour
-  minutes = minutes < 10 ? `0${minutes}` : minutes
-  const afternoon = date.getHours() > 11 ? 'PM' : 'AM'
-  return `${hour}:${minutes} ${afternoon}`
-}
-
-export const buildSimpleArray = (key: string, array: any = []): Array<any> => {
-  let newArray = []
-  array.forEach((item: any, index: number) => {
-    newArray[index] = item[key]
-  })
-
-  return newArray
-}
