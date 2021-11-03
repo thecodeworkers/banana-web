@@ -2,9 +2,7 @@ import { AboutUs } from '@components'
 
 const AboutUsPage = () => {
   return (
-    <>
-      <AboutUs />
-    </>
+    <AboutUs />
   )
 }
 

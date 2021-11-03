@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import { GeneralButton } from '@components'
 import styles from './styles.module.scss'
 
+const questions: any = ['What is your name?', ' What is your email?', ' What is your company, brand or project called?', ' Please describe what it is about', ' How can we help you?']
+
 const Contact = () => {
 
-  const [steps] = useState(10)
+  const [steps] = useState(5)
   const [width, setWidth] = useState(0)
   const [currentStep, setCurrentStep] = useState(1)
 
@@ -39,6 +41,8 @@ const Contact = () => {
           <p className={styles._textTwo}>
             this is about you
           </p>
+
+          <p className={styles._question}>{questions[currentStep - 1]}</p>
 
           <div className={styles._formParent}>
             <div>

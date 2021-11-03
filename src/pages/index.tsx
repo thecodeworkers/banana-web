@@ -1,4 +1,4 @@
-import { Home, Menu } from '@components'
+import { Home } from '@components'
 import { useSelector } from 'react-redux'
 import { fallbackRestUrl } from '@utils/path'
 import wrapper from '@store'
@@ -19,7 +19,7 @@ const HomePage = () => {
           src: url('${fallbackRestUrl}${normal?.url}');
         }
         @font-face {
-          font-family: 'BoldFont';
+          font-family: 'c';
           src: url('${fallbackRestUrl}${bold?.url}');
         }
         @font-face {
