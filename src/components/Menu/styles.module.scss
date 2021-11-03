@@ -10,6 +10,10 @@ $yellow: #FFB703;
   display: flex;
   width: 100%;
   height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  right: -100%;
 }
 
 ._whiteSection{
@@ -65,7 +69,6 @@ $yellow: #FFB703;
   justify-content: space-between;
   align-items: flex-end;
   flex-direction: column;
-
 }
 
 ._title{
@@ -144,7 +147,6 @@ $yellow: #FFB703;
   border-bottom: 0.3125rem solid $yellow;
   width: 2.25rem;
   position: absolute;
-  bottom: 1em;
   left: -3.125rem;
   bottom: 0.6rem;
 }
@@ -153,6 +155,10 @@ $yellow: #FFB703;
 }
 ._bananalogo{
   display: none;
+}
+
+._closeParent {
+  cursor: pointer;
 }
 
 @include responsive(md) {
