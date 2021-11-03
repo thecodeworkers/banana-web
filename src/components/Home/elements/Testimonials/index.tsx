@@ -37,8 +37,6 @@ const Testimonials = (content) => {
         </div>
         <Slider {...settings}>
           {content?.content?.TesmimonialData.map((item, index) => {
-            console.log(item);
-
             return (
               <div className={styles._container} key={index}>
                 <div className={'_imageContainer'}>

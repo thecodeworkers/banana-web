@@ -1,15 +1,18 @@
 import { AnyAction } from 'redux'
-import { SET_LANGUAGE } from './action-types'
+import { SET_LANGUAGE, SET_MENU_STATUS } from './action-types'
 
 const initialState = {
   languages: { es: 'Español', en: 'English' },
-  selectedLanguage: 'es'
+  selectedLanguage: 'es',
+  classMenu: '_mainMenu',
 }
 
 const pageReducer = (state = initialState, { type, payload }: AnyAction) => {
   switch (type) {
     case SET_LANGUAGE:
       return { ...state, selectedLanguage: payload }
+    case SET_MENU_STATUS:
+      return { ...state, ...payload }
     default:
       return state
   }
