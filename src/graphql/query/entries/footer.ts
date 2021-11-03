@@ -1,9 +1,8 @@
 const footer = (locale) => `
-footer(locale: "${locale}") {
+footer(locale: "es") {
   copyright
   locale
   FooterContact {
-    title
     Contact {
       email
       phoneOne

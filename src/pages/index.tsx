@@ -6,9 +6,8 @@ import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
 
 const HomePage = () => {
-  const { page: { home }, font: { bold, normal, light, medium } } = useSelector((state: any) => state)
+  const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
 
-  console.log(home?.locale)
   return (
     <div>
       <div>

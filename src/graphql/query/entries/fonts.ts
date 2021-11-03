@@ -1,5 +1,5 @@
 const fonts = `
-font{
+  font{
     bold{
     url
     }

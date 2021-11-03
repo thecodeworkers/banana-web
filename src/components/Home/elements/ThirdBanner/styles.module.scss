@@ -17,17 +17,19 @@
 }
 ._content{
 display: flex;
+flex-direction: column;
 }
 ._title{
   font-size: 7.6875rem;
   font-family: 'NormalFont', sans-serif;
   font-weight: 700;
   color: white;
-  position: relative;
-  & b {
+  & b{
     color: #134EBF;
   }
 }
+
+
 ._subtitleContainer{
 display: flex;
 justify-content: space-between;

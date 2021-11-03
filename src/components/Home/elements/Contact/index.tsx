@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { GeneralButton } from '@components'
 import styles from './styles.module.scss'
 
-const Contact = () => {
+const Contact = (content) => {
 
   const [steps] = useState(10)
   const [width, setWidth] = useState(0)
@@ -27,17 +27,17 @@ const Contact = () => {
     <>
       <div className={styles._main}>
         <div className={styles._titleParent}>
-          <h1 className={styles._title}>Contact</h1>
+          <h1 className={styles._title}>{content?.content?.title}</h1>
           <hr className={styles._underscore}></hr>
         </div>
 
         <div className={styles._contentParent}>
           <p className={styles._textOne}>
-            enough about us
+            {content?.content?.firstSubtitle}
           </p>
 
           <p className={styles._textTwo}>
-            this is about you
+            {content?.content?.secondSubtitle}
           </p>
 
           <div className={styles._formParent}>
@@ -45,7 +45,7 @@ const Contact = () => {
               <input type='text' className={styles._input}></input>
             </div>
             <div className={styles._parentBtn}>
-              <GeneralButton icon={false} text='Siguiente' method={nextStep} />
+              <GeneralButton icon={false} text={content?.content?.button?.text} method={nextStep} />
             </div>
           </div>
         </div>

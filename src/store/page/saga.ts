@@ -5,7 +5,7 @@ import { GET_PAGE, GET_PAGE_ASYNC } from './action-types'
 import { setFonts } from '../font/action'
 import { setLanguage } from '@store/actions'
 
-const getQueryPages = (page, locale = 'es') => {
+const getQueryPages = (page = 'home', locale = 'en') => {
 
   const pages = {
     home: homePage
@@ -24,9 +24,9 @@ function* getPageAsync({ payload }) {
   try {
     const { query, language = 'es' } = payload
 
-    const response = yield call(GraphQlClient, getQueryPages(query, language), { locale: language })
+    const response = yield call(GraphQlClient, getQueryPages(), { locale: language })
 
-    const { page, font, header, footer } = validateFetch(response)
+    const { page, font, header, footer } = response?.data
     yield put(setFonts(font))
     yield put(actionObject(GET_PAGE_ASYNC, { [query]: page, header, footer }))
     yield put(setLanguage(language))

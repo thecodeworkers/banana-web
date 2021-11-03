@@ -1,13 +1,10 @@
 import styles from './styles.module.scss'
-import { branchData } from './data'
 import logo from '@icons/logo-white.png'
-import haloWeb from '@icons/Halo.png'
-import haloResponsive from '@icons/HaloResponsive.png'
 import Image from 'next/image'
 import { GeneralButton } from '@components'
 
-const SecondBanner = () => {
-  const data: any = branchData
+const SecondBanner = (content) => {
+  const data: any = content?.content?.branchs
 
   return (
     <>
@@ -15,16 +12,7 @@ const SecondBanner = () => {
         <div className={styles._container}>
           <div className={styles._content}>
             <div className={styles._titleContainer}>
-              <p className={styles._title}>Planting ideas, </p>
-              <div style={{ position: 'relative' }}>
-                <p className={styles._title}>harvesting realities</p>
-                {/* <b className={'_imageContainer'}>
-                  <Image src={haloWeb} alt="haloWEB" width={341} height={178} quality={100} />
-                 </b> */}
-                {/* <b className={'_imageContainerResponsive'}>
-                  <Image src={haloResponsive} alt="haloResponsive" width={116} height={78} quality={100} />
-                 </b> */}
-              </div>
+              <p className={styles._title}>{content?.content?.phrase}</p>
             </div>
             <div className={styles._logoContainer}>
               <Image src={logo} alt="logo-icon" width={47} height={41} quality={100} />
@@ -32,14 +20,12 @@ const SecondBanner = () => {
           </div>
 
           <div className={styles._buttonContainer}>
-
-            <GeneralButton background={'#ffffff'} text={'See Portfolio'}
+            <GeneralButton background={'#ffffff'} text={content?.content?.sectionButton?.text}
               icon={true} iconColor={'#000000'} textColor={'#000000'} />
-
           </div>
 
           <div className={'_branchsContainer'}>
-            {data.branch.map((item, index) => {
+            {content?.content?.branchs.map((item, index) => {
               return (
                 <div key={index}>
                   <p className={styles._subtitle}>{item.text}</p>
@@ -63,7 +49,7 @@ const SecondBanner = () => {
       }
       ._branchsContainer{
         display: grid;
-        grid-template-columns: repeat(${data.branch.length}, 1fr);
+        grid-template-columns: repeat(${data.length}, 1fr);
         width: 100%;
       }
       @media(max-width: 992px) {
