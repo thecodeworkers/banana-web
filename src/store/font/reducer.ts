@@ -9,6 +9,7 @@ const initialState = {
 }
 
 const fontReducer = (state = initialState, { type, payload }: AnyAction) => {
+
   switch (type) {
     case SET_FONT:
       return { ...state, ...payload }

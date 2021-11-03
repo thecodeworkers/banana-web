@@ -45,12 +45,12 @@ const Hero = () => {
             <GeneralButton icon={false} text='Español' height='2.5rem' />
           </div>
           <a href="mailto:Hello@bananacreative.io">Hello@bananacreative.io</a>
-          <a href="https://wa.me/584241872382" target="_blank"> +58 424 187 2382 </a>
+          <a href="https://wa.me/584241872382" target='_blank' rel='noreferrer' > +58 424 187 2382 </a>
           <div className={styles._boxParent}>
             <BoxArrow />
           </div>
-          <a href="https://wa.me/584248378858" target="_blank"> +58 424 837 8858 </a>
-          <a href="https://www.instagram.com/_bananacreative" target="_blank"> @_bananacreative </a>
+          <a href='https://wa.me/584248378858' target='_blank' rel='noreferrer' > +58 424 837 8858 </a>
+          <a href='https://www.instagram.com/_bananacreative' target='_blank' rel='noreferrer' > @_bananacreative </a>
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@ import styles from './styles.module.scss'
 import { RightArrow } from '@icons/svg'
 
 const GeneralButton = ({
-  // height = '3.125rem',
   height = '3.8rem',
   background = '#000',
   textColor = '#FFF',
@@ -14,7 +13,7 @@ const GeneralButton = ({
 }) => {
   return (
     <>
-      <button className='_btn' onClick={method ? method : () => {}}>
+      <button className='_btn' onClick={method ? method : () => { }}>
         <p className={styles._text}>{text}</p>
         {
           icon && (

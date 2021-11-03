@@ -1,5 +1,5 @@
 export const caracasParseHour = () => {
-  const date = new Date();
+  const date = new Date()
   const timeZone =  date.toLocaleString('en-US', { timeZone: 'America/Caracas' })
   const caracasDate = new Date(timeZone)
   const parseDate = parseHour(caracasDate)

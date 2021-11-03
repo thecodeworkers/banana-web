@@ -1,9 +1,9 @@
 import styles from './styles.module.scss'
 import { SlideArrow } from '@components'
-import Slider from "react-slick";
+import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { RightArrow } from '@icons/svg';
+import { RightArrow } from '@icons/svg'
 
 const RecentVideos = () => {
 
@@ -35,8 +35,7 @@ const RecentVideos = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 2,
-          centerPadding: '10px',
-          swipeToSlide: true
+          centerPadding: '10px'
         }
       }
     ]
@@ -58,32 +57,32 @@ const RecentVideos = () => {
         <Slider {...settings}>
           <div>
             <iframe className={styles._iframe}
-              src="https://www.youtube-nocookie.com/embed/GLc-5RZGQvY" >
+              src='https://www.youtube-nocookie.com/embed/GLc-5RZGQvY' >
             </iframe>
           </div>
           <div>
             <iframe className={styles._iframe}
-              src="https://www.youtube-nocookie.com/embed/IfcDV_0j4HA" >
+              src='https://www.youtube-nocookie.com/embed/IfcDV_0j4HA' >
             </iframe>
           </div>
           <div>
             <iframe className={styles._iframe}
-              src="https://www.youtube-nocookie.com/embed/VG76C_tkxKA" >
+              src='https://www.youtube-nocookie.com/embed/VG76C_tkxKA' >
             </iframe>
           </div>
           <div>
             <iframe className={styles._iframe}
-              src="https://www.youtube-nocookie.com/embed/gsoC5L7D0y4" >
+              src='https://www.youtube-nocookie.com/embed/gsoC5L7D0y4' >
             </iframe>
           </div>
           <div>
             <iframe className={styles._iframe}
-              src="https://www.youtube-nocookie.com/embed/JoLBEp7Lr3Q" >
+              src='https://www.youtube-nocookie.com/embed/JoLBEp7Lr3Q' >
             </iframe>
           </div>
           <div>
             <iframe className={styles._iframe}
-              src="https://www.youtube-nocookie.com/embed/42y0EFZ37Pc" >
+              src='https://www.youtube-nocookie.com/embed/42y0EFZ37Pc' >
             </iframe>
           </div>
         </Slider>

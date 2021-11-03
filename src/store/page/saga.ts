@@ -7,7 +7,7 @@ import { setFonts } from '../font/action'
 
 const getQueryPages = () => {
   return `
-    query Pages {
+    query {
       ${PagesQuery}
       ${fontQuery}
     }
@@ -16,10 +16,15 @@ const getQueryPages = () => {
 
 function* getPageAsync() {
   try {
-    const response = yield call(GraphQlClient, getQueryPages(), {})
-    const { pages, header, footer, colorPallete, font } = validateFetch(response)
+    const response = yield call(GraphQlClient, getQueryPages())
+
+    console.log('EL RESPONSEEE', response)
+    const { page, font } = response?.data
+
+    console.log(font, 'FONTY')
+
     yield put(setFonts(font))
-    yield put(actionObject(GET_PAGE_ASYNC, { pages, header, footer }))
+    yield put(actionObject(GET_PAGE_ASYNC, { page }))
   } catch (err) {
     yield call(manageError, err)
   }
