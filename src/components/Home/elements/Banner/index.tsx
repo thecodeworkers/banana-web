@@ -1,9 +1,8 @@
-import React, { FC } from 'react'
+import React from 'react'
 import styles from './styles.module.scss'
 import { GeneralButton } from '@components'
 
 const Banner = ({ withButton, background, buttonText, method }) => {
-  //   const image = data?.Imagen
 
   return (
     <>

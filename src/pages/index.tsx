@@ -6,7 +6,7 @@ import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
 
 const HomePage = () => {
-  const { page: { pages }, font: { bold, normal, light, medium } } = useSelector((state: any) => state)
+  const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
 
   return (
     <div>
@@ -40,6 +40,6 @@ export default HomePage
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async ({ req, res }) => {
-    await mapProps(store, getPage())
+    await mapProps(store, getPage({ query: 'home' }))
   }
 )

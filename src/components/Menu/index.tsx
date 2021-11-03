@@ -39,7 +39,7 @@ const sections =
 const Menu = () => {
 
   const dispatch = useDispatch()
-  const { classMenu } = useSelector((state: any) => state.intermitence)
+  const { classMenu } = useSelector((state: any) => state.intermittence)
   const [currentHour, setCurrentHour] = useState(caracasParseHour)
 
   useEffect(() => {

@@ -4,7 +4,7 @@ import styles from './styles.module.scss'
 
 const questions: any = ['What is your name?', ' What is your email?', ' What is your company, brand or project called?', ' Please describe what it is about', ' How can we help you?']
 
-const Contact = () => {
+const Contact = (content) => {
 
   const [steps] = useState(5)
   const [width, setWidth] = useState(0)
@@ -29,17 +29,17 @@ const Contact = () => {
     <>
       <div className={styles._main}>
         <div className={styles._titleParent}>
-          <h1 className={styles._title}>Contact</h1>
+          <h1 className={styles._title}>{content?.content?.title}</h1>
           <hr className={styles._underscore}></hr>
         </div>
 
         <div className={styles._contentParent}>
           <p className={styles._textOne}>
-            enough about us
+            {content?.content?.firstSubtitle}
           </p>
 
           <p className={styles._textTwo}>
-            this is about you
+            {content?.content?.secondSubtitle}
           </p>
 
           <p className={styles._question}>{questions[currentStep - 1]}</p>
@@ -49,7 +49,7 @@ const Contact = () => {
               <input type='text' className={styles._input}></input>
             </div>
             <div className={styles._parentBtn}>
-              <GeneralButton icon={false} text='Siguiente' method={nextStep} />
+              <GeneralButton icon={false} text={content?.content?.button?.text} method={nextStep} />
             </div>
           </div>
         </div>

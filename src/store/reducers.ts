@@ -1,12 +1,11 @@
 import { combineReducers } from 'redux'
 import font from './font/reducer'
 import page from './page/reducer'
-import intermitence from './intermitence/reducer'
-
+import intermittence from './intermittence/reducer'
 const reducers = combineReducers({
   font,
   page,
-  intermitence
+  intermittence
 })
 
 export default reducers

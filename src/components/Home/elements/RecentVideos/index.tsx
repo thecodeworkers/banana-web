@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { RightArrow } from '@icons/svg'
 
-const RecentVideos = () => {
+const RecentVideos = (content) => {
 
   const settings = {
     infinite: true,
@@ -45,7 +45,7 @@ const RecentVideos = () => {
     <div className={styles._main}>
       <div className={styles._topRow}>
         <div className={styles._titleParent}>
-          <h1 className={styles._title}>Recent videos</h1>
+          <h1 className={styles._title}>{content?.content?.title}</h1>
           <hr className={styles._underscore}></hr>
         </div>
         <p className={styles._rightText}>Ver más</p>
@@ -55,36 +55,16 @@ const RecentVideos = () => {
         <div className={styles._shadow}></div>
 
         <Slider {...settings}>
-          <div>
-            <iframe className={styles._iframe}
-              src='https://www.youtube-nocookie.com/embed/GLc-5RZGQvY' >
-            </iframe>
-          </div>
-          <div>
-            <iframe className={styles._iframe}
-              src='https://www.youtube-nocookie.com/embed/IfcDV_0j4HA' >
-            </iframe>
-          </div>
-          <div>
-            <iframe className={styles._iframe}
-              src='https://www.youtube-nocookie.com/embed/VG76C_tkxKA' >
-            </iframe>
-          </div>
-          <div>
-            <iframe className={styles._iframe}
-              src='https://www.youtube-nocookie.com/embed/gsoC5L7D0y4' >
-            </iframe>
-          </div>
-          <div>
-            <iframe className={styles._iframe}
-              src='https://www.youtube-nocookie.com/embed/JoLBEp7Lr3Q' >
-            </iframe>
-          </div>
-          <div>
-            <iframe className={styles._iframe}
-              src='https://www.youtube-nocookie.com/embed/42y0EFZ37Pc' >
-            </iframe>
-          </div>
+          {content?.content?.Videos.map((item, index) => {
+            return (
+              <div key={index}>
+                <iframe className={styles._iframe}
+                  src={item?.url} >
+                </iframe>
+              </div>
+            )
+          })
+          }
         </Slider>
       </div>
 

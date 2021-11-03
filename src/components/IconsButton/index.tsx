@@ -1,7 +1,7 @@
 import styles from './styles.module.scss'
 import { Line, Star, DownArrow, Linkedin } from '@icons/svg'
 
-const IconsButton = ({ text = 'DESCARGA RECAP', method = null, icon = 'linkedin', right = true }) => {
+const IconsButton = ({ text = '', method = null, icon = 'linkedin', right = true }) => {
 
   const selectIcon = (icon) => {
     if (icon == 'star') return <Star />

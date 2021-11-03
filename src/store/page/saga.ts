@@ -1,31 +1,37 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
 import { actionObject, GraphQlClient, manageError, validateFetch } from '@utils'
-import { PagesQuery, fontQuery } from '@graphql/query'
+import { homePage, fontQuery, footerQuery, headerQuery } from '@graphql/query'
 import { GET_PAGE, GET_PAGE_ASYNC } from './action-types'
 import { setFonts } from '../font/action'
+import { setLanguage } from '@store/actions'
 
+const getQueryPages = (page = 'home', locale = 'en') => {
 
-const getQueryPages = () => {
+  const pages = {
+    home: homePage
+  }
   return `
     query {
-      ${PagesQuery}
+      ${headerQuery(locale)}
+      ${footerQuery(locale)}
+      ${pages[page](locale)}
       ${fontQuery}
     }
   `
 }
 
-function* getPageAsync() {
+function* getPageAsync({ payload }) {
   try {
-    const response = yield call(GraphQlClient, getQueryPages())
+    const { query, language = 'es' } = payload
 
-    console.log('EL RESPONSEEE', response)
-    const { page, font } = response?.data
+    const response = yield call(GraphQlClient, getQueryPages(), { locale: language })
 
-    console.log(font, 'FONTY')
-
+    const { page, font, header, footer } = response?.data
     yield put(setFonts(font))
-    yield put(actionObject(GET_PAGE_ASYNC, { page }))
+    yield put(actionObject(GET_PAGE_ASYNC, { [query]: page, header, footer }))
+    yield put(setLanguage(language))
   } catch (err) {
+    console.log(err)
     yield call(manageError, err)
   }
 }

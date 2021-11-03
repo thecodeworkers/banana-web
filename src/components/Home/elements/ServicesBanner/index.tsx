@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
-const ServiceBanner = ({ background, data }) => {
+const ServiceBanner = ({ content }) => {
 
   gsap.registerPlugin(ScrollTrigger)
   const main = useRef(null)
@@ -31,12 +31,12 @@ const ServiceBanner = ({ background, data }) => {
         <div className={'_serviceBannerContent'}>
           <div className={styles._serviceBanner}>
             <div className={styles._titleContainer}>
-              <p className={'_title'}>Servicios Roots  _</p>
+              <p className={'_title'}>{content?.title}</p>
             </div>
             <div className={styles._subtitleContainer}>
-              <p className={'_subtitle'}>La raíz de la que todo parte. Pensamos, planificamos y producimos.</p>
+              <p className={'_subtitle'}>{content?.subtitle}</p>
             </div>
-            {background == 'black' ?
+            {content?.dark == true ?
               <div className={'_scrollContainer'} >
                 <div className={styles._scrollContain} ><p className={'_scrollTitle'}>we think</p></div>
               </div>
@@ -48,13 +48,13 @@ const ServiceBanner = ({ background, data }) => {
 
             <div className={'_content'}>
 
-              {data.map((item, index) => {
+              {content?.services.map((item, index) => {
                 return (
                   <div className={styles._servicesContainer} key={index}>
                     <div className={'_contentTitleContainer'}>
-                      <p className={'_contentTitle'}>{item.title}</p>
+                      <p className={'_contentTitle'}>{item.serviceTitle}</p>
                     </div>
-                    {item?.descriptions.map((el, index) => {
+                    {item?.services.map((el, index) => {
                       return (
                         <div key={index}>
                           <p className={'_contentSubtitle'}>{el.text}</p>
@@ -72,38 +72,38 @@ const ServiceBanner = ({ background, data }) => {
       <style jsx>{`
 	._serviceBannerContainer{
 		width: 100%;
-		background: ${background == 'black' ? 'white' : 'black'};
+		background: ${content?.dark == true ? 'white' : 'black'};
     overflow-x: hidden;
 	}
 	._serviceBannerContent{
 		margin-left: 0.5%;
 		width: 99.5%;
-		background: ${background == 'black' ? 'black' : 'white'};
+		background: ${content?.dark == true ? 'black' : 'white'};
 		height: 100%;
 		padding: 3rem 0
 	}
 	._content{
 		display: grid;
-		grid-template-columns: repeat(${data.length}, 1fr);
+		grid-template-columns: repeat(${content?.services.length}, 1fr);
 		width: 100%;
 	}
 	._title{
 		font-size: 4.5rem;
 		font-weight: 700;
     font-family: 'BoldFont', sans-serif;
-		color: ${background == 'black' ? 'white' : 'black'};
+		color: ${content?.dark == true ? 'white' : 'black'};
 	}
 	._subtitle{
 		font-size: 1rem;
     font-family: 'NormalFont', sans-serif;
     font-weight: 400;
-		color: ${background == 'black' ? 'white' : 'black'};
+		color: ${content?.dark == true ? 'white' : 'black'};
  	}
 	._contentTitle{
 		font-size: 1.5rem;
     font-family: 'MediumFont', sans-serif;
     font-weight: 400;
-		color: ${background == 'black' ? 'white' : 'black'};
+		color: ${content?.dark == true ? 'white' : 'black'};
 	}
 	._contentSubtitle{
 		font-size: 1rem;
@@ -111,7 +111,7 @@ const ServiceBanner = ({ background, data }) => {
     font-weight: 400;
 		margin-top: 0.5rem;
 		margin-bottom: 0.5rem;
-		color: ${background == 'black' ? 'white' : 'black'};
+		color: ${content?.dark == true ? 'white' : 'black'};
 	}
 	._scrollTitle{
 		font-size: 18rem;
