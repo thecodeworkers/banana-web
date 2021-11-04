@@ -1,5 +1,5 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
-import { actionObject, GraphQlClient, manageError, validateFetch } from '@utils'
+import { actionObject, GraphQlClient, manageError } from '@utils'
 import { homePage, fontQuery, footerQuery, headerQuery } from '@graphql/query'
 import { GET_PAGE, GET_PAGE_ASYNC } from './action-types'
 import { setFonts } from '../font/action'
