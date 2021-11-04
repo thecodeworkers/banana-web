@@ -25,7 +25,6 @@ const Home = () => {
       <Banner withButton={home?.ClasroomBanner?.button} background={`${fallbackRestUrl}${home?.ClasroomBanner?.image?.url}`} buttonText={home?.ClasroomBanner?.textButton} method={''} />
       <TestimonialsBanner content={home?.Testimonials}/>
       <ClientsBanner content={home?.Clients} />
-      <Footer />
     </div>
   )
 }
