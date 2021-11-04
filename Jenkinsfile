@@ -34,7 +34,7 @@ pipeline {
           }
         }
         steps {
-          sh "echo WP_API_URL=https://banana-$DOMAIN_TO-api.thecodeworkers.com/graphql >> .env"
+          sh "echo STRAPI_API_URL=https://banana-$DOMAIN_TO-api.thecodeworkers.com/graphql >> .env"
           sh "echo REST_URL=https://banana-$DOMAIN_TO-api.thecodeworkers.com >> .env"
           script {
             docker.withRegistry(registry, registryCredential ) {
