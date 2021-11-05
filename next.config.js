@@ -5,6 +5,5 @@ module.exports = {
 module.exports = {
   images: {
     domains: ['localhost', 'banana-dev-api.thecodeworkers.com'],
-
   },
 }

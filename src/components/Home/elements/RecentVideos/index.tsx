@@ -7,12 +7,12 @@ import { RightArrow } from '@icons/svg'
 
 const RecentVideos = (content) => {
 
-  const settings = {
+  const settings: any = {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: '40px',
+    centerPadding: '20px',
     nextArrow: <SlideArrow direction='right' />,
     prevArrow: <SlideArrow direction='' showLeft={false} />,
     responsive: [
@@ -20,14 +20,14 @@ const RecentVideos = (content) => {
         breakpoint: 1400,
         settings: {
           slidesToShow: 2,
-          centerPadding: '20px',
+          centerPadding: '15px',
         }
       },
       {
         breakpoint: 992,
         settings: {
           slidesToShow: 2,
-          centerPadding: '5px'
+          centerPadding: '0px'
         }
       },
       {

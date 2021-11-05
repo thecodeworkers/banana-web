@@ -11,13 +11,6 @@ $helveticaNeue: 'HelveticaNeue';
 	align-items: center;
 }
 
-._mainChild {
-  background-color: $white;
-  width: 98%;
-  display: flex;
-  height: inherit;
-}
-
 ._parent {
   position: fixed;
 	width: 100%;
@@ -31,24 +24,18 @@ $helveticaNeue: 'HelveticaNeue';
 
 ._childOne {
 	@include common(60%);
-  padding-left: 2rem;
+  padding-left: 1.5%;
 }
 
 ._childTwo {
 	@include common(20%);
-
-  & p {
-    font-family: $helveticaNeue;
-    font-size: 0.875rem;
-    font-weight: 600;
-  }
 }
 
 ._childThree {
 	@include common(20%);
 	justify-content: flex-end;
   align-items: center;
-  padding-right: 2rem;
+  padding-right: 1.5%;
 }
 
 ._toggleParent {
@@ -61,15 +48,23 @@ $helveticaNeue: 'HelveticaNeue';
   width: 2.938rem;
 }
 
+._parentChild {
+  width: 98%;
+}
+
 @include responsive(md) {
   ._mainChild {
+    width: 100%;
+  }
+
+  ._parentChild {
     width: 95%;
   }
 
   ._childOne, ._childThree {
     width: 50%;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    padding-right: 0rem;
+    padding-left: 0;
   }
 
   ._childTwo {

@@ -19,7 +19,7 @@ const HomePage = () => {
           src: url('${fallbackRestUrl}${normal?.url}');
         }
         @font-face {
-          font-family: 'c';
+          font-family: 'BoldFont';
           src: url('${fallbackRestUrl}${bold?.url}');
         }
         @font-face {

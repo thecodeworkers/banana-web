@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react'
 import { GeneralButton } from '@components'
 import styles from './styles.module.scss'
 
-const questions: any = ['What is your name?', ' What is your email?', ' What is your company, brand or project called?', ' Please describe what it is about', ' How can we help you?']
+const Contact = (content: any) => {
 
-const Contact = (content) => {
+  const localData = content?.content ?? {}
+  const questions = content?.content?.contactForm ?? []
 
   const [steps] = useState(5)
   const [width, setWidth] = useState(0)
@@ -29,27 +30,29 @@ const Contact = (content) => {
     <>
       <div className={styles._main}>
         <div className={styles._titleParent}>
-          <h1 className={styles._title}>{content?.content?.title}</h1>
+          <div className={styles._titleChild}>
+          <h1 className={styles._title}>{localData?.title}</h1>
           <hr className={styles._underscore}></hr>
+        </div>
         </div>
 
         <div className={styles._contentParent}>
           <p className={styles._textOne}>
-            {content?.content?.firstSubtitle}
+            {localData?.firstSubtitle}
           </p>
 
           <p className={styles._textTwo}>
-            {content?.content?.secondSubtitle}
+            {localData?.secondSubtitle}
           </p>
 
-          <p className={styles._question}>{questions[currentStep - 1]}</p>
+          <p className={styles._question}>{questions[currentStep - 1]?.Question}</p>
 
           <div className={styles._formParent}>
             <div>
               <input type='text' className={styles._input}></input>
             </div>
             <div className={styles._parentBtn}>
-              <GeneralButton icon={false} text={content?.content?.button?.text} method={nextStep} />
+              <GeneralButton icon={false} text={localData?.button?.text} method={nextStep} />
             </div>
           </div>
         </div>

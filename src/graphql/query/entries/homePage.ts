@@ -88,6 +88,13 @@ const homePage = (locale) => `
       }
       contactForm {
         Question
+        input{
+          position
+          name
+          regex
+          Type
+          placeholder
+        }
       }
     }
     VideoBanner {

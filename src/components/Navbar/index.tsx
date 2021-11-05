@@ -6,29 +6,43 @@ import Image from 'next/image'
 import { parseHour, caracasParseHour } from '@utils'
 import { useDispatch } from 'react-redux'
 import { setStatus } from '@store/actions'
-import gsap from 'gsap'
+
 
 const Navbar = () => {
 
   const dispatch = useDispatch()
   const [currentHour, setCurrentHour] = useState(caracasParseHour)
+  const [navClass, setNavClass] = useState('_mainChild')
+  const [textClass, setTextClass] = useState('_cityText')
 
-  const hey = useRef(null)
+  const commonNav = `
+    background-color: #FFF;
+    width: 100%;
+    display: flex;
+    height: inherit;
+  `
+
+  const commonText = `
+    font-family: NormalFont;
+    font-size: 0.875rem;
+  `
 
   useEffect(() => {
-    let lastScrollTop: number
-    let timeline: any = gsap.timeline()
+
     const interval: any = setInterval(getCurrentHour, 1000)
+    let lastScrollTop: number
 
     document.addEventListener('scroll', () => {
       const scrollPosition = window.pageYOffset || document.documentElement.scrollTop
       if (scrollPosition > lastScrollTop) {
-        console.log('ENTER DOWN')
-        timeline.to('._mainChild', 0.6, { backgroundColor: 'rgba(0,0,0,0)' }, 0.1)
+        setTextClass('_cityTextTrasparent')
+        setNavClass('_transparent')
+
       } else {
-        console.log('ENTER UP')
-        timeline.to('._mainChild', 0.6, { backgroundColor: '#FFF' }, 0.1)
+        setTextClass('_cityTextsolid')
+        setNavClass('_solidColor')
       }
+
       lastScrollTop = (scrollPosition <= 0) ? 0 : scrollPosition
     }, false)
     return () => clearInterval(interval)
@@ -47,47 +61,111 @@ const Navbar = () => {
   return (
     <nav>
       <div className={styles._parent}>
-        <div className='_mainChild' ref={hey}>
-          <div className={styles._childOne}>
-            <div className={styles._toggleParent}>
-              <Image
-                src={logo}
-                alt="logo-icon"
-                width={22}
-                height={22}
-                quality={100}
-              />
+        <div className={styles._parentChild}>
+          <div className={navClass}>
+            <div className={styles._childOne}>
+              <div className={styles._toggleParent}>
+                <Image
+                  src={logo}
+                  alt="logo-icon"
+                  width={22}
+                  height={22}
+                  quality={100}
+                />
+              </div>
             </div>
-          </div>
-          <div className={styles._childTwo}>
-            <p> CARACAS {currentHour} </p>
-          </div>
-          <div className={styles._childThree}>
-            <div className={styles._toggleParent} onClick={openMenu}>
-              <Image
-                src={toggle}
-                alt="toggle-icon"
-                width={26}
-                height={26}
-                quality={100}
-              />
+            <div className={styles._childTwo}>
+              <p className={textClass}> CARACAS {currentHour} </p>
+            </div>
+            <div className={styles._childThree}>
+              <div className={styles._toggleParent} onClick={openMenu}>
+                <Image
+                  src={toggle}
+                  alt="toggle-icon"
+                  width={26}
+                  height={26}
+                  quality={100}
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
       <style jsx>{`
         ._mainChild {
-          background-color: #FFF;
-          width: 98%;
-          display: flex;
-          height: inherit;
+          ${commonNav};
+        }
+
+        ._transparent {
+          ${commonNav};
+          animation: transparent .3s linear forwards;
+        }
+
+        ._solidColor {
+          ${commonNav};
+          animation: solidColor .3s linear forwards;
+        }
+
+        ._cityText {
+          ${commonText};
+        }
+
+        ._cityTextTrasparent {
+          ${commonText};
+          animation: transparentText .3s linear forwards;
+        }
+
+        ._cityTextsolid {
+          ${commonText};
+          animation: solidText .3s linear forwards;
+        }
+
+        @keyframes transparent {
+          from {
+            background-color: #FFF;
+          }
+
+          to {
+            background-color: rgba(0,0,0,0);
+          }
+        }
+
+        @keyframes solidColor {
+          from {
+            background-color: rgba(0,0,0,0);
+          }
+
+          to {
+            background-color: #FFF;
+          }
+        }
+
+        @keyframes solidText {
+          from {
+            opacity: 0;
+          }
+
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes transparentText {
+          from {
+            opacity: 1;
+          }
+
+          to {
+            opacity: 0;
+          }
         }
 
         @media (max-width: 768px) {
           ._mainChild {
-            width: 95%;
+            width: 100%;
           }
         }
+
       `}
       </style>
 
