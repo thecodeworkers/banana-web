@@ -9,6 +9,7 @@ $helveticaMedium: 'HelveticaNeueMedium';
   padding: 5rem 2.5% 3rem 2.5%;
   margin: 0 auto;
   position: relative;
+  overflow: hidden;
 }
 
 ._titleParent {
@@ -49,6 +50,7 @@ $helveticaMedium: 'HelveticaNeueMedium';
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  margin-right: 1.875rem;
 }
 
 ._carouselParent {
@@ -74,8 +76,8 @@ $helveticaMedium: 'HelveticaNeueMedium';
 }
 
 ._iframe {
-  width: 22.5rem;
-  height: 13.25rem;
+  width: 400px;
+  height: 305px;
 }
 
 @include responsive(md) {

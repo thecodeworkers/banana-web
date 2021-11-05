@@ -3,7 +3,7 @@ import logo from '@icons/logo-white.png'
 import Image from 'next/image'
 import { GeneralButton } from '@components'
 
-const SecondBanner = (content) => {
+const SecondBanner = (content: any) => {
   const data: any = content?.content?.branchs
 
   return (

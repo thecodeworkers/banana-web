@@ -1,11 +1,18 @@
+import { createRef, useEffect } from 'react'
 import styles from './styles.module.scss'
 import { GeneralButton, IconsButton } from '@components'
 import { BoxArrow } from '@icons/svg'
 import Image from 'next/image'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPage, setLanguage } from '@store/actions'
+import lottie from 'lottie-web'
+import { fallbackRestUrl } from '@utils'
+import motion from '../../../../../public/images/motion.json'
+import { scrolling } from '@utils'
 
-const Hero = (content) => {
+const Hero = ({ content, reference }: any) => {
+
+  const animationContainer: any = createRef()
 
   const dispatch = useDispatch()
   const { intermittence: { languages, selectedLanguage } } = useSelector((state: any) => state)
@@ -17,41 +24,50 @@ const Hero = (content) => {
       if (prev + 1 == langs.length) return 'es'
       return prev
     }, 0)
-    dispatch(getPage({ query: 'home', language: 'es' }))
+    dispatch(getPage({ query: 'home', language: 'en' }))
   }
+
+  useEffect(() => {
+    const anim = lottie.loadAnimation({
+      container: animationContainer.current,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData: motion
+    })
+
+    return () => anim.destroy()
+  }, [])
+
+
 
   return (
     <div className={styles._main}>
       <div className={styles._motion}>
-        <Image
-          src={content?.data?.image?.url}
-          alt="motion"
-          quality={100}
-          layout="fill"
-          objectFit="fill"
-        />
+        <div className={`animation-container ${styles._motionImage}`} ref={animationContainer}></div>
       </div>
+
       <div className={styles._purpose}>
         <div className={styles._purposeTexts}>
-          <p>{content?.content?.phrase}</p>
-          <p>{content?.content?.date}</p>
+          <p>{content?.phrase}</p>
+          <p>{content?.date}</p>
         </div>
 
         <div>
           <hr className={styles._line}></hr>
           <div className={styles._btnSuperParent}>
             <div className={styles._btnParent}>
-              <IconsButton text={content?.content?.recapButton[0].text} />
+              <IconsButton text={content?.recapButton[0].text} />
             </div>
           </div>
         </div>
       </div>
       <div className={styles._services}>
         <div className={styles._servicesBtnParent}>
-          <GeneralButton text={content?.content?.sectionButton?.text} />
+          <GeneralButton text={content?.sectionButton?.text} />
         </div>
         <p>
-          {content?.content?.paragraph}
+          {content?.paragraph}
         </p>
       </div>
       <div className={styles._information}>
@@ -61,7 +77,7 @@ const Hero = (content) => {
           </div>
           <a href="mailto:Hello@bananacreative.io">Hello@bananacreative.io</a>
           <a href="https://wa.me/584241872382" target='_blank' rel='noreferrer' > +58 424 187 2382 </a>
-          <div className={styles._boxParent}>
+          <div className={styles._boxParent} onClick={() => scrolling(reference)}>
             <BoxArrow />
           </div>
           <a href='https://wa.me/584248378858' target='_blank' rel='noreferrer' > +58 424 837 8858 </a>

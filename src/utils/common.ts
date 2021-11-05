@@ -63,3 +63,12 @@ export const parseDate = (currentDate) => {
 
   return `${day}/${month}/${year}`
 }
+
+export const scrolling = (reference) => {
+  if (reference) {
+    const target = reference.current
+    window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
+  }
+}
+
+
