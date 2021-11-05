@@ -12,7 +12,7 @@ const IconsButton = ({ text = '', method = null, icon = 'linkedin', right = true
     <div className={styles._main}>
       <button className={styles._btn} onClick={method ? method : null}>
         {selectIcon(icon)}
-        <p>{text}</p>
+        <p className={styles._text}>{text}</p>
         <div className={!right ? styles._iconParent : styles._iconParentRight}>
           <DownArrow />
         </div>

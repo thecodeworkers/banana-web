@@ -17,7 +17,12 @@ $helveticaNeue: 'HelveticaNeue';
 ._motion {
   @include layout(100%, 35%);
   position: relative;
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+._motionImage {
+  height: 100%;
 }
 
 ._purpose {
@@ -91,7 +96,7 @@ $helveticaNeue: 'HelveticaNeue';
   & a {
     font-family: 'MediumFont', sans-serif;
     font-weight: 400;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
   }
 
   & a:hover {
