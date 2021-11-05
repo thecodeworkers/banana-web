@@ -74,7 +74,8 @@ $yellow: #FFB703;
 ._title{
   font-family: 'BoldFont', sans-serif;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 4.0625rem;
+  margin-bottom: 1rem;
 }
 
 ._footer{
@@ -90,7 +91,9 @@ $yellow: #FFB703;
 ._contactContainer{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 100%;
+  width: 95%;
+  margin-bottom: 2rem;
+  margin-left: 5%;
 }
 
 ._contactNumber{
@@ -125,6 +128,12 @@ $yellow: #FFB703;
   font-family: 'NormalFont', sans-serif;
 }
 
+._textBold{
+  color: #fff;
+  font-size: 0.875rem;
+  font-family: 'BoldFont', sans-serif;
+}
+
 ._copyright{
   color: #000;
   font-size: 0.875rem;
@@ -149,12 +158,16 @@ $yellow: #FFB703;
   position: absolute;
   left: -3.125rem;
   bottom: 0.6rem;
+  margin-bottom: 1rem;
 }
 ._routesContainer{
   position: relative;
 }
 ._bananalogo{
   display: none;
+}
+._space{
+  display: block;
 }
 
 ._closeParent {
@@ -170,6 +183,9 @@ $yellow: #FFB703;
   }
   ._bananalogo{
     display: block;
+  }
+  ._space{
+    display: none;
   }
   ._time{
     display: none;

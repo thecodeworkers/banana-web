@@ -32,7 +32,7 @@ const GeneralButton = ({
           border: none;
           box-sizing: border-box;
           color: ${textColor};
-          padding: 1.1rem;
+          padding: 0.8rem;
           cursor: pointer;
           display: flex;
           justify-content: ${icon ? 'space-between' : 'center'};

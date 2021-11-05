@@ -41,6 +41,7 @@ const Menu = () => {
   const dispatch = useDispatch()
   const { classMenu } = useSelector((state: any) => state.intermittence)
   const [currentHour, setCurrentHour] = useState(caracasParseHour)
+  // const { page: { home } } = useSelector((state: any) => state)
 
   useEffect(() => {
     const interval = setInterval(getCurrentHour, 1000)
@@ -98,6 +99,9 @@ const Menu = () => {
             <div className={styles._bananalogo}>
               <Image src={logoWhite} alt="logo-icon-white" width={22} height={20} quality={100} />
             </div>
+            <div className={styles._space}>
+            <p></p>
+            </div>
             <div>
               <p className={styles._time}> CARACAS {currentHour} </p>
             </div>
@@ -125,6 +129,7 @@ const Menu = () => {
               <div className={styles._numbers}>
                 <p className={`${styles._text} ${styles._mb1}`}>+58 424 837 8858</p>
                 <p className={`${styles._text} ${styles._mb1}`}>+58 424 187 2382</p>
+                <p className={`${styles._textBold}`}>hello@bananacreative.com</p>
               </div>
             </div>
 
@@ -139,7 +144,7 @@ const Menu = () => {
                 <p className={styles._text}> </p>
               </div>
               <div>
-                <p className={styles._text}>work@bananacreative.io</p>
+                <p className={styles._textBold}>work@bananacreative.io</p>
               </div>
             </div>
 
@@ -154,7 +159,10 @@ const Menu = () => {
                 <p className={styles._text}> </p>
               </div>
               <div>
-                <p className={styles._text}>@_bananacreative</p>
+                <p className={styles._text}> </p>
+              </div>
+              <div>
+                <p className={styles._textBold}>@_bananacreative</p>
               </div>
             </div>
           </div>

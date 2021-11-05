@@ -46,7 +46,7 @@ $helveticaMedium: 'HelveticaNeueMedium';
 ._rightText {
   color: white;
   font-family: 'NormalFont', sans-serif;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
 }
@@ -106,7 +106,7 @@ $helveticaMedium: 'HelveticaNeueMedium';
     & p {
       color: white;
       font-family: $helveticaNeue;
-      font-size: 1rem;
+      font-size: 0.875rem;
       font-weight: 600;
       margin-right: 0.5rem;
     }
