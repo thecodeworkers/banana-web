@@ -8,7 +8,7 @@ import { fallbackRestUrl } from '../../utils/path'
 
 const Home = () => {
 
-  const { page: { home } } = useSelector((state: any) => state)
+  const { page: { home, aboutUs } } = useSelector((state: any) => state)
   const banner = useRef()
 
   return (

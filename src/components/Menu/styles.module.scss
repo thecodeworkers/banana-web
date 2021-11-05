@@ -76,6 +76,9 @@ $yellow: #FFB703;
   font-weight: 700;
   font-size: 4.0625rem;
   margin-bottom: 1rem;
+   &:hover {
+    color:$yellow;
+   }
 }
 
 ._footer{
