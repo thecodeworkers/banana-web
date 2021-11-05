@@ -31,9 +31,9 @@ const Contact = (content: any) => {
       <div className={styles._main}>
         <div className={styles._titleParent}>
           <div className={styles._titleChild}>
-          <h1 className={styles._title}>{localData?.title}</h1>
-          <hr className={styles._underscore}></hr>
-        </div>
+            <h1 className={styles._title}>{localData?.title}</h1>
+            <hr className={styles._underscore}></hr>
+          </div>
         </div>
 
         <div className={styles._contentParent}>
