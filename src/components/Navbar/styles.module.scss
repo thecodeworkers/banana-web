@@ -53,6 +53,12 @@ $helveticaNeue: 'HelveticaNeue';
 
 ._toggleParent {
 	cursor: pointer;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.938rem;
+  width: 2.938rem;
 }
 
 @include responsive(md) {

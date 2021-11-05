@@ -4,3 +4,4 @@ export const fallbackRestUrl: string = 'https://banana-dev-api.thecodeworkers.co
 export const envtal = process.env.STRAPI_API_URL
 
 export default fallbackUrl
+
