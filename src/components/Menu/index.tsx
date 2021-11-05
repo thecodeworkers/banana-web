@@ -100,7 +100,7 @@ const Menu = () => {
               <Image src={logoWhite} alt="logo-icon-white" width={22} height={20} quality={100} />
             </div>
             <div className={styles._space}>
-            <p></p>
+              <p></p>
             </div>
             <div>
               <p className={styles._time}> CARACAS {currentHour} </p>
