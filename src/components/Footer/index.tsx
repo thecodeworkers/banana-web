@@ -31,7 +31,7 @@ const Footer = () => {
 
         </div>
         <div className={styles._sectionsContainer}>
-          {footer?.sections.map(function (item, index) {
+          {footer?.sections?.map(function (item, index) {
             return (
               <div key={index}>
                 <p className={styles._sections}>{item.name}</p>

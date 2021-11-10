@@ -107,7 +107,7 @@ const Menu = () => {
 
           </div>
           <div className={styles._body}>
-            {footer?.sections.map(function (item, index) {
+            {footer?.sections?.map(function (item, index) {
               return (
                 <div className={styles._routesContainer} key={index}>
                   <hr className={styles._underscore}></hr>
@@ -164,7 +164,7 @@ const Menu = () => {
           </div>
           <div className={styles._footerResponsive}>
             <div className={styles._logosContainer}>
-              {footer?.social.map(function (item, index) {
+              {footer?.social?.map(function (item, index) {
                 return (
                   item?.name?.split('-')?.[1] == 'white' ?
                     <div className={styles._socialMediaBlack} key={index}>
