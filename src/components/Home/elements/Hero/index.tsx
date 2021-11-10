@@ -26,7 +26,7 @@ const Hero = ({ content, reference, contact }: any) => {
     }, 0)
     dispatch(getPage({ query: 'home', language: 'en' }))
   }
-  console.log(contact);
+
 
   useEffect(() => {
     const anim = lottie.loadAnimation({
