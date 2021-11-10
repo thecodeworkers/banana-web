@@ -55,7 +55,7 @@ const RecentVideos = (content) => {
         <div className={styles._shadow}></div>
 
         <Slider {...settings}>
-          {content?.content?.Videos.map((item, index) => {
+          {content?.content?.Videos?.map((item, index) => {
             return (
               <div key={index}>
                 <iframe className={styles._iframe}

@@ -17,7 +17,7 @@ const Footer = () => {
         </div>
         <div className={styles._socialBanner}>
           <div className={styles._socialMedia}>
-            {footer?.social.map(function (item, index) {
+            {footer?.social?.map(function (item, index) {
               return (
                 item?.name?.split('-')?.[1] == 'white' ?
                   <div key={index}>

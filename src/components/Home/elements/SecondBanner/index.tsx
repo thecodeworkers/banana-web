@@ -25,7 +25,7 @@ const SecondBanner = (content: any) => {
           </div>
 
           <div className={'_branchsContainer'}>
-            {content?.content?.branchs.map((item, index) => {
+            {content?.content?.branchs?.map((item, index) => {
               return (
                 <div key={index} >
                   <p className={styles._subtitle}>{item.text}</p>
