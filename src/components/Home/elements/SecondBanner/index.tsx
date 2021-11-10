@@ -27,7 +27,7 @@ const SecondBanner = (content: any) => {
           <div className={'_branchsContainer'}>
             {content?.content?.branchs.map((item, index) => {
               return (
-                <div key={index}>
+                <div key={index} >
                   <p className={styles._subtitle}>{item.text}</p>
                 </div>
               )
@@ -48,9 +48,9 @@ const SecondBanner = (content: any) => {
        display:none
       }
       ._branchsContainer{
-        display: grid;
-        grid-template-columns: repeat(${data.length}, 1fr);
-        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-content:center
       }
       @media(max-width: 992px) {
         ._branchsContainer{

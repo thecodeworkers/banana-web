@@ -112,6 +112,7 @@ const ServiceBanner = ({ content }) => {
 		margin-top: 0.5rem;
 		margin-bottom: 0.5rem;
 		color: ${content?.dark == true ? 'white' : 'black'};
+    width:70%
 	}
 	._scrollTitle{
 		font-size: 18rem;

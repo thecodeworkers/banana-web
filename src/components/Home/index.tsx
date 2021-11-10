@@ -8,12 +8,12 @@ import { fallbackRestUrl } from '../../utils/path'
 
 const Home = () => {
 
-  const { page: { home, aboutUs } } = useSelector((state: any) => state)
+  const { page: { home, footer } } = useSelector((state: any) => state)
   const banner = useRef()
 
   return (
     <div >
-      <Hero content={home?.Hero} data={home?.Banner} reference={banner} />
+      <Hero content={home?.Hero} data={home?.Banner} contact={footer} reference={banner} />
       <div ref={banner}>
         <Banner withButton={home?.GifBanner?.button} background={`${fallbackRestUrl}${home?.GifBanner?.image?.url}`} buttonText={home?.GifBanner?.image?.textButton} method={''} />
       </div>
