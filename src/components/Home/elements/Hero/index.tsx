@@ -10,7 +10,7 @@ import { fallbackRestUrl } from '@utils'
 import motion from '../../../../../public/images/motion.json'
 import { scrolling } from '@utils'
 
-const Hero = ({ content, reference }: any) => {
+const Hero = ({ content, reference, contact }: any) => {
 
   const animationContainer: any = createRef()
 
@@ -26,6 +26,7 @@ const Hero = ({ content, reference }: any) => {
     }, 0)
     dispatch(getPage({ query: 'home', language: 'en' }))
   }
+
 
   useEffect(() => {
     const anim = lottie.loadAnimation({
@@ -75,13 +76,13 @@ const Hero = ({ content, reference }: any) => {
           <div className={styles._bottomBtnParent}>
             <GeneralButton icon={false} text={languages[selectedLanguage]} method={changeLanguage} height='2.5rem' />
           </div>
-          <a href="mailto:Hello@bananacreative.io">Hello@bananacreative.io</a>
-          <a href="https://wa.me/584241872382" target='_blank' rel='noreferrer' > +58 424 187 2382 </a>
+          <a href="mailto:Hello@bananacreative.io">{contact?.FooterContact?.Contact[0]?.contactMail}</a>
+          <a href="https://wa.me/584241872382" target='_blank' rel='noreferrer' >{contact?.FooterContact?.Contact[0]?.phoneOne}</a>
           <div className={styles._boxParent} onClick={() => scrolling(reference)}>
             <BoxArrow />
           </div>
-          <a href='https://wa.me/584248378858' target='_blank' rel='noreferrer' > +58 424 837 8858 </a>
-          <a href='https://www.instagram.com/_bananacreative' target='_blank' rel='noreferrer' > @_bananacreative </a>
+          <a href='https://wa.me/584248378858' target='_blank' rel='noreferrer' > {contact?.FooterContact?.Contact[0]?.phoneTwo} </a>
+          <a href='https://www.instagram.com/_bananacreative' target='_blank' rel='noreferrer' >{contact?.FooterContact?.Contact[0]?.socialAccount}</a>
         </div>
       </div>
     </div>

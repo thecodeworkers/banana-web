@@ -13,7 +13,7 @@ $gray: #C4C4C4;
 ._main {
   width: 95%;
   margin: 0 auto;
-  padding-top: 5rem;
+  padding-top: 3rem;
 }
 
 ._titleParent {
@@ -61,7 +61,6 @@ $gray: #C4C4C4;
 }
 
 ._formParent {
-  margin-top: 2rem;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -109,7 +108,7 @@ $gray: #C4C4C4;
 }
 
 ._stepsNumber {
-  margin-top: 5rem;
+  margin-top: 4rem;
   font-family: $helveticaNeue;
   margin-left: 2.5%;
   margin-bottom: 0.6rem;
@@ -118,7 +117,7 @@ $gray: #C4C4C4;
 ._question {
   font-family: 'BoldFont', sans-serif;
   font-size: 0.9375rem;
-  margin: 30px 0;
+  margin: 30px 0 10px 0;
   font-weight: 700;
 }
 

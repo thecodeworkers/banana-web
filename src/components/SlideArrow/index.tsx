@@ -9,11 +9,11 @@ const SlideArrow = (props) => {
     <>
       {direction == 'right' ?
         <div className={styles._rightArrow} onClick={onClick} >
-          <Image src={rightArrow} alt={'right-arrow'} width={52} height={52} quality={100} />
+          <Image src={rightArrow} alt={'right-arrow'} width={48} height={52} quality={100} />
         </div>
         :
         <div className={showLeft ? styles._leftArrow : styles._hide} onClick={onClick}  >
-          <Image src={leftArrow} alt={'left-arrow'} width={52} height={52} quality={100} />
+          <Image src={leftArrow} alt={'left-arrow'} width={48} height={52} quality={100} />
         </div>
       }
     </>

@@ -48,13 +48,13 @@ const ServiceBanner = ({ content }) => {
 
             <div className={'_content'}>
 
-              {content?.services.map((item, index) => {
+              {content?.services?.map((item, index) => {
                 return (
                   <div className={styles._servicesContainer} key={index}>
                     <div className={'_contentTitleContainer'}>
                       <p className={'_contentTitle'}>{item.serviceTitle}</p>
                     </div>
-                    {item?.services.map((el, index) => {
+                    {item?.services?.map((el, index) => {
                       return (
                         <div key={index}>
                           <p className={'_contentSubtitle'}>{el.text}</p>
@@ -112,6 +112,7 @@ const ServiceBanner = ({ content }) => {
 		margin-top: 0.5rem;
 		margin-bottom: 0.5rem;
 		color: ${content?.dark == true ? 'white' : 'black'};
+    width:70%
 	}
 	._scrollTitle{
 		font-size: 18rem;

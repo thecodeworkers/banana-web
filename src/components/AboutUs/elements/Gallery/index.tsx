@@ -7,7 +7,7 @@ const Gallery = () => {
   return (
     <div className={styles._generalGallery}>
       {
-        team.map((item: any, index: number) => {
+        team?.map((item: any, index: number) => {
           return (
             <div className={styles._teamPhoto}
               style={{ backgroundImage: `url(${item?.img})` }}

@@ -36,7 +36,7 @@ const Testimonials = (content) => {
           <GeneralButton text={content?.content?.button?.text} icon={true} />
         </div>
         <Slider {...settings}>
-          {content?.content?.TesmimonialData.map((item, index) => {
+          {content?.content?.TesmimonialData?.map((item, index) => {
             return (
               <div className={styles._container} key={index}>
                 <div className={'_imageContainer'}>

@@ -11,6 +11,8 @@ footer(locale: "es") {
       titleSocial
       titleNumbers
       socialAccount
+      subtitleSocial
+      contactMail
     }
   }
   sections {
