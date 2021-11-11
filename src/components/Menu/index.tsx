@@ -5,17 +5,12 @@ import close from '@icons/close.svg'
 import Image from 'next/image'
 import logo from '@icons/logo.png'
 import logoWhite from '@icons/logo-white.png'
-import behance from '@icons/behance-white.png'
-import instagram from '@icons/insta-white.png'
-import linkedin from '@icons/linkedin-white.png'
-import behanceBlack from '@icons/behance.png'
-import instagramBlack from '@icons/instagram.png'
-import linkedinBlack from '@icons/linkedin.png'
 import tcw from '@icons/tcw-logo.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { setStatus } from '@store/actions'
 import gsap from 'gsap'
 import { inAnimation, outAnimation } from './gsap'
+import { fallbackRestUrl } from '../../utils/path'
 
 const commonStyles: any = `
   display: flex;
@@ -23,7 +18,7 @@ const commonStyles: any = `
   height: 100vh;
   position: fixed;
   top: 0;
-  z-index: 999;
+  z-index: 99999;
 `
 
 const sections =
@@ -41,6 +36,7 @@ const Menu = () => {
   const dispatch = useDispatch()
   const { classMenu } = useSelector((state: any) => state.intermittence)
   const [currentHour, setCurrentHour] = useState(caracasParseHour)
+  const { page: { footer } } = useSelector((state: any) => state)
 
   useEffect(() => {
     const interval = setInterval(getCurrentHour, 1000)
@@ -78,16 +74,17 @@ const Menu = () => {
           </div>
           <div className={styles._socialBanner}>
             <div className={styles._socialMedia}>
-              <div className='_behanceParent'>
-                <Image src={behance} alt={'behance'} width={30} height={18} quality={100} />
-              </div>
-              <div className='_instagramParent'>
-                <Image src={instagram} alt={'instagram'} width={23} height={23} quality={100} />
-              </div>
+              {footer?.social?.map(function (item, index) {
 
-              <div className='_linkedinParent'>
-                <Image src={linkedin} alt={'linkedine'} width={20} height={20} quality={100} />
-              </div>
+                return (
+                  item?.name?.split('-')?.[1] == 'black' ?
+                    <div className={`${item?.name}${'-parent'}`} key={index}>
+                      <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={25} height={25} quality={100} />
+                    </div>
+                    : null
+                )
+              }
+              )}
             </div>
             <p className={styles._copyright}>Banana creative. 2021 copyright ©</p>
           </div>
@@ -98,6 +95,9 @@ const Menu = () => {
             <div className={styles._bananalogo}>
               <Image src={logoWhite} alt="logo-icon-white" width={22} height={20} quality={100} />
             </div>
+            <div className={styles._space}>
+              <p></p>
+            </div>
             <div>
               <p className={styles._time}> CARACAS {currentHour} </p>
             </div>
@@ -107,11 +107,11 @@ const Menu = () => {
 
           </div>
           <div className={styles._body}>
-            {sections.map((item, index) => {
+            {footer?.sections?.map(function (item, index) {
               return (
                 <div className={styles._routesContainer} key={index}>
                   <hr className={styles._underscore}></hr>
-                  <p className={styles._title}>{item.route}</p>
+                  <p className={styles._title}>{item.name}</p>
                 </div>
               )
             })
@@ -120,32 +120,33 @@ const Menu = () => {
           <div className={styles._contactContainer}>
             <div className={styles._contactNumber}>
               <div>
-                <p className={`${styles._text} ${styles._mb1}`}>Contacto:</p>
+                <p className={`${styles._text} ${styles._mb1}`}>{footer?.FooterContact?.Contact[0]?.titleNumbers}</p>
               </div>
               <div className={styles._numbers}>
-                <p className={`${styles._text} ${styles._mb1}`}>+58 424 837 8858</p>
-                <p className={`${styles._text} ${styles._mb1}`}>+58 424 187 2382</p>
+                <p className={`${styles._text} ${styles._mb1}`}>{footer?.FooterContact?.Contact[0]?.phoneOne}</p>
+                <p className={`${styles._text} ${styles._mb1}`}>{footer?.FooterContact?.Contact[0]?.phoneTwo}</p>
+                <p className={`${styles._textBold}`}>{footer?.FooterContact?.Contact[0]?.contactMail}</p>
               </div>
             </div>
 
             <div className={styles._contactMail}>
               <div>
-                <p className={styles._text}>¿Buscas trabajar con nosotros?</p>
+                <p className={styles._text}>{footer?.FooterContact?.Contact[0]?.titleEmail}</p>
               </div>
               <div>
-                <p className={styles._text}>Escríbenos a:</p>
+                <p className={styles._text}>{footer?.FooterContact?.Contact[0]?.subtitleSocial}</p>
               </div>
               <div>
                 <p className={styles._text}> </p>
               </div>
               <div>
-                <p className={styles._text}>work@bananacreative.io</p>
+                <p className={styles._textBold}>{footer?.FooterContact?.Contact[0]?.email}</p>
               </div>
             </div>
 
             <div className={styles._contactMedia}>
               <div>
-                <p className={styles._text}>No te pierdas de nada, síguenos en:</p>
+                <p className={styles._text}>{footer?.FooterContact?.Contact[0]?.titleSocial}</p>
               </div>
               <div>
                 <p className={styles._text}> </p>
@@ -154,18 +155,25 @@ const Menu = () => {
                 <p className={styles._text}> </p>
               </div>
               <div>
-                <p className={styles._text}>@_bananacreative</p>
+                <p className={styles._text}> </p>
+              </div>
+              <div>
+                <p className={styles._textBold}>{footer?.FooterContact?.Contact[0]?.socialAccount}</p>
               </div>
             </div>
           </div>
           <div className={styles._footerResponsive}>
             <div className={styles._logosContainer}>
-              <div className={styles._socialMediaBlack}>
-                <Image src={linkedinBlack} alt={'linkedine'} width={20} height={20} quality={100} />
-                <Image src={behanceBlack} alt={'behance'} width={30} height={18} quality={100} />
-                <Image src={instagramBlack} alt={'instagram'} width={23} height={23} quality={100} />
-
-              </div>
+              {footer?.social?.map(function (item, index) {
+                return (
+                  item?.name?.split('-')?.[1] == 'white' ?
+                    <div className={styles._socialMediaBlack} key={index}>
+                      <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={20} height={20} quality={100} />
+                    </div>
+                    : null
+                )
+              }
+              )}
             </div>
             <div>
               <Image src={tcw} alt={'tcw'} width={26} height={26} quality={100} />
@@ -190,7 +198,7 @@ const Menu = () => {
           animation: slideOut 1s ease-in-out forwards;
         }
 
-        ._linkedinParent, ._behanceParent, ._instagramParent {
+        .linkedin-black-parent, .behance-black-parent, .insta-black-parent{
           opacity: 0;
           transform: translateY(50px)
         }

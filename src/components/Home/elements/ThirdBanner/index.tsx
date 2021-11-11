@@ -18,12 +18,12 @@ const ThirdBanner = (content) => {
           <div className={styles._subtitleContainer}>
             <p className={styles._subtitle}>{content?.content?.ThirdBannerWords[0]?.word}</p>
             <div className={styles._stepsContainer}>
-              <StepFull height={150} width={250} />
+              <StepFull height={150} width={'100%'} />
             </div>
 
             <p className={styles._subtitle}>{content?.content?.ThirdBannerWords[1]?.word}</p>
             <div className={styles._stepsContainer}>
-              <StepShort height={150} width={250} />
+              <StepShort height={150} width={'100%'} />
             </div>
 
             <div className={styles._haloContainer}>

@@ -27,7 +27,8 @@ const Banner = ({ withButton, background, buttonText, method }) => {
           display: flex;
           justify-content: center;
           align-items: flex-end;
-          background-repeat: no-repeat
+          background-repeat: no-repeat;
+          margin-top:2rem
       }
       @media(max-width: 576px) {
         ._banner{

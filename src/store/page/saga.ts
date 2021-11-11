@@ -1,6 +1,6 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
 import { actionObject, GraphQlClient, manageError } from '@utils'
-import { homePage, fontQuery, footerQuery, headerQuery } from '@graphql/query'
+import { homePage, fontQuery, footerQuery, headerQuery, aboutPage } from '@graphql/query'
 import { GET_PAGE, GET_PAGE_ASYNC } from './action-types'
 import { setFonts } from '../font/action'
 import { setLanguage } from '@store/actions'
@@ -8,8 +8,10 @@ import { setLanguage } from '@store/actions'
 const getQueryPages = (page = 'home', locale = 'en') => {
 
   const pages = {
-    home: homePage
+    home: homePage,
+    aboutUs: aboutPage
   }
+
   return `
     query {
       ${headerQuery(locale)}
@@ -27,6 +29,7 @@ function* getPageAsync({ payload }) {
     const response = yield call(GraphQlClient, getQueryPages(), { locale: language })
 
     const { page, font, header, footer } = response?.data
+
     yield put(setFonts(font))
     yield put(actionObject(GET_PAGE_ASYNC, { [query]: page, header, footer }))
     yield put(setLanguage(language))

@@ -1,22 +1,13 @@
 import styles from './styles.module.scss'
 import Image from 'next/image'
 import logo from '@icons/banana-creative.png'
-import behance from '@icons/behance.png'
-import instagram from '@icons/instagram.png'
-import linkedin from '@icons/linkedin.png'
 import tcw from '@icons/tcw-logo.svg'
+import { useSelector } from 'react-redux'
+import { fallbackRestUrl } from '../../utils/path'
 
 const Footer = () => {
 
-  const sections =
-    [
-      { route: 'Home' },
-      { route: 'Servicios' },
-      { route: 'Team' },
-      { route: 'Portfolio' },
-      { route: 'Blog' },
-      { route: 'Classroom' },
-    ]
+  const { page: { footer } } = useSelector((state: any) => state)
 
   return (
     <div className={styles._container}>
@@ -26,17 +17,24 @@ const Footer = () => {
         </div>
         <div className={styles._socialBanner}>
           <div className={styles._socialMedia}>
-            <Image src={linkedin} alt={'linkedine'} width={19} height={19} quality={100} />
-            <Image src={behance} alt={'behance'} width={28} height={19} quality={100} />
-            <Image src={instagram} alt={'instagram'} width={23} height={23} quality={100} />
+            {footer?.social?.map(function (item, index) {
+              return (
+                item?.name?.split('-')?.[1] == 'white' ?
+                  <div key={index}>
+                    <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={25} height={25} quality={100} />
+                  </div>
+                  : null
+              )
+            }
+            )}
           </div>
 
         </div>
         <div className={styles._sectionsContainer}>
-          {sections.map(function (item, index) {
+          {footer?.sections?.map(function (item, index) {
             return (
               <div key={index}>
-                <p className={styles._sections}>{item.route}</p>
+                <p className={styles._sections}>{item.name}</p>
               </div>
             )
           })
@@ -46,32 +44,32 @@ const Footer = () => {
         <div className={styles._contactContainer}>
           <div className={styles._contactNumber}>
             <div>
-              <p className={`${styles._text} ${styles._mb1}`}>Contacto:</p>
+              <p className={`${styles._text} ${styles._mb1}`}>{footer?.FooterContact?.Contact[0]?.titleNumbers}</p>
             </div>
             <div className={styles._numbers}>
-              <p className={`${styles._text} ${styles._mb1}`}>+58 424 837 8858</p>
-              <p className={`${styles._text} ${styles._mb1}`}>+58 424 187 2382</p>
+              <p className={`${styles._text} ${styles._mb1}`}>{footer?.FooterContact?.Contact[0]?.phoneOne}</p>
+              <p className={`${styles._text} ${styles._mb1}`}>{footer?.FooterContact?.Contact[0]?.phoneTwo}</p>
             </div>
           </div>
 
           <div className={styles._contactMail}>
             <div>
-              <p className={styles._text}>¿Buscas trabajar con nosotros?</p>
+              <p className={styles._text}>{footer?.FooterContact?.Contact[0]?.titleEmail}</p>
             </div>
             <div>
-              <p className={styles._text}>Escríbenos a:</p>
+              <p className={styles._text}>{footer?.FooterContact?.Contact[0]?.subtitleSocial}</p>
             </div>
             <div>
               <p className={styles._text}> </p>
             </div>
             <div>
-              <p className={styles._text}>work@bananacreative.io</p>
+              <p className={styles._text}>{footer?.FooterContact?.Contact[0]?.email}</p>
             </div>
           </div>
 
           <div className={styles._contactMedia}>
             <div>
-              <p className={styles._text}>No te pierdas de nada, síguenos en:</p>
+              <p className={styles._text}>{footer?.FooterContact?.Contact[0]?.titleSocial}</p>
             </div>
             <div>
               <p className={styles._text}> </p>
@@ -80,7 +78,7 @@ const Footer = () => {
               <p className={styles._text}> </p>
             </div>
             <div>
-              <p className={styles._text}>@_bananacreative</p>
+              <p className={styles._text}>{footer?.FooterContact?.Contact[0]?.socialAccount}</p>
             </div>
           </div>
 
@@ -95,7 +93,7 @@ const Footer = () => {
               <p className={styles._text}> </p>
             </div>
             <div className={styles._copyright}>
-              <p className={styles._text}>Banana Creative. 2021 Copyright ©</p>
+              <p className={styles._text}>{footer?.copyright}</p>
               <div className={styles._logoContainer}>
                 <Image src={tcw} alt={'tcw'} width={25} height={25} quality={100} />
               </div>
@@ -103,7 +101,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

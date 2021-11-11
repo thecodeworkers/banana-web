@@ -27,13 +27,14 @@ flex-direction: column;
   color: white;
   & b{
     color: #134EBF;
+    margin: 0 2rem;
   }
 }
-
 
 ._subtitleContainer{
 display: flex;
 justify-content: space-between;
+margin-top: 5rem;
 padding-bottom: 1.5rem;
 }
 
@@ -42,10 +43,9 @@ padding-bottom: 1.5rem;
 }
 ._imageContainer{
   position: absolute;
-  top: -50px;
-  right: -45px;
-  width: 250px;
-  height: 150px;
+  top: -70px;
+  right: -75px;
+  width: 320px;
 }
 
 ._subtitle{
@@ -70,7 +70,6 @@ padding-bottom: 1.5rem;
     display: none;
   }
 }
-
 
 @include responsive(md) {
   ._title{
