@@ -1,5 +1,5 @@
 const aboutPage = (locale) => `
-  page: team(locale: "${locale}") {
+  page: team(locale: "es") {
     aboutHero {
       recapButton {
         text

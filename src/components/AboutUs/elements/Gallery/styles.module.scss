@@ -11,6 +11,17 @@ $helveticaMedium: 'HelveticaNeueMedium';
 	}
 }
 
+@mixin imageCommon {
+  width: 100%;
+	height: 60vh;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	background-position: center;
+}
+
 ._generalGallery {
   padding: 3% 0px 3% 0px;
   width: 95%;
@@ -21,15 +32,12 @@ $helveticaMedium: 'HelveticaNeueMedium';
   gap: 2rem;
 }
 
+._isImage {
+	@include imageCommon;
+}
+
 ._teamPhoto {
-	width: 100%;
-	height: 50vh;
-	background-repeat: no-repeat;
-	background-size: cover;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	background-position: center center;
+	@include imageCommon;
 	position: relative;
   filter: grayscale(1);
   transition: all 1s;
@@ -112,14 +120,27 @@ $helveticaMedium: 'HelveticaNeueMedium';
 
 	._teamPhoto {
 		width: calc(100% - 0.5rem);
-    height: 20vh;
+    height: 22vh;
     margin-bottom: 1rem;
     box-sizing: border-box;
+    background-size: 100% 100%;
 
     &:nth-child(2n) {
       margin-left: auto;
     }
 	}
+
+  ._isImage {
+    width: calc(100% - 0.5rem);
+    height: 22vh;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    background-size: 100% 100%;
+
+    &:nth-child(2n) {
+      margin-left: auto;
+    }
+  }
 
   ._teamDescription {
    padding: 0.5rem;
