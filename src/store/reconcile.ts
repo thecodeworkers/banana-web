@@ -4,12 +4,6 @@ const reconcile = (state, payload) => {
 
   keyNames.forEach(key => {
     switch (key) {
-     /*  case 'page':
-        const currentPage = state[key]
-        trueState = { ...trueState, page: currentPage }
-
-        break
- */
       case 'intermittence':
         const currentIntermittence = state[key]
         trueState = { ...trueState, intermittence: currentIntermittence }
@@ -18,7 +12,7 @@ const reconcile = (state, payload) => {
       default:
         break
     }
-  });
+  })
 
   return trueState
 }

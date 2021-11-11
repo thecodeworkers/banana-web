@@ -79,9 +79,14 @@ $gray: #C4C4C4;
   padding: 0.6rem;
   font-family: $helveticaNeue;
   font-size: 0.875rem;
+  font-family: 'NormalFont', sans-serif;
 
   &:focus {
     outline: none;
+  }
+
+  &::placeholder {
+    font-family: 'NormalFont', sans-serif;
   }
 }
 
@@ -111,7 +116,7 @@ $gray: #C4C4C4;
 
 ._stepsNumber {
   margin-top: 5rem;
-  font-family: $helveticaNeue;
+  font-family: 'NormalFont', sans-serif;
   margin-left: 2.5%;
   margin-bottom: 0.6rem;
 }
