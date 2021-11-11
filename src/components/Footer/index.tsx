@@ -15,22 +15,11 @@ const Footer = () => {
         <div>
           <Image src={logo} alt={'banana-creative'} width={173} height={17} quality={100} />
         </div>
-        <div className={styles._socialBanner}>
-          <div className={styles._socialMedia}>
-            {footer?.social?.map(function (item, index) {
-              return (
-                item?.name?.split('-')?.[1] == 'white' ?
-                  <div key={index}>
-                    <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={25} height={25} quality={100} />
-                  </div>
-                  : null
-              )
-            }
-            )}
-          </div>
 
-        </div>
         <div className={styles._sectionsContainer}>
+          <div className={styles._sectionsContent}>
+
+
           {footer?.sections?.map(function (item, index) {
             return (
               <div key={index}>
@@ -39,17 +28,29 @@ const Footer = () => {
             )
           })
           }
+            </div>
+          <div className={styles._socialBanner}>
+            <div className={styles._socialMedia}>
+              {footer?.social?.map(function (item, index) {
+                return (
+                  item?.name?.split('-')?.[1] == 'white' ?
+                    <div key={index}>
+                      <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={25} height={25} quality={100} />
+                    </div>
+                    : null
+                )
+              }
+              )}
+            </div>
+
+          </div>
         </div>
         <hr className={styles._line}></hr>
         <div className={styles._contactContainer}>
           <div className={styles._contactNumber}>
-            <div>
-              <p className={`${styles._text} ${styles._mb1}`}>{footer?.FooterContact?.Contact[0]?.titleNumbers}</p>
-            </div>
-            <div className={styles._numbers}>
-              <p className={`${styles._text} ${styles._mb1}`}>{footer?.FooterContact?.Contact[0]?.phoneOne}</p>
-              <p className={`${styles._text} ${styles._mb1}`}>{footer?.FooterContact?.Contact[0]?.phoneTwo}</p>
-            </div>
+              <p className={`${styles._text} `}>{footer?.FooterContact?.Contact[0]?.titleNumbers}</p>
+              <p className={`${styles._textBold} `}>{footer?.FooterContact?.Contact[0]?.phoneOne}</p>
+              <p className={`${styles._textBold} `}>{footer?.FooterContact?.Contact[0]?.phoneTwo}</p>
           </div>
 
           <div className={styles._contactMail}>
@@ -59,11 +60,9 @@ const Footer = () => {
             <div>
               <p className={styles._text}>{footer?.FooterContact?.Contact[0]?.subtitleSocial}</p>
             </div>
+
             <div>
-              <p className={styles._text}> </p>
-            </div>
-            <div>
-              <p className={styles._text}>{footer?.FooterContact?.Contact[0]?.email}</p>
+              <p className={styles._textBold}>{footer?.FooterContact?.Contact[0]?.email}</p>
             </div>
           </div>
 
@@ -74,11 +73,9 @@ const Footer = () => {
             <div>
               <p className={styles._text}> </p>
             </div>
+
             <div>
-              <p className={styles._text}> </p>
-            </div>
-            <div>
-              <p className={styles._text}>{footer?.FooterContact?.Contact[0]?.socialAccount}</p>
+              <p className={styles._textBold}>{footer?.FooterContact?.Contact[0]?.socialAccount}</p>
             </div>
           </div>
 
@@ -89,11 +86,8 @@ const Footer = () => {
             <div>
               <p className={styles._text}> </p>
             </div>
-            <div>
-              <p className={styles._text}> </p>
-            </div>
             <div className={styles._copyright}>
-              <p className={styles._text}>{footer?.copyright}</p>
+              <p className={`${styles._text} ${styles._mr1}`}>{footer?.copyright}</p>
               <div className={styles._logoContainer}>
                 <Image src={tcw} alt={'tcw'} width={25} height={25} quality={100} />
               </div>
