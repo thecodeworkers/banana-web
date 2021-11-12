@@ -1,11 +1,9 @@
 import styles from './styles.module.scss'
-import { team } from './data'
 import Image from 'next/image'
 import linkedin from '@icons/linkedin.svg'
 import { fallbackRestUrl } from '@utils/path'
 
 const Gallery = ({ content = [] }: any) => {
-
   return (
     <div className={styles._generalGallery}>
       {
@@ -18,8 +16,8 @@ const Gallery = ({ content = [] }: any) => {
               <div className={styles._teamDescription}>
                 <div>
                   <ul className={styles._teamList}>
-                    <li className={styles._teamName}> {item.fullName} </li>
-                    <li className={styles._teamPosition}> CEO </li>
+                    <li className={styles._teamName}>{item?.fullName}</li>
+                    <li className={styles._teamPosition}>{item?.jobTitle}</li>
                   </ul>
                 </div>
                 <div className={styles._imgParent} >

@@ -1,7 +1,7 @@
 
 @import '@styles/index.scss';
-$helveticaNeue: 'HelveticaNeue';
-$helveticaMedium: 'HelveticaNeueMedium';
+$helveticaNeue: 'LightFont';
+$helveticaMedium: 'NormalFont';
 
 @mixin text($bold, $size) {
 	font-size: $size;
@@ -13,13 +13,12 @@ $helveticaMedium: 'HelveticaNeueMedium';
 
 @mixin imageCommon {
   width: 100%;
-	height: 60vh;
+	height: 55vh;
 	background-repeat: no-repeat;
-	background-size: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-	background-position: center;
+	background-position: top;
 }
 
 ._generalGallery {
@@ -34,12 +33,14 @@ $helveticaMedium: 'HelveticaNeueMedium';
 
 ._isImage {
 	@include imageCommon;
+  background-size: 100% 100%;
 }
 
 ._teamPhoto {
 	@include imageCommon;
 	position: relative;
   filter: grayscale(1);
+  background-size: cover;
   transition: all 1s;
 
   &:hover {
@@ -99,15 +100,18 @@ $helveticaMedium: 'HelveticaNeueMedium';
   cursor: pointer;
 }
 
+@include responsive(xl) {
+  ._teamPhoto {
+		width: 100%;
+    height: 50vh;
+	}
+}
+
 @include responsive(lg) {
   ._generalGallery {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
-
-	._teamPhoto {
-		width: 100%
-	}
 }
 
 @include responsive(md) {

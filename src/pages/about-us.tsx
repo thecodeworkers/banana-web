@@ -3,11 +3,9 @@ import wrapper from '@store'
 import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
 
-const AboutUsPage = () => {
-  return (
-    <AboutUs  />
-  )
-}
+const AboutUsPage = () => (
+  <AboutUs />
+)
 
 export default AboutUsPage
 
