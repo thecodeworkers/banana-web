@@ -16,6 +16,10 @@ $helveticaNeue: 'HelveticaNeue';
   &:hover ._iconParent {
     animation: slidein linear 0.6s;
   }
+
+  &:hover ._iconParentRight {
+    animation: slideSide linear 0.6s;
+  }
 }
 
 ._iconParentRight {
@@ -43,7 +47,7 @@ $helveticaNeue: 'HelveticaNeue';
 }
 
 @keyframes slideSide {
-  0% { transform: translateX(0px) }
-  50% { transform: translateX(0.375rem) }
-  100% { transform: translateX(0px) }
+  0% { transform: translateX(0px) rotate(-90deg)  }
+  50% { transform: translateX(0.375rem) rotate(-90deg) }
+  100% { transform: translateX(0px) rotate(-90deg)  }
 }

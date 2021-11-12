@@ -3,7 +3,7 @@ import { Line, Star, DownArrow, Linkedin } from '@icons/svg'
 
 const IconsButton = ({ text = '', method = null, icon = 'linkedin', right = true }) => {
 
-  const selectIcon = (icon) => {
+  const selectIcon = (icon: string) => {
     if (icon == 'star') return <Star />
     if (icon == 'linkedin') return <Linkedin />
   }

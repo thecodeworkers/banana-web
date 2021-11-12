@@ -5,14 +5,14 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { RightArrow } from '@icons/svg'
 
-const RecentVideos = (content) => {
+const RecentVideos = ({ content }: any) => {
 
   const settings: any = {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: '20px',
+    centerPadding: '30px',
     nextArrow: <SlideArrow direction='right' />,
     prevArrow: <SlideArrow direction='' showLeft={false} />,
     responsive: [
@@ -20,7 +20,7 @@ const RecentVideos = (content) => {
         breakpoint: 1400,
         settings: {
           slidesToShow: 2,
-          centerPadding: '15px',
+          centerPadding: '10px',
         }
       },
       {
@@ -45,7 +45,7 @@ const RecentVideos = (content) => {
     <div className={styles._main}>
       <div className={styles._topRow}>
         <div className={styles._titleParent}>
-          <h1 className={styles._title}>{content?.content?.title}</h1>
+          <h1 className={styles._title}>{content?.title}</h1>
           <hr className={styles._underscore}></hr>
         </div>
         <p className={styles._rightText}>Ver más</p>
@@ -55,7 +55,7 @@ const RecentVideos = (content) => {
         <div className={styles._shadow}></div>
 
         <Slider {...settings}>
-          {content?.content?.Videos?.map((item, index) => {
+          {content?.Videos?.map((item: any, index: number) => {
             return (
               <div key={index}>
                 <iframe className={styles._iframe}

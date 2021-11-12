@@ -1,5 +1,5 @@
 const aboutPage = (locale) => `
-  page: team(locale: "${locale}") {
+  page: team(locale: "es") {
     aboutHero {
       recapButton {
         text
@@ -13,6 +13,7 @@ const aboutPage = (locale) => `
     TeamGallery {
       fullName
       isImage
+      jobTitle
       socialMedia {
         url
         name

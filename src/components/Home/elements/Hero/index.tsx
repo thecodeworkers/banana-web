@@ -40,8 +40,6 @@ const Hero = ({ content, reference, contact }: any) => {
     return () => anim.destroy()
   }, [])
 
-
-
   return (
     <div className={styles._main}>
       <div className={styles._motion}>
@@ -58,7 +56,7 @@ const Hero = ({ content, reference, contact }: any) => {
           <hr className={styles._line}></hr>
           <div className={styles._btnSuperParent}>
             <div className={styles._btnParent}>
-              <IconsButton text={content?.recapButton[0].text} />
+              <IconsButton text={content?.recapButton[0].text} icon='star' right={false}/>
             </div>
           </div>
         </div>

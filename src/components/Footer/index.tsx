@@ -4,10 +4,18 @@ import logo from '@icons/banana-creative.png'
 import tcw from '@icons/tcw-logo.svg'
 import { useSelector } from 'react-redux'
 import { fallbackRestUrl } from '../../utils/path'
+import { useRouter } from 'next/router'
 
 const Footer = () => {
 
+  const router = useRouter()
   const { page: { footer } } = useSelector((state: any) => state)
+
+  const navigation = (item: any) => {
+    const { name } = item
+    if (name.toLowerCase() == 'team') router.push('about-us')
+  }
+
 
   return (
     <div className={styles._container}>
@@ -22,7 +30,7 @@ const Footer = () => {
 
           {footer?.sections?.map(function (item, index) {
             return (
-              <div key={index}>
+              <div key={index} onClick={() => navigation(item) }>
                 <p className={styles._sections}>{item.name}</p>
               </div>
             )
