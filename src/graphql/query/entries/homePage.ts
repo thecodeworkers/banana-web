@@ -99,8 +99,13 @@ const homePage = (locale) => `
     }
     VideoBanner {
       title
-      Videos {
-        url
+      Videos{
+        videoImage{
+          url
+          name
+        }
+        videoAction
+        videoDescription
       }
     }
     ClasroomBanner{
