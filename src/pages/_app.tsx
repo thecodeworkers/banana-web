@@ -6,6 +6,8 @@ import '../../public/styles/globals.scss'
 import { Layout } from '@components'
 import { fallbackRestUrl } from '@utils/path'
 import { useSelector } from 'react-redux'
+import ProgressBar from '@badrap/bar-of-progress'
+import Router from 'next/router'
 
 const MyApp = ({ Component, pageProps }) => {
   const store: any = useStore()
@@ -14,6 +16,17 @@ const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
     store.__persistor.persist()
   }, [])
+
+  let progress = new ProgressBar({
+    size: 3,
+    color: '#FFB703',
+    className: 'bar-of-progress',
+    delay: 100,
+  })
+
+  Router.events.on('routeChangeStart', progress.start);
+  Router.events.on('routeChangeComplete', progress.finish);
+  Router.events.on('routeChangeError', progress.finish);
 
   return (
     <>
@@ -40,6 +53,7 @@ const MyApp = ({ Component, pageProps }) => {
           font-family: 'NormalFont';
           src: url('${fallbackRestUrl}${medium?.url}');
         }
+
         `}
       </style>
     </>

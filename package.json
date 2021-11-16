@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@badrap/bar-of-progress": "^0.1.2",
     "axios": "^0.23.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "gsap": "^3.8.0",
