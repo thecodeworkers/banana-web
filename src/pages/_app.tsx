@@ -3,11 +3,11 @@ import wrapper from '@store'
 import Head from 'next/head'
 import { useStore } from 'react-redux'
 import '../../public/styles/globals.scss'
-import { Layout } from '@components'
 import { fallbackRestUrl } from '@utils/path'
 import { useSelector } from 'react-redux'
 import ProgressBar from '@badrap/bar-of-progress'
 import Router from 'next/router'
+import { Layout, Loader } from '@components'
 
 const MyApp = ({ Component, pageProps }) => {
   const store: any = useStore()
@@ -33,9 +33,12 @@ const MyApp = ({ Component, pageProps }) => {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <Loader>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </Loader>
+
       <style jsx>{`
         @font-face {
           font-family: 'NormalFont';
@@ -52,9 +55,7 @@ const MyApp = ({ Component, pageProps }) => {
         @font-face {
           font-family: 'NormalFont';
           src: url('${fallbackRestUrl}${medium?.url}');
-        }
-
-        `}
+        }`}
       </style>
     </>
   )
