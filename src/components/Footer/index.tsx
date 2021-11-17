@@ -16,7 +16,6 @@ const Footer = () => {
     if (name.toLowerCase() == 'team') router.push('about-us')
   }
 
-
   return (
     <div className={styles._container}>
       <div className={styles._head}>
