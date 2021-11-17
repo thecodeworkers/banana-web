@@ -27,16 +27,15 @@ const Footer = () => {
         <div className={styles._sectionsContainer}>
           <div className={styles._sectionsContent}>
 
-
-          {footer?.sections?.map(function (item, index) {
-            return (
-              <div key={index} onClick={() => navigation(item) }>
-                <p className={styles._sections}>{item.name}</p>
-              </div>
-            )
-          })
-          }
-            </div>
+            {footer?.sections?.map(function (item, index) {
+              return (
+                <div key={index} onClick={() => navigation(item)}>
+                  <p className={styles._sections}>{item.name}</p>
+                </div>
+              )
+            })
+            }
+          </div>
           <div className={styles._socialBanner}>
             <div className={styles._socialMedia}>
               {footer?.social?.map(function (item, index) {
@@ -56,9 +55,9 @@ const Footer = () => {
         <hr className={styles._line}></hr>
         <div className={styles._contactContainer}>
           <div className={styles._contactNumber}>
-              <p className={`${styles._text} `}>{footer?.FooterContact?.Contact[0]?.titleNumbers}</p>
-              <p className={`${styles._textBold} `}>{footer?.FooterContact?.Contact[0]?.phoneOne}</p>
-              <p className={`${styles._textBold} `}>{footer?.FooterContact?.Contact[0]?.phoneTwo}</p>
+            <p className={`${styles._text} `}>{footer?.FooterContact?.Contact[0]?.titleNumbers}</p>
+            <p className={`${styles._textBold} `}>{footer?.FooterContact?.Contact[0]?.phoneOne}</p>
+            <p className={`${styles._textBold} `}>{footer?.FooterContact?.Contact[0]?.phoneTwo}</p>
           </div>
 
           <div className={styles._contactMail}>
