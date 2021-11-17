@@ -12,10 +12,9 @@ const Loader = ({ children }) => {
   const dispatch = useDispatch()
   const { intermittence: { showLoader } } = useSelector((state: any) => state)
   const lottieContainer: any = createRef()
-  const { pathname } = router
 
   useEffect(() => {
-    if (showLoader && pathname == '/') {
+    if (showLoader && router.pathname == '/') {
       const anim = lottie.loadAnimation({
         container: lottieContainer.current,
         renderer: 'svg',
@@ -31,7 +30,7 @@ const Loader = ({ children }) => {
 
   return (
     <>
-      <div className={pathname == '/' ? (showLoader ? styles._main : styles._hide) : styles._static }>
+      <div className={router.pathname == '/' ? (showLoader ? styles._main : styles._hide) : styles._static }>
         <div className={styles._lottieParent}>
           <div className={`animation-container ${styles._lottie}`} ref={lottieContainer}></div>
         </div>
