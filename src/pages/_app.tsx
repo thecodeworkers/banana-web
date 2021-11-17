@@ -11,7 +11,7 @@ import { Layout, Loader } from '@components'
 
 const MyApp = ({ Component, pageProps }) => {
   const store: any = useStore()
-  const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
+  // const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
 
   useEffect(() => {
     store.__persistor.persist()
@@ -39,7 +39,7 @@ const MyApp = ({ Component, pageProps }) => {
         </Layout>
       </Loader>
 
-      <style jsx>{`
+      {/* <style jsx>{`
         @font-face {
           font-family: 'NormalFont';
           src: url('${fallbackRestUrl}${normal?.url}');
@@ -56,7 +56,7 @@ const MyApp = ({ Component, pageProps }) => {
           font-family: 'NormalFont';
           src: url('${fallbackRestUrl}${medium?.url}');
         }`}
-      </style>
+      </style> */}
     </>
   )
 }
