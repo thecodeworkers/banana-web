@@ -3,15 +3,12 @@ import wrapper from '@store'
 import Head from 'next/head'
 import { useStore } from 'react-redux'
 import '../../public/styles/globals.scss'
-import { fallbackRestUrl } from '@utils/path'
-import { useSelector } from 'react-redux'
 import ProgressBar from '@badrap/bar-of-progress'
 import Router from 'next/router'
 import { Layout, Loader } from '@components'
 
 const MyApp = ({ Component, pageProps }) => {
   const store: any = useStore()
-  // const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
 
   useEffect(() => {
     store.__persistor.persist()
@@ -38,25 +35,6 @@ const MyApp = ({ Component, pageProps }) => {
           <Component {...pageProps} />
         </Layout>
       </Loader>
-
-      {/* <style jsx>{`
-        @font-face {
-          font-family: 'NormalFont';
-          src: url('${fallbackRestUrl}${normal?.url}');
-        }
-        @font-face {
-          font-family: 'BoldFont';
-          src: url('${fallbackRestUrl}${bold?.url}');
-        }
-        @font-face {
-          font-family: 'LightFont';
-          src: url('${fallbackRestUrl}${light?.url}');
-        }
-        @font-face {
-          font-family: 'NormalFont';
-          src: url('${fallbackRestUrl}${medium?.url}');
-        }`}
-      </style> */}
     </>
   )
 }
