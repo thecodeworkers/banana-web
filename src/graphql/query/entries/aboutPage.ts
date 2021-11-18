@@ -13,6 +13,7 @@ const aboutPage = (locale) => `
     TeamGallery {
       fullName
       isImage
+      jobTitle
       socialMedia {
         url
         name

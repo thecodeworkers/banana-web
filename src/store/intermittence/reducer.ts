@@ -6,6 +6,7 @@ const initialState = {
   selectedLanguage: 'es',
   classMenu: '_mainMenu',
   alert: 0,
+  showLoader: true
 }
 
 const pageReducer = (state = initialState, { type, payload }: AnyAction) => {

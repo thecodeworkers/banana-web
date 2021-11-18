@@ -1,18 +1,16 @@
 import { Home } from '@components'
-import { useSelector } from 'react-redux'
-import { fallbackRestUrl } from '@utils/path'
 import wrapper from '@store'
 import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
+import { useSelector } from 'react-redux'
+import { fallbackRestUrl } from '@utils/path'
 
 const HomePage = () => {
   const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
 
   return (
-    <div>
-      <div>
-        <Home />
-      </div >
+    <>
+      <Home />
       <style jsx>{`
         @font-face {
           font-family: 'NormalFont';
@@ -29,10 +27,9 @@ const HomePage = () => {
         @font-face {
           font-family: 'NormalFont';
           src: url('${fallbackRestUrl}${medium?.url}');
-        }
-        `}
+        }`}
       </style>
-    </div >
+    </>
   )
 }
 

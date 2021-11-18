@@ -1,7 +1,7 @@
 @import '@styles/index.scss';
 
-$helveticaNeue: 'HelveticaNeue';
-$helveticaMedium: 'HelveticaNeueMedium';
+$helveticaNeue: 'LightFont';
+$helveticaMedium: 'NormalFont';
 
 @mixin layout($width, $height) {
   width: $width;

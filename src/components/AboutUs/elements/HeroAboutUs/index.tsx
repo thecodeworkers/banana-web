@@ -1,31 +1,28 @@
 import styles from './styles.module.scss'
 import { IconsButton } from '@components'
 
-const HeroAboutUs = () => {
+const HeroAboutUs = ({ content }: any) => {
   return (
     <div className={styles._main}>
       <div className={styles._motion}>
-        <h1 className={styles._title}>Hello</h1>
+        <h1 className={styles._title}>{content?.title}</h1>
       </div>
       <div className={styles._purpose}>
         <div className={styles._purposeTexts}>
-          <p>Meet our team</p>
-          <p>est. 17’</p>
+          <p>{content?.phrase}</p>
+          <p>{content?.date}</p>
         </div>
-
         <div>
           <hr className={styles._line}></hr>
           <div className={styles._btnSuperParent}>
             <div className={styles._btnParent}>
-              <IconsButton text='Banana Creative' />
+              <IconsButton text={content?.recapButton?.[0]?.text} />
             </div>
           </div>
         </div>
       </div>
       <div className={styles._services}>
-        <p>
-          We are a group of young creatives who work in all kinds of design and marketing areas and are tirelessly searching for inspiration, ideas, shapes and colors, innovative strategies and more authentic, curious and proactive people.
-        </p>
+        <p>{content?.paragraph}</p>
       </div>
     </div>
   )

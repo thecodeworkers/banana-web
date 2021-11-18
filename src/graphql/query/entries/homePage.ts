@@ -1,5 +1,6 @@
 const homePage = (locale) => `
   page: homePage(locale: "${locale}") {
+    locale
     Banner {
       image {
         url
@@ -99,8 +100,13 @@ const homePage = (locale) => `
     }
     VideoBanner {
       title
-      Videos {
-        url
+      Videos{
+        videoImage{
+          url
+          name
+        }
+        videoAction
+        videoDescription
       }
     }
     ClasroomBanner{

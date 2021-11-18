@@ -135,7 +135,7 @@ const ServiceBanner = ({ content }) => {
 		font-weight: 700;
 		position: absolute;
 		opacity: 0.2;
-		color: black;
+		color: gray;
     right: -18.75rem;
     top:-4.6875rem
 	}
