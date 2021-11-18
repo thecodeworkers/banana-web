@@ -66,11 +66,11 @@ const Contact = ({ content }: any) => {
 
   return (
     <>
-      <div className={styles._main}>
+      <div className={!contact?.sended ? styles._main : styles._mainYellow}>
         <div className={styles._titleParent}>
           <div className={styles._titleChild}>
-            <h1 className={styles._title}>{localData?.title}</h1>
-            <hr className={styles._underscore}></hr>
+            <h1 className={!contact?.sended ? styles._title : styles._titleWhite}>{localData?.title}</h1>
+            <hr className={!contact?.sended ? styles._underscore : styles._underscoreWhite}></hr>
           </div>
         </div>
 
