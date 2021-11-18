@@ -28,7 +28,7 @@ const Contact = ({ content }: any) => {
     const prevState = contact?.contactData
     const key = contactData[currentStep - 1]?.input.placeholder
 
-    dispatch(setContactForm({ contactData: { ...prevState, [key]: inputValue } } ))
+    dispatch(setContactForm({ contactData: { ...prevState, [key]: inputValue } }))
 
     if (currentStep < steps) {
       setWidth((width: number) => width + result)
@@ -65,45 +65,63 @@ const Contact = ({ content }: any) => {
           </div>
         </div>
 
-        <div className={styles._contentParent}>
-          <p className={styles._textOne}>
-            {localData?.firstSubtitle}
-          </p>
+        {
+          true &&
+          <div className={styles._contentParent}>
+            <p className={styles._textOne}>
+              {localData?.firstSubtitle}
+            </p>
 
-          <p className={styles._textTwo}>
-            {localData?.secondSubtitle}
-          </p>
+            <p className={styles._textTwo}>
+              {localData?.secondSubtitle}
+            </p>
 
-          <p className={styles._question}>{contactData[currentStep - 1]?.Question}</p>
+            <p className={styles._question}>{contactData[currentStep - 1]?.Question}</p>
 
-          <div className={styles._formParent}>
-            <div>
-              <input
-                type={contactData[currentStep - 1]?.input.Type}
-                placeholder={contactData[currentStep - 1]?.input.name}
-                className={styles._input}
-                value={inputValue}
-                onChange={inputHandler}
-              >
-              </input>
-            </div>
-            <div className={styles._parentBtn}>
-              <GeneralButton
-                icon={false}
-                text={localData?.button?.text}
-                method={isValid && inputValue.length ? nextStep : () => alert('ERROR!')} />
+            <div className={styles._formParent}>
+              <div>
+                <input
+                  type={contactData[currentStep - 1]?.input.Type}
+                  placeholder={contactData[currentStep - 1]?.input.name}
+                  className={styles._input}
+                  value={inputValue}
+                  onChange={inputHandler}
+                >
+                </input>
+              </div>
+              <div className={styles._parentBtn}>
+                <GeneralButton
+                  icon={false}
+                  text={localData?.button?.text}
+                  method={isValid && inputValue.length ? nextStep : () => alert('ERROR!')} />
+              </div>
             </div>
           </div>
+        }
 
-        </div>
+        {
+          false &&
+          <div>
+            <h1 className={styles._sentTitle}> You have send your message!</h1>
+            <div className={styles._parentBtnSent}>
+              <GeneralButton
+                icon={false}
+                text='Send new message' />
+            </div>
+          </div>
+        }
+
       </div>
 
-      <div>
-        <p className={styles._stepsNumber}> {currentStep} / {steps} </p>
-        <div className={styles._stepper}>
-          <div className='_step'></div>
+      {
+        true &&
+        <div>
+          <p className={styles._stepsNumber}> {currentStep} / {steps} </p>
+          <div className={styles._stepper}>
+            <div className='_step'></div>
+          </div>
         </div>
-      </div>
+      }
 
       <style jsx>{`
         ._step {

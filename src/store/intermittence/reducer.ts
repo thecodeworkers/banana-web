@@ -5,6 +5,7 @@ const initialState = {
   languages: { es: 'Español', en: 'English' },
   selectedLanguage: 'es',
   classMenu: '_mainMenu',
+  alert: 0,
 }
 
 const pageReducer = (state = initialState, { type, payload }: AnyAction) => {

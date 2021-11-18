@@ -11,7 +11,8 @@ $gray: #C4C4C4;
 }
 
 ._main {
-  width: 95%;
+  width: 100%;
+  padding: 0 2.5%;
   margin: 0 auto;
   padding-top: 3rem;
 }
@@ -93,6 +94,11 @@ $gray: #C4C4C4;
   margin-left: auto;
 }
 
+._parentBtnSent {
+  padding-bottom: 3rem;
+  width: 18.375rem;
+}
+
 ._stepper {
   width: 97.5%;
   margin-left: auto;
@@ -123,6 +129,12 @@ $gray: #C4C4C4;
   font-size: 0.9375rem;
   margin: 30px 0 10px 0;
   font-weight: 700;
+}
+
+._sentTitle {
+  font-family: 'NormalFont', sans-serif;
+  font-size: 3.75rem;
+  margin: 2.5rem 0;
 }
 
 @include responsive(md) {
