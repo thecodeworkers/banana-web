@@ -130,7 +130,7 @@ $helveticaNeue: 'HelveticaNeue';
    width: 100%;
  }
  ._services {
-  & p {
+  & p:last-child{
     width: 100%;
     font-size: 0.8125rem;
   }

@@ -76,8 +76,22 @@ $helveticaMedium: 'HelveticaNeueMedium';
 }
 
 ._iframe {
-  width: 25.9375rem;
-  height: 19.375rem;
+  // width: 100%;
+	// height: 55vh;
+	// background-repeat: no-repeat;
+	// display: flex;
+	// flex-direction: row;
+	// justify-content: flex-end;
+	// background-position: top;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-repeat: no-repeat;
+  margin-top:2rem
 }
 
 @include responsive(md) {
