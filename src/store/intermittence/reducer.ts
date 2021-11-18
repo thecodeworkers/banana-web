@@ -5,7 +5,12 @@ const initialState = {
   languages: { es: 'Español', en: 'English' },
   selectedLanguage: 'es',
   classMenu: '_mainMenu',
-  alert: 0,
+  alert: {
+    status: 0,
+    text: 'success!',
+    color: '#4FCF01',
+    type: 'success'
+  },
   showLoader: true
 }
 

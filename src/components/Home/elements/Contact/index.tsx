@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { GeneralButton } from '@components'
 import styles from './styles.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { setContactForm, sendContactData } from '@store/actions'
+import { setContactForm, sendContactData, setStatus } from '@store/actions'
 
 const Contact = ({ content }: any) => {
 
@@ -55,6 +55,15 @@ const Contact = ({ content }: any) => {
     setInputValue(value)
   }
 
+  const showAlert = () => {
+    const alertData = { color: '#FF4F4F', type: 'error', text: 'Error!', status: 1 }
+    dispatch(setStatus({ alert: alertData }))
+
+    setTimeout(() => {
+      dispatch(setStatus({ alert: { ...alertData, status: 2} }))
+    }, 2000)
+  }
+
   return (
     <>
       <div className={styles._main}>
@@ -66,7 +75,7 @@ const Contact = ({ content }: any) => {
         </div>
 
         {
-          true &&
+          !contact?.sended &&
           <div className={styles._contentParent}>
             <p className={styles._textOne}>
               {localData?.firstSubtitle}
@@ -93,14 +102,14 @@ const Contact = ({ content }: any) => {
                 <GeneralButton
                   icon={false}
                   text={localData?.button?.text}
-                  method={isValid && inputValue.length ? nextStep : () => alert('ERROR!')} />
+                  method={isValid && inputValue.length ? nextStep : showAlert} />
               </div>
             </div>
           </div>
         }
 
         {
-          false &&
+          contact?.sended &&
           <div>
             <h1 className={styles._sentTitle}> You have send your message!</h1>
             <div className={styles._parentBtnSent}>
@@ -114,7 +123,7 @@ const Contact = ({ content }: any) => {
       </div>
 
       {
-        true &&
+        !contact?.sended &&
         <div>
           <p className={styles._stepsNumber}> {currentStep} / {steps} </p>
           <div className={styles._stepper}>

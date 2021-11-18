@@ -1,4 +1,5 @@
 import { CheckIcon, ErrorIcon } from '../../../public/icons/svg'
+import { useSelector } from 'react-redux'
 
 const commonStyle = (color) => `
   background-color: white;
@@ -16,7 +17,9 @@ const commonStyle = (color) => `
   z-index: 1010;
 `
 
-const Alert = ({ type = 'success', color = '#4FCF01', text = 'Success!', status = 0 }) => {
+const Alert = () => {
+
+  const { intermittence: { alert: { status, color, text, type } } } = useSelector((state: any) => state)
 
   const returnIcon = () => {
     if (type == 'success') return <CheckIcon />
@@ -43,7 +46,7 @@ const Alert = ({ type = 'success', color = '#4FCF01', text = 'Success!', status 
 
       ._in {
         ${commonStyle(color)}
-        animation: in 0.6s ease-in forwards;
+        animation: in 0.6s ease forwards;
       }
 
       ._out {
