@@ -22,8 +22,8 @@ const Home = () => {
             <Banner withButton={home?.GifBanner?.button} background={`${fallbackRestUrl}${home?.GifBanner?.image?.url}`} buttonText={home?.GifBanner?.image?.textButton} method={''} />
           </div>
           <SecondBanner content={home?.SecondBanner} />
-          <ServicesBanner content={home?.serviceBanner[0]} />
-          <ServicesBanner content={home?.serviceBanner[1]} />
+          {home?.serviceBanner && <ServicesBanner content={home?.serviceBanner[0]} />}
+          {home?.serviceBanner && <ServicesBanner content={home?.serviceBanner[1]} />}
           <ThirdBanner content={home?.ThirdBanner} />
           <Contact content={home?.ContactBanner} />
           <RecentsVideos content={home?.VideoBanner} />
