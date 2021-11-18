@@ -16,7 +16,6 @@ const Footer = () => {
     if (name.toLowerCase() == 'team') router.push('about-us')
   }
 
-
   return (
     <div className={styles._container}>
       <div className={styles._head}>
@@ -26,7 +25,6 @@ const Footer = () => {
 
         <div className={styles._sectionsContainer}>
           <div className={styles._sectionsContent}>
-
 
             {footer?.sections?.map(function (item, index) {
               return (
