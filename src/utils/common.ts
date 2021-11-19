@@ -64,11 +64,17 @@ export const parseDate = (currentDate) => {
   return `${day}/${month}/${year}`
 }
 
-export const scrolling = (reference) => {
+export const scrolling = (reference: any) => {
   if (reference) {
     const target = reference.current
-    window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
+    window.scrollTo({ top: target.offsetTop, behavior: 'smooth' })
   }
+}
+
+export const sleep = (time: any) => {
+  return new Promise(resolve => {
+    setTimeout(resolve, time)
+  })
 }
 
 

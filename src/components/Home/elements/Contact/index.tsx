@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import { GeneralButton } from '@components'
 import styles from './styles.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { setContactForm, sendContactData, setStatus } from '@store/actions'
+import { setContactForm, sendContactData, setStatus, setSended } from '@store/actions'
+import { sleep } from '@utils'
 
 const Contact = ({ content }: any) => {
 
@@ -55,14 +56,22 @@ const Contact = ({ content }: any) => {
     setInputValue(value)
   }
 
-  const showAlert = () => {
+  const showAlert = async () => {
     const alertData = { color: '#FF4F4F', type: 'error', text: 'Error!', status: 1 }
-    dispatch(setStatus({ alert: alertData }))
-
-    setTimeout(() => {
-      dispatch(setStatus({ alert: { ...alertData, status: 2} }))
-    }, 2000)
+    await dispatch(setStatus({ alert: alertData }))
+    await sleep(2000)
+    dispatch(setStatus({ alert: { ...alertData, status: 2 } }))
   }
+
+  const resetForm = () => {
+    setCurrentStep(1)
+    calculateInitialWidth()
+    dispatch(setSended(false))
+  }
+
+  useEffect(() => {
+    if (contact.sended) setInputValue('')
+  }, [contact])
 
   return (
     <>
@@ -115,7 +124,8 @@ const Contact = ({ content }: any) => {
             <div className={styles._parentBtnSent}>
               <GeneralButton
                 icon={false}
-                text='Send new message' />
+                text='Send new message'
+                method={resetForm} />
             </div>
           </div>
         }

@@ -3,11 +3,10 @@ import { GraphQlClient, actionObject } from '@utils'
 import { ContactMutation } from '@graphql/mutations'
 import { SEND_CONTACT_DATA, SENDED } from './action-types'
 
-function* sendContactData() {
+function* sendContactData({ payload }) {
   try {
-    let response = yield call(GraphQlClient, ContactMutation())
+    let response = yield call(GraphQlClient, ContactMutation(payload))
     if (response?.data) yield put(actionObject(SENDED, true))
-
   } catch (err) {
     throw new Error(err.message)
   }

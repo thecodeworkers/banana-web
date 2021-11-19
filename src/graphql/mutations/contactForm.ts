@@ -1,11 +1,15 @@
-const ContactMutation = () => (`
-  mutation {
-    createContactInformation(input: { data: { name: "test", email: "test@test.com", company: "test company", about: "about test", how: "This is how we do this test" } }) {
-      contactInformation {
-        id
+const ContactMutation = ({ name, email, company, about, how }) => {
+  return (
+    `
+    mutation {
+        createContactInformation(input: { data: { name: "${name}", email: "${email}", company: "${company}", about: "${about}", how: "${how}" } }) {
+          contactInformation {
+            id
+          }
+        }
       }
-    }
-  }
-`)
+    `
+  )
+}
 
 export default ContactMutation

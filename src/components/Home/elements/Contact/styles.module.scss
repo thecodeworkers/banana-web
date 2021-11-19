@@ -25,17 +25,14 @@ $gray: #C4C4C4;
   @include commonMain;
   padding-top: 6rem;
   background-color: $yellow;
-  animation: smoothcolor linear 0.6s forwards;
-  transform-origin: left;
+  // animation: smoothcolor linear 0.6s forwards;
 }
 
 @keyframes smoothcolor {
   from {
-    // transform: scale(0);
     background-color: #FFF;
   }
   to {
-    // transform: scale(1);
     background-color: $yellow;
   }
 }
@@ -51,39 +48,40 @@ $gray: #C4C4C4;
   @extend ._titleParent;
 }
 
-._underscore {
+@mixin underscore ($color) {
   border: none;
-  border-bottom: 0.3125rem solid $yellow;
+  border-bottom: 0.3125rem solid $color;
   width: 2.25rem;
   position: absolute;
   left: 12.4375rem;
   bottom: 0.6rem;
+}
+
+@mixin title($color) {
+  font-family: 'NormalFont', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
+  @if ($color == 'white') {
+    color: #FFF
+  }
+}
+
+._underscore {
+  @include underscore($yellow);
 }
 
 ._underscoreWhite {
-  border: none;
-  border-bottom: 0.3125rem solid #FFF;
-  width: 2.25rem;
-  position: absolute;
-  left: 12.4375rem;
-  bottom: 0.6rem;
+  @include underscore(#FFF);
 }
 
 ._title {
-  font-family: 'NormalFont', sans-serif;
-  font-weight: 700;
-  font-size: 3rem;
-  margin: 0;
-  padding: 0;
+  @include title('black');
 }
 
 ._titleWhite {
-  font-family: 'NormalFont', sans-serif;
-  font-weight: 700;
-  font-size: 3rem;
-  margin: 0;
-  padding: 0;
-  color: #FFF;
+  @include title('white')
 }
 
 ._contentParent {
@@ -219,5 +217,13 @@ $gray: #C4C4C4;
 
   ._stepsNumber {
     margin-top: 3rem;
+  }
+
+  ._sentTitle {
+    font-size: 2.95rem;
+  }
+
+  ._parentBtnSent {
+    width: 100%;
   }
 }
