@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux'
-import { SET_LANGUAGE, SET_MENU_STATUS } from './action-types'
+import { SET_LANGUAGE, SET_MENU_STATUS, SET_ALERT } from './action-types'
 
 const initialState = {
   languages: { es: 'Español', en: 'English' },
@@ -20,6 +20,8 @@ const pageReducer = (state = initialState, { type, payload }: AnyAction) => {
       return { ...state, selectedLanguage: payload }
     case SET_MENU_STATUS:
       return { ...state, ...payload }
+    case SET_ALERT:
+      return { ...state, alert: payload }
     default:
       return state
   }

@@ -24,23 +24,24 @@ export const validateFetch = ({ errors, data }) => {
   return data
 }
 
-export function* showDialog(message, type = 'success', toast = 'SHOW_TOAST') {
-  yield put(actionObject(toast, {
+export function* showAlert(text, type = 'success', color = '#4FCF01', alert = 'SET_ALERT') {
+  const keys = { text, color, type }
+  yield put(actionObject(alert, {
     status: 1,
-    message,
-    type
+    ...keys
   }))
 
   yield delay(3000)
 
-  yield put(actionObject(toast, {
-    status: 2
+  yield put(actionObject(alert, {
+    status: 2,
+    ...keys
   }))
 }
 
-export function* manageError(error, toast = 'SHOW_TOAST', loader = 'SHOW_LOADER') {
+export function* manageError(error, toast = 'SET_ALERT', loader = 'SHOW_LOADER') {
   yield put(actionObject(loader, false))
-  yield call(showDialog, error, 'error', toast)
+  yield call(showAlert, error, 'error', toast)
 }
 
 export const mapProps = async (store, action) => {

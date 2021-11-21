@@ -2,13 +2,15 @@ import { takeLatest, call, put } from 'redux-saga/effects'
 import { GraphQlClient, actionObject } from '@utils'
 import { ContactMutation } from '@graphql/mutations'
 import { SEND_CONTACT_DATA, SENDED } from './action-types'
+import { showAlert } from '@utils'
 
 function* sendContactData({ payload }) {
   try {
     let response = yield call(GraphQlClient, ContactMutation(payload))
+    if (!Object.keys(response).length) yield call(showAlert, 'Error!', 'error', '#FF4F4F')
     if (response?.data) yield put(actionObject(SENDED, true))
   } catch (err) {
-    throw new Error(err.message)
+    yield call(showAlert, 'Error!', 'error', '#FF4F4F')
   }
 }
 
