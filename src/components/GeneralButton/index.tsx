@@ -33,11 +33,11 @@ const GeneralButton = ({
           box-sizing: border-box;
           color: ${textColor};
           padding: 0.8rem;
-          cursor: pointer;
           display: flex;
           justify-content: ${icon ? 'space-between' : 'center'};
           align-items: center;
           white-space: nowrap;
+          cursor: none;
         }
 
         ${animation && `

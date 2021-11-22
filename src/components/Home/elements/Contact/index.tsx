@@ -4,7 +4,6 @@ import styles from './styles.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { setContactForm, sendContactData, setStatus, setSended } from '@store/actions'
 import { sleep } from '@utils'
-import gsap from 'gsap'
 
 const Contact = ({ content }: any) => {
 
@@ -21,19 +20,8 @@ const Contact = ({ content }: any) => {
   const result = 100 / steps
 
   useEffect(() => {
-    document.addEventListener('mousemove', moveCircle)
     calculateInitialWidth()
   }, [])
-
-
-  const moveCircle = (event) => {
-    const timeline = gsap.timeline()
-    let x = event.clientX
-    let y = event.clientY
-
-    timeline.play()
-      .to('._circle', 0.4, { x, y })
-  }
 
   const calculateInitialWidth = () => setWidth(result ?? 0)
 
@@ -87,7 +75,6 @@ const Contact = ({ content }: any) => {
 
   return (
     <>
-      <div className='_circle'> </div>
       <div className={!contact?.sended ? styles._main : styles._mainYellow}>
         <div className={styles._titleParent}>
           <div className={styles._titleChild}>
@@ -161,21 +148,6 @@ const Contact = ({ content }: any) => {
           background-color: #FFB703;
           height: inherit;
           border-radius: 0.4688rem;
-        }
-
-        ._circle {
-          width: 90px;
-          height: 90px;
-          background-color: #231F20;
-          position: fixed;
-          border-radius: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          top: -45px;
-          left: -45px;
-          pointer-events:none;
-          z-index: 1090;
         }
       `}</style>
     </>

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import wrapper from '@store'
 import Head from 'next/head'
 import { useStore } from 'react-redux'
@@ -6,13 +6,36 @@ import '../../public/styles/globals.scss'
 import ProgressBar from '@badrap/bar-of-progress'
 import Router from 'next/router'
 import { Layout, Loader } from '@components'
+import gsap from 'gsap'
 
 const MyApp = ({ Component, pageProps }) => {
   const store: any = useStore()
+  const [className, setClassName] = useState('')
 
   useEffect(() => {
+    document.addEventListener('mousemove', moveCircle)
+    document.addEventListener('mousedown', toScale)
+    document.addEventListener('mouseup', toNormal)
     store.__persistor.persist()
+
+    return () => {
+      removeEventListener('mousemove', moveCircle)
+      removeEventListener('mousedown', toScale)
+      removeEventListener('mouseup', toNormal)
+    }
   }, [])
+
+  const moveCircle = (event) => {
+    const timeline: any = gsap.timeline()
+    let x = event.clientX
+    let y = event.clientY
+
+    timeline.play()
+      .to('._circle', 0.4, { x, y })
+  }
+
+  const toScale = () => setClassName('_scale')
+  const toNormal = () => setClassName('')
 
   let progress = new ProgressBar({
     size: 3,
@@ -32,9 +55,34 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       <Loader>
         <Layout>
+          <div className={`_circle ${className}`}> </div>
           <Component {...pageProps} />
         </Layout>
       </Loader>
+
+      <style>{`
+        ._circle {
+          width: 1.875rem;
+          height: 1.875rem;
+          background-color: none;
+          position: fixed;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          top: -0.9375rem;
+          left: -0.9375rem;
+          pointer-events: none;
+          z-index: 1090;
+          border: 3px solid #FFB703;
+        }
+
+        ._scale {
+          width: 1.625rem;
+          height: 1.625rem;
+        }
+      `}
+      </style>
     </>
   )
 }

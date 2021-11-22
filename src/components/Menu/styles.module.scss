@@ -35,9 +35,6 @@ $yellow: #FFB703;
   @include text();
   padding: 1.5rem 2rem;
 }
-._toggleParent {
-	cursor: pointer;
-}
 ._socialBanner{
   display: flex;
   flex-direction: column;
@@ -171,10 +168,6 @@ $yellow: #FFB703;
 }
 ._space{
   display: block;
-}
-
-._closeParent {
-  cursor: pointer;
 }
 
 @include responsive(md) {

@@ -21,8 +21,8 @@ const Gallery = ({ content = [] }: any) => {
                   </ul>
                 </div>
                 <div className={styles._imgParent} >
-                  <a href={item?.socialLink} target='_blank' rel='noreferrer'>
-                    <Image src={linkedin} alt='linked-in' width={34} height={34} quality={100} />
+                  <a href={item?.socialLink} target='_blank' rel='noreferrer' >
+                    <Image src={linkedin} alt='linked-in' width={34} height={34} quality={100} className={styles._socialLink} />
                   </a>
                 </div>
               </div>
