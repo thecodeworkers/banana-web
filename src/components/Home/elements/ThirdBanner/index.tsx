@@ -31,7 +31,7 @@ const ThirdBanner = (content) => {
                 <Image src={haloWeb} alt='haloWEB' width={341} height={178} quality={100} />
               </div>
               <div className={styles._imageContainerResponsive}>
-                <Image src={haloResponsive} alt='haloResponsive' width={116} height={90} quality={100} />
+                <Image src={haloResponsive} alt='haloResponsive' width={350} height={250} quality={100} />
               </div>
               <p className={styles._subtitle}>{content?.content?.ThirdBannerWords[2]?.word}</p>
             </div>

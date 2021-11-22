@@ -4,6 +4,8 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { RightArrow } from '@icons/svg'
+import Image from 'next/image'
+import { fallbackRestUrl } from '@utils'
 
 const RecentVideos = ({ content }: any) => {
 
@@ -58,9 +60,17 @@ const RecentVideos = ({ content }: any) => {
           {content?.Videos?.map((item: any, index: number) => {
             return (
               <div key={index}>
-                <iframe className={styles._iframe}
-                  src={item?.url} >
-                </iframe>
+                <div className={styles._iframe}
+                  style={{ backgroundImage: `url(${fallbackRestUrl}${item?.videoImage?.url})`, backgroundSize: '80% 100%' }}>
+
+                  <div className={styles._videoDescription}>
+                    <div className={styles._videoContent}>
+                      <p className={styles._text}>{item?.videoDescription}</p>
+                      <hr className={styles._line}></hr>
+                      <p className={styles._textBold}>{item?.videoAction}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             )
           })
