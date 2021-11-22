@@ -59,10 +59,19 @@ const RecentVideos = ({ content }: any) => {
         <Slider {...settings}>
           {content?.Videos?.map((item: any, index: number) => {
             return (
-              <div key={index} className={styles._iframe}
-              style={{ backgroundImage: `url(${fallbackRestUrl}${item?.videoImage?.url})` }}>
-                <p>hola</p>
+              <div key={index}>
+                <div className={styles._iframe}
+                  style={{ backgroundImage: `url(${fallbackRestUrl}${item?.videoImage?.url})`, backgroundSize: '80% 100%' }}>
+
+                  <div className={styles._videoDescription}>
+                    <div className={styles._videoContent}>
+                      <p className={styles._text}>{item?.videoDescription}</p>
+                      <hr className={styles._line}></hr>
+                      <p className={styles._textBold}>{item?.videoAction}</p>
+                    </div>
+                  </div>
                 </div>
+              </div>
             )
           })
           }
