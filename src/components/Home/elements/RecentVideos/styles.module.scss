@@ -49,7 +49,6 @@ $helveticaMedium: 'HelveticaNeueMedium';
   font-family: 'NormalFont', sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
-  cursor: pointer;
   margin-right: 1.875rem;
 }
 
@@ -102,7 +101,6 @@ $helveticaMedium: 'HelveticaNeueMedium';
   ._seeResponsive {
     display: flex;
     flex-flow: row;
-    cursor: pointer;
     align-items: center;
 
     & p {

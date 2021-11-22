@@ -96,8 +96,8 @@ $helveticaMedium: 'NormalFont';
 	margin-left: 10px;
 }
 
-._imgParent {
-  cursor: pointer;
+._socialLink {
+  cursor: none;
 }
 
 @include responsive(xl) {
