@@ -8,6 +8,7 @@
   flex-direction: column;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 ._container {
@@ -70,6 +71,8 @@
   width: 13%;
   align-self: flex-end;
   margin-right: 1.8rem;
+  position: absolute;
+  top: 40px;
 }
 ._buttonContainerResponsive{
   display: none;

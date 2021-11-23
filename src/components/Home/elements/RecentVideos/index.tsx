@@ -16,7 +16,7 @@ const RecentVideos = ({ content }: any) => {
     centerMode: true,
     centerPadding: '30px',
     nextArrow: <SlideArrow direction='right' />,
-    prevArrow: <SlideArrow direction='' showLeft={false} />,
+    prevArrow: <SlideArrow direction='' showLeft={true} />,
     responsive: [
       {
         breakpoint: 1400,
