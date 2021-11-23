@@ -58,11 +58,13 @@ const RecentVideos = ({ content }: any) => {
 
         <Slider {...settings}>
           {content?.Videos?.map((item: any, index: number) => {
+
+
             return (
               <div key={index}>
+                <a href={item?.url} target='_blank' rel='noreferrer'>
                 <div className={styles._iframe}
                   style={{ backgroundImage: `url(${fallbackRestUrl}${item?.videoImage?.url})`, backgroundSize: '80% 100%' }}>
-
                   <div className={styles._videoDescription}>
                     <div className={styles._videoContent}>
                       <p className={styles._text}>{item?.videoDescription}</p>
@@ -71,6 +73,7 @@ const RecentVideos = ({ content }: any) => {
                     </div>
                   </div>
                 </div>
+                </a>
               </div>
             )
           })

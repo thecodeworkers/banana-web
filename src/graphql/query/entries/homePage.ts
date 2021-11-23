@@ -107,6 +107,7 @@ const homePage = (locale) => `
         }
         videoAction
         videoDescription
+        url
       }
     }
     ClasroomBanner{
