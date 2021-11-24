@@ -61,16 +61,16 @@ const RecentVideos = ({ content }: any) => {
             return (
               <div key={index}>
                 <a href={item?.url} target='_blank' rel='noreferrer'>
-                <div className={styles._iframe}
-                  style={{ backgroundImage: `url(${fallbackRestUrl}${item?.videoImage?.url})`}}>
-                  <div className={styles._videoDescription}>
-                    <div className={styles._videoContent}>
-                      <p className={styles._text}>{item?.videoDescription}</p>
-                      <hr className={styles._line}></hr>
-                      <p className={styles._textBold}>{item?.videoAction}</p>
+                  <div className={styles._iframe}
+                    style={{ backgroundImage: `url(${fallbackRestUrl}${item?.videoImage?.url})` }}>
+                    <div className={styles._videoDescription}>
+                      <div className={styles._videoContent}>
+                        <p className={styles._text}>{item?.videoDescription}</p>
+                        <hr className={styles._line}></hr>
+                        <p className={styles._textBold}>{item?.videoAction}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
                 </a>
               </div>
             )
