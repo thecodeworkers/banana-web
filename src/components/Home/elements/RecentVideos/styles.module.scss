@@ -82,6 +82,7 @@ $helveticaMedium: 'HelveticaNeueMedium';
 	background-position: top;
   transition: all 1s;
   position: relative;
+  background-size: 80% 100%;
 
   &:hover {
     transition: all 1s;
@@ -166,6 +167,7 @@ $helveticaMedium: 'HelveticaNeueMedium';
   ._iframe {
     width: 18.375rem;
     height: 10rem;
+    background-size: 95% 100%;
   }
 
   ._shadow {

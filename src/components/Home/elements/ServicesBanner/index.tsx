@@ -107,7 +107,7 @@ const ServiceBanner = ({ content }) => {
 	}
 	._contentSubtitle{
 		font-size: 1rem;
-    font-family: 'NormalFont', sans-serif;
+    font-family: 'LightFont', sans-serif;
     font-weight: 400;
 		margin-top: 0.5rem;
 		margin-bottom: 0.5rem;

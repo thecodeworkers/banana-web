@@ -23,6 +23,7 @@
 ._scrollContain{
   position: absolute;
   width: 100%;
+  color: gray;
 }
 
 @include responsive(md) {

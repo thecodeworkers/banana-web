@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './styles.module.scss'
 import { GeneralButton } from '@components'
 
-const Banner = ({ withButton, background, buttonText, method }) => {
+const Banner = ({ withButton, background, buttonText, method, responsiveImage }) => {
 
   return (
     <>
@@ -32,6 +32,7 @@ const Banner = ({ withButton, background, buttonText, method }) => {
       }
       @media(max-width: 576px) {
         ._banner{
+          background-image: url(${responsiveImage});
           background-size: 150% 100%
         }
       }
