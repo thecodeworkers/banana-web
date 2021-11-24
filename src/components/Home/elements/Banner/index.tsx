@@ -27,13 +27,12 @@ const Banner = ({ withButton, background, buttonText, method, responsiveImage })
           display: flex;
           justify-content: center;
           align-items: flex-end;
-          background-repeat: no-repeat;
-          margin-top:2rem
+          background-repeat: no-repeat;å
       }
       @media(max-width: 576px) {
         ._banner{
           background-image: url(${responsiveImage});
-          background-size: 150% 100%
+          background-size: 100% 100%
         }
       }
       `}</style>
