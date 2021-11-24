@@ -13,7 +13,7 @@ const ThirdBanner = (content) => {
           <div className={styles._content}>
             <span className={styles._title}>{content?.content?.phrase}
               <b className={styles._blue}>{content?.content?.blueText}</b>
-             {content?.content?.phraseTwo}</span>
+              {content?.content?.phraseTwo}</span>
           </div>
           <div className={styles._subtitleContainer}>
             <p className={styles._subtitle}>{content?.content?.ThirdBannerWords[0]?.word}</p>
