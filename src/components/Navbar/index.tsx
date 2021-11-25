@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import logo from '@icons/logo.png'
 import toggle from '@icons/toggle.png'
@@ -6,26 +6,29 @@ import Image from 'next/image'
 import { parseHour, caracasParseHour } from '@utils'
 import { useDispatch } from 'react-redux'
 import { setStatus } from '@store/actions'
-
+import { useSelector } from 'react-redux'
+import { LogoBanana, Toggle } from '@icons/svg'
 
 const Navbar = () => {
 
   const dispatch = useDispatch()
+  const { intermittence: { theme } } = useSelector((state: any) => state)
   const [currentHour, setCurrentHour] = useState(caracasParseHour)
   const [navClass, setNavClass] = useState('_mainChild')
   const [textClass, setTextClass] = useState('_cityText')
 
-  const commonNav = `
-    background-color: #FFF;
+  const commonNav = (theme) => (`
+    background-color: ${theme == 'dark' ? '#000' : '#FFF'};
     width: 100%;
     display: flex;
     height: inherit;
-  `
+  `)
 
-  const commonText = `
+  const commonText = (theme) => (`
+    color: ${theme == 'dark' ? '#FFF' : '#000'};
     font-family: NormalFont;
     font-size: 0.875rem;
-  `
+  `)
 
   useEffect(() => {
 
@@ -64,28 +67,16 @@ const Navbar = () => {
         <div className={styles._parentChild}>
           <div className={navClass}>
             <div className={styles._childOne}>
-              <div className={styles._toggleParent}>
-                <Image
-                  src={logo}
-                  alt="logo-icon"
-                  width={22}
-                  height={22}
-                  quality={100}
-                />
+              <div className='_toggleParent'>
+                <LogoBanana theme={theme} />
               </div>
             </div>
             <div className={styles._childTwo}>
               <p className={textClass}> CARACAS {currentHour} </p>
             </div>
             <div className={styles._childThree}>
-              <div className={styles._toggleParent} onClick={openMenu}>
-                <Image
-                  src={toggle}
-                  alt="toggle-icon"
-                  width={26}
-                  height={26}
-                  quality={100}
-                />
+              <div className='_toggleParent' onClick={openMenu}>
+                <Toggle theme={theme} />
               </div>
             </div>
           </div>
@@ -93,36 +84,45 @@ const Navbar = () => {
       </div>
       <style jsx>{`
         ._mainChild {
-          ${commonNav};
+          ${commonNav(theme)};
         }
 
         ._transparent {
-          ${commonNav};
+          ${commonNav(theme)};
           animation: transparent .3s linear forwards;
         }
 
         ._solidColor {
-          ${commonNav};
+          ${commonNav(theme)};
           animation: solidColor .3s linear forwards;
         }
 
         ._cityText {
-          ${commonText};
+          ${commonText(theme)};
         }
 
         ._cityTextTrasparent {
-          ${commonText};
+          ${commonText(theme)};
           animation: transparentText .3s linear forwards;
         }
 
         ._cityTextsolid {
-          ${commonText};
+          ${commonText(theme)};
           animation: solidText .3s linear forwards;
+        }
+
+        ._toggleParent {
+          background-color: ${theme == 'dark' ? '#000' : '#FFF'};
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 2.938rem;
+          width: 2.938rem;
         }
 
         @keyframes transparent {
           from {
-            background-color: #FFF;
+            background-color: ${theme == 'dark' ? '#000' : '#FFF'};
           }
 
           to {
@@ -136,7 +136,7 @@ const Navbar = () => {
           }
 
           to {
-            background-color: #FFF;
+            background-color: ${theme == 'dark' ? '#000' : '#FFF'};
           }
         }
 

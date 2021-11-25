@@ -73,13 +73,19 @@ const MyApp = ({ Component, pageProps }) => {
           top: -0.9375rem;
           left: -0.9375rem;
           pointer-events: none;
-          z-index: 1090;
+          z-index: 1020;
           border: 3px solid #FFB703;
         }
 
         ._scale {
           width: 1.625rem;
           height: 1.625rem;
+        }
+
+        @media (max-width: 992px) {
+          ._circle {
+            display: none
+          }
         }
       `}
       </style>

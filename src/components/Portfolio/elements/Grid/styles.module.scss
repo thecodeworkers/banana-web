@@ -42,7 +42,7 @@
   min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, [col-start] .75fr 1fr [col-end]);
-  grid-column-gap: 1.2rem;
+  grid-column-gap: 2rem;
   overflow: hidden;
 }
 
@@ -56,7 +56,7 @@
   width: 100%;
   overflow: hidden;
   padding-top: 150%;
-  margin-bottom: 1.2rem;
+  margin-bottom: 2rem;
 }
 
 ._item {
@@ -68,3 +68,101 @@
   overflow: hidden;
 }
 
+//RESPONSIVEEEE
+
+._responsiveGridParent {
+
+  margin: 3rem 0;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+}
+
+._responsiveGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 90%;
+}
+
+._picture {
+  width: 100%;
+  height: 35vh;
+  background-size: cover;
+  background-position: top;
+}
+
+._filtersBtn {
+  display: flex;
+  align-items: flex-start;
+  align-self: start;
+  margin: 1.5rem 5%;
+
+  & p {
+    color: #FFF;
+    margin-right: 1rem;
+    font-family: 'NormalFont', sans-serif;
+    font-size: 1.1rem;
+  }
+}
+
+._phoneFilters {
+  margin: 1rem 5% 2rem 5%;
+  align-self: flex-start;
+  display: flex;
+
+  & ul:last-child {
+    margin-left: 2.5rem;
+  }
+}
+
+._phoneList {
+  color: #FFF;
+  list-style: none;
+
+  & li {
+    font-family: 'NormalFont', sans-serif;
+  }
+
+  & li:not(:last-child) {
+    margin-bottom: 1.2rem;
+  }
+}
+
+._arrowParentTop {
+  transform: rotate(180deg);
+  transform-origin: center;
+}
+
+._arrowParent {
+  transform: rotate(0);
+  transform-origin: center;
+}
+
+._paginationParent {
+  margin: 2.5rem 5% 0 5%;
+  display: flex;
+  width: 90%;
+  justify-content: space-evenly;
+}
+
+._square {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'NormalFont', sans-serif;
+}
+
+@include responsive(md) {
+  ._filters, ._grid {
+    display: none;
+  }
+
+  ._responsiveGridParent {
+    display: flex;
+  }
+}

@@ -19,6 +19,13 @@
   align-items: center
 }
 
+._lottiHide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: hide 0.8s linear forwards;
+}
+
 ._main {
   @include commonStyles;
 }
@@ -44,7 +51,8 @@
 
   to {
     opacity: 0;
-    visibility: hidden;
+    display: none;
+    z-index: -1;
   }
 }
 
