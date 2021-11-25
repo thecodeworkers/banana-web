@@ -11,3 +11,9 @@
   margin-bottom: 3rem;
 
 }
+
+@include responsive(md) {
+  ._bannerContainer{
+    height: 45vh;
+  }
+}
