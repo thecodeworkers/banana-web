@@ -72,7 +72,7 @@ const Hero = ({ content, reference, contact }: any) => {
       <div className={styles._information}>
         <div className={styles._linksParent}>
           <div className={styles._bottomBtnParent}>
-            <GeneralButton icon={false} text={languages[selectedLanguage]} method={changeLanguage} height='2.5rem' />
+            <GeneralButton icon={false} text={languages[selectedLanguage]} method={changeLanguage} height='2.1rem' />
           </div>
           <a href="mailto:Hello@bananacreative.io">{contact?.FooterContact?.Contact[0]?.contactMail}</a>
           <a href="https://wa.me/584241872382" target='_blank' rel='noreferrer' >{contact?.FooterContact?.Contact[0]?.phoneOne}</a>

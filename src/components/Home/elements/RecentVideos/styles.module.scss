@@ -128,7 +128,13 @@ $helveticaMedium: 'HelveticaNeueMedium';
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 40%;
+  height: 70%;
+}
+._videoIcon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1rem;
 }
 
 @include responsive(md) {
@@ -172,5 +178,8 @@ $helveticaMedium: 'HelveticaNeueMedium';
 
   ._shadow {
     display: none;
+  }
+  ._videoDescription{
+    width: 95%;
   }
 }

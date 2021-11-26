@@ -3,15 +3,14 @@ import { SlideArrow } from '@components'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { RightArrow } from '@icons/svg'
-import Image from 'next/image'
+import { RightArrow, Play} from '@icons/svg'
 import { fallbackRestUrl } from '@utils'
 
 const RecentVideos = ({ content }: any) => {
 
   const settings: any = {
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 3.1,
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: '30px',
@@ -21,21 +20,21 @@ const RecentVideos = ({ content }: any) => {
       {
         breakpoint: 1400,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2.1,
           centerPadding: '10px',
         }
       },
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2.1,
           centerPadding: '0px'
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.1,
           slidesToScroll: 2,
           centerPadding: '10px'
         }
@@ -65,6 +64,9 @@ const RecentVideos = ({ content }: any) => {
                     style={{ backgroundImage: `url(${fallbackRestUrl}${item?.videoImage?.url})` }}>
                     <div className={styles._videoDescription}>
                       <div className={styles._videoContent}>
+                        <div className={styles._videoIcon}>
+                        <Play />
+                        </div>
                         <p className={styles._text}>{item?.videoDescription}</p>
                         <hr className={styles._line}></hr>
                         <p className={styles._textBold}>{item?.videoAction}</p>
