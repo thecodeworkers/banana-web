@@ -3,7 +3,7 @@ import { SlideArrow } from '@components'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { RightArrow, Play} from '@icons/svg'
+import { RightArrow, Play } from '@icons/svg'
 import { fallbackRestUrl } from '@utils'
 
 const RecentVideos = ({ content }: any) => {
@@ -65,7 +65,7 @@ const RecentVideos = ({ content }: any) => {
                     <div className={styles._videoDescription}>
                       <div className={styles._videoContent}>
                         <div className={styles._videoIcon}>
-                        <Play />
+                          <Play />
                         </div>
                         <p className={styles._text}>{item?.videoDescription}</p>
                         <hr className={styles._line}></hr>
