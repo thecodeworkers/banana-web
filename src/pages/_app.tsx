@@ -12,30 +12,30 @@ const MyApp = ({ Component, pageProps }) => {
   const store: any = useStore()
   const [className, setClassName] = useState('')
 
-  useEffect(() => {
-    document.addEventListener('mousemove', moveCircle)
-    document.addEventListener('mousedown', toScale)
-    document.addEventListener('mouseup', toNormal)
-    store.__persistor.persist()
+  // useEffect(() => {
+  //   document.addEventListener('mousemove', moveCircle)
+  //   document.addEventListener('mousedown', toScale)
+  //   document.addEventListener('mouseup', toNormal)
+  //   store.__persistor.persist()
 
-    return () => {
-      removeEventListener('mousemove', moveCircle)
-      removeEventListener('mousedown', toScale)
-      removeEventListener('mouseup', toNormal)
-    }
-  }, [])
+  //   return () => {
+  //     removeEventListener('mousemove', moveCircle)
+  //     removeEventListener('mousedown', toScale)
+  //     removeEventListener('mouseup', toNormal)
+  //   }
+  // }, [])
 
-  const moveCircle = (event) => {
-    const timeline: any = gsap.timeline()
-    let x = event.clientX
-    let y = event.clientY
+  // const moveCircle = (event) => {
+  //   const timeline: any = gsap.timeline()
+  //   let x = event.clientX
+  //   let y = event.clientY
 
-    timeline.play()
-      .to('._circle', 0.4, { x, y })
-  }
+  //   timeline.play()
+  //     .to('._circle', 0.4, { x, y })
+  // }
 
-  const toScale = () => setClassName('_scale')
-  const toNormal = () => setClassName('')
+  // const toScale = () => setClassName('_scale')
+  // const toNormal = () => setClassName('')
 
   let progress = new ProgressBar({
     size: 3,
@@ -60,7 +60,7 @@ const MyApp = ({ Component, pageProps }) => {
         </Layout>
       </Loader>
 
-      <style>{`
+      {/* <style>{`
         ._circle {
           width: 1.875rem;
           height: 1.875rem;
@@ -88,7 +88,7 @@ const MyApp = ({ Component, pageProps }) => {
           }
         }
       `}
-      </style>
+      </style> */}
     </>
   )
 }

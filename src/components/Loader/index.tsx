@@ -31,7 +31,7 @@ const Loader = ({ children }) => {
   return (
     <>
       <div className={router.pathname == '/' ? (showLoader ? styles._main : styles._hide) : styles._static }>
-        <div className={styles._lottieParent}>
+        <div className={router.pathname == '/' ? (showLoader ? styles._lottieParent : styles._lottieParentHide) : styles._hidden }>
           <div className={`animation-container ${styles._lottie}`} ref={lottieContainer}></div>
         </div>
       </div>

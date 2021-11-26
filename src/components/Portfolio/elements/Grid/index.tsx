@@ -8,7 +8,6 @@ const filters: Array<string> = ['All', 'Brand', 'Productions', 'UI/UX', 'Moda', 
 const Grid = () => {
 
   const [showFilters, setShowFilters] = useState(false)
-
   const showHideFilters = () => setShowFilters(showFilters => !showFilters)
 
   return (
@@ -21,7 +20,7 @@ const Grid = () => {
           <li> UI/UX </li>
           <li> Moda </li>
           <li> Mograph </li>
-          <li> packaging </li>
+          <li> Packaging </li>
         </ul>
       </div>
 

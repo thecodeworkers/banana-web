@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Grid } from './elements'
 import Head from 'next/head'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setStatus } from '@store/actions'
 
 

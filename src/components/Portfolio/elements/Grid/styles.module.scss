@@ -7,27 +7,35 @@
 
 ._filters {
   justify-content: center;
-  margin-top: 10rem;
   width: 95%;
   align-self: center;
-  margin: 10rem auto 0 auto;
+  margin: 9rem auto 0 auto;
 }
 
 ._list {
   display: flex;
   list-style: none;
   padding: 0;
-  font-family: 'NormalFont', sans-serif;
   justify-content: space-between;
   width: 100%;
 
   & li {
+    font-family: 'LightFont', sans-serif;
     color: #fff;
     font-size: 0.9rem;
+    cursor: pointer;
   }
 
-  & li:first-child {
-    text-decoration: underline;
+  & li::after {
+    display: block;
+    content: '';
+    border-bottom: solid 1px #FFF;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+
+  & li:hover::after {
+    transform: scaleX(1);
   }
 }
 
@@ -42,7 +50,7 @@
   min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, [col-start] .75fr 1fr [col-end]);
-  grid-column-gap: 2rem;
+  grid-column-gap: 1.6rem;
   overflow: hidden;
 }
 
@@ -71,7 +79,6 @@
 //RESPONSIVEEEE
 
 ._responsiveGridParent {
-
   margin: 3rem 0;
   justify-content: center;
   flex-direction: column;

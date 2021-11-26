@@ -11,6 +11,7 @@ import { setStatus } from '@store/actions'
 import gsap from 'gsap'
 import { inAnimation, outAnimation } from './gsap'
 import { fallbackRestUrl } from '../../utils/path'
+import { useRouter } from 'next/router'
 
 const commonStyles: any = `
   display: flex;
@@ -33,6 +34,7 @@ const sections =
 
 const Menu = () => {
 
+  const router = useRouter()
   const dispatch = useDispatch()
   const { classMenu } = useSelector((state: any) => state.intermittence)
   const [currentHour, setCurrentHour] = useState(caracasParseHour)
@@ -58,6 +60,13 @@ const Menu = () => {
   }
 
   const closeMenu = () => dispatch(setStatus({ classMenu: '_outAnimation' }))
+
+  const navigation = (item: any) => {
+    const { name } = item
+    if (name.toLowerCase() == 'team') router.push('about-us')
+    if (name.toLowerCase() == 'portfolio') router.push('portfolio')
+    closeMenu()
+  }
 
   return (
     <>
@@ -111,7 +120,7 @@ const Menu = () => {
               return (
                 <div className={styles._routesContainer} key={index}>
                   <hr className={styles._underscore}></hr>
-                  <p className={styles._title}>{item.name}</p>
+                  <p className={styles._title} onClick={() => navigation(item)} >{item.name}</p>
                 </div>
               )
             })
