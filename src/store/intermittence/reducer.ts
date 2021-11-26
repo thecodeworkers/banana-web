@@ -11,7 +11,8 @@ const initialState = {
     color: '#4FCF01',
     type: 'success'
   },
-  showLoader: true
+  showLoader: true,
+  theme: 'light'
 }
 
 const pageReducer = (state = initialState, { type, payload }: AnyAction) => {

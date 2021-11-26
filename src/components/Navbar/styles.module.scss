@@ -25,6 +25,7 @@ $helveticaNeue: 'HelveticaNeue';
 ._childOne {
 	@include common(60%);
   padding-left: 1.5%;
+
 }
 
 ._childTwo {
@@ -36,15 +37,6 @@ $helveticaNeue: 'HelveticaNeue';
 	justify-content: flex-end;
   align-items: center;
   padding-right: 1.5%;
-}
-
-._toggleParent {
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 2.938rem;
-  width: 2.938rem;
 }
 
 ._parentChild {

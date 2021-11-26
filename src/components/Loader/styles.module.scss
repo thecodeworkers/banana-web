@@ -19,6 +19,13 @@
   align-items: center
 }
 
+._lottieParentHide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: hide 0.8s linear forwards;
+}
+
 ._main {
   @include commonStyles;
 }
@@ -36,6 +43,10 @@
   display: block;
 }
 
+._hidden {
+  display: none;
+}
+
 
 @keyframes hide {
   from {
@@ -44,6 +55,7 @@
 
   to {
     opacity: 0;
+    display: none;
     visibility: hidden;
   }
 }

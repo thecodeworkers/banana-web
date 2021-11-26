@@ -8,10 +8,10 @@ import logo from '@icons/logo.png'
 import logoWhite from '@icons/logo-white.png'
 import tcw from '@icons/tcw-logo.svg'
 import { useSelector, useDispatch } from 'react-redux'
-import { setStatus } from '@store/actions'
+import { setStatus, getPage } from '@store/actions'
 import gsap from 'gsap'
 import { inAnimation, outAnimation } from './gsap'
-import { getPage } from '@store/actions'
+import { useRouter } from 'next/router'
 
 const commonStyles: any = `
   display: flex;
@@ -23,6 +23,7 @@ const commonStyles: any = `
 `
 const Menu = () => {
 
+  const router = useRouter()
   const dispatch = useDispatch()
   const { classMenu } = useSelector((state: any) => state.intermittence)
   const [currentHour, setCurrentHour] = useState(caracasParseHour)
@@ -58,6 +59,13 @@ const Menu = () => {
       return prev
     }, 0)
     dispatch(getPage({ query: 'home', language: position }))
+  }
+
+  const navigation = (item: any) => {
+    const { name } = item
+    if (name.toLowerCase() == 'team') router.push('about-us')
+    if (name.toLowerCase() == 'portfolio') router.push('portfolio')
+    closeMenu()
   }
 
   return (
@@ -111,7 +119,7 @@ const Menu = () => {
               return (
                 <div className={styles._routesContainer} key={index}>
                   <hr className={styles._underscore}></hr>
-                  <p className={styles._title}>{item.name}</p>
+                  <p className={styles._title} onClick={() => navigation(item)} >{item.name}</p>
                 </div>
               )
             })

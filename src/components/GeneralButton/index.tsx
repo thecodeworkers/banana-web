@@ -37,7 +37,7 @@ const GeneralButton = ({
           justify-content: ${icon ? 'space-between' : 'center'};
           align-items: center;
           white-space: nowrap;
-          cursor: none;
+          cursor: pointer;
         }
 
         ${animation && `

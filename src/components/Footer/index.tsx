@@ -14,6 +14,7 @@ const Footer = () => {
   const navigation = (item: any) => {
     const { name } = item
     if (name.toLowerCase() == 'team') router.push('about-us')
+    if (name.toLowerCase() == 'portfolio') router.push('portfolio')
   }
 
   return (
