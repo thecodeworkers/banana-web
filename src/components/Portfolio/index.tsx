@@ -11,7 +11,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     dispatch(setStatus({ theme: 'dark' }))
-    return () => dispatch(setStatus({ theme: 'light' }))
+    return () => { dispatch(setStatus({ theme: 'light' })) }
   }, [])
 
   return (
