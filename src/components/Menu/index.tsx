@@ -1,16 +1,16 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
-import { parseHour, caracasParseHour } from '@utils'
+import { GeneralButton } from '@components'
+import { parseHour, caracasParseHour, fallbackRestUrl } from '@utils'
 import close from '@icons/close.svg'
 import Image from 'next/image'
 import logo from '@icons/logo.png'
 import logoWhite from '@icons/logo-white.png'
 import tcw from '@icons/tcw-logo.svg'
 import { useSelector, useDispatch } from 'react-redux'
-import { setStatus } from '@store/actions'
+import { setStatus, getPage } from '@store/actions'
 import gsap from 'gsap'
 import { inAnimation, outAnimation } from './gsap'
-import { fallbackRestUrl } from '../../utils/path'
 import { useRouter } from 'next/router'
 
 const commonStyles: any = `
@@ -21,24 +21,13 @@ const commonStyles: any = `
   top: 0;
   z-index: 999;
 `
-
-const sections =
-  [
-    { route: 'Home' },
-    { route: 'Servicios' },
-    { route: 'Portfolio' },
-    { route: 'Team' },
-    { route: 'Blog' },
-    { route: 'Classroom' },
-  ]
-
 const Menu = () => {
 
   const router = useRouter()
   const dispatch = useDispatch()
   const { classMenu } = useSelector((state: any) => state.intermittence)
   const [currentHour, setCurrentHour] = useState(caracasParseHour)
-  const { page: { footer } } = useSelector((state: any) => state)
+  const { page: { footer }, intermittence: { languages, selectedLanguage } } = useSelector((state: any) => state)
 
   useEffect(() => {
     const interval = setInterval(getCurrentHour, 1000)
@@ -60,6 +49,17 @@ const Menu = () => {
   }
 
   const closeMenu = () => dispatch(setStatus({ classMenu: '_outAnimation' }))
+
+  const changeLanguage = () => {
+    const langs = Object.keys(languages)
+    const position = langs.reduce((prev: any, next: any, index: any) => {
+      if (selectedLanguage == next) prev = index
+      if (prev < index) return next
+      if (prev + 1 == langs.length) return 'es'
+      return prev
+    }, 0)
+    dispatch(getPage({ query: 'home', language: position }))
+  }
 
   const navigation = (item: any) => {
     const { name } = item
@@ -84,7 +84,6 @@ const Menu = () => {
           <div className={styles._socialBanner}>
             <div className={styles._socialMedia}>
               {footer?.social?.map(function (item, index) {
-
                 return (
                   item?.name?.split('-')?.[1] == 'black' ?
                     <div className={`${item?.name}${'-parent'}`} key={index}>
@@ -125,17 +124,15 @@ const Menu = () => {
               )
             })
             }
+            <div className={styles._bottomBtnParent}>
+              <GeneralButton icon={false} background={'#fff'} textColor={'#000'} text={languages[selectedLanguage]} method={changeLanguage} height='1rem' />
+            </div>
           </div>
           <div className={styles._contactContainer}>
             <div className={styles._contactNumber}>
-              <div>
-                <p className={`${styles._text} ${styles._mb1}`}>{footer?.FooterContact?.Contact[0]?.titleNumbers}</p>
-              </div>
-              <div className={styles._numbers}>
-                <p className={`${styles._text} ${styles._mb1}`}>{footer?.FooterContact?.Contact[0]?.phoneOne}</p>
-                <p className={`${styles._text} ${styles._mb1}`}>{footer?.FooterContact?.Contact[0]?.phoneTwo}</p>
-                <p className={`${styles._textBold}`}>{footer?.FooterContact?.Contact[0]?.contactMail}</p>
-              </div>
+              <p className={`${styles._text} `}>{footer?.FooterContact?.Contact[0]?.titleNumbers}</p>
+              <p className={`${styles._textBold} `}>{footer?.FooterContact?.Contact[0]?.phoneOne}</p>
+              <p className={`${styles._textBold} `}>{footer?.FooterContact?.Contact[0]?.contactMail}</p>
             </div>
 
             <div className={styles._contactMail}>
@@ -145,9 +142,7 @@ const Menu = () => {
               <div>
                 <p className={styles._text}>{footer?.FooterContact?.Contact[0]?.subtitleSocial}</p>
               </div>
-              <div>
-                <p className={styles._text}> </p>
-              </div>
+
               <div>
                 <p className={styles._textBold}>{footer?.FooterContact?.Contact[0]?.email}</p>
               </div>
@@ -160,17 +155,13 @@ const Menu = () => {
               <div>
                 <p className={styles._text}> </p>
               </div>
-              <div>
-                <p className={styles._text}> </p>
-              </div>
-              <div>
-                <p className={styles._text}> </p>
-              </div>
+
               <div>
                 <p className={styles._textBold}>{footer?.FooterContact?.Contact[0]?.socialAccount}</p>
               </div>
             </div>
           </div>
+
           <div className={styles._footerResponsive}>
             <div className={styles._logosContainer}>
               {footer?.social?.map(function (item, index) {

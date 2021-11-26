@@ -8,6 +8,7 @@
   flex-direction: column;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 ._container {
@@ -70,6 +71,11 @@
   width: 13%;
   align-self: flex-end;
   margin-right: 1.8rem;
+  position: absolute;
+  top: 40px;
+}
+._buttonContainerResponsive{
+  display: none;
 }
 
 @include responsive(md) {
@@ -86,6 +92,7 @@
 
  ._bigTitle{
    font-size: 2.1875rem;
+   width: 100%;
  }
  ._subtitle{
    font-size: 0.8125rem
@@ -98,12 +105,17 @@
    display: none;
  }
  ._buttonContainer{
-   width: 40%;
-   margin-top: 1rem;
-    margin-left: -5px;
+   display: none;
  }
+ ._buttonContainerResponsive{
+  display: block;
+  width: 40%;
+  margin-top: 1rem;
+  margin-left: 10px;
+}
 
  ._bannerContainer{
-   height: 100vh;
+   min-height: 100vh;
+   padding: 3rem 0 1rem 0;
  }
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './styles.module.scss'
 import { GeneralButton } from '@components'
 
-const Banner = ({ withButton, background, buttonText, method }) => {
+const Banner = ({ withButton, background, buttonText, method, responsiveImage }) => {
 
   return (
     <>
@@ -28,11 +28,11 @@ const Banner = ({ withButton, background, buttonText, method }) => {
           justify-content: center;
           align-items: flex-end;
           background-repeat: no-repeat;
-          margin-top:2rem
       }
       @media(max-width: 576px) {
         ._banner{
-          background-size: 150% 100%
+          background-image: url(${responsiveImage});
+          background-size: 100% 100%
         }
       }
       `}</style>

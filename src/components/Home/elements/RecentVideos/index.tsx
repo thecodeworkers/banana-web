@@ -3,37 +3,38 @@ import { SlideArrow } from '@components'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { RightArrow } from '@icons/svg'
+import { RightArrow, Play} from '@icons/svg'
+import { fallbackRestUrl } from '@utils'
 
 const RecentVideos = ({ content }: any) => {
 
   const settings: any = {
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 3.1,
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: '30px',
     nextArrow: <SlideArrow direction='right' />,
-    prevArrow: <SlideArrow direction='' showLeft={false} />,
+    prevArrow: <SlideArrow direction='' showLeft={true} />,
     responsive: [
       {
         breakpoint: 1400,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2.1,
           centerPadding: '10px',
         }
       },
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2.1,
           centerPadding: '0px'
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.1,
           slidesToScroll: 2,
           centerPadding: '10px'
         }
@@ -58,9 +59,21 @@ const RecentVideos = ({ content }: any) => {
           {content?.Videos?.map((item: any, index: number) => {
             return (
               <div key={index}>
-                <iframe className={styles._iframe}
-                  src={item?.url} >
-                </iframe>
+                <a href={item?.url} target='_blank' rel='noreferrer'>
+                  <div className={styles._iframe}
+                    style={{ backgroundImage: `url(${fallbackRestUrl}${item?.videoImage?.url})` }}>
+                    <div className={styles._videoDescription}>
+                      <div className={styles._videoContent}>
+                        <div className={styles._videoIcon}>
+                        <Play />
+                        </div>
+                        <p className={styles._text}>{item?.videoDescription}</p>
+                        <hr className={styles._line}></hr>
+                        <p className={styles._textBold}>{item?.videoAction}</p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
               </div>
             )
           })

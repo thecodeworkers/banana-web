@@ -11,9 +11,9 @@ const ThirdBanner = (content) => {
       <div className={styles._bannerContainer}>
         <div className={styles._container}>
           <div className={styles._content}>
-            <p className={styles._title}>{content?.content?.phrase}
-              <b className={styles._blueText}>{content?.content?.blueText}</b>
-              {content?.content?.phraseTwo}</p>
+            <span className={styles._title}>{content?.content?.phrase}
+              <b className={styles._blue}>{content?.content?.blueText}</b>
+              {content?.content?.phraseTwo}</span>
           </div>
           <div className={styles._subtitleContainer}>
             <p className={styles._subtitle}>{content?.content?.ThirdBannerWords[0]?.word}</p>
@@ -31,7 +31,7 @@ const ThirdBanner = (content) => {
                 <Image src={haloWeb} alt='haloWEB' width={341} height={178} quality={100} />
               </div>
               <div className={styles._imageContainerResponsive}>
-                <Image src={haloResponsive} alt='haloResponsive' width={116} height={90} quality={100} />
+                <Image src={haloResponsive} alt='haloResponsive' width={350} height={250} quality={100} />
               </div>
               <p className={styles._subtitle}>{content?.content?.ThirdBannerWords[2]?.word}</p>
             </div>

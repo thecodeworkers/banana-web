@@ -57,7 +57,7 @@ const Footer = () => {
           <div className={styles._contactNumber}>
             <p className={`${styles._text} `}>{footer?.FooterContact?.Contact[0]?.titleNumbers}</p>
             <p className={`${styles._textBold} `}>{footer?.FooterContact?.Contact[0]?.phoneOne}</p>
-            <p className={`${styles._textBold} `}>{footer?.FooterContact?.Contact[0]?.phoneTwo}</p>
+            <p className={`${styles._textBold} `}>{footer?.FooterContact?.Contact[0]?.contactMail}</p>
           </div>
 
           <div className={styles._contactMail}>
