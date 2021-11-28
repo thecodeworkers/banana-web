@@ -97,7 +97,7 @@ $helveticaMedium: 'NormalFont';
 }
 
 ._socialLink {
-  cursor: none;
+  cursor: pointer;
 }
 
 @include responsive(xl) {

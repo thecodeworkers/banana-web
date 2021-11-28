@@ -100,16 +100,25 @@ $helveticaNeue: 'HelveticaNeue';
     font-family: 'MediumFont', sans-serif;
     font-weight: 400;
     font-size: 0.8rem;
+    cursor: pointer;
   }
 
-  & a:hover {
-    text-decoration: underline;
-    text-underline-position: under;
+  & a::after {
+    display: block;
+    content: '';
+    border-bottom: solid 1px #000;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+
+  & a:hover::after {
+    transform: scaleX(1);
   }
 }
 
 ._boxParent {
   transition: all 0.6s;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(0.3rem);

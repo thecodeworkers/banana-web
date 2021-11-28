@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { GeneralButton } from '@components'
 import styles from './styles.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
@@ -19,6 +19,8 @@ const Contact = ({ content }: any) => {
   const [isValid, setIsValid] = useState(true)
   const result = 100 / steps
 
+  const inputReference = useRef(null)
+
   useEffect(() => {
     calculateInitialWidth()
   }, [])
@@ -26,20 +28,40 @@ const Contact = ({ content }: any) => {
   const calculateInitialWidth = () => setWidth(result ?? 0)
 
   const nextStep = () => {
+    inputReference.current.focus()
     const prevState = contact?.contactData
     const key = contactData[currentStep - 1]?.input.placeholder
+    const newArray = Object.keys(prevState)
 
     dispatch(setContactForm({ contactData: { ...prevState, [key]: inputValue } }))
 
+    const localStep = newArray[currentStep]
+    const inputNextValue = prevState[localStep]
+    const contactLength = Object.keys(prevState).length
+
     if (currentStep < steps) {
-      setWidth((width: number) => width + result)
+      if (!inputNextValue && currentStep !== contactLength) setWidth((width: number) => width + result)
       setCurrentStep((currentStep: number) => ++currentStep)
-      setInputValue('')
+      !inputNextValue ? setInputValue('') : setInputValue(inputNextValue)
       return
     }
 
     const data = { ...prevState, [key]: inputValue }
     dispatch(sendContactData(data))
+  }
+
+  const previousStep = () => {
+    inputReference.current.focus()
+
+    if (currentStep > 1) {
+      const newArray = Object.keys(contact?.contactData)
+      const result = currentStep - 2
+      const key = newArray[result]
+      const previousData = contact?.contactData[key]
+
+      setInputValue(previousData)
+      setCurrentStep(currentStep - 1)
+    }
   }
 
   const inputHandler = (element: any) => {
@@ -70,7 +92,10 @@ const Contact = ({ content }: any) => {
   }
 
   useEffect(() => {
-    if (contact.sended) setInputValue('')
+    if (contact.sended) {
+      dispatch(setContactForm({ contactData: {} }))
+      setInputValue('')
+    }
   }, [contact])
 
   return (
@@ -104,14 +129,31 @@ const Contact = ({ content }: any) => {
                   className={styles._input}
                   value={inputValue}
                   onChange={inputHandler}
+                  ref={inputReference}
                 >
                 </input>
               </div>
               <div className={styles._parentBtn}>
-                <GeneralButton
-                  icon={false}
-                  text={localData?.button?.text}
-                  method={isValid && inputValue.length ? nextStep : showAlert} />
+
+                <div className={styles._parentSubBtn}>
+                  <GeneralButton
+                    textColor='#000'
+                    background='#FFF'
+                    borderColor='#000'
+                    icon={false}
+                    text='Regresar'
+                    method={previousStep}
+                  />
+                </div>
+
+                <div className={styles._parentSubBtn}>
+                  <GeneralButton
+                    icon={false}
+                    text={localData?.button?.text}
+                    method={isValid && inputValue.length ? nextStep : showAlert}
+                  />
+                </div>
+
               </div>
             </div>
           </div>
@@ -125,7 +167,9 @@ const Contact = ({ content }: any) => {
               <GeneralButton
                 icon={false}
                 text='Send new message'
-                method={resetForm} />
+                method={resetForm}
+                borderColor='#000'
+              />
             </div>
           </div>
         }
@@ -134,7 +178,7 @@ const Contact = ({ content }: any) => {
 
       {
         !contact?.sended &&
-        <div>
+        <div style={{ width: '100%' }}>
           <p className={styles._stepsNumber}> {currentStep} / {steps} </p>
           <div className={styles._stepper}>
             <div className='_step'></div>

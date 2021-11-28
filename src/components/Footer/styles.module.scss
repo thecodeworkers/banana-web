@@ -24,6 +24,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  & div {
+    cursor: pointer;
+  }
 }
 
 ._sectionsContainer{
@@ -40,6 +44,19 @@
   font-family: 'BoldFont', sans-serif;
   font-size: 0.875rem;
   color: white;
+  cursor: pointer;
+
+  &::after {
+    display: block;
+    content: '';
+    border-bottom: solid 1px #FFF;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
 }
 ._sectionsContent {
   width: 50%;
