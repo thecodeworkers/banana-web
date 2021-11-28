@@ -118,6 +118,7 @@ const Navbar = () => {
           align-items: center;
           height: 2.938rem;
           width: 2.938rem;
+          cursor: pointer;
         }
 
         @keyframes transparent {

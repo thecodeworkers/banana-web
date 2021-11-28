@@ -9,7 +9,8 @@ const GeneralButton = ({
   animation = true,
   text = '',
   method = null,
-  iconColor = '#FFF'
+  iconColor = '#FFF',
+  borderColor = '',
 }) => {
   return (
     <>
@@ -29,7 +30,7 @@ const GeneralButton = ({
           width: 100%;
           height: ${height};
           background-color: ${background};
-          border: none;
+          border: solid 1px ${borderColor};
           box-sizing: border-box;
           color: ${textColor};
           padding: 1.8rem;

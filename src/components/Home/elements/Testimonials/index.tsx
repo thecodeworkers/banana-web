@@ -33,7 +33,7 @@ const Testimonials = (content) => {
     <>
       <div className={styles._bannerContainer}>
         <div className={styles._buttonContainer}>
-          <GeneralButton text={content?.content?.button?.text} icon={true} />
+          <GeneralButton text={content?.content?.button?.text} icon={true} borderColor='#000' />
         </div>
         <Slider {...settings}>
           {content?.content?.TesmimonialData?.map((item, index) => {

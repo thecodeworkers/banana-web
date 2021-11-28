@@ -198,7 +198,8 @@ const Menu = () => {
           animation: slideOut 1s ease-in-out forwards;
         }
 
-        .linkedin-black-parent, .behance-black-parent, .insta-black-parent{
+        .linkedin-black-parent, .behance-black-parent, .insta-black-parent {
+          cursor: pointer;
           opacity: 0;
           transform: translateY(50px)
         }

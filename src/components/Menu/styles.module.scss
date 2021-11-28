@@ -16,6 +16,14 @@ $yellow: #FFB703;
   right: -100%;
 }
 
+._closeParent {
+  cursor: pointer;
+}
+
+._toggleParent {
+  cursor: pointer;
+}
+
 ._whiteSection{
   width: 30%;
   background: white;
@@ -75,8 +83,12 @@ $yellow: #FFB703;
   font-weight: 700;
   font-size: 4.0625rem;
   margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all .3s;
+
    &:hover {
-    color:$yellow;
+    transition: all .3s;
+    color: $yellow;
    }
 }
 
@@ -191,7 +203,6 @@ display: none;
   }
   ._title{
     font-size: 3rem;
-
   }
   ._contactContainer{
     display: none;

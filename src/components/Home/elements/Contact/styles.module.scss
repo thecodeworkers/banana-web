@@ -23,7 +23,8 @@ $gray: #C4C4C4;
 
 ._mainYellow {
   @include commonMain;
-  padding-top: 6rem;
+  padding-top: 7rem;
+  height: 32.225rem;
   background-color: $yellow;
   // animation: smoothcolor linear 0.6s forwards;
 }
@@ -128,9 +129,19 @@ $gray: #C4C4C4;
 }
 
 ._parentBtn {
-  width: 18.375rem;
-  display: block;
+  width: 40%;
   margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+
+  & div:first-child {
+    margin-right: 2rem;
+  }
+}
+
+._parentSubBtn {
+  max-width: 13.0625rem;
+  min-width:  13.0625rem;
 }
 
 ._parentBtnSent {
@@ -183,6 +194,10 @@ $gray: #C4C4C4;
     padding-top: 2rem;
   }
 
+  ._mainYellow {
+    height: auto;
+  }
+
   ._underscore{
     left: 9.4375rem
   }
@@ -204,9 +219,19 @@ $gray: #C4C4C4;
     }
   }
 
+  ._parentSubBtn {
+    max-width: 48%;
+    min-width: 48%;
+  }
+
   ._parentBtn {
     width: 100%;
     margin-top: 2rem;
+    justify-content: space-between;
+
+    & div:first-child {
+      margin-right: 0;
+    }
   }
 
   ._title {
@@ -221,7 +246,9 @@ $gray: #C4C4C4;
 
   ._stepsNumber {
     margin-top: 3rem;
+    margin-left: 5%;
   }
+
 
   ._sentTitle {
     font-size: 2.95rem;
