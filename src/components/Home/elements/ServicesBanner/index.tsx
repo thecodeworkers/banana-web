@@ -21,8 +21,8 @@ const ServiceBanner = ({ content }) => {
 
   useEffect(() => {
     const height = main?.current?.clientHeight || 0
-    animation('_scrollContainer', '_scrollTitle', 400, height)
-    animation('_scrollContainerTwo', '_scrollTitleTwo', -400, height)
+    animation('_scrollContainer', '_scrollTitle', 420, height)
+    animation('_scrollContainerTwo', '_scrollTitleTwo', -420, height)
   }, [])
 
   return (

@@ -5,7 +5,7 @@ import {
   SecondBanner, ServicesBanner, TestimonialsBanner, ThirdBanner
 } from './elements'
 import { fallbackRestUrl } from '../../utils/path'
-import { Alert } from '@components'
+import { Alert, DotsLine } from '@components'
 
 const Home = () => {
 
@@ -17,6 +17,7 @@ const Home = () => {
       {home ?
         <div>
           <Alert />
+          <DotsLine />
           <Hero content={home?.Hero} data={home?.Banner} contact={footer} reference={banner} />
           <div ref={banner}>
             <Banner withButton={home?.GifBanner?.button}
