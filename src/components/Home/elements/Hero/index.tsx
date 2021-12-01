@@ -43,7 +43,8 @@ const Hero = ({ content, reference, contact }: any) => {
   return (
     <div className={styles._main}>
       <div className={styles._motion}>
-        <div className={`animation-container ${styles._motionImage}`} ref={animationContainer}></div>
+        <Image src='/images/450.gif' alt="logo-icon" layout='fill' quality={100} />
+        {/* <div className={`animation-container ${styles._motionImage}`} ref={animationContainer}></div> */}
       </div>
 
       <div className={styles._purpose}>
@@ -72,7 +73,7 @@ const Hero = ({ content, reference, contact }: any) => {
       <div className={styles._information}>
         <div className={styles._linksParent}>
           <div className={styles._bottomBtnParent}>
-            <GeneralButton icon={false} text={languages[selectedLanguage]} method={changeLanguage} height='2.1rem' />
+            <GeneralButton icon={false} height='2rem' padding='1.3rem' text={languages[selectedLanguage]} method={changeLanguage}  />
           </div>
           <a href="mailto:Hello@bananacreative.io">{contact?.FooterContact?.Contact[0]?.contactMail}</a>
           <a href="https://wa.me/584241872382" target='_blank' rel='noreferrer' >{contact?.FooterContact?.Contact[0]?.phoneOne}</a>

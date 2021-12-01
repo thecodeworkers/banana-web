@@ -17,7 +17,7 @@ $helveticaNeue: 'HelveticaNeue';
 ._motion {
   @include layout(100%, 35%);
   position: relative;
-  margin-bottom: 1rem;
+  // margin-bottom: 1rem;
   overflow: hidden;
 }
 
@@ -30,6 +30,7 @@ $helveticaNeue: 'HelveticaNeue';
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: 2.5rem;
 }
 
 ._information {
@@ -69,14 +70,13 @@ $helveticaNeue: 'HelveticaNeue';
   padding-top: 1rem;
   @include layout(100%, 35%);
 
-
   & p:last-child{
     width: 35%;
     font-family: 'NormalFont', sans-serif;
     font-weight: 400;
     line-height: 1.5rem;
     font-size: 0.875rem;
-    margin-top: 2rem;
+    margin-top: 1.6rem;
   }
 }
 
@@ -87,7 +87,10 @@ $helveticaNeue: 'HelveticaNeue';
 
 ._bottomBtnParent {
   width: 7rem;
+  display: inline;
+  align-self:flex-start;
 }
+
 
 ._linksParent {
   display: flex;

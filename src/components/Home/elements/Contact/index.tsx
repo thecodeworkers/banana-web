@@ -111,15 +111,12 @@ const Contact = ({ content }: any) => {
         {
           !contact?.sended &&
           <div className={styles._contentParent}>
-            <p className={styles._textOne}>
-              {localData?.firstSubtitle}
+            <p className={currentStep == 1? styles._textOne : styles._textOneMargin}>
+              {currentStep == 1 ? localData?.firstSubtitle : contactData[currentStep - 1]?.Question}
             </p>
 
-            <p className={styles._textTwo}>
-              {localData?.secondSubtitle}
-            </p>
-
-            <p className={styles._question}>{contactData[currentStep - 1]?.Question}</p>
+            { currentStep == 1 && <p className={styles._textTwo}> {localData?.secondSubtitle}</p> }
+            { currentStep == 1 && <p className={styles._question}>{contactData[currentStep - 1]?.Question}</p> }
 
             <div className={styles._formParent}>
               <div>
@@ -153,7 +150,6 @@ const Contact = ({ content }: any) => {
                     method={isValid && inputValue.length ? nextStep : showAlert}
                   />
                 </div>
-
               </div>
             </div>
           </div>

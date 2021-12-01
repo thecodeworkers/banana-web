@@ -11,6 +11,7 @@ const GeneralButton = ({
   method = null,
   iconColor = '#FFF',
   borderColor = '',
+  padding = '1.8rem'
 }) => {
   return (
     <>
@@ -33,7 +34,7 @@ const GeneralButton = ({
           border: solid 1px ${borderColor};
           box-sizing: border-box;
           color: ${textColor};
-          padding: 1.8rem;
+          padding: ${padding};
           display: flex;
           justify-content: ${icon ? 'space-between' : 'center'};
           align-items: center;
