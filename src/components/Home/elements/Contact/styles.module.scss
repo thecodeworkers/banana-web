@@ -24,9 +24,19 @@ $gray: #C4C4C4;
 ._mainYellow {
   @include commonMain;
   padding-top: 7rem;
-  height: 32.225rem;
-  background-color: $yellow;
-  // animation: smoothcolor linear 0.6s forwards;
+  height: 27.875rem;
+  animation: gradient ease 3s forwards;
+  background: linear-gradient(-45deg, #FFF, #FFF, $yellow, $yellow);
+  background-size: 400% 400%;
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
 }
 
 @keyframes smoothcolor {
@@ -95,10 +105,20 @@ $gray: #C4C4C4;
   font-weight: 700;
 }
 
+._textOneMargin {
+  @extend ._textOne;
+  margin-bottom: 4rem;
+}
+
 ._textTwo {
   @include text(black);
   font-family: 'NormalFont', sans-serif;
   font-weight: 700;
+}
+
+._textTwoWhite {
+  @extend ._textTwo;
+  color: #FFF;
 }
 
 ._formParent {
@@ -179,6 +199,11 @@ $gray: #C4C4C4;
   font-size: 0.9375rem;
   margin: 30px 0 10px 0;
   font-weight: 700;
+}
+
+._questionWhite {
+  @extend ._question;
+  color: #FFF;
 }
 
 ._sentTitle {

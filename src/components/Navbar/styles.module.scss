@@ -30,6 +30,9 @@ $helveticaNeue: 'HelveticaNeue';
 
 ._childTwo {
 	@include common(20%);
+  // background-color: blue;
+  display: flex;
+  justify-content: flex-end;
 }
 
 ._childThree {
