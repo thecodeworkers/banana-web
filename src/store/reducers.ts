@@ -3,12 +3,14 @@ import font from './font/reducer'
 import page from './page/reducer'
 import intermittence from './intermittence/reducer'
 import contact from './contact/reducer'
+import project from './project/reducer'
 
 const reducers = combineReducers({
   font,
   page,
   intermittence,
-  contact
+  contact,
+  project
 })
 
 export default reducers

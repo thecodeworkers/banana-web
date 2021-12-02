@@ -4,7 +4,7 @@ import { homePage, fontQuery, footerQuery, headerQuery, aboutPage, portfolioPage
 import { GET_PAGE, GET_PAGE_ASYNC } from './action-types'
 import { setFonts } from '../font/action'
 import { setLanguage } from '@store/actions'
-import { setProjects } from '@store/projects/action'
+import { setProjects } from '@store/project/action'
 
 const getQueryPages = (page = 'home', locale = 'en') => {
 
