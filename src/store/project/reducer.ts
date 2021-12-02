@@ -5,7 +5,7 @@ const initialState = {
   projects: []
 }
 
-const pageReducer = (state = initialState, { type, payload }: AnyAction) => {
+const projectReducer = (state = initialState, { type, payload }: AnyAction) => {
   switch (type) {
     case SET_PROJECTS:
       return { ...state, projects: payload }
@@ -14,4 +14,4 @@ const pageReducer = (state = initialState, { type, payload }: AnyAction) => {
   }
 }
 
-export default pageReducer
+export default projectReducer
