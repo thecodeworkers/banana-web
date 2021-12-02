@@ -63,7 +63,7 @@ const Testimonials = (content) => {
         </Slider>
 
         <div className={styles._buttonContainerResponsive}>
-          <GeneralButton borderColor={'#000'}  text={content?.content?.button?.text} icon={true} />
+          <GeneralButton borderColor={'#000'} text={content?.content?.button?.text} icon={true} />
         </div>
       </div>
       <style jsx>

@@ -45,7 +45,7 @@ const Footer = () => {
                         <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={25} height={25} quality={100} />
                       </a>
                     </div>
-                  : null
+                    : null
                 )
               }
               )}

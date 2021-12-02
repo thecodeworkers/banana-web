@@ -23,7 +23,7 @@ const ThirdBanner = (content) => {
 
             <p className={styles._subtitle}>{content?.content?.ThirdBannerWords[1]?.word}</p>
             <div className={styles._stepsShortContainer}>
-            <DotsLine number={1} />
+              <DotsLine number={1} />
             </div>
 
             <div className={styles._haloContainer}>
