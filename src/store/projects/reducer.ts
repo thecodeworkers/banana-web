@@ -1,18 +1,14 @@
 import { AnyAction } from 'redux'
-import { GET_PAGE_ASYNC } from './action-types'
+import { SET_PROJECTS } from './action-types'
 
 const initialState = {
-  home: {},
-  header: {},
-  footer: {},
-  aboutUs: {},
-  portfolio: {}
+  projects: []
 }
 
 const pageReducer = (state = initialState, { type, payload }: AnyAction) => {
   switch (type) {
-    case GET_PAGE_ASYNC:
-      return { ...state, ...payload }
+    case SET_PROJECTS:
+      return { ...state, projects: payload }
     default:
       return state
   }

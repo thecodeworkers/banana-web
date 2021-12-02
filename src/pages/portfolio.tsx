@@ -37,6 +37,6 @@ export default PortfolioPage
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async ({ req, res }) => {
-    await mapProps(store, getPage({ query: 'aboutUs' }))
+    await mapProps(store, getPage({ query: 'portfolio' }))
   }
 )
