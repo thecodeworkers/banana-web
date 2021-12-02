@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { GeneralButton, SlideArrow } from '@components'
 import { fallbackRestUrl } from '../../../../utils/path'
+import { RightArrow } from '@icons/svg'
 
 const Testimonials = (content) => {
 
@@ -59,10 +60,10 @@ const Testimonials = (content) => {
             )
           })
           }
-
         </Slider>
+
         <div className={styles._buttonContainerResponsive}>
-          <GeneralButton text={content?.content?.button?.text} icon={true} />
+          <GeneralButton borderColor={'#000'}  text={content?.content?.button?.text} icon={true} />
         </div>
       </div>
       <style jsx>

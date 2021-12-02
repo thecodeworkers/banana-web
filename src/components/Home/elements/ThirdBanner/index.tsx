@@ -1,8 +1,8 @@
 import styles from './styles.module.scss'
-import { StepFull, StepShort } from '@icons/resource'
 import haloWeb from '@icons/Halo.png'
 import haloResponsive from '@icons/HaloResponsive.png'
 import Image from 'next/image'
+import { DotsLine } from '@components'
 
 const ThirdBanner = (content) => {
 
@@ -18,12 +18,12 @@ const ThirdBanner = (content) => {
           <div className={styles._subtitleContainer}>
             <p className={styles._subtitle}>{content?.content?.ThirdBannerWords[0]?.word}</p>
             <div className={styles._stepsContainer}>
-              <StepFull height={150} width={'100%'} />
+              <DotsLine number={3} />
             </div>
 
             <p className={styles._subtitle}>{content?.content?.ThirdBannerWords[1]?.word}</p>
-            <div className={styles._stepsContainer}>
-              <StepShort height={150} width={'100%'} />
+            <div className={styles._stepsShortContainer}>
+            <DotsLine number={1} />
             </div>
 
             <div className={styles._haloContainer}>

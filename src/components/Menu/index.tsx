@@ -168,15 +168,18 @@ const Menu = () => {
                 return (
                   item?.name?.split('-')?.[1] == 'white' ?
                     <div className={styles._socialMediaBlack} key={index}>
-                      <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={20} height={20} quality={100} />
-                    </div>
-                    : null
+                      <a href={item?.url} target='_blank' rel='noreferrer' >
+                        <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={20} height={20} quality={100} />
+                      </a>
+                    </div> : null
                 )
               }
               )}
             </div>
             <div>
-              <Image src={tcw} alt={'tcw'} width={26} height={26} quality={100} />
+              <a href={'https://thecodeworkers.com'} target='_blank' rel='noreferrer' >
+                <Image src={tcw} alt={'tcw'} width={26} height={26} quality={100} />
+              </a>
             </div>
           </div>
         </div >

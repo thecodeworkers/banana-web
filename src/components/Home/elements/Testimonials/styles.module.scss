@@ -79,6 +79,20 @@
   display: none;
 }
 
+._seeResponsive {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+
+  & p {
+  font-family: 'NormalFont', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #fff;
+  }
+}
+
 @include responsive(md) {
  ._container{
    flex-direction: column;

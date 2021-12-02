@@ -26,7 +26,6 @@ const Footer = () => {
 
         <div className={styles._sectionsContainer}>
           <div className={styles._sectionsContent}>
-
             {footer?.sections?.map(function (item, index) {
               return (
                 <div key={index} onClick={() => navigation(item)}>
@@ -42,9 +41,11 @@ const Footer = () => {
                 return (
                   item?.name?.split('-')?.[1] == 'white' ?
                     <div key={index}>
-                      <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={25} height={25} quality={100} />
+                      <a href={item?.url} target='_blank' rel='noreferrer' >
+                        <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={25} height={25} quality={100} />
+                      </a>
                     </div>
-                    : null
+                  : null
                 )
               }
               )}
@@ -85,7 +86,6 @@ const Footer = () => {
               <p className={styles._textBold}>{footer?.FooterContact?.Contact[0]?.socialAccount}</p>
             </div>
           </div>
-
           <div className={styles._contactNumber}>
             <div>
               <p className={styles._text}> </p>
@@ -96,7 +96,9 @@ const Footer = () => {
             <div className={styles._copyright}>
               <p className={`${styles._text} ${styles._mr1}`}>{footer?.copyright}</p>
               <div className={styles._logoContainer}>
-                <Image src={tcw} alt={'tcw'} width={25} height={25} quality={100} />
+                <a href={'https://thecodeworkers.com'} target='_blank' rel='noreferrer' >
+                  <Image src={tcw} alt={'tcw'} width={25} height={25} quality={100} />
+                </a>
               </div>
             </div>
           </div>
