@@ -11,7 +11,8 @@
           "@graphql": "./src/graphql",
           "@utils": "./src/utils",
           "@styles": "./public/styles",
-          "@icons": "./public/icons"
+          "@icons": "./public/icons",
+          "@images": "./public/images"
         }
       }
     ]

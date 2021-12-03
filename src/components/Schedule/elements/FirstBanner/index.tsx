@@ -1,18 +1,19 @@
 import styles from './styles.module.scss'
 import Image from 'next/image'
-import background from 'public/images/bannerHeader.png'
+import back from '../../../../../public/icons/bannerHeader.png'
 
 const FirstBanner = (content) => {
 
   return (
     <>
       <div className={'_banner'}>
-      <p>hola</p>
+
+      <p>Agenda una beca</p>
       </div>
       <style jsx>
         {`
         ._banner{
-          background-image: require(${background});
+          background-image: url(${back});
           background-size: cover;
           background-position: center;
           height: 100vh;
