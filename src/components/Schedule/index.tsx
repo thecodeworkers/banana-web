@@ -4,22 +4,22 @@ import { FirstBanner } from './elements'
 import { fallbackRestUrl } from '../../utils/path'
 import { Alert, DotsLine } from '@components'
 
-const Home = () => {
+const Schedule = () => {
 
-  const { page: { home, footer } } = useSelector((state: any) => state)
-  const banner = useRef()
+  // const { page: { home, footer } } = useSelector((state: any) => state)
+
 
   return (
     <>
-      {home ?
+
         <div>
-        <Alert />
-        <FirstBanner />
+          <Alert />
+          <FirstBanner />
         </div> : null
-      }
+
     </>
   )
 }
 
-export default Home
+export default Schedule
 

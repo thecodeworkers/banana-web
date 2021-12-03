@@ -8,7 +8,7 @@ const FirstBanner = (content) => {
     <>
       <div className={'_banner'}>
 
-      <p>Agenda una beca</p>
+        <p>Agenda una beca</p>
       </div>
       <style jsx>
         {`
