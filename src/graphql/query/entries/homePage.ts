@@ -1,5 +1,5 @@
 const homePage = (locale) => `
-  page: homePage(locale: "${locale}") {
+  homePage(locale: "${locale}") {
     locale
     Banner {
       image {
