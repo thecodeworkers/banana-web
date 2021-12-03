@@ -1,0 +1,58 @@
+._lineParent {
+  display: flex;
+
+  & p {
+    margin: 1.2rem;
+    width: 8%;
+    font-family: 'NormalFont', sans-serif;
+    line-height: 1.5em;
+  }
+}
+
+._line {
+  height: 172.5px;
+  width: 3px;
+  background-color: #000;
+}
+
+._child {
+  width: 95%;
+  padding: 4rem 0 2rem 0;
+  height: 100%;
+  margin: auto;
+}
+
+._firstSection {
+  height: 25%;
+}
+
+._middleSection {
+  height:40%;
+  display: flex;
+  align-items: center;
+  margin-left: 1.4rem;
+  color: #787878;
+
+  & p {
+    width: 35%;
+    font-size: 0.875rem;
+    font-family: 'LightFont', sans-serif;
+    text-align: justify;
+    Line-height: 1.5rem;
+  }
+}
+
+._lastSection {
+  height:35%;
+  margin-left: 1.4rem;
+  display: flex;
+  align-items: center;
+
+  & p {
+    font-family: 'BoldFont', sans-serif;
+    width: 40%;
+    font-size: 0.875rem;
+    font-size: 3rem;
+  }
+}
+

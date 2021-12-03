@@ -35,8 +35,8 @@ const SchedulePage = () => {
 
 export default SchedulePage
 
-// export const getServerSideProps = wrapper.getServerSideProps(
-//   (store) => async ({ req, res }) => {
-//     await mapProps(store, getPage({ query: 'schedule' }))
-//   }
-// )
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async ({ req, res }) => {
+    await mapProps(store, getPage({ query: 'aboutUs' }))
+  }
+)

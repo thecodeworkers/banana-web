@@ -1,19 +1,15 @@
 import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
-import logo from '@icons/logo.png'
-import toggle from '@icons/toggle.png'
-import Image from 'next/image'
-import { parseHour, caracasParseHour } from '@utils'
 import { useDispatch } from 'react-redux'
 import { setStatus } from '@store/actions'
 import { useSelector } from 'react-redux'
 import { LogoBanana, Toggle } from '@icons/svg'
+import Clock from '../Clock'
 
 const Navbar = () => {
 
   const dispatch = useDispatch()
   const { intermittence: { theme } } = useSelector((state: any) => state)
-  const [currentHour, setCurrentHour] = useState(caracasParseHour)
   const [navClass, setNavClass] = useState('_mainChild')
   const [textClass, setTextClass] = useState('_cityText')
 
@@ -24,15 +20,7 @@ const Navbar = () => {
     height: inherit;
   `)
 
-  const commonText = (theme) => (`
-    color: ${theme == 'dark' ? '#FFF' : '#000'};
-    font-family: NormalFont;
-    font-size: 0.875rem;
-  `)
-
   useEffect(() => {
-
-    const interval: any = setInterval(getCurrentHour, 1000)
     let lastScrollTop: number
 
     document.addEventListener('scroll', () => {
@@ -48,16 +36,7 @@ const Navbar = () => {
 
       lastScrollTop = (scrollPosition <= 0) ? 0 : scrollPosition
     }, false)
-    return () => clearInterval(interval)
   }, [])
-
-  const getCurrentHour = () => {
-    const date = new Date()
-    const timeZone = date.toLocaleString('en-US', { timeZone: 'America/Caracas' })
-    const caracasDate = new Date(timeZone)
-    const parseDate: any = parseHour(caracasDate)
-    setCurrentHour(parseDate)
-  }
 
   const openMenu = () => dispatch(setStatus({ classMenu: '_inAnimation' }))
 
@@ -72,7 +51,7 @@ const Navbar = () => {
               </div>
             </div>
             <div className={styles._childTwo}>
-              <p className={textClass}> CARACAS {currentHour} </p>
+              <Clock textClass={textClass} theme={theme}/>
             </div>
             <div className={styles._childThree}>
               <div className='_toggleParent' onClick={openMenu}>
@@ -95,20 +74,6 @@ const Navbar = () => {
         ._solidColor {
           ${commonNav(theme)};
           animation: solidColor .3s linear forwards;
-        }
-
-        ._cityText {
-          ${commonText(theme)};
-        }
-
-        ._cityTextTrasparent {
-          ${commonText(theme)};
-          animation: transparentText .3s linear forwards;
-        }
-
-        ._cityTextsolid {
-          ${commonText(theme)};
-          animation: solidText .3s linear forwards;
         }
 
         ._toggleParent {
@@ -138,26 +103,6 @@ const Navbar = () => {
 
           to {
             background-color: ${theme == 'dark' ? '#000' : '#FFF'};
-          }
-        }
-
-        @keyframes solidText {
-          from {
-            opacity: 0;
-          }
-
-          to {
-            opacity: 1;
-          }
-        }
-
-        @keyframes transparentText {
-          from {
-            opacity: 1;
-          }
-
-          to {
-            opacity: 0;
           }
         }
 

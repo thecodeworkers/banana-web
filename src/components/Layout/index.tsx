@@ -3,7 +3,7 @@ import { Navbar, Footer, Menu } from '@components'
 const Layout = ({ children }) => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Menu />
       { children }
       <Footer />
