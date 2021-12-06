@@ -22,11 +22,11 @@ const Contact = ({ content }: any) => {
   const inputReference = useRef(null)
 
   useEffect(() => {
-    window.addEventListener('keydown', (event: any) => {
-      if (event.key === 'Enter') {
-        isValid && inputValue.length ? nextStep() : showToast(dispatch, '#FF4F4F', 'error', 'Error!')
-      }
-    })
+    // window.addEventListener('keydown', (event: any) => {
+    //   if (event.key === 'Enter') {
+    //     isValid && inputValue.length ? nextStep() : showToast(dispatch, '#FF4F4F', 'error', 'Error!')
+    //   }
+    // })
     calculateInitialWidth()
   }, [])
 
@@ -97,7 +97,6 @@ const Contact = ({ content }: any) => {
       setInputValue('')
     }
   }, [contact?.sended])
-
 
 
   return (
