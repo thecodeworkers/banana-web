@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
-import wrapper from '@store'
-import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
 import { useSelector, useDispatch } from 'react-redux'
 import { fallbackRestUrl } from '@utils/path'
 import { Custom404, Layout } from '@components'
+import { GetStaticPaths } from 'next'
 
 const Custom404Page = () => {
 
@@ -43,3 +42,8 @@ const Custom404Page = () => {
 }
 
 export default Custom404Page
+
+export const getStaticPaths: any = async () => {
+  return { url: '404', fallback: true }
+}
+
