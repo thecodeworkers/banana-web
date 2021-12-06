@@ -12,10 +12,10 @@ const FirstBanner = (content) => {
             <p className={styles._title}>Agenda una beca</p>
             <p className={styles._subtitle}>No hay límites para seguir creando, creciendo y conectando</p>
             <div className={styles._btnSuperParent}>
-            <div className={styles._btnParent}>
-              <IconsButton text={'Comprar'} icon='star' right={false}/>
+              <div className={styles._btnParent}>
+                <IconsButton text={'Comprar'} icon='star' right={false} />
+              </div>
             </div>
-          </div>
 
           </div>
         </div>

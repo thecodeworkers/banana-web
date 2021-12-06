@@ -44,14 +44,14 @@ const ThirdBanner = (content) => {
         </div>
         <div className={'_banner'}>
           <p className={styles._bigTitle}>Agenda 2022.</p>
-            <div className={styles._lineParent}>
-              <div className={styles._line}></div>
-              <div className={styles._lineContainer}>
+          <div className={styles._lineParent}>
+            <div className={styles._line}></div>
+            <div className={styles._lineContainer}>
               <span>Propósito</span>
               <p>Más que una agencia, somos un ecosistema de creativos que fomenta la innovación, la investigación y el trabajo duro, por lo que es nuestra responsabilidad brindar espacios y oportunidades a las futuras generaciones </p>
-              </div>
             </div>
           </div>
+        </div>
       </div>
       <style jsx>
         {`
