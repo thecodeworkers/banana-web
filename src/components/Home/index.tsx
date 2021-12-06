@@ -11,6 +11,7 @@ const Home = () => {
 
   const { page: { home, footer } } = useSelector((state: any) => state)
   const banner = useRef()
+  const services = useRef()
 
   return (
     <>
@@ -18,7 +19,7 @@ const Home = () => {
         <div>
           <Alert />
           <DotsLine />
-          <Hero content={home?.Hero} data={home?.Banner} contact={footer} reference={banner} />
+          <Hero content={home?.Hero} data={home?.Banner} contact={footer} reference={banner} serviceReference={services}/>
           <div ref={banner}>
             <Banner withButton={home?.GifBanner?.button}
               background={`${fallbackRestUrl}${home?.GifBanner?.image?.url}`}
@@ -26,7 +27,7 @@ const Home = () => {
               buttonText={home?.GifBanner?.image?.textButton} method={''} />
           </div>
           <SecondBanner content={home?.SecondBanner} />
-          {home?.serviceBanner && <ServicesBanner content={home?.serviceBanner[0]} />}
+          {home?.serviceBanner && <div ref={services}><ServicesBanner content={home?.serviceBanner[0]} /></div>}
           {home?.serviceBanner && <ServicesBanner content={home?.serviceBanner[1]} />}
           <ThirdBanner content={home?.ThirdBanner} />
           <Contact content={home?.ContactBanner} />

@@ -2,13 +2,14 @@ import { AnyAction } from 'redux'
 import { SET_PROJECTS } from './action-types'
 
 const initialState = {
-  projects: []
+  projects: [],
+  categories: []
 }
 
 const projectReducer = (state = initialState, { type, payload }: AnyAction) => {
   switch (type) {
     case SET_PROJECTS:
-      return { ...state, projects: payload }
+      return { ...state, ...payload }
     default:
       return state
   }

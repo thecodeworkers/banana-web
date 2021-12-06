@@ -1,13 +1,48 @@
-const projects = `
-projects{
+const projects = (locale) => `
+projects(locale:"${locale}"){
   name
   year
   id
   description
-  photos{
+  categories{
     name
-    url
-    ext
+    id
+  }
+  portrait{
+    image{
+      ext
+      name
+      url
+    }
+    imageResponsive{
+      ext
+      name
+      url
+    }
+  }
+  logoHover{
+    image{
+      ext
+      url
+      name
+    }
+    imageResponsive{
+      ext
+      url
+      name
+    }
+  }
+  gallery{
+    gallery{
+      ext
+      url
+      name
+    }
+    galleryResponsive{
+      ext
+      url
+      name
+    }
   }
 }
 `

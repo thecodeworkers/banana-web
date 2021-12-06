@@ -1,6 +1,6 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
 import { actionObject, GraphQlClient, manageError } from '@utils'
-import { homePage, fontQuery, footerQuery, headerQuery, aboutPage, portfolioPage, projectsQuery } from '@graphql/query'
+import { homePage, fontQuery, footerQuery, headerQuery, aboutPage, categoriesQuery, projectsQuery } from '@graphql/query'
 import { GET_PAGE, GET_PAGE_ASYNC } from './action-types'
 import { setFonts } from '../font/action'
 import { setLanguage } from '@store/actions'
@@ -11,16 +11,15 @@ const getQueryPages = (page = 'home', locale = 'en') => {
   const pages = {
     home: homePage,
     aboutUs: aboutPage,
-    portfolio: portfolioPage
+    portfolio: categoriesQuery
   }
-
   return `
     query {
       ${headerQuery(locale)}
       ${footerQuery(locale)}
-      ${pages[page](locale)}
+      ${`page:${pages[page](locale)}`}
       ${fontQuery}
-      ${page === 'portfolio' ? projectsQuery : ''}
+      ${page === 'portfolio' ? projectsQuery(locale) : ''}
     }
   `
 }
@@ -31,9 +30,8 @@ function* getPageAsync({ payload }) {
     const { query, language = 'es' } = payload
     const response = yield call(GraphQlClient, getQueryPages(query, language), { locale: language })
     const { page, font, header, footer, projects } = response?.data
-
     yield put(setFonts(font))
-    if(query === 'portfolio') yield put(setProjects(projects))
+    if (query === 'portfolio') yield put(setProjects({ projects, categories: page }))
     yield put(actionObject(GET_PAGE_ASYNC, { [query]: page, header, footer }))
     yield put(setLanguage(language))
   } catch (err) {
