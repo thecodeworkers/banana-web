@@ -9,7 +9,6 @@ const Custom404Page = () => {
 
   const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
 
-
   return (
     <>
       <Layout footer={false} navFullWidth>
