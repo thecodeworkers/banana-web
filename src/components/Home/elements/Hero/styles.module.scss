@@ -17,7 +17,6 @@ $helveticaNeue: 'HelveticaNeue';
 ._motion {
   @include layout(100%, 35%);
   position: relative;
-  // margin-bottom: 1rem;
   overflow: hidden;
 }
 
@@ -51,6 +50,15 @@ $helveticaNeue: 'HelveticaNeue';
     font-size: 0.875rem;
   }
 }
+
+._webImageParent {
+  display: block;
+}
+
+._responsiveImageParent {
+  display: none;
+}
+
 
 ._line {
   border: none;
@@ -147,14 +155,26 @@ $helveticaNeue: 'HelveticaNeue';
     font-size: 0.8125rem;
   }
 }
-._information{
+._information {
   display: none;
 }
 ._purposeTexts{
-
-  & p{
+  & p {
     font-size: 0.875rem;
   }
 }
 
+._webImageParent {
+  display: none;
+}
+
+._responsiveImageParent {
+  display: block;
+}
+
+._motion {
+  @include layout(80%, 35%);
+  position: relative;
+  overflow: hidden;
+}
 }

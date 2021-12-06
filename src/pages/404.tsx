@@ -1,18 +1,18 @@
-import { AboutUs } from '@components'
 import wrapper from '@store'
 import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
 import { useSelector } from 'react-redux'
 import { fallbackRestUrl } from '@utils/path'
-import { Layout } from '@components'
+import { Custom404, Layout } from '@components'
 
-const AboutUsPage = () => {
+const Custom404Page = () => {
+
   const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
 
   return (
     <>
-      <Layout>
-        <AboutUs />
+      <Layout footer={false} navFullWidth>
+        <Custom404 />
       </Layout>
       <style jsx>{`
         @font-face {
@@ -36,10 +36,11 @@ const AboutUsPage = () => {
   )
 }
 
-export default AboutUsPage
+export default Custom404Page
 
-export const getServerSideProps = wrapper.getServerSideProps(
+export const getStaticProps = wrapper.getStaticProps(
   (store) => async ({ req, res }) => {
     await mapProps(store, getPage({ query: 'aboutUs' }))
   }
 )
+

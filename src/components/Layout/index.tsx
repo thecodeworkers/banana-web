@@ -1,12 +1,12 @@
-import { Navbar, Footer, Menu } from '@components'
+import { Navbar, Footer, Menu, ScheduleNav } from '@components'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, navFullWidth = false, footer = true }) => {
   return (
     <>
-      <Navbar />
+      {!navFullWidth ? <Navbar /> : <ScheduleNav />}
       <Menu />
-      { children }
-      <Footer />
+      {children}
+      {footer && <Footer />}
     </>
   )
 }

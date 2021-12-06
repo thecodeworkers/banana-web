@@ -4,13 +4,16 @@ import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
 import { useSelector } from 'react-redux'
 import { fallbackRestUrl } from '@utils/path'
+import { Layout } from '@components'
 
 const SchedulePage = () => {
   const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
 
   return (
     <>
-      <Schedule />
+      <Layout navFullWidth>
+        <Schedule />
+      </Layout>
       <style jsx>{`
         @font-face {
           font-family: 'NormalFont';
@@ -35,8 +38,8 @@ const SchedulePage = () => {
 
 export default SchedulePage
 
-// export const getServerSideProps = wrapper.getServerSideProps(
-//   (store) => async ({ req, res }) => {
-//     await mapProps(store, getPage({ query: 'schedule' }))
-//   }
-// )
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async ({ req, res }) => {
+    await mapProps(store, getPage({ query: 'aboutUs' }))
+  }
+)
