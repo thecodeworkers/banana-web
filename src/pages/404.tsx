@@ -1,13 +1,19 @@
+import { useEffect } from 'react'
 import wrapper from '@store'
 import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { fallbackRestUrl } from '@utils/path'
 import { Custom404, Layout } from '@components'
 
 const Custom404Page = () => {
 
+  const dispatch = useDispatch()
   const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
+
+  useEffect(() => {
+    dispatch(getPage({ query: 'aboutUs' }))
+  }, [])
 
   return (
     <>
@@ -37,9 +43,3 @@ const Custom404Page = () => {
 }
 
 export default Custom404Page
-
-export const getServerSideProps = wrapper.getServerSideProps(
-  (store) => async ({ req, res }) => {
-    await mapProps(store, getPage({ query: 'aboutUs' }))
-  }
-)
