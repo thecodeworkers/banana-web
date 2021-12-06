@@ -1,5 +1,6 @@
 import { call, delay, put } from '@redux-saga/core/effects'
 import { END } from '@redux-saga/core'
+import { setStatus } from '@store/actions'
 
 export const normalizedArray = response => response ? response : []
 
@@ -78,4 +79,11 @@ export const sleep = (time: any) => {
   })
 }
 
+export const showToast = async (dispatch, color, type, text) => {
+  const alertData = { color, type, text, status: 1 }
+  await dispatch(setStatus({ alert: alertData }))
+  await sleep(2000)
+  dispatch(setStatus({ alert: { ...alertData, status: 2 } }))
+}
 
+export const navigation = (route: string, router: any) => route != router.pathname && router.push(route)

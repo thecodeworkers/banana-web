@@ -5,6 +5,8 @@ $helveticaNeue: 'HelveticaNeue';
 $helveticaMedium: 'HelveticaNeueMedium';
 $gray: #C4C4C4;
 
+$verticalMargin: 1.4rem;
+
 @mixin text($color) {
   color: $color;
   font-size: 4rem;

@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import { GeneralButton } from '@components'
 import styles from './styles.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { setContactForm, sendContactData, setStatus, setSended } from '@store/actions'
-import { sleep } from '@utils'
+import { setContactForm, sendContactData, setSended } from '@store/actions'
+import { showToast } from '@utils'
 
 const Contact = ({ content }: any) => {
 
@@ -16,12 +16,17 @@ const Contact = ({ content }: any) => {
   const [width, setWidth] = useState(0)
   const [currentStep, setCurrentStep] = useState(1)
   const [inputValue, setInputValue] = useState('')
-  const [isValid, setIsValid] = useState(true)
+  const [isValid, setIsValid] = useState(false)
   const result = 100 / steps
 
   const inputReference = useRef(null)
 
   useEffect(() => {
+    // window.addEventListener('keydown', (event: any) => {
+    //   if (event.key === 'Enter') {
+    //     isValid && inputValue.length ? nextStep() : showToast(dispatch, '#FF4F4F', 'error', 'Error!')
+    //   }
+    // })
     calculateInitialWidth()
   }, [])
 
@@ -32,15 +37,13 @@ const Contact = ({ content }: any) => {
     const prevState = contact?.contactData
     const key = contactData[currentStep - 1]?.input.placeholder
     const newArray = Object.keys(prevState)
+    const localStep = newArray[currentStep]
+    const inputNextValue = prevState[localStep]
 
     dispatch(setContactForm({ contactData: { ...prevState, [key]: inputValue } }))
 
-    const localStep = newArray[currentStep]
-    const inputNextValue = prevState[localStep]
-    const contactLength = Object.keys(prevState).length
-
     if (currentStep < steps) {
-      if (!inputNextValue && currentStep !== contactLength) setWidth((width: number) => width + result)
+      setWidth((width: number) => width + result)
       setCurrentStep((currentStep: number) => ++currentStep)
       !inputNextValue ? setInputValue('') : setInputValue(inputNextValue)
       return
@@ -52,6 +55,9 @@ const Contact = ({ content }: any) => {
 
   const previousStep = () => {
     inputReference.current.focus()
+    const localStep = currentStep - 1
+
+    if (localStep >= 1) setWidth((width: number) => width - result)
 
     if (currentStep > 1) {
       const newArray = Object.keys(contact?.contactData)
@@ -60,7 +66,7 @@ const Contact = ({ content }: any) => {
       const previousData = contact?.contactData[key]
 
       setInputValue(previousData)
-      setCurrentStep(currentStep - 1)
+      setCurrentStep((currentStep: number) => currentStep - 1)
     }
   }
 
@@ -78,13 +84,6 @@ const Contact = ({ content }: any) => {
     setInputValue(value)
   }
 
-  const showAlert = async () => {
-    const alertData = { color: '#FF4F4F', type: 'error', text: 'Error!', status: 1 }
-    await dispatch(setStatus({ alert: alertData }))
-    await sleep(2000)
-    dispatch(setStatus({ alert: { ...alertData, status: 2 } }))
-  }
-
   const resetForm = () => {
     setCurrentStep(1)
     calculateInitialWidth()
@@ -92,11 +91,13 @@ const Contact = ({ content }: any) => {
   }
 
   useEffect(() => {
-    if (contact.sended) {
+    if (contact?.sended) {
       dispatch(setContactForm({ contactData: {} }))
+      showToast(dispatch, '#4FCF01', 'success', 'Success!')
       setInputValue('')
     }
-  }, [contact])
+  }, [contact?.sended])
+
 
   return (
     <>
@@ -111,12 +112,12 @@ const Contact = ({ content }: any) => {
         {
           !contact?.sended &&
           <div className={styles._contentParent}>
-            <p className={currentStep == 1? styles._textOne : styles._textOneMargin}>
+            <p className={currentStep == 1 ? styles._textOne : styles._textOneMargin}>
               {currentStep == 1 ? localData?.firstSubtitle : contactData[currentStep - 1]?.Question}
             </p>
 
-            { currentStep == 1 && <p className={styles._textTwo}> {localData?.secondSubtitle}</p> }
-            { currentStep == 1 && <p className={styles._question}>{contactData[currentStep - 1]?.Question}</p> }
+            {currentStep == 1 && <p className={styles._textTwo}> {localData?.secondSubtitle}</p>}
+            {currentStep == 1 && <p className={styles._question}>{contactData[currentStep - 1]?.Question}</p>}
 
             <div className={styles._formParent}>
               <div>
@@ -147,7 +148,7 @@ const Contact = ({ content }: any) => {
                   <GeneralButton
                     icon={false}
                     text={localData?.button?.text}
-                    method={isValid && inputValue.length ? nextStep : showAlert}
+                    method={isValid && inputValue.length ? nextStep : () => showToast(dispatch, '#FF4F4F', 'error', 'Error!')}
                   />
                 </div>
               </div>

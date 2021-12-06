@@ -4,18 +4,18 @@ import { GeneralButton, IconsButton } from '@components'
 import { BoxArrow } from '@icons/svg'
 import Image from 'next/image'
 import { useDispatch, useSelector } from 'react-redux'
-import { getPage, setLanguage } from '@store/actions'
+import { getPage } from '@store/actions'
 import lottie from 'lottie-web'
 import { fallbackRestUrl } from '@utils'
-import motion from '../../../../../public/images/motion.json'
 import { scrolling } from '@utils'
 
-const Hero = ({ content, reference, contact }: any) => {
+const Hero = ({ content, reference, data, contact, serviceReference }: any) => {
 
   const animationContainer: any = createRef()
 
   const dispatch = useDispatch()
   const { intermittence: { languages, selectedLanguage } } = useSelector((state: any) => state)
+
   const changeLanguage = () => {
     const langs = Object.keys(languages)
     const position = langs.reduce((prev: any, next: any, index: any) => {
@@ -27,24 +27,27 @@ const Hero = ({ content, reference, contact }: any) => {
     dispatch(getPage({ query: 'home', language: position }))
   }
 
+  // useEffect(() => {
+  //   const anim = lottie.loadAnimation({
+  //     container: animationContainer.current,
+  //     renderer: 'svg',
+  //     loop: true,
+  //     autoplay: true,
+  //     animationData: motion
+  //   })
 
-  useEffect(() => {
-    const anim = lottie.loadAnimation({
-      container: animationContainer.current,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      animationData: motion
-    })
-
-    return () => anim.destroy()
-  }, [])
+  //   return () => anim.destroy()
+  // }, [])
 
   return (
     <div className={styles._main}>
       <div className={styles._motion}>
-        <Image src='/images/450.gif' alt="logo-icon" layout='fill' quality={100} />
-        {/* <div className={`animation-container ${styles._motionImage}`} ref={animationContainer}></div> */}
+        <div className={styles._webImageParent}>
+          <Image src={`${fallbackRestUrl}${data?.image?.url}`} alt="logo-icon" layout='fill' quality={100} />
+        </div>
+        <div className={styles._responsiveImageParent}>
+          <Image src={`${fallbackRestUrl}${data?.imageResponsive?.url}`} alt="logo-icon" layout='fill' quality={100} />
+        </div>
       </div>
 
       <div className={styles._purpose}>
@@ -64,7 +67,7 @@ const Hero = ({ content, reference, contact }: any) => {
       </div>
       <div className={styles._services}>
         <div className={styles._servicesBtnParent}>
-          <GeneralButton text={content?.sectionButton?.text} />
+          <GeneralButton text={content?.sectionButton?.text} method={() => scrolling(serviceReference)} />
         </div>
         <p>
           {content?.paragraph}
