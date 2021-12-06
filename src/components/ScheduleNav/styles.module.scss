@@ -1,0 +1,62 @@
+._parent {
+  position: fixed;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	top: 0;
+	box-sizing: border-box;
+	z-index: 998;
+	height: 70px;
+  background-color: #FFF;
+}
+
+._parentChild {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+._links {
+  display: flex;
+  list-style: none;
+
+  & li {
+    font-size: 0.9375rem;
+    font-family: 'LightFont', sans-serif;
+    cursor: pointer;
+  }
+
+  & li:not(:last-child) {
+    margin-right: 4.2rem;
+  }
+}
+
+._cartParent {
+  display: flex;
+  margin-right: 4rem;
+  cursor: pointer;
+
+  & p {
+    font-family: 'Lightfont', sans-serif;
+    font-size: 0.9375rem;
+    margin-left: 0.3rem;
+  }
+}
+
+._rightSide {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+._centerSide {
+  width: 50%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+._leftSide, ._rightSide {
+  width: 25%;
+}

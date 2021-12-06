@@ -1,4 +1,4 @@
-import { AboutUs } from '@components'
+import { Schedule } from '@components'
 import wrapper from '@store'
 import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
@@ -6,13 +6,13 @@ import { useSelector } from 'react-redux'
 import { fallbackRestUrl } from '@utils/path'
 import { Layout } from '@components'
 
-const AboutUsPage = () => {
+const SchedulePage = () => {
   const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
 
   return (
     <>
-      <Layout>
-        <AboutUs />
+      <Layout navFullWidth>
+        <Schedule />
       </Layout>
       <style jsx>{`
         @font-face {
@@ -36,7 +36,7 @@ const AboutUsPage = () => {
   )
 }
 
-export default AboutUsPage
+export default SchedulePage
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async ({ req, res }) => {

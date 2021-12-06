@@ -4,13 +4,16 @@ import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
 import { useSelector } from 'react-redux'
 import { fallbackRestUrl } from '@utils/path'
+import { Layout } from '@components'
 
 const PortfolioPage = () => {
   const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
 
   return (
     <>
-      <Portfolio />
+      <Layout>
+        <Portfolio />
+      </Layout>
       <style jsx>{`
         @font-face {
           font-family: 'NormalFont';
