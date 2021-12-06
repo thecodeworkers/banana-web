@@ -44,6 +44,9 @@ const Custom404Page = () => {
 export default Custom404Page
 
 export const getStaticPaths: any = async () => {
-  return { url: '404', fallback: true }
+  return {
+    fallback: true,
+    paths: ['/', '/about-us', 'agendaunabeca', 'portfolio']
+  }
 }
 
