@@ -13,7 +13,7 @@ const Banner = ({ background, responsiveImage }) => {
       </div>
       <div className={styles._logosContainer}>
         <div className={styles._listLogos}>
-          <Image src={`/icons/banana-creative.png`} alt={'item?.icon?.name'} width={183} height={19} quality={100} />
+          <Image src={'/icons/banana-creative.png'} alt={'item?.icon?.name'} width={183} height={19} quality={100} />
         </div>
       </div>
 

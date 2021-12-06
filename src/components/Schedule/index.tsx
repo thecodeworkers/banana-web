@@ -9,7 +9,7 @@ const Schedule = () => {
 
   const { page: { schedule } } = useSelector((state: any) => state)
 
-  console.log(schedule);
+  console.log(schedule)
 
   return (
     <>
@@ -19,7 +19,7 @@ const Schedule = () => {
         <FirstBanner />
         <SecondBanner />
         <ThirdBanner />
-        <FourthBanner background={`images/gif-agenda.gif`} responsiveImage={``} />
+        <FourthBanner background={'images/gif-agenda.gif'} responsiveImage={''} />
       </div>
     </>
   )
