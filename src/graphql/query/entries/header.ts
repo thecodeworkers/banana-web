@@ -16,12 +16,10 @@ header(locale: "${locale}") {
     position
   }
   navigation {
-    name
-    subNav {
+    route {
       name
       position
-    }
-    position
+      link
   }
 }
 `

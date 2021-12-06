@@ -6,6 +6,11 @@ import { Alert, DotsLine, ScheduleNav } from '@components'
 import { SecondBanner } from './elements'
 
 const Schedule = () => {
+
+  const {page: { schedule } } = useSelector((state: any) => state)
+
+    console.log(schedule);
+
   return (
     <>
       <div>

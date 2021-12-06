@@ -47,10 +47,10 @@
 }
 
 ._subtitle{
-@include subtitle();
-line-height: 1.5rem;
-width: 70%;
-color: #787878;
+  @include subtitle();
+  line-height: 1.5rem;
+  width: 70%;
+  color: #787878;
 }
 
 ._blackSubtitle{
@@ -90,7 +90,7 @@ color: #787878;
 
 ._lineParent {
   display: flex;
-  margin: 1.2rem;
+  margin: 1.2rem 2.5%;
   & span{
     width: 25%;
     font-family: 'MediumFont', sans-serif;
