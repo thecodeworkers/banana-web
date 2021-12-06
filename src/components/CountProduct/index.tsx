@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './styles.module.scss'
 import { useDispatch } from 'react-redux'
-import { updateQuantity } from '@store/actions'
+// import { updateQuantity } from '@store/actions'
 import { useEffect } from 'react'
 
 const CountProduct = ({
@@ -17,7 +17,7 @@ const CountProduct = ({
   const aumented = () => {
     if (!fixed) {
       if (productNumber < stock) setProductNumber(quantity + 1)
-      if (productKey) dispatch(updateQuantity(productKey, 'add'))
+      // if (productKey) dispatch(updateQuantity(productKey, 'add'))
     } else {
       if (productNumber < stock) {
         setProductNumber((quantity) => quantity + 1)
@@ -30,7 +30,7 @@ const CountProduct = ({
     if (!fixed) {
       if (quantity >= 2) {
         setProductNumber(quantity - 1)
-        if (productKey) dispatch(updateQuantity(productKey, 'rest'))
+        // if (productKey) dispatch(updateQuantity(productKey, 'rest'))
       }
     } else {
       if (productNumber >= 2) {
