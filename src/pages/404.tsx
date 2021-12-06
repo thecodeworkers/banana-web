@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import wrapper from '@store'
 import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
@@ -40,14 +39,9 @@ const Custom404Page = () => {
 
 export default Custom404Page
 
-// export const getServerSideProps = wrapper.getServerSideProps(
-//   (store) => async ({ req, res }) => {
-//     await mapProps(store, getPage({ query: 'aboutUs' }))
-//   }
-// )
-
-export async function getStaticProps() {
+export const getStaticProps = wrapper.getStaticProps(
   (store) => async ({ req, res }) => {
     await mapProps(store, getPage({ query: 'aboutUs' }))
   }
-}
+)
+
