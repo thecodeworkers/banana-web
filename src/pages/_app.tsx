@@ -54,10 +54,8 @@ const MyApp = ({ Component, pageProps }) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Loader>
-        <Layout>
-          <div className={`_circle ${className}`}> </div>
-          <Component {...pageProps} />
-        </Layout>
+        <div className={`_circle ${className}`}> </div>
+        <Component {...pageProps} />
       </Loader>
 
       {/* <style>{`

@@ -20,7 +20,7 @@ const Custom404 = () => {
         <div className={styles._newsletter}>
           <section>
             <h1 className={styles._title}>Coming soon</h1>
-            <input className={styles._input} placeholder='email' value={email} onChange={inputHandler} />
+            <input className={styles._input} placeholder='Ingresa tu correo' value={email} onChange={inputHandler} />
             <p className={styles._text}>Regresa nuevamente cuando esta sección este lista. Dejanos tu correo para que seas notificado del lanzamiento
             </p>
             <div className={styles._parentBtn}>
