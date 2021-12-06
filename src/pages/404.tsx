@@ -7,12 +7,12 @@ import { GetStaticPaths } from 'next'
 
 const Custom404Page = () => {
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
 
-  useEffect(() => {
-    dispatch(getPage({ query: 'aboutUs' }))
-  }, [])
+  // useEffect(() => {
+  //   dispatch(getPage({ query: 'aboutUs' }))
+  // }, [])
 
   return (
     <>
@@ -42,11 +42,4 @@ const Custom404Page = () => {
 }
 
 export default Custom404Page
-
-export const getStaticPaths: any = async () => {
-  return {
-    fallback: true,
-    paths: ['/', '/about-us', 'agendaunabeca', 'portfolio']
-  }
-}
 
