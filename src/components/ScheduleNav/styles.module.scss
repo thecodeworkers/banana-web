@@ -1,3 +1,5 @@
+@import '@styles/index.scss';
+
 ._parent {
   position: fixed;
 	width: 100%;
@@ -59,4 +61,31 @@
 
 ._leftSide, ._rightSide {
   width: 25%;
+}
+
+._toggleParent {
+  display: none;
+}
+
+
+@include responsive(md) {
+  ._centerSide {
+    display: none;
+  }
+  ._clockParent {
+    display: none;
+  }
+
+  ._cartParent {
+    margin-right: 1.2rem;
+
+    & p {
+      display: none;
+    }
+  }
+  ._toggleParent {
+    display: block;
+    display: flex;
+    justify-content: center;
+  }
 }

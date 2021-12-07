@@ -1,3 +1,5 @@
+@import '@styles/index.scss';
+
 ._lineParent {
   display: flex;
 
@@ -42,11 +44,17 @@
   }
 }
 
+._exclamation {
+  align-self: flex-end;
+  margin-bottom: 2%;
+}
+
 ._lastSection {
   height:35%;
   margin-left: 1.4rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   & p {
     font-family: 'BoldFont', sans-serif;
@@ -56,3 +64,40 @@
   }
 }
 
+@include responsive(md) {
+  ._firstSection {
+    display: none;
+  }
+
+  ._middleSection {
+    height: auto;
+    margin-left: 0;
+
+    & p {
+      width: 100%;
+    }
+  }
+
+  ._title {
+    font-size: 28px;
+  }
+
+  ._lastSection {
+    margin-top: 2.5rem;
+    height: auto;
+    margin-left: 0;
+    & p {
+      width: 80%;
+      font-size: 26px;
+    }
+  }
+
+  ._exclamation {
+    display: none;
+  }
+
+  ._child {
+    padding: 2rem 0 2rem 0;
+    // width: 90%;
+  }
+}

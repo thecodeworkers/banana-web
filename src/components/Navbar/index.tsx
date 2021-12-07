@@ -51,7 +51,7 @@ const Navbar = () => {
               </div>
             </div>
             <div className={styles._childTwo}>
-              <Clock textClass={textClass} theme={theme}/>
+              <Clock textClass={textClass} theme={theme} />
             </div>
             <div className={styles._childThree}>
               <div className='_toggleParent' onClick={openMenu}>

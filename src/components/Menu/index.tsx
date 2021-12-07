@@ -12,6 +12,10 @@ import { setStatus, getPage } from '@store/actions'
 import gsap from 'gsap'
 import { inAnimation, outAnimation } from './gsap'
 import { useRouter } from 'next/router'
+import { LogoBanana, CloseIcon } from '@icons/svg'
+import { Clok } from '@components'
+
+const scheduleArray = [{ name: 'Comprar' }, { name: 'Proposito' }, { name: 'Invitados' }]
 
 const commonStyles: any = `
   display: flex;
@@ -21,32 +25,18 @@ const commonStyles: any = `
   top: 0;
   z-index: 999;
 `
-const Menu = () => {
+const Menu = ({ menuLight = false }) => {
 
   const router = useRouter()
   const dispatch = useDispatch()
   const { classMenu } = useSelector((state: any) => state.intermittence)
-  const [currentHour, setCurrentHour] = useState(caracasParseHour)
   const { page: { footer }, intermittence: { languages, selectedLanguage } } = useSelector((state: any) => state)
-
-  useEffect(() => {
-    const interval = setInterval(getCurrentHour, 1000)
-    return () => clearInterval(interval)
-  }, [])
 
   useEffect(() => {
     const timeline: any = gsap.timeline()
     if (classMenu == '_inAnimation') return inAnimation(timeline)
     if (classMenu == '_outAnimation') return outAnimation(timeline)
   }, [classMenu])
-
-  const getCurrentHour = () => {
-    const date = new Date()
-    const timeZone = date.toLocaleString('en-US', { timeZone: 'America/Caracas' })
-    const caracasDate = new Date(timeZone)
-    const parseDate: any = parseHour(caracasDate)
-    setCurrentHour(parseDate)
-  }
 
   const closeMenu = () => dispatch(setStatus({ classMenu: '_outAnimation' }))
 
@@ -68,18 +58,18 @@ const Menu = () => {
     closeMenu()
   }
 
+  const returnSocialMedia = (item: any, lightMode: boolean) => {
+    const splitItem = item?.name?.split('-')?.[1]
+    if (lightMode) return splitItem == 'black'
+    return splitItem == 'white'
+  }
+
   return (
     <>
       <div className={classMenu}>
         <div className={styles._whiteSection}>
           <div className={styles._toggleParent}>
-            <Image
-              src={logo}
-              alt="logo-icon"
-              width={22}
-              height={20}
-              quality={100}
-            />
+            <LogoBanana />
           </div>
           <div className={styles._socialBanner}>
             <div className={styles._socialMedia}>
@@ -98,34 +88,34 @@ const Menu = () => {
           </div>
         </div>
 
-        <div className={styles._blackSection}>
+        <div className={!menuLight ? styles._blackSection : styles._lightSection}>
           <div className={styles._header}>
             <div className={styles._bananalogo}>
-              <Image src={logoWhite} alt="logo-icon-white" width={22} height={20} quality={100} />
+              <LogoBanana theme={!menuLight ? 'dark' : 'light'} />
             </div>
             <div className={styles._space}>
               <p></p>
             </div>
             <div>
-              <p className={styles._time}> CARACAS {currentHour} </p>
+              <Clok theme='dark'/>
             </div>
-            <div className={styles._closeParent}>
-              <Image src={close} alt={'X'} width={16} height={16} quality={100} onClick={closeMenu} />
+            <div className={styles._closeParent} onClick={closeMenu}>
+              <CloseIcon theme={!menuLight ? 'dark' : 'light'} />
             </div>
 
           </div>
-          <div className={styles._body}>
-            {footer?.sections?.map(function (item, index) {
+          <div className={!menuLight ? styles._body : styles._bodyLightTheme}>
+            {(!menuLight ? footer?.sections : scheduleArray).map((item, index) => {
               return (
                 <div className={styles._routesContainer} key={index}>
-                  <hr className={styles._underscore}></hr>
-                  <p className={styles._title} onClick={() => navigation(item)} >{item.name}</p>
+                  <hr className={!menuLight ? styles._underscore : styles._pinkUnderscore}></hr>
+                  <p className={!menuLight ? styles._title : styles._titleLight} onClick={() => navigation(item)} >{item?.name}</p>
                 </div>
               )
             })
             }
             <div className={styles._bottomBtnParent}>
-              <GeneralButton icon={false} background={'#fff'} textColor={'#000'} text={languages[selectedLanguage]} method={changeLanguage} height='1rem' />
+              <GeneralButton icon={false} background={!menuLight ? '#FFF' : '#000'} textColor={!menuLight ? '#000' : '#FFF'} text={languages[selectedLanguage]} method={changeLanguage} height='1rem' />
             </div>
           </div>
           <div className={styles._contactContainer}>
@@ -162,11 +152,11 @@ const Menu = () => {
             </div>
           </div>
 
-          <div className={styles._footerResponsive}>
+          <div className={!menuLight ? styles._footerResponsive : styles._footerLightResposive}>
             <div className={styles._logosContainer}>
               {footer?.social?.map(function (item, index) {
                 return (
-                  item?.name?.split('-')?.[1] == 'white' ?
+                  returnSocialMedia(item, menuLight) ?
                     <div className={styles._socialMediaBlack} key={index}>
                       <a href={item?.url} target='_blank' rel='noreferrer' >
                         <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={20} height={20} quality={100} />
