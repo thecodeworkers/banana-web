@@ -20,6 +20,7 @@ header(locale: "${locale}") {
       name
       position
       link
+    }
   }
 }
 `
