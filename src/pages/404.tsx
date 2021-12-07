@@ -38,9 +38,8 @@ const Custom404Page = () => {
 
 export default Custom404Page
 
-export const getStaticProps = wrapper.getStaticProps(
+export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async ({ req, res }) => {
     await mapProps(store, getPage({ query: 'aboutUs' }))
   }
 )
-

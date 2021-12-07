@@ -1,4 +1,3 @@
-import { createRef, useEffect } from 'react'
 import styles from './styles.module.scss'
 import { GeneralButton, IconsButton } from '@components'
 import { BoxArrow } from '@icons/svg'
@@ -9,8 +8,6 @@ import { fallbackRestUrl } from '@utils'
 import { scrolling } from '@utils'
 
 const Hero = ({ content, reference, data, contact, serviceReference }: any) => {
-
-  const animationContainer: any = createRef()
 
   const dispatch = useDispatch()
   const { intermittence: { languages, selectedLanguage } } = useSelector((state: any) => state)

@@ -11,7 +11,7 @@ const SchedulePage = () => {
 
   return (
     <>
-      <Layout navFullWidth>
+      <Layout navFullWidth menuLight>
         <Schedule />
       </Layout>
       <style jsx>{`

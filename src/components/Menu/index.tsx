@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import { GeneralButton } from '@components'
-import { parseHour, caracasParseHour, fallbackRestUrl } from '@utils'
-import close from '@icons/close.svg'
+import { fallbackRestUrl } from '@utils'
 import Image from 'next/image'
-import logo from '@icons/logo.png'
-import logoWhite from '@icons/logo-white.png'
 import tcw from '@icons/tcw-logo.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { setStatus, getPage } from '@store/actions'
@@ -97,7 +94,7 @@ const Menu = ({ menuLight = false }) => {
               <p></p>
             </div>
             <div>
-              <Clok theme='dark'/>
+              <Clok theme='dark' />
             </div>
             <div className={styles._closeParent} onClick={closeMenu}>
               <CloseIcon theme={!menuLight ? 'dark' : 'light'} />
