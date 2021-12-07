@@ -41,30 +41,29 @@ const tmpAllProjects = [
 ]
 
 const columns = 4
-let elementPerColum = tmpAllProjects.length / columns
-elementPerColum = elementPerColum < 1 ? 1 : elementPerColum
+let elementPerColumn = tmpAllProjects.length / columns
+elementPerColumn = elementPerColumn < 1 ? 1 : elementPerColumn
 
 const projects = []
 let fromIndex = 0
 
 const ceilNumber = (num: number) => Math.ceil(num)
 
-const determinateElementPerColum = (index: number, elementPerColum: number) => {
-  const decimal = elementPerColum.toString().split('.')[1]
+const determinateElementPerColumn = (index: number, elementPerColumn: number) => {
+  const decimal = elementPerColumn.toString().split('.')[1]
 
   if (decimal) {
-    if (decimal == '25' && index == 0) return ceilNumber(elementPerColum)
-    if (decimal == '5' && (index == 0 || index == 1)) return ceilNumber(elementPerColum)
-    if (decimal == '75' && (index == 0 || index == 1 || index == 2)) return ceilNumber(elementPerColum)
+    if (decimal == '25' && index == 0) return ceilNumber(elementPerColumn)
+    if (decimal == '5' && (index == 0 || index == 1)) return ceilNumber(elementPerColumn)
+    if (decimal == '75' && (index == 0 || index == 1 || index == 2)) return ceilNumber(elementPerColumn)
   }
 
-  return Math.floor(elementPerColum)
+  return Math.floor(elementPerColumn)
 }
 
 
 for (let i = 0; i < columns; i++) {
-  const toIndex = fromIndex + determinateElementPerColum(i, elementPerColum)
-
+  const toIndex = fromIndex + determinateElementPerColumn(i, elementPerColumn)
   projects.push(tmpAllProjects.slice(fromIndex, toIndex))
   fromIndex = toIndex
 }
