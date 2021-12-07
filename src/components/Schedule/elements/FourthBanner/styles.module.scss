@@ -1,0 +1,32 @@
+@import '@styles/index.scss';
+
+
+._bannerContainer{
+  width: 100%;
+  height: 60vh;
+}
+
+._buttonContainer{
+  width: 18.4375rem;
+  margin-bottom: 3rem;
+}
+
+._logosContainer{
+ width: 100%;
+ background-color: #F3F3F3;
+}
+
+._listLogos{
+  width: 95%;
+  margin: 0 auto;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@include responsive(md) {
+  ._bannerContainer{
+    height: 45vh;
+  }
+}

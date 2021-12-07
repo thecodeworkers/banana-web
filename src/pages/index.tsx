@@ -28,7 +28,7 @@ const HomePage = () => {
           src: url('${fallbackRestUrl}${light?.url}');
         }
         @font-face {
-          font-family: 'NormalFont';
+          font-family: 'MediumFont';
           src: url('${fallbackRestUrl}${medium?.url}');
         }`}
       </style>
