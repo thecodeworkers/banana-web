@@ -1,0 +1,72 @@
+const SchedulePage = (locale) => `
+paginaAgendum(locale: "${locale}") {
+  scheduleFirstBanner{
+    title
+    background{
+      url
+      name
+      ext
+    }
+     backgroundResponsive{
+      url
+      name
+      ext
+    }
+    ButtonAgenda {
+      text
+      Link
+    }
+  }
+ scheduleSecondBanner{
+  background{
+    url
+    name
+    ext
+  }
+  backgroundResponsive{
+    url
+    name
+    ext
+  }
+  lineText
+	titlte
+  subtitle
+}
+  Product{
+    name
+    features{
+      feature
+    }
+    description
+    productImage{
+      name
+      url
+      ext
+    }
+    productImageResponsive{
+      name
+      url
+      ext
+    }
+    buttonCart{
+      Link
+      text
+    }
+    price
+  }
+  fourthBanner{
+    gifBanner{
+      url
+      name
+      ext
+    }
+    gifBannerResponsive{
+      url
+      name
+      ext
+    }
+  }
+}
+`
+
+export default SchedulePage
