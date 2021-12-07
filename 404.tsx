@@ -36,7 +36,7 @@ const Custom404Page = () => {
   )
 }
 
-// export default Custom404Page
+ export default Custom404Page
 
 // export const getStaticProps = wrapper.getStaticProps(
 //   (store) => async ({ req, res }) => {
