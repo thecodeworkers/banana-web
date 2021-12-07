@@ -1,14 +1,24 @@
 import styles from './styles.module.scss'
-import Image from 'next/image'
-import back from '../../../../../public/icons/bannerHeader.png'
+import { IconsButton } from '@components'
 
 const FirstBanner = (content) => {
-
+  const back = 'images/bannerHeader.png'
+  const responsiveBack = 'images/bannerHeaderResponsive.png'
   return (
     <>
       <div className={'_banner'}>
+        <div className={styles._container}>
+          <div className={styles._bannerContent}>
+            <p className={styles._title}>Agenda una beca</p>
+            <p className={styles._subtitle}>No hay límites para seguir creando, creciendo y conectando</p>
+            <div className={styles._btnSuperParent}>
+              <div className={styles._btnParent}>
+                <IconsButton text={'Comprar'} icon='star' right={false} />
+              </div>
+            </div>
 
-        <p>Agenda una beca</p>
+          </div>
+        </div>
       </div>
       <style jsx>
         {`
@@ -18,11 +28,13 @@ const FirstBanner = (content) => {
           background-position: center;
           height: 100vh;
           width: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: flex-end;
           background-repeat: no-repeat;
         }
+        @media(max-width: 576px) {
+          ._banner{
+            background-image: url(${responsiveBack});
+            height: 100vh;
+          }
        `}
       </style>
     </>

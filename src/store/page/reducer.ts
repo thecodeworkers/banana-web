@@ -6,7 +6,8 @@ const initialState = {
   header: {},
   footer: {},
   aboutUs: {},
-  portfolio: {}
+  portfolio: {},
+  schedule:{}
 }
 
 const pageReducer = (state = initialState, { type, payload }: AnyAction) => {
