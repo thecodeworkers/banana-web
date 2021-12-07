@@ -7,11 +7,11 @@ import { Custom404, Layout } from '@components'
 
 const Custom404Page = () => {
 
-  const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
+  // const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
 
   return (
     <>
-      <Layout footer={false} navFullWidth>
+      {/* <Layout footer={false} navFullWidth>
         <Custom404 />
       </Layout>
       <style jsx>{`
@@ -31,16 +31,16 @@ const Custom404Page = () => {
           font-family: 'NormalFont';
           src: url('${fallbackRestUrl}${medium?.url}');
         }`}
-      </style>
+      </style> */}
     </>
   )
 }
 
-export default Custom404Page
+// export default Custom404Page
 
-export const getStaticProps = wrapper.getStaticProps(
-  (store) => async ({ req, res }) => {
-    await mapProps(store, getPage({ query: 'aboutUs' }))
-  }
-)
+// export const getStaticProps = wrapper.getStaticProps(
+//   (store) => async ({ req, res }) => {
+//     await mapProps(store, getPage({ query: 'aboutUs' }))
+//   }
+// )
 
