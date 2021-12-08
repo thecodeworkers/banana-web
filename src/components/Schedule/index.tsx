@@ -15,7 +15,7 @@ const Schedule = () => {
           <ScheduleNav />
           <FirstBanner content={schedule?.scheduleFirstBanner} />
           <SecondBanner {...schedule?.scheduleSecondBanner} />
-          { schedule?.Product && <ThirdBanner content={schedule?.Product[0]} data={schedule?.interBanner} /> }
+          {schedule?.Product && <ThirdBanner content={schedule?.Product[0]} data={schedule?.interBanner} />}
           <FourthBanner content={schedule?.fourthBanner} />
         </div>)
       }
