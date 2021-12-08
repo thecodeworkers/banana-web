@@ -55,6 +55,19 @@ paginaAgendum(locale: "${locale}") {
     }
     price
   }
+  interBanner{
+    background{
+      url
+      name
+    }
+    backgroundResponsive{
+      url
+      name
+    }
+    title
+    subtitle
+    content
+  }
   fourthBanner{
     gifBanner{
       url

@@ -8,8 +8,6 @@ const FourthBanner = ({ content }) => {
   const background = `${fallbackRestUrl}${content?.gifBanner?.url}`
   const responsiveBackground = `${fallbackRestUrl}${content?.gifBannerResponsive?.url}`
 
-  console.log(content);
-
   return (
     <>
       <div className={styles._bannerContainer}>

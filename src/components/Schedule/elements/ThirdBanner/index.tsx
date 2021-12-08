@@ -3,11 +3,10 @@ import Image from 'next/image'
 import { GeneralButton, CountProduct } from '@components'
 import { fallbackRestUrl } from '@utils/path'
 
-const ThirdBanner = (content) => {
-  const back = 'images/grayBanner.png'
-  const backResponsive = 'images/grayBannerResponsive.png'
+const ThirdBanner = (content, data) => {
 
-  console.log(content?.content, 'kdkdkk');
+  const background = `${fallbackRestUrl}${content?.data?.background.url}`
+  const responsiveBackground = `${fallbackRestUrl}${content?.data?.backgroundResponsive.url}`
 
   return (
     <>
@@ -46,12 +45,12 @@ const ThirdBanner = (content) => {
 
         </div>
         <div className={'_banner'}>
-          <p className={styles._bigTitle}>Agenda 2022.</p>
+          <p className={styles._bigTitle}>{content?.data?.title}</p>
           <div className={styles._lineParent}>
             <div className={styles._line}></div>
             <div className={styles._lineContainer}>
-              <span>Propósito</span>
-              <p>Más que una agencia, somos un ecosistema de creativos que fomenta la innovación, la investigación y el trabajo duro, por lo que es nuestra responsabilidad brindar espacios y oportunidades a las futuras generaciones </p>
+              <span>{content?.data?.subtitle}</span>
+              <p>{content?.data?.content}</p>
             </div>
           </div>
         </div>
@@ -59,7 +58,7 @@ const ThirdBanner = (content) => {
       <style jsx>
         {`
         ._banner{
-          background-image: url(${back});
+          background-image: url(${background});
           background-size: cover;
           background-position: center;
           min-height: 40vh;
@@ -68,7 +67,7 @@ const ThirdBanner = (content) => {
         }
         @media(max-width: 576px) {
           ._banner{
-            background-image: url(${backResponsive});
+            background-image: url(${responsiveBackground});
             height: 70vh;
           }
        `}
