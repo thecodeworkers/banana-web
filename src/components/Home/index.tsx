@@ -19,7 +19,7 @@ const Home = () => {
         <div>
           <Alert />
           <DotsLine />
-          {/* <Hero content={home?.Hero} data={home?.Banner} contact={footer} reference={banner} serviceReference={services}/> */}
+          <Hero content={home?.Hero} data={home?.Banner} contact={footer} reference={banner} serviceReference={services}/>
           <div ref={banner}>
             <Banner withButton={home?.GifBanner?.button}
               background={`${fallbackRestUrl}${home?.GifBanner?.image?.url}`}

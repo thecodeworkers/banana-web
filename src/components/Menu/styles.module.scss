@@ -43,6 +43,13 @@ $yellow: #FFB703;
   @include text();
   padding: 1.5rem 2rem;
 }
+
+._lightSection {
+  @extend ._blackSection;
+  background-color: #FFF;
+  justify-content: flex-start;
+}
+
 ._socialBanner{
   display: flex;
   flex-direction: column;
@@ -70,12 +77,18 @@ $yellow: #FFB703;
   align-items: center;
   width: 100%;
 }
+
 ._body{
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   flex-direction: column;
   margin-bottom: 1rem;
+}
+
+._bodyLightTheme {
+  @extend ._body;
+  margin-top: 1.2rem;
 }
 
 ._title{
@@ -90,6 +103,15 @@ $yellow: #FFB703;
     transition: all .3s;
     color: $yellow;
    }
+}
+
+._titleLight {
+  @extend ._title;
+  color: #000;
+
+  &:hover {
+    color: #FF70A0;
+  }
 }
 
 ._footer{
@@ -161,7 +183,7 @@ $yellow: #FFB703;
 }
 
 ._bottomBtnParent{
-display: none;
+  display: none;
 }
 
 ._underscore {
@@ -172,6 +194,12 @@ display: none;
   left: -3.125rem;
   bottom: 2rem;
 }
+
+._pinkUnderscore {
+  @extend ._underscore;
+  border-bottom: 0.3125rem solid #FF70A0;
+}
+
 ._routesContainer{
   position: relative;
 }
@@ -180,6 +208,10 @@ display: none;
 }
 ._space{
   display: block;
+}
+
+._footerLightResposive {
+  display: none;
 }
 
 @include responsive(md) {
@@ -228,5 +260,13 @@ display: none;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+  }
+
+  ._footerLightResposive {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
   }
  }

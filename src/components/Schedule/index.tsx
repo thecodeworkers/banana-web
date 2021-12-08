@@ -9,15 +9,13 @@ const Schedule = () => {
 
   const { page: { schedule } } = useSelector((state: any) => state)
 
-  console.log(schedule)
-
   return (
     <>
       <div>
         <Alert />
         <ScheduleNav />
         <FirstBanner />
-        <SecondBanner />
+        <SecondBanner {...schedule?.scheduleSecondBanner} />
         <ThirdBanner />
         <FourthBanner background={'images/gif-agenda.gif'} responsiveImage={''} />
       </div>

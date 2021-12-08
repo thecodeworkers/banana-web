@@ -36,7 +36,8 @@ function* getPageAsync({ payload }) {
     yield put(actionObject(GET_PAGE_ASYNC, { [query]: page, header, footer }))
     yield put(setLanguage(language))
   } catch (err) {
-    yield call(manageError, err)
+    console.log(err)
+    //yield call(manageError, err)
   }
 }
 

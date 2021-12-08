@@ -1,3 +1,5 @@
+@import '@styles/index.scss';
+
 ._parent {
   position: fixed;
 	width: 100%;
@@ -20,6 +22,18 @@
 ._links {
   display: flex;
   list-style: none;
+
+  & li::after {
+    display: block;
+    content: '';
+    border-bottom: solid 1px #000;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+
+  & li:hover::after {
+    transform: scaleX(1);
+  }
 
   & li {
     font-size: 0.9375rem;
@@ -59,4 +73,31 @@
 
 ._leftSide, ._rightSide {
   width: 25%;
+}
+
+._toggleParent {
+  display: none;
+}
+
+
+@include responsive(md) {
+  ._centerSide {
+    display: none;
+  }
+  ._clockParent {
+    display: none;
+  }
+
+  ._cartParent {
+    margin-right: 1.2rem;
+
+    & p {
+      display: none;
+    }
+  }
+  ._toggleParent {
+    display: block;
+    display: flex;
+    justify-content: center;
+  }
 }
