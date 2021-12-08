@@ -32,6 +32,7 @@ const FirstBanner = (content) => {
           height: 100vh;
           width: 100%;
           background-repeat: no-repeat;
+          background-attachment: fixed;
         }
         @media(max-width: 576px) {
           ._banner{

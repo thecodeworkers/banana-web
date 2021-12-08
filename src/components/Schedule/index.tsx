@@ -5,9 +5,7 @@ import { SecondBanner } from './elements'
 
 const Schedule = () => {
 
-
   const { page: { schedule, footer } } = useSelector((state: any) => state)
-  console.log(schedule,'');
 
   return (
     <>
@@ -16,7 +14,7 @@ const Schedule = () => {
         <Alert />
         <ScheduleNav />
         <FirstBanner content= {schedule?.scheduleFirstBanner}/>
-        <SecondBanner />
+        <SecondBanner content= {schedule?.scheduleSecondBanner}/>
         <ThirdBanner content= {schedule?.Product[0]}  />
         <FourthBanner content= {schedule?.fourthBanner} />
       </div>:null

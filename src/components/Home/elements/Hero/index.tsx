@@ -1,17 +1,13 @@
-import { createRef, useEffect } from 'react'
 import styles from './styles.module.scss'
 import { GeneralButton, IconsButton } from '@components'
 import { BoxArrow } from '@icons/svg'
 import Image from 'next/image'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPage } from '@store/actions'
-import lottie from 'lottie-web'
 import { fallbackRestUrl } from '@utils'
 import { scrolling } from '@utils'
 
 const Hero = ({ content, reference, data, contact, serviceReference }: any) => {
-
-  const animationContainer: any = createRef()
 
   const dispatch = useDispatch()
   const { intermittence: { languages, selectedLanguage } } = useSelector((state: any) => state)
@@ -26,18 +22,6 @@ const Hero = ({ content, reference, data, contact, serviceReference }: any) => {
     }, 0)
     dispatch(getPage({ query: 'home', language: position }))
   }
-
-  // useEffect(() => {
-  //   const anim = lottie.loadAnimation({
-  //     container: animationContainer.current,
-  //     renderer: 'svg',
-  //     loop: true,
-  //     autoplay: true,
-  //     animationData: motion
-  //   })
-
-  //   return () => anim.destroy()
-  // }, [])
 
   return (
     <div className={styles._main}>
