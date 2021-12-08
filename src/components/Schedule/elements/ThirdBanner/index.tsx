@@ -1,42 +1,45 @@
 import styles from './styles.module.scss'
 import Image from 'next/image'
 import { GeneralButton, CountProduct } from '@components'
+import { fallbackRestUrl } from '@utils/path'
 
 const ThirdBanner = (content) => {
   const back = 'images/grayBanner.png'
   const backResponsive = 'images/grayBannerResponsive.png'
+
+  console.log(content?.content, 'kdkdkk');
 
   return (
     <>
       <div className={styles._main}>
         <div className={styles._container}>
           <div className={styles._leftSide}>
-            <Image src='/images/book.png' alt="book" width={675} height={695} quality={100} />
+            <Image src={`${fallbackRestUrl}${content?.content?.productImage.url}`} alt="book" width={675} height={695} quality={100} />
           </div>
           <div className={styles._leftSideResponsive}>
-            <Image src='/images/bookResponsive.png' alt="book" width={232} height={245} quality={100} />
+            <Image src={`${fallbackRestUrl}${content?.content?.productImageResponsive.url}`} alt="book" width={232} height={245} quality={100} />
           </div>
           <div className={styles._rightside}>
-            <p className={styles._title}>Agenda 2022</p>
+            <p className={styles._title}>{content?.content?.name}</p>
             <div className={styles._contentText}>
-              <p className={styles._blackSubtitle}>Media Carta</p>
-              <p className={styles._blackSubtitle}>150 páginas</p>
-              <p className={styles._blackSubtitle}>12 artistas </p>
-              <p className={styles._blackSubtitle}>Página de stickers</p>
+              {content?.content?.features?.map(function (item, index) {
+                return (
+                  <>
+                    <p key={index} className={styles._blackSubtitle}>{item.feature}</p>
+                  </>
+                )
+              })
+              }
             </div>
-            <p className={styles._subtitle}>
-              Como primer paso para construir nuestro ecosistema
-              y apostar por el encuentro entre creativos y artistas
-              venezolanos, planteamos diseñar una agenda que parta
-              de la premisa de que lo que recolectemos sea
-              destinado a becar y apoyar a un estudiante.</p>
+            <p className={styles._subtitle}>{content?.content?.description}</p>
 
             <div className={styles._buttonsContainer}>
               <div className={styles._counterContainer}>
                 <CountProduct stock={10} quantity={10} />
               </div>
               <div className={styles._servicesBtnParent}>
-                <GeneralButton background={'#134EBF'} icon={false} text={'Agregar al carrito 20$'} />
+                <GeneralButton background={'#134EBF'} icon={false}
+                text={`${content?.content?.buttonCart.text}${content?.content?.price}`}/>
               </div>
             </div>
           </div>

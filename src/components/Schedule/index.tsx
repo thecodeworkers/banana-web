@@ -1,26 +1,26 @@
-import { useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { FirstBanner, FourthBanner, ThirdBanner } from './elements'
-import { fallbackRestUrl } from '../../utils/path'
-import { Alert, DotsLine, ScheduleNav } from '@components'
+import { Alert, ScheduleNav } from '@components'
 import { SecondBanner } from './elements'
 
 const Schedule = () => {
 
-  const { page: { schedule } } = useSelector((state: any) => state)
 
-  console.log(schedule)
+  const { page: { schedule, footer } } = useSelector((state: any) => state)
+  console.log(schedule,'');
 
   return (
     <>
+     {schedule ?
       <div>
         <Alert />
         <ScheduleNav />
-        <FirstBanner />
+        <FirstBanner content= {schedule?.scheduleFirstBanner}/>
         <SecondBanner />
-        <ThirdBanner />
-        <FourthBanner background={'images/gif-agenda.gif'} responsiveImage={''} />
-      </div>
+        <ThirdBanner content= {schedule?.Product[0]}  />
+        <FourthBanner content= {schedule?.fourthBanner} />
+      </div>:null
+    }
     </>
   )
 }

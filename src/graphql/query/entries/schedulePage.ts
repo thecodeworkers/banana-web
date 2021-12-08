@@ -2,6 +2,7 @@ const SchedulePage = (locale) => `
 paginaAgendum(locale: "${locale}") {
   scheduleFirstBanner{
     title
+    subtitle
     background{
       url
       name
