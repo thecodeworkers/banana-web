@@ -1,15 +1,17 @@
 import React from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image'
+import { fallbackRestUrl } from '@utils/path'
 
-const Banner = ({ background, responsiveImage }) => {
+const FourthBanner = ({ content }) => {
+
+  const background = `${fallbackRestUrl}${content?.gifBanner?.url}`
+  const responsiveBackground = `${fallbackRestUrl}${content?.gifBannerResponsive?.url}`
 
   return (
     <>
       <div className={styles._bannerContainer}>
         <div className={'_banner'} />
-
-
       </div>
       <div className={styles._logosContainer}>
         <div className={styles._listLogos}>
@@ -31,7 +33,7 @@ const Banner = ({ background, responsiveImage }) => {
       }
       @media(max-width: 576px) {
         ._banner{
-          background-image: url(${responsiveImage});
+          background-image: url(${responsiveBackground});
           background-size: 100% 100%
         }
       }
@@ -40,4 +42,4 @@ const Banner = ({ background, responsiveImage }) => {
   )
 }
 
-export default Banner
+export default FourthBanner

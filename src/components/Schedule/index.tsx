@@ -1,8 +1,6 @@
-import { useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { FirstBanner, FourthBanner, ThirdBanner } from './elements'
-import { fallbackRestUrl } from '../../utils/path'
-import { Alert, DotsLine, ScheduleNav } from '@components'
+import { Alert, ScheduleNav } from '@components'
 import { SecondBanner } from './elements'
 
 const Schedule = () => {
@@ -11,14 +9,16 @@ const Schedule = () => {
 
   return (
     <>
-      <div>
-        <Alert />
-        <ScheduleNav />
-        <FirstBanner />
-        <SecondBanner {...schedule?.scheduleSecondBanner} />
-        <ThirdBanner />
-        <FourthBanner background={'images/gif-agenda.gif'} responsiveImage={''} />
-      </div>
+      {schedule ?
+        <div>
+          <Alert />
+          <ScheduleNav />
+          <FirstBanner content={schedule?.scheduleFirstBanner} />
+          <SecondBanner {...schedule?.scheduleSecondBanner} />
+          <ThirdBanner content={schedule?.Product[0]} data={schedule?.interBanner} />
+          <FourthBanner content={schedule?.fourthBanner} />
+        </div> : null
+      }
     </>
   )
 }
