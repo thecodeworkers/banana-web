@@ -11,7 +11,7 @@ const SchedulePage = () => {
 
   return (
     <>
-      <Layout navFullWidth>
+      <Layout navFullWidth menuLight>
         <Schedule />
       </Layout>
       <style jsx>{`
@@ -40,6 +40,6 @@ export default SchedulePage
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async ({ req, res }) => {
-    await mapProps(store, getPage({ query: 'aboutUs' }))
+    await mapProps(store, getPage({ query: 'schedule' }))
   }
 )
