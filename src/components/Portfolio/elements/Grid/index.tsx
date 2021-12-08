@@ -96,6 +96,13 @@ const Grid = () => {
                     <div key={index} className={styles._itemParent}>
                       <div className={styles._item}>
                         <Image src={p.img} alt={p.name} layout='fill' />
+                        <div className={styles._description}>
+                          <p>Description</p>
+                        </div>
+
+                        <div className={styles._logo}>
+                          <Image src='/icons/vippo.png' alt={p.name} width='80%' height='30%' />
+                        </div>
                       </div>
                     </div>
                   ))
