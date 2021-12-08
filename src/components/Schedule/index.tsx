@@ -9,16 +9,16 @@ const Schedule = () => {
 
   return (
     <>
-     {schedule ?
-      <div>
-        <Alert />
-        <ScheduleNav />
-        <FirstBanner content= {schedule?.scheduleFirstBanner}/>
-        <SecondBanner {...schedule?.scheduleSecondBanner} />
-        <ThirdBanner content= {schedule?.Product[0]} data={schedule?.interBanner}  />
-        <FourthBanner content= {schedule?.fourthBanner} />
-      </div>:null
-    }
+      {schedule ?
+        <div>
+          <Alert />
+          <ScheduleNav />
+          <FirstBanner content={schedule?.scheduleFirstBanner} />
+          <SecondBanner {...schedule?.scheduleSecondBanner} />
+          <ThirdBanner content={schedule?.Product[0]} data={schedule?.interBanner} />
+          <FourthBanner content={schedule?.fourthBanner} />
+        </div> : null
+      }
     </>
   )
 }

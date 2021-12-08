@@ -38,7 +38,7 @@ const ThirdBanner = (content, data) => {
               </div>
               <div className={styles._servicesBtnParent}>
                 <GeneralButton background={'#134EBF'} icon={false}
-                text={`${content?.content?.buttonCart.text}${content?.content?.price}`}/>
+                  text={`${content?.content?.buttonCart.text}${content?.content?.price}`} />
               </div>
             </div>
           </div>
