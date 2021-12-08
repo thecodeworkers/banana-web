@@ -9,15 +9,15 @@ const Schedule = () => {
 
   return (
     <>
-      {schedule ?
+      {schedule && (
         <div>
           <Alert />
           <ScheduleNav />
           <FirstBanner content={schedule?.scheduleFirstBanner} />
           <SecondBanner {...schedule?.scheduleSecondBanner} />
-          <ThirdBanner content={schedule?.Product[0]} data={schedule?.interBanner} />
+          { schedule?.Product && <ThirdBanner content={schedule?.Product[0]} data={schedule?.interBanner} /> }
           <FourthBanner content={schedule?.fourthBanner} />
-        </div> : null
+        </div>)
       }
     </>
   )
