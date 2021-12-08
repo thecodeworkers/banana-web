@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 import Image from 'next/image'
 import { fallbackRestUrl } from '@utils/path'
 
-const FourthBanner = ({ content }) => {
+const FourthBanner = ({ content }: any) => {
 
   const background = `${fallbackRestUrl}${content?.gifBanner?.url}`
   const responsiveBackground = `${fallbackRestUrl}${content?.gifBannerResponsive?.url}`
