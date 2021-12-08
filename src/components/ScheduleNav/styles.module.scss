@@ -23,6 +23,18 @@
   display: flex;
   list-style: none;
 
+  & li::after {
+    display: block;
+    content: '';
+    border-bottom: solid 1px #000;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+
+  & li:hover::after {
+    transform: scaleX(1);
+  }
+
   & li {
     font-size: 0.9375rem;
     font-family: 'LightFont', sans-serif;

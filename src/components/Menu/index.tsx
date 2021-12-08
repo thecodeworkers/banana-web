@@ -102,7 +102,7 @@ const Menu = ({ menuLight = false }) => {
 
           </div>
           <div className={!menuLight ? styles._body : styles._bodyLightTheme}>
-            {(!menuLight ? footer?.sections : scheduleArray).map((item, index) => {
+            {(!menuLight ? footer?.sections || [] : scheduleArray).map((item, index) => {
               return (
                 <div className={styles._routesContainer} key={index}>
                   <hr className={!menuLight ? styles._underscore : styles._pinkUnderscore}></hr>
