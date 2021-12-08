@@ -1,12 +1,74 @@
 import { useState } from 'react'
+import { DownArrow } from '@icons/svg'
 import styles from './styles.module.scss'
 import Image from 'next/image'
-import { DownArrow } from '@icons/svg'
 
 const filters: Array<string> = ['All', 'Brand', 'Productions', 'UI/UX', 'Moda', 'Mograph', 'Packaging']
 
-const Grid = () => {
+const tmpAllProjects = [
+  {
+    img: '/images/portfolio/grid-1.png',
+    name: 'test1'
+  },
+  {
+    img: '/images/portfolio/grid-2.png',
+    name: 'test2'
+  },
+  {
+    img: '/images/portfolio/grid-1.png',
+    name: 'test3'
+  },
+  {
+    img: '/images/portfolio/grid-2.png',
+    name: 'test4'
+  },
+  {
+    img: '/images/portfolio/grid-1.png',
+    name: 'test5'
+  },
+  {
+    img: '/images/portfolio/grid-1.png',
+    name: 'test6'
+  },
+  {
+    img: '/images/portfolio/grid-2.png',
+    name: 'test7'
+  },
+  {
+    img: '/images/portfolio/grid-2.png',
+    name: 'test8'
+  },
+]
 
+const columns = 4
+let elementPerColumn = tmpAllProjects.length / columns
+elementPerColumn = elementPerColumn < 1 ? 1 : elementPerColumn
+
+const projects = []
+let fromIndex = 0
+
+const ceilNumber = (num: number) => Math.ceil(num)
+
+const determinateElementPerColumn = (index: number, elementPerColumn: number) => {
+  const decimal = elementPerColumn.toString().split('.')[1]
+
+  if (decimal) {
+    if (decimal == '25' && index == 0) return ceilNumber(elementPerColumn)
+    if (decimal == '5' && (index == 0 || index == 1)) return ceilNumber(elementPerColumn)
+    if (decimal == '75' && (index == 0 || index == 1 || index == 2)) return ceilNumber(elementPerColumn)
+  }
+
+  return Math.floor(elementPerColumn)
+}
+
+
+for (let i = 0; i < columns; i++) {
+  const toIndex = fromIndex + determinateElementPerColumn(i, elementPerColumn)
+  projects.push(tmpAllProjects.slice(fromIndex, toIndex))
+  fromIndex = toIndex
+}
+
+const Grid = () => {
   const [showFilters, setShowFilters] = useState(false)
   const showHideFilters = () => setShowFilters(showFilters => !showFilters)
 
@@ -26,62 +88,21 @@ const Grid = () => {
 
       <div className={styles._grid}>
         <div className={styles._gridChild}>
-          <div className={styles._column}>
-
-            {
-              Array.from(Array(6).keys()).map((index) => {
-                return (
-                  <div className={styles._itemParent} key={index}>
-                    <div className={styles._item}>
-                      <Image src='/images/portfolio/grid-1.png' alt='image' layout='fill' />
+          {
+            projects.map((project, index) => (
+              <div key={index} className={styles._column}>
+                {
+                  project.map((p, index) => (
+                    <div key={index} className={styles._itemParent}>
+                      <div className={styles._item}>
+                        <Image src={p.img} alt={p.name} layout='fill' />
+                      </div>
                     </div>
-                  </div>
-                )
-              })
-            }
-          </div>
-
-          <div className={styles._column}>
-            {
-              Array.from(Array(5).keys()).map((index) => {
-                return (
-                  <div className={styles._itemParent} key={index}>
-                    <div className={styles._item}>
-                      <Image src='/images/portfolio/grid-2.png' alt='image' layout='fill' />
-                    </div>
-                  </div>
-                )
-              })
-            }
-          </div>
-
-          <div className={styles._column}>
-            {
-              Array.from(Array(6).keys()).map((index) => {
-                return (
-                  <div className={styles._itemParent} key={index}>
-                    <div className={styles._item}>
-                      <Image src='/images/portfolio/grid-1.png' alt='image' layout='fill' />
-                    </div>
-                  </div>
-                )
-              })
-            }
-          </div>
-
-          <div className={styles._column}>
-            {
-              Array.from(Array(5).keys()).map((index) => {
-                return (
-                  <div className={styles._itemParent} key={index}>
-                    <div className={styles._item}>
-                      <Image src='/images/portfolio/grid-2.png' alt='image' layout='fill' />
-                    </div>
-                  </div>
-                )
-              })
-            }
-          </div>
+                  ))
+                }
+              </div>
+            ))
+          }
         </div>
       </div>
 
@@ -117,7 +138,7 @@ const Grid = () => {
 
         <div className={styles._responsiveGrid}>
           {
-            Array.from(Array(5).keys()).map((index) => {
+            tmpAllProjects.map((p, index) => {
               return (
                 <div
                   className={styles._picture}
@@ -145,5 +166,3 @@ const Grid = () => {
 }
 
 export default Grid
-
-
