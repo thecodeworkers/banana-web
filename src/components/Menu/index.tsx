@@ -191,7 +191,7 @@ const Menu = ({ menuLight = false }) => {
         .linkedin-black-parent, .behance-black-parent, .insta-black-parent {
           cursor: pointer;
           opacity: 0;
-          transform: translateY(50px)
+          transform: translateY(3.125rem)
         }
 
         @keyframes slideIn {
