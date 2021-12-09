@@ -90,9 +90,9 @@ const Footer = () => {
             </div>
 
             <div>
-            <a className={styles._link} href={'https://www.instagram.com/_bananacreative/'} target='_blank' rel='noreferrer'>
-              <p className={styles._textBold}>{footer?.FooterContact?.Contact[0]?.socialAccount}</p>
-            </a>
+              <a className={styles._link} href={'https://www.instagram.com/_bananacreative/'} target='_blank' rel='noreferrer'>
+                <p className={styles._textBold}>{footer?.FooterContact?.Contact[0]?.socialAccount}</p>
+              </a>
             </div>
           </div>
           <div className={styles._contactNumber}>
