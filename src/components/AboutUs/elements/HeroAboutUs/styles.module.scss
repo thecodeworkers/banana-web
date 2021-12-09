@@ -54,7 +54,9 @@ $helveticaMedium: 'NormalFont';
 
 ._btnSuperParent {
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-end;
 }
 
 ._btnParent {

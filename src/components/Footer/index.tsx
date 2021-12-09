@@ -57,8 +57,13 @@ const Footer = () => {
         <div className={styles._contactContainer}>
           <div className={styles._contactNumber}>
             <p className={`${styles._text} `}>{footer?.FooterContact?.Contact[0]?.titleNumbers}</p>
-            <p className={`${styles._textBold} `}>{footer?.FooterContact?.Contact[0]?.phoneOne}</p>
-            <p className={`${styles._textBold} `}>{footer?.FooterContact?.Contact[0]?.contactMail}</p>
+            <a className={styles._link} href={`tel:${footer?.FooterContact?.Contact[0]?.phoneOne}`}>
+              <p className={`${styles._textBold} `}>{footer?.FooterContact?.Contact[0]?.phoneOne}</p>
+            </a>
+
+            <a className={styles._link} href={`mailto:${footer?.FooterContact?.Contact[0]?.contactMail}`}>
+              <p className={`${styles._textBold} `}>{footer?.FooterContact?.Contact[0]?.contactMail}</p>
+            </a>
           </div>
 
           <div className={styles._contactMail}>
@@ -70,7 +75,9 @@ const Footer = () => {
             </div>
 
             <div>
-              <p className={styles._textBold}>{footer?.FooterContact?.Contact[0]?.email}</p>
+              <a className={styles._link} href={`mailto:${footer?.FooterContact?.Contact[0]?.email}`}>
+                <p className={styles._textBold}>{footer?.FooterContact?.Contact[0]?.email}</p>
+              </a>
             </div>
           </div>
 
@@ -83,7 +90,9 @@ const Footer = () => {
             </div>
 
             <div>
+            <a className={styles._link} href={'https://www.instagram.com/_bananacreative/'} target='_blank' rel='noreferrer'>
               <p className={styles._textBold}>{footer?.FooterContact?.Contact[0]?.socialAccount}</p>
+            </a>
             </div>
           </div>
           <div className={styles._contactNumber}>

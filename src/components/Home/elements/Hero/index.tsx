@@ -44,7 +44,7 @@ const Hero = ({ content, reference, data, contact, serviceReference }: any) => {
           <hr className={styles._line}></hr>
           <div className={styles._btnSuperParent}>
             <div className={styles._btnParent}>
-              <IconsButton text={content?.recapButton[0]?.text} icon='star' right={false}/>
+              <IconsButton text={content?.recapButton[0]?.text}  right={true}/>
             </div>
           </div>
         </div>

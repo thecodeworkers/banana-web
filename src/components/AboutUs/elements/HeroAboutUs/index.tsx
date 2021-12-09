@@ -16,7 +16,7 @@ const HeroAboutUs = ({ content }: any) => {
           <hr className={styles._line}></hr>
           <div className={styles._btnSuperParent}>
             <div className={styles._btnParent}>
-              <IconsButton text={content?.recapButton?.[0]?.text} />
+              <IconsButton text={content?.recapButton?.[0]?.text} right={true}/>
             </div>
           </div>
         </div>
