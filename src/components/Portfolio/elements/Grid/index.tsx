@@ -7,7 +7,7 @@ import { fallbackRestUrl } from '@utils'
 
 const filters: Array<string> = ['All', 'Brand', 'Productions', 'UI/UX', 'Moda', 'Mograph', 'Packaging']
 
-const Grid = () => {
+const Grid = (content) => {
   const [showFilters, setShowFilters] = useState(false)
   const showHideFilters = () => setShowFilters(showFilters => !showFilters)
   const { project: { projects } } = useSelector((state: any) => state)
