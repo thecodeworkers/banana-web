@@ -11,6 +11,7 @@ import { inAnimation, outAnimation } from './gsap'
 import { useRouter } from 'next/router'
 import { LogoBanana, CloseIcon } from '@icons/svg'
 import { Clok } from '@components'
+import Router from 'next/router'
 
 const scheduleArray = [{ name: 'Comprar' }, { name: 'Proposito' }, { name: 'Invitados' }]
 
@@ -28,6 +29,9 @@ const Menu = ({ menuLight = false }) => {
   const dispatch = useDispatch()
   const { classMenu } = useSelector((state: any) => state.intermittence)
   const { page: { footer }, intermittence: { languages, selectedLanguage } } = useSelector((state: any) => state)
+
+  const resetState = () => dispatch(setStatus({ classMenu: '_mainMenu' }))
+  Router.events.on('routeChangeComplete', resetState)
 
   useEffect(() => {
     const timeline: any = gsap.timeline()
@@ -200,13 +204,13 @@ const Menu = ({ menuLight = false }) => {
           }
 
           to {
-            right: 0;
+            right: 0%;
           }
         }
 
         @keyframes slideOut {
           from {
-            right: 0;
+            right: 0%;
           }
 
           to {
