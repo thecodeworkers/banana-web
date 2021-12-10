@@ -25,8 +25,21 @@
     font-size: 0.9rem;
     cursor: pointer;
   }
+}
 
-  & li::after {
+._liSelected {
+  &::after {
+    display: block;
+    content: '';
+    border-bottom: solid 1px #FFF;
+    transform: scaleX(1);
+    transition: transform 250ms ease-in-out;
+  }
+}
+
+._li {
+
+  &::after {
     display: block;
     content: '';
     border-bottom: solid 1px #FFF;
@@ -34,7 +47,7 @@
     transition: transform 250ms ease-in-out;
   }
 
-  & li:hover::after {
+  &:hover::after {
     transform: scaleX(1);
   }
 }
@@ -118,7 +131,6 @@
     font-family: 'LightFont', sans-serif;
   }
 }
-
 
 //RESPONSIVEEEE
 
@@ -206,6 +218,13 @@
   justify-content: center;
   align-items: center;
   font-family: 'NormalFont', sans-serif;
+}
+
+._navigationParent {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
 @include responsive(md) {

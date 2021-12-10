@@ -12,8 +12,8 @@ export const paginate = (items: Array<any>, page_number: number = 1, page_size: 
   return items.slice((page_number - 1) * page_size, page_number * page_size);
 }
 
-export const scrollTo = (ref: any, offset = 0) => {
-  window.scrollTo({ top: ref.offsetTop - offset, behavior: 'smooth' });
+export const scrollTo = (ref: any, offset = 0, toTop = false) => {
+  window.scrollTo({ top: !toTop ? ref.offsetTop - offset : 0, behavior: 'smooth' });
 }
 
 export const createMarkup = (text) => { return { __html: text }; }

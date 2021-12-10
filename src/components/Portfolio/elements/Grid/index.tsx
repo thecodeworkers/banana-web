@@ -3,9 +3,11 @@ import { DownArrow } from '@icons/svg'
 import styles from './styles.module.scss'
 import Image from 'next/image'
 import { useSelector } from 'react-redux'
-import { fallbackRestUrl } from '@utils'
+import { fallbackRestUrl, paginate, scrollTo } from '@utils'
+import { Pagination } from '@components'
 
-const filters: Array<string> = ['All', 'Brand', 'Productions', 'UI/UX', 'Moda', 'Mograph', 'Packaging']
+const filters: Array<string> = ['All', 'Branding', 'Productions', 'UI/UX', 'Moda', 'Mograph', 'Packaging']
+const perPage = 12
 
 const Grid = () => {
   const [showFilters, setShowFilters] = useState(false)
@@ -13,6 +15,8 @@ const Grid = () => {
   const { project: { projects } } = useSelector((state: any) => state)
   const [tmpAllProjects, setTmpAllProjects] = useState(projects)
   const [processedArray, setProcededArray] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [currentFilter, setCurrentFilter] = useState('All')
 
   useEffect(() => {
     const columns = 4
@@ -46,25 +50,31 @@ const Grid = () => {
   }, [tmpAllProjects])
 
   const filterBy = (criteria) => {
+    setCurrentFilter(criteria)
     if (criteria === 'All') return setTmpAllProjects(projects)
     const result = projects.filter((item) => item?.categories?.name === criteria)
     if (result) setTmpAllProjects(result)
+  }
+
+  const changePageAndScroll = (page: number) => {
+    setCurrentPage(page)
+    scrollTo(null, 0, true)
   }
 
   return (
     <div className={styles._main}>
       <div className={styles._filters}>
         <ul className={styles._list}>
-          <li onClick={() => filterBy('All')} > All </li>
-          <li onClick={() => filterBy('Branding')} > Brand </li>
-          <li onClick={() => filterBy('Productions')}> Productions </li>
-          <li onClick={() => filterBy('UI/UX')}> UI/UX </li>
-          <li onClick={() => filterBy('Moda')}> Moda </li>
-          <li onClick={() => filterBy('Moda')}> Mograph </li>
-          <li onClick={() => filterBy('Moda')}> Packaging </li>
+          {
+            filters.map((item, index) => (
+              <li
+                className={currentFilter == item ? styles._liSelected : styles._li}
+                onClick={() => filterBy(item)}
+                key={index}>{item}</li>
+            ))
+          }
         </ul>
       </div>
-
 
       <div className={styles._grid}>
         <div className={styles._gridChild}>
@@ -87,7 +97,7 @@ const Grid = () => {
                         </div>
 
                         <div className={styles._logo}>
-                          <Image src={`${fallbackRestUrl}${p?.logoHover?.image?.url}`} alt={p?.portrait?.image?.name} width='80%' height='30%' />
+                          <Image src={`${fallbackRestUrl}${p?.logoHover?.image?.url}`} alt={p?.portrait?.image?.name} width='100%' height='100%' />
                         </div>
                       </div>
                     </div>
@@ -112,16 +122,18 @@ const Grid = () => {
             <div className={styles._phoneFilters}>
               <ul className={styles._phoneList}>
                 {
-                  filters.slice(0, 4).map((item, index) => {
-                    return <li key={index}>{item}</li>
-                  })
+                  filters.slice(0, 4).map((item, index) => (
+                    <li
+                      onClick={() => filterBy(item)}
+                      key={index}>{item}</li>
+                  ))
                 }
               </ul>
 
               <ul className={styles._phoneList}>
                 {
                   filters.slice(4, 8).map((item, index) => {
-                    return <li key={index}>{item}</li>
+                    return <li key={index} onClick={() => filterBy(item)}>{item}</li>
                   })
                 }
               </ul>
@@ -131,7 +143,7 @@ const Grid = () => {
 
         <div className={styles._responsiveGrid}>
           {
-            tmpAllProjects.map((p, index) => {
+            paginate(tmpAllProjects, currentPage, perPage).map((p, index) => {
               return (
                 <div
                   className={styles._picture}
@@ -143,17 +155,15 @@ const Grid = () => {
           }
         </div>
 
-        <div className={styles._paginationParent}>
-          <div className={styles._square}>
-            1
-          </div>
-
-          <div className={styles._square}>
-            2
-          </div>
+        <div className={styles._navigationParent}>
+          <Pagination
+            currentPage={currentPage}
+            items={tmpAllProjects}
+            perPage={perPage}
+            changePage={(page: number) => changePageAndScroll(page)}
+          />
         </div>
       </div>
-
     </div>
   )
 }

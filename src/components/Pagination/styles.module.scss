@@ -1,0 +1,33 @@
+@import '@styles/index.scss';
+
+._container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+._numberContainer {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+._number {
+  font-family: 'NormalFont';
+  font-weight: 200;
+}
+
+._arrowContainer {
+  display: flex;
+  cursor: pointer;
+}
+
+@include responsive(md) {
+  ._container {
+    width: 100%;
+  }
+}
