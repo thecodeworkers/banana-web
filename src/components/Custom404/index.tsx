@@ -8,9 +8,6 @@ import { fallbackRestUrl } from '../../utils/path'
 const Custom404 = () => {
 
   const { page: { custom404, footer } } = useSelector((state: any) => state)
-
-  console.log(footer, 'jdjdjdjjd');
-
   const [email, setEmail] = useState('')
 
   const inputHandler = (event: any) => {
