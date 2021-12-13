@@ -23,9 +23,9 @@ const ThirdBanner = (content, data) => {
             <div className={styles._contentText}>
               {content?.content?.features?.map(function (item, index) {
                 return (
-                  <>
-                    <p key={index} className={styles._blackSubtitle}>{item.feature}</p>
-                  </>
+                  <div key={index} className={styles._textContent}>
+                    <p className={styles._blackSubtitle}>{item.feature}</p>
+                  </div>
                 )
               })
               }

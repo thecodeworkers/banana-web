@@ -18,7 +18,6 @@ const Contact = ({ content }: any) => {
   const [inputValue, setInputValue] = useState('')
   const [isValid, setIsValid] = useState(false)
   const result = 100 / steps
-
   const inputReference = useRef(null)
 
   useEffect(() => {
@@ -139,7 +138,7 @@ const Contact = ({ content }: any) => {
                     background='#FFF'
                     borderColor='#000'
                     icon={false}
-                    text='Regresar'
+                    text={localData?.secondButton}
                     method={previousStep}
                   />
                 </div>
@@ -147,7 +146,7 @@ const Contact = ({ content }: any) => {
                 <div className={styles._parentSubBtn}>
                   <GeneralButton
                     icon={false}
-                    text={localData?.button?.text}
+                    text={localData?.nextButton}
                     method={isValid && inputValue.length ? nextStep : () => showToast(dispatch, '#FF4F4F', 'error', 'Error!')}
                   />
                 </div>
@@ -159,11 +158,11 @@ const Contact = ({ content }: any) => {
         {
           contact?.sended &&
           <div>
-            <h1 className={styles._sentTitle}> You have send your message!</h1>
+            <h1 className={styles._sentTitle}>{localData?.sucessMessage}</h1>
             <div className={styles._parentBtnSent}>
               <GeneralButton
                 icon={false}
-                text='Send new message'
+                text={localData?.thirdButton}
                 method={resetForm}
                 borderColor='#000'
               />
@@ -186,7 +185,7 @@ const Contact = ({ content }: any) => {
       <style jsx>{`
         ._step {
           width: ${width}%;
-          background-color: #FFB703;
+          background-color: #E0C269;
           height: inherit;
           border-radius: 0.4688rem;
         }

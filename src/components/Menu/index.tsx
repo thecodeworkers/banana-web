@@ -12,8 +12,9 @@ import { useRouter } from 'next/router'
 import { LogoBanana, CloseIcon } from '@icons/svg'
 import { Clok } from '@components'
 import Router from 'next/router'
+import { navigation } from '@utils'
 
-const scheduleArray = [{ name: 'Comprar' }, { name: 'Proposito' }, { name: 'Invitados' }]
+// const scheduleArray = [{ name: 'Comprar' }, { name: 'Proposito' }, { name: 'Invitados' }]
 
 const commonStyles: any = `
   display: flex;
@@ -28,7 +29,7 @@ const Menu = ({ menuLight = false }) => {
   const router = useRouter()
   const dispatch = useDispatch()
   const { classMenu } = useSelector((state: any) => state.intermittence)
-  const { page: { footer }, intermittence: { languages, selectedLanguage } } = useSelector((state: any) => state)
+  const { page: { footer, header }, intermittence: { languages, selectedLanguage } } = useSelector((state: any) => state)
 
   const resetState = () => dispatch(setStatus({ classMenu: '_mainMenu' }))
   Router.events.on('routeChangeComplete', resetState)
@@ -52,10 +53,8 @@ const Menu = ({ menuLight = false }) => {
     dispatch(getPage({ query: 'home', language: position }))
   }
 
-  const navigation = (item: any) => {
-    const { name } = item
-    if (name.toLowerCase() == 'team') router.push('about-us')
-    if (name.toLowerCase() == 'portfolio') router.push('portfolio')
+  const navigate = (item: any) => {
+    navigation(item, router)
     closeMenu()
   }
 
@@ -106,11 +105,11 @@ const Menu = ({ menuLight = false }) => {
 
           </div>
           <div className={!menuLight ? styles._body : styles._bodyLightTheme}>
-            {(!menuLight ? footer?.sections || [] : scheduleArray).map((item, index) => {
+            {(!menuLight ? footer?.sections || [] : header?.navigations?.route).map((item, index) => {
               return (
                 <div className={styles._routesContainer} key={index}>
                   <hr className={!menuLight ? styles._underscore : styles._pinkUnderscore}></hr>
-                  <p className={!menuLight ? styles._title : styles._titleLight} onClick={() => navigation(item)} >{item?.name}</p>
+                  <p className={!menuLight ? styles._title : styles._titleLight} onClick={() => navigate(item?.route)} >{item?.name}</p>
                 </div>
               )
             })

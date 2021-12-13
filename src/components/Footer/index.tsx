@@ -5,17 +5,14 @@ import tcw from '@icons/tcw-logo.svg'
 import { useSelector } from 'react-redux'
 import { fallbackRestUrl } from '../../utils/path'
 import { useRouter } from 'next/router'
+import { navigation } from '@utils'
 
 const Footer = () => {
 
   const router = useRouter()
   const { page: { footer } } = useSelector((state: any) => state)
 
-  const navigation = (item: any) => {
-    const { name } = item
-    if (name.toLowerCase() == 'team') router.push('about-us')
-    if (name.toLowerCase() == 'portfolio') router.push('portfolio')
-  }
+  const navigate = (item: any) => { navigation(item, router) }
 
   return (
     <div className={styles._container}>
@@ -28,7 +25,7 @@ const Footer = () => {
           <div className={styles._sectionsContent}>
             {footer?.sections?.map(function (item, index) {
               return (
-                <div key={index} onClick={() => navigation(item)}>
+                <div key={index} onClick={() => navigate(item?.route)}>
                   <p className={styles._sections}>{item.name}</p>
                 </div>
               )

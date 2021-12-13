@@ -82,6 +82,10 @@ const homePage = (locale) => `
       title
       firstSubtitle
       secondSubtitle
+      nextButton
+      secondButton
+      thirdButton
+      sucessMessage
       button {
         text
         Link

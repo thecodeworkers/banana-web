@@ -2,8 +2,14 @@ import { useState } from 'react'
 import styles from './styles.module.scss'
 import { GeneralButton } from '@components'
 import Image from 'next/image'
+import { useSelector } from 'react-redux'
+import { fallbackRestUrl } from '../../utils/path'
 
 const Custom404 = () => {
+
+  const { page: { custom404, footer } } = useSelector((state: any) => state)
+
+  console.log(footer, 'jdjdjdjjd');
 
   const [email, setEmail] = useState('')
 
@@ -19,16 +25,15 @@ const Custom404 = () => {
       <div className={styles._bottomSection}>
         <div className={styles._newsletter}>
           <section>
-            <h1 className={styles._title}>Coming soon</h1>
+            <h1 className={styles._title}>{custom404?.title}</h1>
             <input className={styles._input} placeholder='Ingresa tu correo' value={email} onChange={inputHandler} />
-            <p className={styles._text}>Regresa nuevamente cuando esta sección este lista. Dejanos tu correo para que seas notificado del lanzamiento
-            </p>
+            <p className={styles._text}>{custom404?.subtitle}</p>
             <div className={styles._parentBtn}>
               <GeneralButton
                 textColor='#FFF'
                 background='#000'
                 icon
-                text='Enviar'
+                text={custom404?.sendButton?.text}
               />
             </div>
           </section>
@@ -36,7 +41,19 @@ const Custom404 = () => {
         <footer className={styles._footer}>
           <div className={styles._footerContent}>
             <div className={styles._socialMedia}>
-              <div className={styles._imgParent}>
+              {footer?.social?.map(function (item, index) {
+                return (
+                  item?.name?.split('-')?.[1] == 'black' ?
+                    <div key={index}>
+                      <a href={item?.url} target='_blank' rel='noreferrer' >
+                        <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={25} height={25} quality={100} />
+                      </a>
+                    </div>
+                    : null
+                )
+              }
+              )}
+              {/* <div className={styles._imgParent}>
                 <Image src='/icons/behance-white.png' alt='instagram' width={23} height={23} quality={100} />
               </div>
 
@@ -46,10 +63,10 @@ const Custom404 = () => {
 
               <div className={styles._imgParent}>
                 <Image src='/icons/linkedin-white.png' alt='instagram' width={23} height={23} quality={100} />
-              </div>
+              </div> */}
             </div>
 
-            <p>Banana creative. 2021 copyright ©</p>
+            <p>{footer?.copyright}</p>
           </div>
         </footer>
       </div>

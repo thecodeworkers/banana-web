@@ -5,6 +5,8 @@ import { setStatus } from '@store/actions'
 import { useSelector } from 'react-redux'
 import { LogoBanana, Toggle } from '@icons/svg'
 import Clock from '../Clock'
+import { navigation } from '@utils'
+import { useRouter } from 'next/router'
 
 const Navbar = () => {
 
@@ -12,6 +14,7 @@ const Navbar = () => {
   const { intermittence: { theme } } = useSelector((state: any) => state)
   const [navClass, setNavClass] = useState('_mainChild')
   const [textClass, setTextClass] = useState('_cityText')
+  const router = useRouter()
 
   const commonNav = (theme) => (`
     background-color: ${theme == 'dark' ? '#000' : '#FFF'};
@@ -40,13 +43,16 @@ const Navbar = () => {
 
   const openMenu = () => dispatch(setStatus({ classMenu: '_inAnimation' }))
 
+  const navigate = () => { navigation('/', router) }
+
+
   return (
     <nav>
       <div className={styles._parent}>
         <div className={styles._parentChild}>
           <div className={navClass}>
             <div className={styles._childOne}>
-              <div className='_toggleParent'>
+              <div className='_toggleParent' onClick={navigate}>
                 <LogoBanana theme={theme} />
               </div>
             </div>

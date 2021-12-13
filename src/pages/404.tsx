@@ -1,6 +1,5 @@
-import { useEffect } from 'react'
 import { getPage } from '@store/actions'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { fallbackRestUrl } from '@utils/path'
 import { Custom404, Layout } from '@components'
 import wrapper from '@store'
@@ -40,7 +39,7 @@ export default Custom404Page
 
 export const getStaticProps = wrapper.getStaticProps(
   (store) => async ({ req, res }) => {
-    await mapProps(store, getPage({ query: 'aboutUs' }))
+    await mapProps(store, getPage({ query: 'custom404' }))
   }
 )
 

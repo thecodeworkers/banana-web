@@ -1,6 +1,6 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
 import { actionObject, GraphQlClient, manageError } from '@utils'
-import { homePage, fontQuery, footerQuery, headerQuery, aboutPage, categoriesQuery, projectsQuery, schedulePage } from '@graphql/query'
+import { homePage, fontQuery, footerQuery, headerQuery, aboutPage, categoriesQuery, projectsQuery, schedulePage, custom404 } from '@graphql/query'
 import { GET_PAGE, GET_PAGE_ASYNC } from './action-types'
 import { setFonts } from '../font/action'
 import { setLanguage } from '@store/actions'
@@ -12,7 +12,8 @@ const getQueryPages = (page = 'home', locale = 'en') => {
     home: homePage,
     aboutUs: aboutPage,
     portfolio: categoriesQuery,
-    schedule: schedulePage
+    schedule: schedulePage,
+    custom404: custom404
   }
   return `
     query {

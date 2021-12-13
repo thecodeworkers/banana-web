@@ -39,7 +39,7 @@ const MyApp = ({ Component, pageProps }) => {
 
   let progress = new ProgressBar({
     size: 3,
-    color: '#FFB703',
+    color: '#E0C269',
     className: 'bar-of-progress',
     delay: 100,
   })

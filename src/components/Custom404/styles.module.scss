@@ -60,7 +60,16 @@ $verticalMargin: 2rem;
 }
 
 ._socialMedia {
-  display: inline-flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & div {
+    cursor: pointer;
+  }
+  & a {
+    margin-right: 1rem;
+  }
 }
 
 ._imgParent {
