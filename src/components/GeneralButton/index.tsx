@@ -16,7 +16,7 @@ const GeneralButton = ({
 }: any) => {
   return (
     <>
-      <button className='_btn' onClick={method ? method : () => { }} type={type}>
+      <button className='_btn' onClick={method ? method : () => ''} type={type}>
         <p className={styles._text}>{text}</p>
         {
           icon && (
