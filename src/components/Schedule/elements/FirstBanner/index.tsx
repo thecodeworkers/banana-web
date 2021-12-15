@@ -1,11 +1,14 @@
 import styles from './styles.module.scss'
 import { IconsButton } from '@components'
 import { fallbackRestUrl } from '@utils/path'
+import { scrolling } from '@utils'
+import { useSelector } from 'react-redux'
 
 const FirstBanner = (content) => {
-
   const background = `${fallbackRestUrl}${content?.content?.background.url}`
   const responsiveBackground = `${fallbackRestUrl}${content?.content?.backgroundResponsive.url}`
+
+  const { scrollReference: { buyRef } } = useSelector((state: any) => state)
 
   return (
     <>
@@ -16,7 +19,7 @@ const FirstBanner = (content) => {
             <p className={styles._subtitle}>{content?.content?.subtitle}</p>
             <div className={styles._btnSuperParent}>
               <div className={styles._btnParent}>
-                <IconsButton text={content?.content?.ButtonAgenda?.text}  right={false} />
+                <IconsButton text={content?.content?.ButtonAgenda?.text}  right={false} method={() => scrolling(buyRef)} />
               </div>
             </div>
 

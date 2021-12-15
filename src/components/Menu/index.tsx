@@ -5,7 +5,7 @@ import { fallbackRestUrl } from '@utils'
 import Image from 'next/image'
 import tcw from '@icons/tcw-logo.svg'
 import { useSelector, useDispatch } from 'react-redux'
-import { setStatus, getPage } from '@store/actions'
+import { setStatus, getPage, seletedReference } from '@store/actions'
 import gsap from 'gsap'
 import { inAnimation, outAnimation } from './gsap'
 import { useRouter } from 'next/router'
@@ -13,8 +13,6 @@ import { LogoBanana, CloseIcon } from '@icons/svg'
 import { Clok } from '@components'
 import Router from 'next/router'
 import { navigation } from '@utils'
-
-// const scheduleArray = [{ name: 'Comprar' }, { name: 'Proposito' }, { name: 'Invitados' }]
 
 const commonStyles: any = `
   display: flex;
@@ -25,11 +23,14 @@ const commonStyles: any = `
   z-index: 999;
 `
 const Menu = ({ menuLight = false }) => {
-
   const router = useRouter()
   const dispatch = useDispatch()
-  const { classMenu } = useSelector((state: any) => state.intermittence)
-  const { page: { footer, header }, intermittence: { languages, selectedLanguage } } = useSelector((state: any) => state)
+
+  const {
+    page: { footer, header },
+    intermittence: { languages, selectedLanguage, classMenu },
+    scrollReference
+  } = useSelector((state: any) => state)
 
   const resetState = () => dispatch(setStatus({ classMenu: '_mainMenu' }))
   Router.events.on('routeChangeComplete', resetState)
@@ -64,11 +65,34 @@ const Menu = ({ menuLight = false }) => {
     return splitItem == 'white'
   }
 
+  const navigateOrScrollTo = (...args) => {
+    if (router.pathname != args[0]) {
+      if (args[1]) dispatch(seletedReference({ [args[2]]: { current: args[1] } }))
+      router.push(args[0])
+
+      return
+    }
+
+    if (args[1]) {
+      dispatch(seletedReference({
+        [args[2]]: {
+          current: args[1],
+          [args[1]]: !scrollReference[args[2]][args[1]]
+        }
+      }))
+    }
+  }
+
+  const clickOption = (route, reference = null, key = '') => {
+    navigateOrScrollTo(route, reference, key)
+    closeMenu()
+  }
+
   return (
     <>
       <div className={classMenu}>
         <div className={styles._whiteSection}>
-          <div className={styles._toggleParent}>
+          <div className={styles._toggleParent} onClick={navigate}>
             <LogoBanana />
           </div>
           <div className={styles._socialBanner}>
@@ -77,20 +101,22 @@ const Menu = ({ menuLight = false }) => {
                 return (
                   item?.name?.split('-')?.[1] == 'black' ?
                     <div className={`${item?.name}${'-parent'}`} key={index}>
-                      <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={25} height={25} quality={100} />
+                      <a href={item?.url} target='_blank' rel='noreferrer' >
+                        <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={25} height={25} quality={100} />
+                      </a>
                     </div>
                     : null
                 )
               }
               )}
             </div>
-            <p className={styles._copyright}>Banana creative. 2021 copyright ©</p>
+            <p className={styles._copyright}>{footer?.copyright}</p>
           </div>
         </div>
 
         <div className={!menuLight ? styles._blackSection : styles._lightSection}>
           <div className={styles._header}>
-            <div className={styles._bananalogo}>
+            <div className={styles._bananalogo} onClick={() => navigate('/')}>
               <LogoBanana theme={!menuLight ? 'dark' : 'light'} />
             </div>
             <div className={styles._space}>
@@ -105,11 +131,28 @@ const Menu = ({ menuLight = false }) => {
 
           </div>
           <div className={!menuLight ? styles._body : styles._bodyLightTheme}>
-            {(!menuLight ? footer?.sections || [] : header?.navigations?.route).map((item, index) => {
+            {(!menuLight ? footer?.sections || [] : header?.navigations?.route || []).map((item, index) => {
+              const isRoute = item?.route?.includes('/')
+              const prefix = item.route
+
               return (
                 <div className={styles._routesContainer} key={index}>
                   <hr className={!menuLight ? styles._underscore : styles._pinkUnderscore}></hr>
-                  <p className={!menuLight ? styles._title : styles._titleLight} onClick={() => navigate(item?.route)} >{item?.name}</p>
+                  <p
+                    className={!menuLight ? styles._title : styles._titleLight}
+                    onClick={() => {
+                      if (isRoute && prefix != '/')
+                        return navigate(item?.route)
+
+                      if (prefix == '/')
+                        return clickOption('/', 'hero', 'homeReference')
+
+                      if (prefix == 'services')
+                        return clickOption('/', 'services', 'homeReference')
+                    }}
+                  >
+                    {item?.name}
+                  </p>
                 </div>
               )
             })

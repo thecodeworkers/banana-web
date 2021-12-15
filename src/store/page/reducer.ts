@@ -7,8 +7,8 @@ const initialState = {
   footer: {},
   aboutUs: {},
   portfolio: {},
-  schedule:{},
-  custom404:{}
+  schedule: {},
+  custom404: {}
 }
 
 const pageReducer = (state = initialState, { type, payload }: AnyAction) => {

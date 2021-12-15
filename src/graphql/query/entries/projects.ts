@@ -4,6 +4,7 @@ projects(locale:"${locale}"){
   year
   id
   description
+  url
   categories{
     name
     id
