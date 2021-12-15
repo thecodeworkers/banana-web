@@ -1,7 +1,7 @@
 import { getPage } from '@store/actions'
 import { useSelector } from 'react-redux'
 import { fallbackRestUrl } from '@utils/path'
-import { Custom404, Layout } from '@components'
+import { Custom404 } from '@components'
 import wrapper from '@store'
 import { mapProps } from '@utils'
 
@@ -10,7 +10,7 @@ const Custom404Page = () => {
 
   return (
     <>
-      {/* <Custom404 /> */}
+      <Custom404 />
       <style jsx>{`
         @font-face {
           font-family: 'NormalFont';
