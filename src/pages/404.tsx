@@ -10,7 +10,7 @@ const Custom404Page = () => {
 
   return (
     <>
-      <Custom404 />
+      {/* <Custom404 /> */}
       <style jsx>{`
         @font-face {
           font-family: 'NormalFont';

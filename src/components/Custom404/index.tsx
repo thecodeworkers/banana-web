@@ -6,13 +6,16 @@ import { useSelector } from 'react-redux'
 import { fallbackRestUrl } from '../../utils/path'
 
 const Custom404 = () => {
-
   const { page: { custom404, footer } } = useSelector((state: any) => state)
   const [email, setEmail] = useState('')
 
   const inputHandler = (event: any) => {
     const { target: { value } } = event
     setEmail(value)
+  }
+
+  const send = () => {
+    console.log(email)
   }
 
   return (
@@ -31,6 +34,7 @@ const Custom404 = () => {
                 background='#000'
                 icon
                 text={custom404?.sendButton?.text}
+                method={() => send()}
               />
             </div>
           </section>
