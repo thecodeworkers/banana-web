@@ -12,12 +12,12 @@ const Home = () => {
   const { page: { home, footer } } = useSelector((state: any) => state)
   const dispatch = useDispatch()
 
-  const hero = useRef()
+  const heroRef = useRef()
   const banner = useRef()
-  const services = useRef()
+  const servicesRef = useRef()
 
   useEffect(() => {
-    dispatch(setReference({ hero, services }))
+    dispatch(setReference({ heroRef, servicesRef }))
   }, [])
 
   return (
@@ -26,8 +26,8 @@ const Home = () => {
         <div>
           <Alert />
           <DotsLine />
-          <div ref={hero}>
-            <Hero content={home?.Hero} data={home?.Banner} contact={footer} reference={banner} serviceReference={services} />
+          <div ref={heroRef}>
+            <Hero content={home?.Hero} data={home?.Banner} contact={footer} reference={banner} serviceReference={servicesRef} />
           </div>
           <div ref={banner}>
             <Banner withButton={home?.GifBanner?.button}
@@ -36,7 +36,7 @@ const Home = () => {
               buttonText={home?.GifBanner?.image?.textButton} method={''} />
           </div>
           <SecondBanner content={home?.SecondBanner} />
-          {home?.serviceBanner && <div ref={services}><ServicesBanner content={home?.serviceBanner[0]} /></div>}
+          {home?.serviceBanner && <div ref={servicesRef}><ServicesBanner content={home?.serviceBanner[0]} /></div>}
           {home?.serviceBanner && <ServicesBanner content={home?.serviceBanner[1]} />}
           <ThirdBanner content={home?.ThirdBanner} />
           <Contact content={home?.ContactBanner} />

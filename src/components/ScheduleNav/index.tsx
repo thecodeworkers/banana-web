@@ -20,7 +20,10 @@ const ScheduleNav = () => {
     <div className={styles._parent}>
       <div className={styles._parentChild}>
         <div className={styles._leftSide} onClick={navigate}>
-          <LogoBanana />
+          <div className={styles._icon}>
+            <LogoBanana />
+          </div>
+
         </div>
 
         <div className={styles._centerSide}>
@@ -32,10 +35,10 @@ const ScheduleNav = () => {
         </div>
 
         <div className={styles._rightSide}>
-          <div className={styles._cartParent}>
+          {/* <div className={styles._cartParent}>
             <Cart />
             <p>carrito</p>
-          </div>
+          </div> */}
           <div className={styles._clockParent}>
             <Clock font='LightFont' />
           </div>
