@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './styles.module.scss'
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setStatus } from '@store/actions'
 
 const CountProduct = () => {
