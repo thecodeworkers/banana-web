@@ -9,6 +9,11 @@ const reconcile = (state, payload) => {
         trueState = { ...trueState, intermittence: currentIntermittence }
         break
 
+      case 'userData':
+        const currentUserData = state[key]
+        trueState = { ...trueState, userData: currentUserData }
+        break
+
       default:
         break
     }

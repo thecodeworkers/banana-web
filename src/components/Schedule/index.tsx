@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { FirstBanner, FourthBanner, ThirdBanner } from './elements'
-import { Alert, ScheduleNav } from '@components'
+import { Alert, ScheduleNav, ClientForm } from '@components'
 import { SecondBanner } from './elements'
 
 const Schedule = () => {
@@ -12,6 +12,7 @@ const Schedule = () => {
       {schedule && (
         <div>
           <Alert />
+          <ClientForm />
           <ScheduleNav />
           <FirstBanner content={schedule?.scheduleFirstBanner} />
           <SecondBanner {...schedule?.scheduleSecondBanner} />

@@ -1,0 +1,3 @@
+export const SET_DATA = 'SET_DATA'
+export const FETCH_USER_DATA: any = 'FETCH_USER_DATA'
+export const FETCH_USER_DATA_ASYNC = 'FETCH_USER_DATA_ASYNC'

@@ -12,7 +12,9 @@ const initialState = {
     type: 'success'
   },
   showLoader: true,
-  theme: 'light'
+  theme: 'light',
+  formModal: false,
+  scheduleNumber: 0,
 }
 
 const pageReducer = (state = initialState, { type, payload }: AnyAction) => {
