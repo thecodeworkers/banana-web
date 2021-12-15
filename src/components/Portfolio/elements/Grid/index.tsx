@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux'
 import { fallbackRestUrl, paginate, scrollTo } from '@utils'
 import { Pagination } from '@components'
 
-const filters: Array<string> = ['All', 'Branding', 'Productions', 'UI/UX', 'Moda', 'Mograph', 'Packaging']
 const perPage = 12
 
 const Grid = (content) => {

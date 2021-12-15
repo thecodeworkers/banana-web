@@ -18,7 +18,7 @@ const FourthBanner = ({ content }: any) => {
           {content?.logos?.map((item, index) => {
             return (
               <div key={index}>
-                <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={'item?.icon?.name'} width={183} height={19} quality={100} />
+                <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={183} height={66} quality={100} />
               </div>
             )
           })}

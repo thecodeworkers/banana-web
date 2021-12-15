@@ -10,9 +10,7 @@ const Custom404Page = () => {
 
   return (
     <>
-      <Layout footer={false} navFullWidth>
-        <Custom404 />
-      </Layout>
+      <Custom404 />
       <style jsx>{`
         @font-face {
           font-family: 'NormalFont';

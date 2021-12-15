@@ -110,7 +110,7 @@ const Menu = ({ menuLight = false }) => {
               }
               )}
             </div>
-            <p className={styles._copyright}>Banana creative. 2021 copyright ©</p>
+            <p className={styles._copyright}>{footer?.copyright}</p>
           </div>
         </div>
 
