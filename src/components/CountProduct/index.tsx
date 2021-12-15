@@ -1,48 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './styles.module.scss'
-import { useDispatch } from 'react-redux'
-// import { updateQuantity } from '@store/actions'
-import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setStatus } from '@store/actions'
 
-const CountProduct = ({
-  productKey = '',
-  stock = 0,
-  quantity = 1,
-  fixed = false,
-  changeNumber = null,
-}) => {
+const CountProduct = () => {
   const dispatch = useDispatch()
-  const [productNumber, setProductNumber] = useState(quantity)
+  const { intermittence: { scheduleNumber } } = useSelector((state: any) => state)
 
-  const aumented = () => {
-    if (!fixed) {
-      if (productNumber < stock) setProductNumber(quantity + 1)
-      // if (productKey) dispatch(updateQuantity(productKey, 'add'))
-    } else {
-      if (productNumber < stock) {
-        setProductNumber((quantity) => quantity + 1)
-        if (changeNumber) changeNumber('add')
-      }
-    }
-  }
+  const increment = () => dispatch(setStatus({ scheduleNumber: scheduleNumber + 1 }))
 
   const decrement = () => {
-    if (!fixed) {
-      if (quantity >= 2) {
-        setProductNumber(quantity - 1)
-        // if (productKey) dispatch(updateQuantity(productKey, 'rest'))
-      }
-    } else {
-      if (productNumber >= 2) {
-        setProductNumber((quantity) => quantity - 1)
-        if (changeNumber) changeNumber('remove')
-      }
-    }
+    if (scheduleNumber >= 1) dispatch(setStatus({ scheduleNumber: scheduleNumber - 1 }))
   }
-
-  useEffect(()=>{
-    setProductNumber(quantity)
-  },[quantity])
 
   return (
     <>
@@ -50,8 +19,8 @@ const CountProduct = ({
         <div className={styles._square} onClick={decrement}>
           <p>-</p>
         </div>
-        <input type='text' value={productNumber} readOnly className={styles._input}></input>
-        <div className={styles._square} onClick={aumented}>
+        <input type='text' value={scheduleNumber} readOnly className={styles._input}></input>
+        <div className={styles._square} onClick={increment}>
           <p>+</p>
         </div>
       </div>

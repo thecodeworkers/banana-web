@@ -11,11 +11,12 @@ const GeneralButton = ({
   method = null,
   iconColor = '#FFF',
   borderColor = '',
-  padding = '1.8rem'
-}) => {
+  padding = '1.8rem',
+  type = 'button'
+}: any) => {
   return (
     <>
-      <button className='_btn' onClick={method ? method : () => { }}>
+      <button className='_btn' onClick={method ? method : () => ''} type={type}>
         <p className={styles._text}>{text}</p>
         {
           icon && (

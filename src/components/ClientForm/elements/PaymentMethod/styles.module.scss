@@ -1,0 +1,56 @@
+@mixin card($background) {
+  padding: 1.3rem;
+  background-color: $background;
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+@mixin circle($size, $color) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: $color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin text($color) {
+  font-size: 0.875rem;
+  color: $color;
+  font-family: 'NormalFont', sans-serif;
+  margin-left: 1rem;
+}
+
+._card {
+  @include card(#ECECEC)
+}
+
+._cardSelected {
+  @include card(#0A32A0)
+}
+
+._circleSelected {
+  @include circle(17px, #FFF);
+}
+
+._circle {
+  @include circle(17px, #C4C4C4);
+}
+
+._childCircle {
+  @include circle(7px, #787878);
+}
+
+._childCircleSelected {
+  @include circle(7px, #0A32A0);
+}
+
+._text {
+  @include text(#C4C4C4);
+}
+
+._selectedText {
+  @include text(#FFF);
+}

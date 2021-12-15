@@ -1,8 +1,15 @@
+<<<<<<< HEAD
+import { useSelector } from 'react-redux'
+import { FirstBanner, FourthBanner, ThirdBanner } from './elements'
+import { Alert, ScheduleNav, ClientForm } from '@components'
+import { SecondBanner } from './elements'
+=======
 import { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FirstBanner, FourthBanner, ThirdBanner, SecondBanner } from './elements'
 import { Alert, ScheduleNav } from '@components'
 import { setReference } from '@store/actions'
+>>>>>>> b9536f3bf027b35d0d9d2ccc933714a188ee089a
 
 const Schedule = () => {
   const { page: { schedule } } = useSelector((state: any) => state)
@@ -22,6 +29,7 @@ const Schedule = () => {
       {schedule && (
         <div>
           <Alert />
+          <ClientForm />
           <ScheduleNav />
           <FirstBanner content={schedule?.scheduleFirstBanner} />
           <SecondBanner {...schedule?.scheduleSecondBanner} />
