@@ -1,17 +1,31 @@
-import { useRef } from 'react'
-import { useSelector } from 'react-redux'
+import { useCallback, useEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   Banner, ClientsBanner, Contact, Hero, RecentsVideos,
   SecondBanner, ServicesBanner, TestimonialsBanner, ThirdBanner
 } from './elements'
 import { fallbackRestUrl } from '../../utils/path'
 import { Alert, DotsLine } from '@components'
+import { scrollTo } from '@utils'
 
 const Home = () => {
+  const { page: { home, footer }, scrollReference: { homeReference } } = useSelector((state: any) => state)
 
-  const { page: { home, footer } } = useSelector((state: any) => state)
   const banner = useRef()
-  const services = useRef()
+
+  const heroRef = useCallback((node) => {
+    scrollingReference(node, 'hero')
+  }, [homeReference?.hero])
+
+  const servicesRef = useCallback((node) => {
+    scrollingReference(node, 'services')
+  }, [homeReference?.services])
+
+  const scrollingReference = (node, state) => {
+    if(homeReference?.current == state) {
+      if(node) scrollTo(node)
+    }
+  }
 
   return (
     <>
@@ -19,7 +33,9 @@ const Home = () => {
         <div>
           <Alert />
           <DotsLine />
-          <Hero content={home?.Hero} data={home?.Banner} contact={footer} reference={banner} serviceReference={services} />
+          <div ref={heroRef}>
+            <Hero content={home?.Hero} data={home?.Banner} contact={footer} reference={banner} />
+          </div>
           <div ref={banner}>
             <Banner withButton={home?.GifBanner?.button}
               background={`${fallbackRestUrl}${home?.GifBanner?.image?.url}`}
@@ -27,7 +43,7 @@ const Home = () => {
               buttonText={home?.GifBanner?.image?.textButton} method={''} />
           </div>
           <SecondBanner content={home?.SecondBanner} />
-          {home?.serviceBanner && <div ref={services}><ServicesBanner content={home?.serviceBanner[0]} /></div>}
+          {home?.serviceBanner && <div ref={servicesRef}><ServicesBanner content={home?.serviceBanner[0]} /></div>}
           {home?.serviceBanner && <ServicesBanner content={home?.serviceBanner[1]} />}
           <ThirdBanner content={home?.ThirdBanner} />
           <Contact content={home?.ContactBanner} />
@@ -45,4 +61,3 @@ const Home = () => {
 }
 
 export default Home
-

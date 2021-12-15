@@ -3,14 +3,15 @@ import { GeneralButton, IconsButton } from '@components'
 import { BoxArrow } from '@icons/svg'
 import Image from 'next/image'
 import { useDispatch, useSelector } from 'react-redux'
-import { getPage } from '@store/actions'
-import { fallbackRestUrl } from '@utils'
+import { getPage, seletedReference } from '@store/actions'
+import { fallbackRestUrl, navigation } from '@utils'
 import { scrolling } from '@utils'
+import { useRouter } from 'next/router'
 
-const Hero = ({ content, reference, data, contact, serviceReference }: any) => {
-
+const Hero = ({ content, reference, data, contact }: any) => {
+  const { intermittence: { languages, selectedLanguage }, scrollReference } = useSelector((state: any) => state)
   const dispatch = useDispatch()
-  const { intermittence: { languages, selectedLanguage } } = useSelector((state: any) => state)
+  const router = useRouter()
 
   const changeLanguage = () => {
     const langs = Object.keys(languages)
@@ -21,6 +22,17 @@ const Hero = ({ content, reference, data, contact, serviceReference }: any) => {
       return prev
     }, 0)
     dispatch(getPage({ query: 'home', language: position }))
+  }
+
+  const dispatchScrollTo = (...args) => {
+    if (args[0]) {
+      dispatch(seletedReference({
+        [args[1]]: {
+          current: args[0],
+          [args[0]]: !scrollReference[args[1]][args[0]]
+        }
+      }))
+    }
   }
 
   return (
@@ -44,14 +56,14 @@ const Hero = ({ content, reference, data, contact, serviceReference }: any) => {
           <hr className={styles._line}></hr>
           <div className={styles._btnSuperParent}>
             <div className={styles._btnParent}>
-              <IconsButton text={content?.recapButton[0]?.text}  right={true}/>
+              <IconsButton text={content?.recapButton[0]?.text} right={true} method={() => navigation('/agendaunabeca', router)} />
             </div>
           </div>
         </div>
       </div>
       <div className={styles._services}>
         <div className={styles._servicesBtnParent}>
-          <GeneralButton text={content?.sectionButton?.text} method={() => scrolling(serviceReference)} />
+          <GeneralButton text={content?.sectionButton?.text} method={() => dispatchScrollTo('services', 'homeReference')} />
         </div>
         <p>
           {content?.paragraph}

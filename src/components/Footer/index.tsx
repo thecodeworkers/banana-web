@@ -2,17 +2,40 @@ import styles from './styles.module.scss'
 import Image from 'next/image'
 import logo from '@icons/banana-creative.png'
 import tcw from '@icons/tcw-logo.svg'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fallbackRestUrl } from '../../utils/path'
 import { useRouter } from 'next/router'
 import { navigation } from '@utils'
+import { seletedReference } from '@store/actions'
 
 const Footer = () => {
-
   const router = useRouter()
-  const { page: { footer } } = useSelector((state: any) => state)
+  const { page: { footer }, scrollReference } = useSelector((state: any) => state)
 
+  const dispatch = useDispatch()
   const navigate = (item: any) => { navigation(item, router) }
+
+  const navigateOrScrollTo = (...args) => {
+    if (router.pathname != args[0]) {
+      if (args[1]) dispatch(seletedReference({ [args[2]]: { current: args[1] } }))
+      router.push(args[0])
+
+      return
+    }
+
+    if (args[1]) {
+      dispatch(seletedReference({
+        [args[2]]: {
+          current: args[1],
+          [args[1]]: !scrollReference[args[2]][args[1]]
+        }
+      }))
+    }
+  }
+
+  const clickOption = (route, reference = null, key = '') => {
+    navigateOrScrollTo(route, reference, key)
+  }
 
   return (
     <div className={styles._container}>
@@ -24,8 +47,20 @@ const Footer = () => {
         <div className={styles._sectionsContainer}>
           <div className={styles._sectionsContent}>
             {footer?.sections?.map(function (item, index) {
+              const isRoute = item.route.includes('/')
+              const prefix = item.route
+
               return (
-                <div key={index} onClick={() => navigate(item?.route)}>
+                <div key={index} onClick={() => {
+                  if (isRoute && prefix != '/')
+                    return navigate(item?.route)
+
+                  if (prefix == '/')
+                    return clickOption('/', 'hero', 'homeReference')
+
+                  if (prefix == 'services')
+                    return clickOption('/', 'services', 'homeReference')
+                }}>
                   <p className={styles._sections}>{item.name}</p>
                 </div>
               )

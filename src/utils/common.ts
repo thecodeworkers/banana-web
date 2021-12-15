@@ -9,14 +9,14 @@ export const normalized = response => response ? response : {}
 export const actionObject = (type: string, payload = null) => ({ type, payload })
 
 export const paginate = (items: Array<any>, page_number: number = 1, page_size: number = 15) => {
-  return items.slice((page_number - 1) * page_size, page_number * page_size);
+  return items.slice((page_number - 1) * page_size, page_number * page_size)
 }
 
 export const scrollTo = (ref: any, offset = 0, toTop = false) => {
-  window.scrollTo({ top: !toTop ? ref.offsetTop - offset : 0, behavior: 'smooth' });
+  window.scrollTo({ top: !toTop ? ref.offsetTop - offset : 0, behavior: 'smooth' })
 }
 
-export const createMarkup = (text) => { return { __html: text }; }
+export const createMarkup = (text) => { return { __html: text } }
 
 export const validateFetch = ({ errors, data }) => {
   if (errors) throw errors[0].message
@@ -48,7 +48,7 @@ export function* manageError(error, toast = 'SET_ALERT', loader = 'SHOW_LOADER')
 export const mapProps = async (store, action) => {
   store.dispatch(action)
   store.dispatch(END)
-  await store.sagaTask.toPromise();
+  await store.sagaTask.toPromise()
 }
 
 export const roundNumber = (number) => Math.round(number * 100) / 100
