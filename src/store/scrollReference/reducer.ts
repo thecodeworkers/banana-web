@@ -2,11 +2,14 @@ import { AnyAction } from 'redux'
 import { SET_REFERENCE } from './action-types'
 
 const initialState = {
-  heroRef: null,
-  servicesRef: null,
   buyRef: null,
   purposeRef: null,
   guestsRef: null,
+  homeReference: {
+    current: '',
+    hero: false,
+    services: false,
+  }
 }
 
 const reducer = (state = initialState, { type, payload }: AnyAction) => {

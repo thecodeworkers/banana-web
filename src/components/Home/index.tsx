@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   Banner, ClientsBanner, Contact, Hero, RecentsVideos,
@@ -6,19 +6,26 @@ import {
 } from './elements'
 import { fallbackRestUrl } from '../../utils/path'
 import { Alert, DotsLine } from '@components'
-import { setReference } from '@store/actions'
+import { scrollTo } from '@utils'
 
 const Home = () => {
-  const { page: { home, footer } } = useSelector((state: any) => state)
-  const dispatch = useDispatch()
+  const { page: { home, footer }, scrollReference: { homeReference } } = useSelector((state: any) => state)
 
-  const heroRef = useRef()
   const banner = useRef()
-  const servicesRef = useRef()
 
-  useEffect(() => {
-    dispatch(setReference({ heroRef, servicesRef }))
-  }, [])
+  const heroRef = useCallback((node) => {
+    scrollingReference(node, 'hero')
+  }, [homeReference?.hero])
+
+  const servicesRef = useCallback((node) => {
+    scrollingReference(node, 'services')
+  }, [homeReference?.services])
+
+  const scrollingReference = (node, state) => {
+    if(homeReference?.current == state) {
+      if(node) scrollTo(node)
+    }
+  }
 
   return (
     <>
@@ -27,7 +34,7 @@ const Home = () => {
           <Alert />
           <DotsLine />
           <div ref={heroRef}>
-            <Hero content={home?.Hero} data={home?.Banner} contact={footer} reference={banner} serviceReference={servicesRef} />
+            <Hero content={home?.Hero} data={home?.Banner} contact={footer} reference={banner} />
           </div>
           <div ref={banner}>
             <Banner withButton={home?.GifBanner?.button}

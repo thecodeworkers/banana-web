@@ -1,12 +1,12 @@
 import { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { FirstBanner, FourthBanner, ThirdBanner } from './elements'
+import { FirstBanner, FourthBanner, ThirdBanner, SecondBanner } from './elements'
 import { Alert, ScheduleNav } from '@components'
-import { SecondBanner } from './elements'
 import { setReference } from '@store/actions'
 
 const Schedule = () => {
   const { page: { schedule } } = useSelector((state: any) => state)
+
   const dispatch = useDispatch()
 
   const buyRef = useRef()

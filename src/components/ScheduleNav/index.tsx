@@ -11,10 +11,21 @@ const ScheduleNav = () => {
   const dispatch = useDispatch()
   const router = useRouter()
 
-  const { scrollReference: { buyRef, purposeRef, guestsRef } } = useSelector((state: any) => state)
+  const {
+    scrollReference: { buyRef, purposeRef, guestsRef },
+    page: { header }
+  } = useSelector((state: any) => state)
 
   const openMenu = () => dispatch(setStatus({ classMenu: '_inAnimation' }))
   const navigate = () => { navigation('/', router) }
+
+  const options = header?.navigations?.route || []
+
+  const setOption = (key) => {
+    if (key == 'buy') return buyRef
+    if (key == 'guest') return guestsRef
+    if (key == 'purpose') return purposeRef
+  }
 
   return (
     <div className={styles._parent}>
@@ -28,9 +39,11 @@ const ScheduleNav = () => {
 
         <div className={styles._centerSide}>
           <ul className={styles._links}>
-            <li onClick={() => scrolling(buyRef)}>Comprar</li>
-            <li onClick={() => scrolling(purposeRef)}>Proposito </li>
-            <li onClick={() => scrolling(guestsRef)}>Invitados</li>
+            {
+              options.map((option, index) => (
+                <li key={index} onClick={() => scrolling(setOption(option.link))}>{option.name}</li>
+              ))
+            }
           </ul>
         </div>
 

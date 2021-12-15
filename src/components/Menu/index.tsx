@@ -5,7 +5,7 @@ import { fallbackRestUrl } from '@utils'
 import Image from 'next/image'
 import tcw from '@icons/tcw-logo.svg'
 import { useSelector, useDispatch } from 'react-redux'
-import { setStatus, getPage } from '@store/actions'
+import { setStatus, getPage, seletedReference } from '@store/actions'
 import gsap from 'gsap'
 import { inAnimation, outAnimation } from './gsap'
 import { useRouter } from 'next/router'
@@ -23,11 +23,14 @@ const commonStyles: any = `
   z-index: 999;
 `
 const Menu = ({ menuLight = false }) => {
-
   const router = useRouter()
   const dispatch = useDispatch()
-  const { classMenu } = useSelector((state: any) => state.intermittence)
-  const { page: { footer, header }, intermittence: { languages, selectedLanguage } } = useSelector((state: any) => state)
+
+  const {
+    page: { footer, header },
+    intermittence: { languages, selectedLanguage, classMenu },
+    scrollReference
+  } = useSelector((state: any) => state)
 
   const resetState = () => dispatch(setStatus({ classMenu: '_mainMenu' }))
   Router.events.on('routeChangeComplete', resetState)
@@ -41,7 +44,6 @@ const Menu = ({ menuLight = false }) => {
   const closeMenu = () => dispatch(setStatus({ classMenu: '_outAnimation' }))
 
   const changeLanguage = () => {
-
     const langs = Object.keys(languages)
     const position = langs.reduce((prev: any, next: any, index: any) => {
       if (selectedLanguage == next) prev = index
@@ -61,6 +63,29 @@ const Menu = ({ menuLight = false }) => {
     const splitItem = item?.name?.split('-')?.[1]
     if (lightMode) return splitItem == 'black'
     return splitItem == 'white'
+  }
+
+  const navigateOrScrollTo = (...args) => {
+    if (router.pathname != args[0]) {
+      if (args[1]) dispatch(seletedReference({ [args[2]]: { current: args[1] } }))
+      router.push(args[0])
+
+      return
+    }
+
+    if (args[1]) {
+      dispatch(seletedReference({
+        [args[2]]: {
+          current: args[1],
+          [args[1]]: !scrollReference[args[2]][args[1]]
+        }
+      }))
+    }
+  }
+
+  const clickOption = (route, reference = null, key = '') => {
+    navigateOrScrollTo(route, reference, key)
+    closeMenu()
   }
 
   return (
@@ -107,10 +132,27 @@ const Menu = ({ menuLight = false }) => {
           </div>
           <div className={!menuLight ? styles._body : styles._bodyLightTheme}>
             {(!menuLight ? footer?.sections || [] : header?.navigations?.route || []).map((item, index) => {
+              const isRoute = item?.route?.includes('/')
+              const prefix = item.route
+
               return (
                 <div className={styles._routesContainer} key={index}>
                   <hr className={!menuLight ? styles._underscore : styles._pinkUnderscore}></hr>
-                  <p className={!menuLight ? styles._title : styles._titleLight} onClick={() => navigate(item?.route)} >{item?.name}</p>
+                  <p
+                    className={!menuLight ? styles._title : styles._titleLight}
+                    onClick={() => {
+                      if (isRoute && prefix != '/')
+                        return navigate(item?.route)
+
+                      if (prefix == '/')
+                        return clickOption('/', 'hero', 'homeReference')
+
+                      if (prefix == 'services')
+                        return clickOption('/', 'services', 'homeReference')
+                    }}
+                  >
+                    {item?.name}
+                  </p>
                 </div>
               )
             })
