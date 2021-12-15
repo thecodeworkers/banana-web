@@ -66,11 +66,11 @@ const Grid = (content) => {
       <div className={styles._filters}>
         <ul className={styles._list}>
           {
-            filters.map((item, index) => (
+            content?.content?.categories?.map((item, index) => (
               <li
-                className={currentFilter == item ? styles._liSelected : styles._li}
-                onClick={() => filterBy(item)}
-                key={index}>{item}</li>
+                className={currentFilter == item.name ? styles._liSelected : styles._li}
+                onClick={() => filterBy(item.name)}
+                key={index}>{item.name}</li>
             ))
           }
         </ul>
@@ -83,23 +83,26 @@ const Grid = (content) => {
               <div key={index} className={styles._column}>
                 {
                   project.map((p, index) => (
-                    <div key={index} className={styles._itemParent}>
-                      <div className={styles._item}>
-                        <Image
-                          src={`${fallbackRestUrl}${p?.portrait?.image?.url}`}
-                          blurDataURL={`${fallbackRestUrl}${p?.portrait?.image?.url}`}
-                          alt={p?.portrait?.image?.name}
-                          layout='fill'
-                          quality={100}
-                          placeholder="blur" />
-                        <div className={styles._description}>
-                          <p>{p?.name}</p>
-                        </div>
 
-                        <div className={styles._logo}>
-                          <Image src={`${fallbackRestUrl}${p?.logoHover?.image?.url}`} alt={p?.portrait?.image?.name} width='100%' height='100%' />
+                    <div key={index} className={styles._itemParent}>
+                      <a href={p?.url} target='_blank' rel='noreferrer' >
+                        <div className={styles._item}>
+                          <Image
+                            src={`${fallbackRestUrl}${p?.portrait?.image?.url}`}
+                            blurDataURL={`${fallbackRestUrl}${p?.portrait?.image?.url}`}
+                            alt={p?.portrait?.image?.name}
+                            layout='fill'
+                            quality={100}
+                            placeholder="blur" />
+                          <div className={styles._description}>
+                            <p>{p?.name}</p>
+                          </div>
+
+                          <div className={styles._logo}>
+                            <Image src={`${fallbackRestUrl}${p?.logoHover?.image?.url}`} alt={p?.portrait?.image?.name} width='100%' height='100%' />
+                          </div>
                         </div>
-                      </div>
+                      </a>
                     </div>
                   ))
                 }
@@ -122,18 +125,18 @@ const Grid = (content) => {
             <div className={styles._phoneFilters}>
               <ul className={styles._phoneList}>
                 {
-                  filters.slice(0, 4).map((item, index) => (
+                  content?.content?.categories.slice(0, 4).map((item, index) => (
                     <li
-                      onClick={() => filterBy(item)}
-                      key={index}>{item}</li>
+                      onClick={() => filterBy(item.name)}
+                      key={index}>{item.name}</li>
                   ))
                 }
               </ul>
 
               <ul className={styles._phoneList}>
                 {
-                  filters.slice(4, 8).map((item, index) => {
-                    return <li key={index} onClick={() => filterBy(item)}>{item}</li>
+                  content?.content?.categories.slice(4, 8).map((item, index) => {
+                    return <li key={index} onClick={() => filterBy(item.name)}>{item.name}</li>
                   })
                 }
               </ul>

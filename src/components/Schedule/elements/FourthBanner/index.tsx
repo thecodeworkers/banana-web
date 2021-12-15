@@ -15,7 +15,14 @@ const FourthBanner = ({ content }: any) => {
       </div>
       <div className={styles._logosContainer}>
         <div className={styles._listLogos}>
-          <Image src={'/icons/banana-creative.png'} alt={'item?.icon?.name'} width={183} height={19} quality={100} />
+          {content?.logos?.map((item, index) => {
+            return (
+              <div key={index}>
+                <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={'item?.icon?.name'} width={183} height={19} quality={100} />
+              </div>
+            )
+          })}
+
         </div>
       </div>
 
@@ -34,7 +41,6 @@ const FourthBanner = ({ content }: any) => {
       @media(max-width: 576px) {
         ._banner{
           background-image: url(${responsiveBackground});
-          background-size: 100% 100%
         }
       }
       `}</style>

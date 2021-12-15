@@ -79,6 +79,15 @@ paginaAgendum(locale: "${locale}") {
       name
       ext
     }
+    logos{
+      name
+      url
+      icon{
+        url
+        name
+        ext
+      }
+    }
   }
 }
 `

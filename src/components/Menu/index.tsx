@@ -43,6 +43,8 @@ const Menu = ({ menuLight = false }) => {
   const closeMenu = () => dispatch(setStatus({ classMenu: '_outAnimation' }))
 
   const changeLanguage = () => {
+    console.log(languages, selectedLanguage);
+
     const langs = Object.keys(languages)
     const position = langs.reduce((prev: any, next: any, index: any) => {
       if (selectedLanguage == next) prev = index
@@ -68,7 +70,7 @@ const Menu = ({ menuLight = false }) => {
     <>
       <div className={classMenu}>
         <div className={styles._whiteSection}>
-          <div className={styles._toggleParent}>
+          <div className={styles._toggleParent} onClick={navigate}>
             <LogoBanana />
           </div>
           <div className={styles._socialBanner}>
@@ -77,7 +79,9 @@ const Menu = ({ menuLight = false }) => {
                 return (
                   item?.name?.split('-')?.[1] == 'black' ?
                     <div className={`${item?.name}${'-parent'}`} key={index}>
-                      <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={25} height={25} quality={100} />
+                      <a href={item?.url} target='_blank' rel='noreferrer' >
+                        <Image src={`${fallbackRestUrl}${item?.icon?.url}`} alt={item?.icon?.name} width={25} height={25} quality={100} />
+                      </a>
                     </div>
                     : null
                 )
@@ -90,7 +94,7 @@ const Menu = ({ menuLight = false }) => {
 
         <div className={!menuLight ? styles._blackSection : styles._lightSection}>
           <div className={styles._header}>
-            <div className={styles._bananalogo}>
+            <div className={styles._bananalogo} onClick={() => navigate('/')}>
               <LogoBanana theme={!menuLight ? 'dark' : 'light'} />
             </div>
             <div className={styles._space}>
@@ -105,7 +109,7 @@ const Menu = ({ menuLight = false }) => {
 
           </div>
           <div className={!menuLight ? styles._body : styles._bodyLightTheme}>
-            {(!menuLight ? footer?.sections || [] : header?.navigations?.route).map((item, index) => {
+            {(!menuLight ? footer?.sections || [] : header?.navigations?.route || []).map((item, index) => {
               return (
                 <div className={styles._routesContainer} key={index}>
                   <hr className={!menuLight ? styles._underscore : styles._pinkUnderscore}></hr>
