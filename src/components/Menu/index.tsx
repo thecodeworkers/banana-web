@@ -14,8 +14,6 @@ import { Clok } from '@components'
 import Router from 'next/router'
 import { navigation } from '@utils'
 
-// const scheduleArray = [{ name: 'Comprar' }, { name: 'Proposito' }, { name: 'Invitados' }]
-
 const commonStyles: any = `
   display: flex;
   width: 100%;
@@ -43,7 +41,6 @@ const Menu = ({ menuLight = false }) => {
   const closeMenu = () => dispatch(setStatus({ classMenu: '_outAnimation' }))
 
   const changeLanguage = () => {
-    console.log(languages, selectedLanguage);
 
     const langs = Object.keys(languages)
     const position = langs.reduce((prev: any, next: any, index: any) => {
