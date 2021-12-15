@@ -1,8 +1,7 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects'
-import { GraphQlClient, actionObject } from '@utils'
+import { GraphQlClient, actionObject, showAlert } from '@utils'
 import { UserData } from '@graphql/mutations'
 import { FETCH_USER_DATA, FETCH_USER_DATA_ASYNC } from './action-types'
-import { showAlert } from '@utils'
 import { getUserData } from '../selectors'
 
 function* fetchUserData({ payload }) {

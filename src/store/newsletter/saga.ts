@@ -1,8 +1,7 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
-import { GraphQlClient, actionObject } from '@utils'
+import { GraphQlClient, actionObject, showAlert } from '@utils'
 import { NewsLetterMutation } from '@graphql/mutations'
 import { SAVE_CONTACT, SAVE_CONTACT_ASYNC } from './action-types'
-import { showAlert } from '@utils'
 
 const validateEmail = (email) => {
   return String(email)

@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-import { useEffect } from 'react'
-import styles from './styles.module.scss'
-import Image from 'next/image'
-import { GeneralButton, CountProduct } from '@components'
-import { fallbackRestUrl } from '@utils/path'
-import { useDispatch } from 'react-redux'
-import { setStatus } from '@store/actions'
-
-const ThirdBanner = (content, data) => {
-
-  const dispatch = useDispatch()
-  const background = `${fallbackRestUrl}${content?.data?.background.url}`
-  const responsiveBackground = `${fallbackRestUrl}${content?.data?.backgroundResponsive.url}`
-
-  const openModal = () => dispatch(setStatus({ formModal: true }))
-
-  useEffect(() => {
-    dispatch(setStatus({ scheduleNumber: 0 }))
-=======
 import { useEffect, useRef } from 'react'
 import { GeneralButton, CountProduct } from '@components'
 import { fallbackRestUrl } from '@utils/path'
@@ -36,7 +16,6 @@ const ThirdBanner = (content, data) => {
   useEffect(() => {
     dispatch(setReference({ purposeRef }))
     return () => { dispatch(setReference({ purposeRef: null })) }
->>>>>>> b9536f3bf027b35d0d9d2ccc933714a188ee089a
   }, [])
 
   return (
