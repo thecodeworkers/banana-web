@@ -1,16 +1,18 @@
-import styles from './styles.module.scss'
 import { LogoBanana, Cart, Toggle } from '@icons/svg'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setStatus } from '@store/actions'
-import { navigation } from '@utils'
+import { navigation, scrolling } from '@utils'
 import { useRouter } from 'next/router'
-
 import Clock from '../Clock'
+import styles from './styles.module.scss'
+
 
 const ScheduleNav = () => {
-
   const dispatch = useDispatch()
   const router = useRouter()
+
+  const { scrollReference: { buyRef, purposeRef, guestsRef } } = useSelector((state: any) => state)
+
   const openMenu = () => dispatch(setStatus({ classMenu: '_inAnimation' }))
   const navigate = () => { navigation('/', router) }
 
@@ -23,9 +25,9 @@ const ScheduleNav = () => {
 
         <div className={styles._centerSide}>
           <ul className={styles._links}>
-            <li>Comprar</li>
-            <li>Proposito </li>
-            <li>Invitados</li>
+            <li onClick={() => scrolling(buyRef)}>Comprar</li>
+            <li onClick={() => scrolling(purposeRef)}>Proposito </li>
+            <li onClick={() => scrolling(guestsRef)}>Invitados</li>
           </ul>
         </div>
 

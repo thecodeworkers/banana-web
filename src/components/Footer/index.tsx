@@ -5,12 +5,11 @@ import tcw from '@icons/tcw-logo.svg'
 import { useSelector } from 'react-redux'
 import { fallbackRestUrl } from '../../utils/path'
 import { useRouter } from 'next/router'
-import { navigation } from '@utils'
+import { navigation, scrolling } from '@utils'
 
 const Footer = () => {
-
   const router = useRouter()
-  const { page: { footer } } = useSelector((state: any) => state)
+  const { page: { footer }, scrollReference: { hero, services } } = useSelector((state: any) => state)
 
   const navigate = (item: any) => { navigation(item, router) }
 
@@ -24,8 +23,20 @@ const Footer = () => {
         <div className={styles._sectionsContainer}>
           <div className={styles._sectionsContent}>
             {footer?.sections?.map(function (item, index) {
+              const isRoute = item.route.includes('/')
+              const prefix = item.route
+
               return (
-                <div key={index} onClick={() => navigate(item?.route)}>
+                <div key={index} onClick={() => {
+                  if (isRoute && prefix != '/')
+                    return navigate(item?.route)
+
+                  if (prefix == '/')
+                    return scrolling(hero)
+
+                  if (prefix == 'services')
+                    return scrolling(services)
+                }}>
                   <p className={styles._sections}>{item.name}</p>
                 </div>
               )

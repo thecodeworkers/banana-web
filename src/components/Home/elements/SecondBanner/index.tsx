@@ -2,9 +2,12 @@ import styles from './styles.module.scss'
 import logo from '@icons/logo-white.png'
 import Image from 'next/image'
 import { GeneralButton } from '@components'
+import { navigation } from '@utils'
+import { useRouter } from 'next/router'
 
 const SecondBanner = (content: any) => {
   const data: any = content?.content?.branchs
+  const router = useRouter()
 
   return (
     <>
@@ -20,8 +23,14 @@ const SecondBanner = (content: any) => {
           </div>
 
           <div className={styles._buttonContainer}>
-            <GeneralButton background={'#ffffff'} text={content?.content?.sectionButton?.text}
-              icon={true} iconColor={'#000000'} textColor={'#000000'} />
+            <GeneralButton
+              background={'#ffffff'}
+              text={content?.content?.sectionButton?.text}
+              icon={true}
+              iconColor={'#000000'}
+              textColor={'#000000'}
+              method={() => navigation('/portfolio', router)}
+            />
           </div>
 
           <div className={'_branchsContainer'}>

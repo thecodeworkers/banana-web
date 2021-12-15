@@ -1,5 +1,5 @@
 const reconcile = (state, payload) => {
-  const keyNames = Object.keys(state);
+  const keyNames = Object.keys(state)
   let trueState = {}
 
   keyNames.forEach(key => {
@@ -7,6 +7,11 @@ const reconcile = (state, payload) => {
       case 'intermittence':
         const currentIntermittence = state[key]
         trueState = { ...trueState, intermittence: currentIntermittence }
+        break
+
+      case 'scrollReference':
+        const currentScrollReference = state[key]
+        trueState = { ...trueState, scrollReference: currentScrollReference }
         break
 
       default:

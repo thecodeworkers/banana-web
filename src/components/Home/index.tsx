@@ -1,17 +1,24 @@
-import { useRef } from 'react'
-import { useSelector } from 'react-redux'
+import { useEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   Banner, ClientsBanner, Contact, Hero, RecentsVideos,
   SecondBanner, ServicesBanner, TestimonialsBanner, ThirdBanner
 } from './elements'
 import { fallbackRestUrl } from '../../utils/path'
 import { Alert, DotsLine } from '@components'
+import { setReference } from '@store/actions'
 
 const Home = () => {
-
   const { page: { home, footer } } = useSelector((state: any) => state)
+  const dispatch = useDispatch()
+
+  const hero = useRef()
   const banner = useRef()
   const services = useRef()
+
+  useEffect(() => {
+    dispatch(setReference({ hero, services }))
+  }, [])
 
   return (
     <>
@@ -19,7 +26,9 @@ const Home = () => {
         <div>
           <Alert />
           <DotsLine />
-          {/* <Hero content={home?.Hero} data={home?.Banner} contact={footer} reference={banner} serviceReference={services}/> */}
+          <div ref={hero}>
+            <Hero content={home?.Hero} data={home?.Banner} contact={footer} reference={banner} serviceReference={services} />
+          </div>
           <div ref={banner}>
             <Banner withButton={home?.GifBanner?.button}
               background={`${fallbackRestUrl}${home?.GifBanner?.image?.url}`}
@@ -45,4 +54,3 @@ const Home = () => {
 }
 
 export default Home
-

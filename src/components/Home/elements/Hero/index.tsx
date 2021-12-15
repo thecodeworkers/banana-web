@@ -4,13 +4,14 @@ import { BoxArrow } from '@icons/svg'
 import Image from 'next/image'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPage } from '@store/actions'
-import { fallbackRestUrl } from '@utils'
+import { fallbackRestUrl, navigation } from '@utils'
 import { scrolling } from '@utils'
+import { useRouter } from 'next/router'
 
 const Hero = ({ content, reference, data, contact, serviceReference }: any) => {
-
-  const dispatch = useDispatch()
   const { intermittence: { languages, selectedLanguage } } = useSelector((state: any) => state)
+  const dispatch = useDispatch()
+  const router = useRouter()
 
   const changeLanguage = () => {
     const langs = Object.keys(languages)
@@ -44,7 +45,7 @@ const Hero = ({ content, reference, data, contact, serviceReference }: any) => {
           <hr className={styles._line}></hr>
           <div className={styles._btnSuperParent}>
             <div className={styles._btnParent}>
-              <IconsButton text={content?.recapButton[0]?.text}  right={true}/>
+              <IconsButton text={content?.recapButton[0]?.text} right={true} method={() => navigation('/agendaunabeca', router)} />
             </div>
           </div>
         </div>
