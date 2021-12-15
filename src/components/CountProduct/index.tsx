@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { setStatus } from '@store/actions'
 
-const CountProduct = ({ }) => {
+const CountProduct = () => {
   const dispatch = useDispatch()
   const { intermittence: { scheduleNumber } } = useSelector((state: any) => state)
 

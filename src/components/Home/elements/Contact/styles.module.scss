@@ -25,7 +25,7 @@ $verticalMargin: 1.4rem;
 
 ._mainYellow {
   @include commonMain;
-  padding-top: 7rem;
+  padding-top: 4rem;
   height: 27.875rem;
   animation: gradient ease 3s forwards;
   background: linear-gradient(-45deg, #FFF, #FFF, $yellow, $yellow);
