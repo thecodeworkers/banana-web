@@ -1,0 +1,2 @@
+export const SAVE_CONTACT: any = 'SAVE_CONTACT'
+export const SAVE_CONTACT_ASYNC = `${SAVE_CONTACT}_ASYNC`

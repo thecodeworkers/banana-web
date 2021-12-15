@@ -1,13 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import { GeneralButton } from '@components'
 import Image from 'next/image'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fallbackRestUrl } from '../../utils/path'
+import { saveContact } from '@store/actions'
+import Alert from '../Alert'
 
 const Custom404 = () => {
-  const { page: { custom404, footer } } = useSelector((state: any) => state)
+  const { page: { custom404, footer }, newsletter: { success } } = useSelector((state: any) => state)
   const [email, setEmail] = useState('')
+
+  const dispatch = useDispatch()
 
   const inputHandler = (event: any) => {
     const { target: { value } } = event
@@ -15,11 +19,16 @@ const Custom404 = () => {
   }
 
   const send = () => {
-    console.log(email)
+    dispatch(saveContact(email))
   }
+
+  useEffect(() => {
+    if (success) setEmail('')
+  }, [success])
 
   return (
     <div className={styles._main}>
+      <Alert />
       <div className={styles._topSection}></div>
 
       <div className={styles._bottomSection}>
