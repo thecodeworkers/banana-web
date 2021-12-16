@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fallbackRestUrl } from '../../utils/path'
 import { saveContact } from '@store/actions'
 import Alert from '../Alert'
+import tcw from '@icons/tcw-logo.svg'
 
 const Custom404 = () => {
   const { page: { custom404, footer }, newsletter: { success } } = useSelector((state: any) => state)
@@ -62,7 +63,14 @@ const Custom404 = () => {
                 }
                 )}
               </div>
-              <p>{footer?.copyright}</p>
+
+
+              <div>
+                <p className={styles._copyright}>{footer?.copyright}</p>
+                <a href={'https://thecodeworkers.com'} target='_blank' rel='noreferrer' className={styles._logo}>
+                  <Image src={tcw} alt={'tcw'} width={25} height={25} quality={100} />
+                </a>
+              </div>
             </div>
           </footer>
         </div>

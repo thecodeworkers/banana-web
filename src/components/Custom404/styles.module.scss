@@ -1,3 +1,5 @@
+@import '../../../public/styles/index.scss';
+
 $verticalMargin: 2rem;
 
 ._main {
@@ -17,7 +19,6 @@ $verticalMargin: 2rem;
 }
 
 ._newsletter {
-  // background-color: blue;
   height: calc(100% - 4rem);
   display: flex;
   justify-content: center;
@@ -25,7 +26,7 @@ $verticalMargin: 2rem;
 }
 
 ._title {
-  font-size: 100px;
+  font-size: 6.25rem;
   text-align: center;
   margin: $verticalMargin;
   font-family: 'NormalFont', sans-serif;
@@ -93,6 +94,13 @@ $verticalMargin: 2rem;
   height: 4rem;
 }
 
+._copyright{
+  display: block;
+}
+._logo{
+  display: none;
+}
+
 ._footerContent {
   width: 95%;
   display: flex;
@@ -105,3 +113,27 @@ $verticalMargin: 2rem;
   }
 }
 
+
+
+@include responsive(md) {
+  ._title{
+    font-size: 1.75rem;
+  }
+  ._text{
+    font-size: 0.75rem;
+    width: 85%;
+  }
+  ._input{
+    width: 85%;
+  }
+  ._footer{
+    width: 90%;
+    margin: 0 auto;
+  }
+  ._copyright{
+    display: none;
+  }
+  ._logo{
+    display: block;
+  }
+}
