@@ -5,8 +5,9 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { RightArrow, Play } from '@icons/svg'
 import { fallbackRestUrl } from '@utils'
+import { withRouter } from 'next/router'
 
-const RecentVideos = ({ content }: any) => {
+const RecentVideos = ({ content, router }: any) => {
 
   const settings: any = {
     infinite: true,
@@ -49,7 +50,7 @@ const RecentVideos = ({ content }: any) => {
           <h1 className={styles._title}>{content?.title}</h1>
           <hr className={styles._underscore}></hr>
         </div>
-        <p className={styles._rightText}>Ver más</p>
+        <p className={styles._rightText} onClick={() => router.push('/classroom')}>Ver más</p>
       </div>
 
       <div className={styles._carouselParent}>
@@ -89,4 +90,4 @@ const RecentVideos = ({ content }: any) => {
   )
 }
 
-export default RecentVideos
+export default withRouter(RecentVideos)

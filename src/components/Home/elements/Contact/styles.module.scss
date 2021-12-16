@@ -25,7 +25,9 @@ $verticalMargin: 1.4rem;
 
 ._mainYellow {
   @include commonMain;
-  padding-top: 4rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   height: 27.875rem;
   animation: gradient ease 3s forwards;
   background: linear-gradient(-45deg, #FFF, #FFF, $yellow, $yellow);
@@ -211,7 +213,7 @@ $verticalMargin: 1.4rem;
 ._sentTitle {
   font-family: 'NormalFont', sans-serif;
   font-size: 3.75rem;
-  margin: 2.5rem 0;
+  margin: 2rem 0;
 }
 
 @include responsive(md) {

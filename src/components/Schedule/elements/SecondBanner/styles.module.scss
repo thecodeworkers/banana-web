@@ -79,16 +79,16 @@
   }
 
   ._title {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   ._lastSection {
-    margin-top: 2.5rem;
+    margin-top: 0.5rem;
     height: auto;
     margin-left: 0;
     & p {
       width: 80%;
-      font-size: 26px;
+      font-size: 1.625rem;
     }
   }
 
@@ -98,6 +98,6 @@
 
   ._child {
     padding: 2rem 0 2rem 0;
-    // width: 90%;
+
   }
 }

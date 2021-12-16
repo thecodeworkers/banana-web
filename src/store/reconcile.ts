@@ -12,7 +12,7 @@ const reconcile = (state, payload) => {
       case 'userData':
         const currentUserData = state[key]
         trueState = { ...trueState, userData: currentUserData }
-      break
+        break
       case 'scrollReference':
         const currentScrollReference = state[key]
         trueState = { ...trueState, scrollReference: currentScrollReference }

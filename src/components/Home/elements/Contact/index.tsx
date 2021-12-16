@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, createRef, useRef } from 'react'
 import { GeneralButton } from '@components'
 import styles from './styles.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
@@ -21,11 +21,6 @@ const Contact = ({ content }: any) => {
   const inputReference = useRef(null)
 
   useEffect(() => {
-    // window.addEventListener('keydown', (event: any) => {
-    //   if (event.key === 'Enter') {
-    //     isValid && inputValue.length ? nextStep() : showToast(dispatch, '#FF4F4F', 'error', 'Error!')
-    //   }
-    // })
     calculateInitialWidth()
   }, [])
 
@@ -97,7 +92,6 @@ const Contact = ({ content }: any) => {
     }
   }, [contact?.sended])
 
-
   return (
     <>
       <div className={!contact?.sended ? styles._main : styles._mainYellow}>
@@ -122,7 +116,7 @@ const Contact = ({ content }: any) => {
               <div>
                 <input
                   type={contactData[currentStep - 1]?.input.Type}
-                  placeholder={contactData[currentStep - 1]?.input.name}
+                  placeholder={contactData[currentStep - 1]?.input.placeholder}
                   className={styles._input}
                   value={inputValue}
                   onChange={inputHandler}
@@ -143,7 +137,7 @@ const Contact = ({ content }: any) => {
                   />
                 </div>
 
-                <div className={styles._parentSubBtn}>
+                <div className={styles._parentSubBtn} >
                   <GeneralButton
                     icon={false}
                     text={localData?.nextButton}

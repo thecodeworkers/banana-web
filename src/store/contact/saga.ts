@@ -7,7 +7,9 @@ import { showAlert } from '@utils'
 function* sendContactData({ payload }) {
   try {
     let response = yield call(GraphQlClient, ContactMutation(payload))
-    if (!Object.keys(response).length) yield call(showAlert, 'Error!', 'error', '#FF4F4F')
+    if ((response?.errors && response?.errors?.length) || !Object.keys(response).length) {
+      return yield call(showAlert, 'Error!', 'error', '#FF4F4F')
+    }
     if (response?.data) yield put(actionObject(SENDED, true))
   } catch (err) {
     yield call(showAlert, 'Error!', 'error', '#FF4F4F')

@@ -7,7 +7,7 @@
   width: 70%;
 }
 
-._main{
+._main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -137,6 +137,7 @@
     width: 100%;
   }
   ._container{
+    padding-top: 0;
     flex-direction: column;
   }
   ._buttonsContainer{

@@ -26,7 +26,7 @@
   color: black;
   margin-bottom: 3rem;
   width: 60%;
-  Line-height: 8.8rem;
+  line-height: 8.8rem;
 }
 
 ._subtitle{
@@ -51,6 +51,7 @@
     width: 100%;
     text-align: center;
     margin-bottom: 1.5rem;
+    line-height: 4rem;
   }
   ._subtitle{
     font-size: 1.125rem;
@@ -63,6 +64,7 @@
     justify-content: center;
   }
   ._container{
+    margin-top: 2rem;
     justify-content: flex-start;
   }
 

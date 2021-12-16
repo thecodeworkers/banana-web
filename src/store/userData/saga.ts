@@ -5,13 +5,17 @@ import { FETCH_USER_DATA, FETCH_USER_DATA_ASYNC } from './action-types'
 import { showAlert } from '@utils'
 import { getUserData } from '../selectors'
 
-function* fetchUserData({ payload }) {
+function* fetchUserData() {
   try {
     const data = yield select(getUserData)
     const { userData } = data
-    const response = yield call(GraphQlClient, UserData(userData))
 
-    if (!Object.keys(response).length) yield call(showAlert, 'Error!', 'error', '#FF4F4F')
+    console.log(userData)
+    const response = yield call(GraphQlClient, UserData(userData))
+    if ((response?.errors && response?.errors?.length) || !Object.keys(response).length) {
+      return yield call(showAlert, 'Error!', 'error', '#FF4F4F')
+    }
+
     if (response?.data) yield put(actionObject(FETCH_USER_DATA_ASYNC, { success: true }))
     yield call(showAlert, 'Success!', 'success', '#4FCF01')
   } catch (err) {

@@ -5,7 +5,7 @@ import {
   SecondBanner, ServicesBanner, TestimonialsBanner, ThirdBanner
 } from './elements'
 import { fallbackRestUrl } from '../../utils/path'
-import { Alert, DotsLine } from '@components'
+import { Alert } from '@components'
 import { scrollTo } from '@utils'
 
 const Home = () => {
@@ -22,8 +22,8 @@ const Home = () => {
   }, [homeReference?.services])
 
   const scrollingReference = (node, state) => {
-    if(homeReference?.current == state) {
-      if(node) scrollTo(node)
+    if (homeReference?.current == state) {
+      if (node) scrollTo(node)
     }
   }
 
@@ -32,7 +32,6 @@ const Home = () => {
       {home ?
         <div>
           <Alert />
-          <DotsLine />
           <div ref={heroRef}>
             <Hero content={home?.Hero} data={home?.Banner} contact={footer} reference={banner} />
           </div>
