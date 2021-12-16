@@ -23,7 +23,10 @@ function* saveContactAsync({ payload }) {
 
     const response = yield call(GraphQlClient, NewsLetterMutation(payload))
 
-    if (!Object.keys(response).length) yield call(showAlert, 'Error!', 'error', '#FF4F4F')
+    if ((response?.errors && response?.errors?.length) || !Object.keys(response).length) {
+      return yield call(showAlert, 'Error!', 'error', '#FF4F4F')
+    }
+
     if (response?.data) yield put(actionObject(SAVE_CONTACT_ASYNC, { success: true }))
 
     yield call(showAlert, 'Ok!')

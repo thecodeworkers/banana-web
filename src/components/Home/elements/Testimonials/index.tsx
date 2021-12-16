@@ -6,9 +6,9 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { GeneralButton, SlideArrow } from '@components'
 import { fallbackRestUrl } from '../../../../utils/path'
-import { RightArrow } from '@icons/svg'
+import { withRouter } from 'next/router'
 
-const Testimonials = (content) => {
+const Testimonials = ({ content, router }) => {
 
   const settings = {
     infinite: true,
@@ -33,11 +33,11 @@ const Testimonials = (content) => {
   return (
     <>
       <div className={styles._bannerContainer}>
-        <div className={styles._buttonContainer}>
-          <GeneralButton text={content?.content?.button?.text} icon={true} borderColor='#000' />
+        <div className={styles._buttonContainer} onClick={() => router.push('/portfolio')}>
+          <GeneralButton text={content?.button?.text} icon={true} borderColor='#000' />
         </div>
         <Slider {...settings}>
-          {content?.content?.TesmimonialData?.map((item, index) => {
+          {content?.TesmimonialData?.map((item, index) => {
             return (
               <div className={styles._container} key={index}>
                 <div className={'_imageContainer'}>
@@ -62,8 +62,8 @@ const Testimonials = (content) => {
           }
         </Slider>
 
-        <div className={styles._buttonContainerResponsive}>
-          <GeneralButton borderColor={'#000'} text={content?.content?.button?.text} icon={true} />
+        <div className={styles._buttonContainerResponsive} onClick={() => router.push('/portfolio')}>
+          <GeneralButton borderColor={'#000'} text={content?.button?.text} icon={true} />
         </div>
       </div>
       <style jsx>
@@ -92,6 +92,6 @@ const Testimonials = (content) => {
   )
 }
 
-export default Testimonials
+export default withRouter(Testimonials)
 
 

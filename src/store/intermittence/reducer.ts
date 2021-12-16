@@ -15,6 +15,7 @@ const initialState = {
   theme: 'light',
   formModal: false,
   scheduleNumber: 0,
+  showAgain: true,
 }
 
 const pageReducer = (state = initialState, { type, payload }: AnyAction) => {

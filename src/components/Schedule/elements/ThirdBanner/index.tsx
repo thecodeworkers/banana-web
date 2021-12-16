@@ -17,6 +17,7 @@ const ThirdBanner = (content, data) => {
   const openModal = () => dispatch(setStatus({ formModal: true }))
 
   useEffect(() => {
+    dispatch(setStatus({ scheduleNumber: 0 }))
     dispatch(setReference({ purposeRef }))
     return () => { dispatch(setReference({ purposeRef: null })) }
   }, [])

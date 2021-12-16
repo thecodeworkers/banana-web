@@ -18,6 +18,7 @@ const PaymentMethod = () => {
 
   return (
     <div>
+      <h1 className={styles._title}> Forma de pago </h1>
       {
         methods.map((item, index) => (
           <div className={currentItem == index ? styles._cardSelected : styles._card} key={index} onClick={() => selectedItem(item, index)}>

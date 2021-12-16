@@ -1,4 +1,4 @@
-const UserDataMutation = ({ name, lastname, identification_document, address, email, phone }) => {
+const UserDataMutation = ({ name, lastname, document, address, email, phone }) => {
   return (
     `
       mutation {
@@ -7,7 +7,7 @@ const UserDataMutation = ({ name, lastname, identification_document, address, em
             data: {
               name: "${name}"
               lastname: "${lastname}"
-              identification_document: "${identification_document}"
+              identification_document: "${document}"
               address: "${address}"
               email: "${email}"
               phone: "${phone}"

@@ -40,8 +40,8 @@ const SecondBanner = ({ background, backgroundResponsive, lineText, titlte, subt
 
         @media (max-width: 768px) {
           ._main {
-            height: 90vh;
-            padding 2rem 0 0 0;
+            padding-top: 2rem;
+            height: 80vh;
             background-image: url(${fallbackRestUrl}${backgroundResponsive?.url});
           }
         }

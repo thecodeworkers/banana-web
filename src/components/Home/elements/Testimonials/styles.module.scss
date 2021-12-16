@@ -69,11 +69,13 @@
 }
 ._buttonContainer{
   width: 13%;
+  background-color: blue;
   align-self: flex-end;
   margin-right: 1.8rem;
   position: absolute;
   top: 40px;
   cursor: pointer;
+  z-index: 2;
 }
 ._buttonContainerResponsive{
   display: none;

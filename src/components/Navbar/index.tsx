@@ -15,6 +15,7 @@ const Navbar = () => {
   const [navClass, setNavClass] = useState('_mainChild')
   const [textClass, setTextClass] = useState('_cityText')
   const router = useRouter()
+  let lastScrollTop: number
 
   const commonNav = (theme) => (`
     background-color: ${theme == 'dark' ? '#000' : '#FFF'};
@@ -24,27 +25,25 @@ const Navbar = () => {
   `)
 
   useEffect(() => {
-    let lastScrollTop: number
-
-    document.addEventListener('scroll', () => {
-      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop
-      if (scrollPosition > lastScrollTop) {
-        setTextClass('_cityTextTrasparent')
-        setNavClass('_transparent')
-
-      } else {
-        setTextClass('_cityTextsolid')
-        setNavClass('_solidColor')
-      }
-
-      lastScrollTop = (scrollPosition <= 0) ? 0 : scrollPosition
-    }, false)
+    document.addEventListener('scroll', scrollHandler)
+    return () => { document.removeEventListener('scroll', scrollHandler) }
   }, [])
 
   const openMenu = () => dispatch(setStatus({ classMenu: '_inAnimation' }))
-
   const navigate = () => { navigation('/', router) }
 
+  const scrollHandler = () => {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop
+    if (scrollPosition > lastScrollTop) {
+      setTextClass('_cityTextTrasparent')
+      setNavClass('_transparent')
+    } else {
+      setTextClass('_cityTextsolid')
+      setNavClass('_solidColor')
+    }
+
+    lastScrollTop = (scrollPosition <= 0) ? 0 : scrollPosition
+  }
 
   return (
     <nav>
