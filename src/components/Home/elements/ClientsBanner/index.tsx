@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 import Image from 'next/dist/client/image'
-import { fallbackRestUrl } from '../../../../utils/path'
+import { fallbackRestUrl, urlImgFallback } from '@utils/path'
 
 const ClientsBanner = (content) => {
 

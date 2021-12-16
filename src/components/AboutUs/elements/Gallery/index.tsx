@@ -4,6 +4,7 @@ import linkedin from '@icons/linkedin.svg'
 import { fallbackRestUrl } from '@utils/path'
 
 const Gallery = ({ content = [] }: any) => {
+
   return (
     <div className={styles._generalGallery}>
       {
@@ -20,10 +21,13 @@ const Gallery = ({ content = [] }: any) => {
                     <li className={styles._teamPosition}>{item?.jobTitle}</li>
                   </ul>
                 </div>
-                <div className={styles._imgParent} >
-                  <a href={item?.socialLink} target='_blank' rel='noreferrer' >
-                    <Image src={linkedin} alt='linked-in' width={34} height={34} quality={100} className={styles._socialLink} />
-                  </a>
+                <div className={styles._imgParent}>
+                  {
+                    item?.socialLink ? (
+                      <a href={item?.socialLink} target='_blank' rel='noreferrer' >
+                        <Image src={linkedin} alt='linked-in' width={34} height={34} quality={100} className={styles._socialLink} />
+                      </a>) : <Image src={linkedin} alt='linked-in' width={34} height={34} quality={100} className={styles._socialLink} />
+                  }
                 </div>
               </div>
             </div>

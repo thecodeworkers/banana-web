@@ -3,35 +3,17 @@ import wrapper from '@store'
 import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
 import { useSelector } from 'react-redux'
-import { fallbackRestUrl } from '@utils/path'
-import { Layout } from '@components'
+import { Layout, Fonts } from '@components'
 
 const AboutUsPage = () => {
-  const { font: { bold, normal, light, medium } } = useSelector((state: any) => state)
+  const { font } = useSelector((state: any) => state)
 
   return (
     <>
       <Layout>
         <AboutUs />
       </Layout>
-      <style jsx>{`
-        @font-face {
-          font-family: 'NormalFont';
-          src: url('${fallbackRestUrl}${normal?.url}');
-        }
-        @font-face {
-          font-family: 'BoldFont';
-          src: url('${fallbackRestUrl}${bold?.url}');
-        }
-        @font-face {
-          font-family: 'LightFont';
-          src: url('${fallbackRestUrl}${light?.url}');
-        }
-        @font-face {
-          font-family: 'NormalFont';
-          src: url('${fallbackRestUrl}${medium?.url}');
-        }`}
-      </style>
+      <Fonts {...font}/>
     </>
   )
 }
