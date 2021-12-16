@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useCallback, useRef } from 'react'
+import { useSelector } from 'react-redux'
 import {
   Banner, ClientsBanner, Contact, Hero, RecentsVideos,
   SecondBanner, ServicesBanner, TestimonialsBanner, ThirdBanner
@@ -7,11 +7,14 @@ import {
 import { fallbackRestUrl } from '../../utils/path'
 import { Alert } from '@components'
 import { scrollTo } from '@utils'
+import { navigation } from '@utils'
+import { useRouter } from 'next/router'
 
 const Home = () => {
   const { page: { home, footer }, scrollReference: { homeReference } } = useSelector((state: any) => state)
 
   const banner = useRef()
+  const router = useRouter()
 
   const heroRef = useCallback((node) => {
     scrollingReference(node, 'hero')
@@ -26,6 +29,8 @@ const Home = () => {
       if (node) scrollTo(node)
     }
   }
+
+  const navigate = (item: any) => { navigation(item, router) }
 
   return (
     <>
@@ -50,7 +55,7 @@ const Home = () => {
           <Banner withButton={home?.ClasroomBanner?.button}
             background={`${fallbackRestUrl}${home?.ClasroomBanner?.image?.url}`}
             responsiveImage={`${fallbackRestUrl}${home?.ClasroomBanner?.imageResponsive?.url}`}
-            buttonText={home?.ClasroomBanner?.textButton} method={''} />
+            buttonText={home?.ClasroomBanner?.textButton} method={() => navigate('/classroom')} />
           <TestimonialsBanner content={home?.Testimonials} />
           <ClientsBanner content={home?.Clients} />
         </div> : null

@@ -94,7 +94,7 @@ const Grid = (content) => {
                             quality={100}
                             placeholder="blur" />
                           <div className={styles._description}>
-                            <p>{p?.name}</p>
+                            <p>{p?.categories?.name}</p>
                           </div>
 
                           <div className={styles._logo}>
