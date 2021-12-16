@@ -17,7 +17,8 @@ const Loader = ({ children }) => {
   const handleBeforeHistoryChange = url => url && setFlag(true)
 
   useEffect(() => {
-    router.events.on('beforeHistoryChange', handleBeforeHistoryChange);
+    router.events.on('beforeHistoryChange', handleBeforeHistoryChange)
+
 
     if (showLoader && router.pathname == '/') {
       const anim = lottie.loadAnimation({
