@@ -135,13 +135,15 @@
   }
   ._rightside{
     width: 100%;
+    align-items: center;
   }
   ._container{
     padding-top: 0;
     flex-direction: column;
   }
   ._buttonsContainer{
-    width:100%
+    width:100%;
+
   }
   ._servicesBtnParent{
     width: 100%;
@@ -151,6 +153,10 @@
   }
   ._subtitle{
     font-size: 0.75rem;
+    width: 90%;
+  }
+  ._contentText{
+    width: 90%;
   }
   ._bigTitle{
     font-size: 4.5rem;
@@ -170,6 +176,9 @@
   }
   ._line{
     height: 11.7813rem;
+  }
+  ._blackSubtitle{
+    width: 100%;
   }
  }
 
