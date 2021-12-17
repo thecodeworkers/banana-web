@@ -57,7 +57,7 @@ const Home = () => {
             responsiveImage={`${fallbackRestUrl}${home?.ClasroomBanner?.imageResponsive?.url}`}
             buttonText={home?.ClasroomBanner?.textButton} method={() => navigate('/classroom')} />
           <TestimonialsBanner content={home?.Testimonials} />
-          {/* <ClientsBanner content={home?.Clients} /> */}
+          <ClientsBanner content={home?.Clients} />
         </div> : null
       }
     </>
