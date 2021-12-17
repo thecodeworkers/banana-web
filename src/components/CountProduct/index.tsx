@@ -19,7 +19,9 @@ const CountProduct = () => {
         <div className={styles._square} onClick={decrement}>
           <p>-</p>
         </div>
-        <input type='text' value={scheduleNumber} readOnly className={styles._input}></input>
+        <div className={styles._countParent}>
+          <p className={styles._input}>{scheduleNumber}</p>
+        </div>
         <div className={styles._square} onClick={increment}>
           <p>+</p>
         </div>

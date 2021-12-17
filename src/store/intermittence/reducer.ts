@@ -4,6 +4,7 @@ import { SET_LANGUAGE, SET_MENU_STATUS, SET_ALERT } from './action-types'
 const initialState = {
   languages: { es: 'Español', en: 'English' },
   selectedLanguage: 'es',
+  opposedLang: 'en',
   classMenu: '_mainMenu',
   alert: {
     status: 0,
