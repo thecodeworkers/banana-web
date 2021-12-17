@@ -24,7 +24,27 @@ spec:
             path: /
             backend:
               service:
-                name: banana-stg-dev-service
+                name: banana-stg-web-service
+                port:
+                  number: 3000
+    - host: bananacreative.io
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: banana-stg-web-service
+                port:
+                  number: 3000
+    - host: www.bananacreative.io
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: banana-stg-web-service
                 port:
                   number: 3000
   tls:
@@ -32,3 +52,9 @@ spec:
       - banana-stg-dev.thecodeworkers.com
       secretName: banana-stg-dev-thecodeworkers-com-tls
     - hosts:
+      - bananacreative.io
+      secretName: banana-stg-dev-thecodeworkers-com-tls
+    - hosts:
+      - www.bananacreative.io
+      secretName: banana-stg-dev-thecodeworkers-com-tls
+
