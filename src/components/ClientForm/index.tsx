@@ -119,8 +119,8 @@ const ClientForm = () => {
                       value={formik.values.phone}
                       className={returnInputStyles('phone')}>
                     </input>
-                  </div>
-                </div>
+                  </div >
+                </div >
               </> : <PaymentMethod />
               }
 
@@ -128,9 +128,9 @@ const ClientForm = () => {
                 <GeneralButton text={selectedLanguage == 'es' ? 'Siguiente' : 'Next'} type='submit' />
               </div>
 
-            </form>
-          </div>
-        </ModalLayout>
+            </form >
+          </div >
+        </ModalLayout >
       }
     </>
   )
