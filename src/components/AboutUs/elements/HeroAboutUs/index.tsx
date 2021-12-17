@@ -2,6 +2,8 @@ import styles from './styles.module.scss'
 import { IconsButton } from '@components'
 
 const HeroAboutUs = ({ content }: any) => {
+
+  console.log(content)
   return (
     <div className={styles._main}>
       <div className={styles._motion}>
@@ -16,7 +18,9 @@ const HeroAboutUs = ({ content }: any) => {
           <hr className={styles._line}></hr>
           <div className={styles._btnSuperParent}>
             <div className={styles._btnParent}>
-              <IconsButton text={content?.recapButton?.[0]?.text} right={true}/>
+              <a href={content?.recapButton?.[0]?.Link} target='_blank' rel="noreferrer">
+                <IconsButton text={content?.recapButton?.[0]?.text} right={true} />
+              </a>
             </div>
           </div>
         </div>
