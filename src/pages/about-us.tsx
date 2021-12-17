@@ -13,7 +13,7 @@ const AboutUsPage = () => {
       <Layout>
         <AboutUs />
       </Layout>
-      <Fonts {...font}/>
+      <Fonts {...font} />
     </>
   )
 }
@@ -22,6 +22,9 @@ export default AboutUsPage
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async ({ req, res }) => {
-    await mapProps(store, getPage({ query: 'aboutUs' }))
+    const state = store.getState()
+    const { intermittence: { selectedLanguage } } = state
+    console.log('SELECTEEED BETA', selectedLanguage)
+    await mapProps(store, getPage({ query: 'aboutUs', language: selectedLanguage }))
   }
 )
