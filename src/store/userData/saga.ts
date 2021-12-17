@@ -10,7 +10,6 @@ function* fetchUserData() {
     const data = yield select(getUserData)
     const { userData } = data
 
-    console.log(userData)
     const response = yield call(GraphQlClient, UserData(userData))
     if ((response?.errors && response?.errors?.length) || !Object.keys(response).length) {
       return yield call(showAlert, 'Error!', 'error', '#FF4F4F')

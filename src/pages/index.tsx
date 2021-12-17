@@ -3,7 +3,6 @@ import wrapper from '@store'
 import { mapProps } from '@utils'
 import { getPage } from '@store/actions'
 import { useSelector } from 'react-redux'
-import { fallbackRestUrl } from '@utils/path'
 import { Layout, Fonts } from '@components'
 
 const HomePage = () => {
