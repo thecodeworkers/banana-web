@@ -69,7 +69,7 @@ const ClientForm = () => {
                     </input>
                   </div>
                   <div className={styles._columnThird}>
-                    <label className={styles._label}>Cedula</label>
+                    <label className={styles._label}>Cédula</label>
                     <input
                       id="document"
                       name="document"
@@ -109,7 +109,7 @@ const ClientForm = () => {
                     </input>
                   </div>
                   <div className={styles._columnMiddle}>
-                    <label className={styles._label}>Telefono</label>
+                    <label className={styles._label}>Teléfono</label>
                     <input
                       id="phone"
                       name="phone"
