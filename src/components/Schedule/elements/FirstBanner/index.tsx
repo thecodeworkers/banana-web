@@ -35,12 +35,12 @@ const FirstBanner = (content) => {
           height: 100vh;
           width: 100%;
           background-repeat: no-repeat;
-          background-attachment: fixed;
+          background-attachment: initial;
         }
         @media(max-width: 576px) {
           ._banner{
             background-image: url(${responsiveBackground});
-            height: 100vh;
+            background-attachment: initial;
           }
        `}
       </style>

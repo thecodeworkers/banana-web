@@ -45,14 +45,15 @@ const ThirdBanner = (content, data) => {
               }
             </div>
             <p className={styles._subtitle}>{content?.content?.description}</p>
-
             <div className={styles._buttonsContainer}>
               <div className={styles._counterContainer}>
                 <CountProduct />
               </div>
               <div className={styles._servicesBtnParent}>
-                <GeneralButton background={'#134EBF'} icon={false} method={openModal}
-                  text={`${content?.content?.buttonCart.text}${content?.content?.price}`} />
+                <button className='_btn' onClick={openModal}>
+                  <p className={styles._text}>{content?.content?.buttonCart.text}</p>
+                  <p className={styles._text}> {content?.content?.price}</p>
+                </button>
               </div>
             </div>
           </div>
@@ -78,6 +79,19 @@ const ThirdBanner = (content, data) => {
           min-height: 40vh;
           width: 100%;
           background-repeat: no-repeat;
+        }
+        ._btn {
+          width: 100%;
+          height: 3.8rem;
+          background-color: #134EBF;
+          box-sizing: border-box;
+          color: #fff;
+          padding: 1.8rem;
+          display: flex;
+          justify-content:space-between;
+          align-items: center;
+          white-space: nowrap;
+          cursor: pointer;
         }
         @media(max-width: 576px) {
           ._banner{
