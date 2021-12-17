@@ -22,12 +22,15 @@
   }
 }
 
+._countParent {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 ._input {
-  border: solid 1px #fff;
   width: 3rem;
-  padding: 0.1rem 0.5rem;
-  height: 1.5rem;
-  background-color: transparent;
   font-family: 'NormalFont', sans-serif;
   text-align: center;
   margin: 0 1rem;

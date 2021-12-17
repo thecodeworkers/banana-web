@@ -40,7 +40,7 @@ export const formikConfig = (dispatch: any, setShowPayment: any, showPayment) =>
 
   onSubmit: values => {
     if (!showPayment) {
-      dispatch(setUserData({ userData: values }))
+      dispatch(setUserData({ userData: { ...values, ...{ paymentMethod: 'Zelle' } } }))
       setShowPayment(true)
       return
     }

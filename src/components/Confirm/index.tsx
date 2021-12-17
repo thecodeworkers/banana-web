@@ -22,7 +22,7 @@ const Confirm = () => {
         <h1 className={styles._title}>Hablemos por WhatsApp</h1>
         <p className={styles._text} >Podemos proceder a gestionar tu pago a través de una conversación con nuestro equipo de atención a clientes. </p>
         <div className={styles._btnParent}>
-          <a href={`https://wa.me/584124731515?text=¡Hola, team Banana! Me gustaría apoyar la iniciativa Agenda Una Beca. %0A%0A Mi nombre completo es: ${userData?.userData?.name} ${userData?.userData?.lastname} %0A Cédula: ${userData?.userData?.document} %0A Dirección: ${userData?.userData?.address} %0A Teléfono: ${userData?.userData?.phone} %0A Correo: ${userData?.userData?.email}  %0A Cantidad: ${scheduleNumber}`}
+          <a href={`https://wa.me/584124731515?text=¡Hola, team Banana! Me gustaría apoyar la iniciativa Agenda Una Beca. %0A%0A Mi nombre completo es: ${userData?.userData?.name} ${userData?.userData?.lastname} %0A Cédula: ${userData?.userData?.document} %0A Dirección: ${userData?.userData?.address} %0A Teléfono: ${userData?.userData?.phone} %0A Correo: ${userData?.userData?.email}  %0A Cantidad: ${scheduleNumber} Método de pago: ${userData?.userData?.paymentMethod}`}
             target='_blank' rel="noreferrer">
             <GeneralButton background='#FFF' text='Haz click aquí' icon={false} textColor='black' method={redirectAndSendMessage} />
           </a>
