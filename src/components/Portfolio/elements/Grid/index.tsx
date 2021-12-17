@@ -149,11 +149,11 @@ const Grid = (content) => {
             paginate(tmpAllProjects, currentPage, perPage).map((p, index) => {
               return (
                 <a href={p?.url} target='_blank' rel='noreferrer' >
-                <div
-                  className={styles._picture}
-                  key={index}
-                  style={{ backgroundImage: `url(${fallbackRestUrl}${p?.portrait?.imageResponsive?.url})` }}>
-                </div>
+                  <div
+                    className={styles._picture}
+                    key={index}
+                    style={{ backgroundImage: `url(${fallbackRestUrl}${p?.portrait?.imageResponsive?.url})` }}>
+                  </div>
                 </a>
               )
             })
