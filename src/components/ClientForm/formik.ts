@@ -3,7 +3,7 @@ import { useFormik as UseFormik } from 'formik'
 import { emailRegex, onlyNumbersRegex, onlyLettersRegex } from '@utils'
 import * as Yup from 'yup'
 
-export const formikConfig = (dispatch: any, setShowPayment: any, showPayment) => (UseFormik({
+export const formikConfig = (dispatch: any, setShowPayment: any, showPayment, isLoading: boolean, setIsLoading: any) => (UseFormik({
   initialValues: {
     name: '',
     lastname: '',
@@ -44,6 +44,10 @@ export const formikConfig = (dispatch: any, setShowPayment: any, showPayment) =>
       setShowPayment(true)
       return
     }
-    dispatch(fetchUserData(values))
+
+    if (!isLoading) {
+      setIsLoading(true)
+      dispatch(fetchUserData(values))
+    }
   }
 }))
