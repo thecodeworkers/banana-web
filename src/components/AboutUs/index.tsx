@@ -11,13 +11,23 @@ const AboutUs = () => {
     }
   } = useSelector((state: any) => state)
 
+  const {
+    page: { aboutUs }
+  } = useSelector((state: any) => state)
+
   return (
     <>
       <Head>
         <title>About us</title>
       </Head>
-      <HeroAboutUs content={aboutHero} />
-      <Gallery content={TeamGallery} />
+      {
+        aboutUs && (
+          <>
+            <HeroAboutUs content={aboutHero} />
+            <Gallery content={TeamGallery} />
+          </>
+        )
+      }
     </>
   )
 }
