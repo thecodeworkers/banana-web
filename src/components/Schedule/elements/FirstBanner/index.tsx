@@ -28,16 +28,16 @@ const FirstBanner = (content) => {
       </div>
       <style jsx>
         {`
-        ._banner{
+        ._banner {
           background-image: url(${background});
           background-size: cover;
           background-position: center;
           height: 100vh;
           width: 100%;
           background-repeat: no-repeat;
-          background-attachment: initial;
+          background-attachment: fixed;
         }
-        @media(max-width: 576px) {
+        @media (max-width: 576px) {
           ._banner{
             background-image: url(${responsiveBackground});
             background-attachment: initial;

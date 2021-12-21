@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import styles from './styles.module.scss'
 import { GeneralButton } from '@components'
 import { useRouter } from 'next/router'
@@ -15,6 +16,13 @@ const Confirm = () => {
     dispatch(setUserData({ success: false }))
     dispatch(setStatus({ alert: { ...alert, status: 0 } }))
   }
+
+  useEffect(() => {
+    return () => {
+      dispatch(setUserData({ success: false }))
+      dispatch(setStatus({ alert: { ...alert, status: 0 } }))
+    }
+  }, [])
 
   return (
     <div className={styles._main}>

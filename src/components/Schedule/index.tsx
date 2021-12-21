@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FirstBanner, FourthBanner, ThirdBanner, SecondBanner } from './elements'
-import { Alert, ScheduleNav, ClientForm } from '@components'
+import { Alert, ScheduleNav, ClientForm, ValidationModal } from '@components'
 import { setReference } from '@store/actions'
 
 const Schedule = () => {
@@ -23,6 +23,7 @@ const Schedule = () => {
         <div>
           <Alert />
           <ClientForm />
+          <ValidationModal />
           <ScheduleNav />
           <FirstBanner content={schedule?.scheduleFirstBanner} />
           <SecondBanner {...schedule?.scheduleSecondBanner} />

@@ -11,8 +11,9 @@ const ClientForm = () => {
 
   const router = useRouter()
   const [showPayment, setShowPayment] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const dispatch = useDispatch()
-  const formik = formikConfig(dispatch, setShowPayment, showPayment)
+  const formik = formikConfig(dispatch, setShowPayment, showPayment, isLoading, setIsLoading)
   const { intermittence: { formModal }, userData } = useSelector((state: any) => state)
 
   const returnInputStyles = (key: string) => {
@@ -25,6 +26,7 @@ const ClientForm = () => {
       dispatch(setStatus({ formModal: false }))
       router.push('/confirm')
       formik.resetForm()
+      setIsLoading(false)
     }
   }, [userData?.success])
 

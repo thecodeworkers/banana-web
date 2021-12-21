@@ -13,7 +13,7 @@ const AboutUsPage = () => {
       <Layout>
         <AboutUs />
       </Layout>
-      <Fonts {...font}/>
+      <Fonts {...font} />
     </>
   )
 }

@@ -1,20 +1,26 @@
 import { useEffect, useRef } from 'react'
-import { GeneralButton, CountProduct } from '@components'
+import { CountProduct } from '@components'
 import { fallbackRestUrl } from '@utils/path'
 import styles from './styles.module.scss'
 import Image from 'next/image'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setReference } from '@store/actions'
 import { setStatus } from '@store/actions'
+import { showToast } from  '@utils'
 
 const ThirdBanner = (content, data) => {
   const background = `${fallbackRestUrl}${content?.data?.background.url}`
   const responsiveBackground = `${fallbackRestUrl}${content?.data?.backgroundResponsive.url}`
 
+  const { intermittence: { scheduleNumber } } = useSelector((state: any) => state)
   const purposeRef = useRef()
   const dispatch = useDispatch()
 
-  const openModal = () => dispatch(setStatus({ formModal: true }))
+  const openModal = () => {
+    if (scheduleNumber > 0) return dispatch(setStatus({ formModal: true }))
+    dispatch(setStatus({ validationModal: true }))
+    showToast(dispatch, '#FF4F4F', 'error', 'Intenta nuevamente!')
+  }
 
   useEffect(() => {
     dispatch(setStatus({ scheduleNumber: 0 }))
@@ -92,6 +98,7 @@ const ThirdBanner = (content, data) => {
           align-items: center;
           white-space: nowrap;
           cursor: pointer;
+          border: none;
         }
         @media(max-width: 576px) {
           ._banner{
