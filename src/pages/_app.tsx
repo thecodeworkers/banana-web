@@ -52,6 +52,7 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link rel="icon" type="image/png" sizes="22x20" href="/icons/logo.png" />
       </Head>
       <Loader>
         <div className={`_circle ${className}`}> </div>

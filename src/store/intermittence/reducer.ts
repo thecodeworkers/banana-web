@@ -15,6 +15,7 @@ const initialState = {
   showLoader: true,
   theme: 'light',
   formModal: false,
+  validationModal: false,
   scheduleNumber: 0,
   showAgain: true,
 }

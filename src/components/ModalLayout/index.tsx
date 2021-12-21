@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 import { useDispatch } from 'react-redux'
 import { setStatus } from '@store/actions'
 
-const ModalLayout = ({ children = null }) => {
+const ModalLayout = ({ children = null, showClose = true }) => {
 
   const dispatch = useDispatch()
   const hideModal = () => dispatch(setStatus({ formModal: false }))
@@ -13,7 +13,7 @@ const ModalLayout = ({ children = null }) => {
       <div className={styles._modal}>
         <div className={styles._closeBtn}>
           <div className={styles._iconParent} onClick={hideModal}>
-            <CloseIcon />
+            { showClose && <CloseIcon /> }
           </div>
         </div>
         {children}

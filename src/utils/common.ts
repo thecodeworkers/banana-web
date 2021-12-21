@@ -1,6 +1,6 @@
 import { call, delay, put } from '@redux-saga/core/effects'
 import { END } from '@redux-saga/core'
-import { setStatus } from '@store/actions'
+import { setStatus, getPage } from '@store/actions'
 
 export const normalizedArray = response => response ? response : []
 
@@ -87,3 +87,17 @@ export const showToast = async (dispatch, color, type, text) => {
 }
 
 export const navigation = (route: string, router: any) => route != router.pathname && router.push(route)
+
+export const changeLanguage = (languages, selectedLanguage, dispatch, query = 'home') => {
+  const langs = Object.keys(languages)
+  const position = langs.reduce((prev: any, next: any, index: any) => {
+    if (selectedLanguage == next) prev = index
+    if (prev < index) return next
+    if (prev + 1 == langs.length) return 'es'
+    return prev
+  }, 0)
+
+  const opposed = langs.indexOf(position)
+  dispatch(setStatus({ opposedLang: langs[Number(!opposed)] }))
+  dispatch(getPage({ query, language: position }))
+}
