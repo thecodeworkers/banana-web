@@ -4,7 +4,7 @@ import { GeneralButton, ModalLayout } from '@components'
 import { formikConfig } from './formik'
 import { PaymentMethod } from './elements'
 import { useSelector, useDispatch } from 'react-redux'
-import { setStatus } from '@store/actions'
+import { setStatus, setUserData } from '@store/actions'
 import { useRouter } from 'next/router'
 
 const ClientForm = () => {
@@ -14,7 +14,7 @@ const ClientForm = () => {
   const [isLoading, setIsLoading] = useState(false)
   const dispatch = useDispatch()
   const formik = formikConfig(dispatch, setShowPayment, showPayment, isLoading, setIsLoading)
-  const { intermittence: { formModal, selectedLanguage }, userData } = useSelector((state: any) => state)
+  const { intermittence: { formModal, selectedLanguage, scheduleNumber, alert }, userData } = useSelector((state: any) => state)
 
   const returnInputStyles = (key: string) => {
     if (formik.errors[key] && formik.touched[key]) return styles._inputError
@@ -24,7 +24,7 @@ const ClientForm = () => {
   useEffect(() => {
     if (userData?.success) {
       dispatch(setStatus({ formModal: false }))
-      router.push('/confirm')
+      redirectAndSendMessage()
       formik.resetForm()
       setIsLoading(false)
     }
@@ -36,6 +36,13 @@ const ClientForm = () => {
       formik.resetForm()
     }
   }, [formModal])
+
+  const redirectAndSendMessage = () => {
+    window.open(`https://wa.me/584124731515?text=¡Hola, team Banana! Me gustaría apoyar la iniciativa Agenda Una Beca. %0A%0A Mi nombre completo es: ${userData?.userData?.name} ${userData?.userData?.lastname} %0A Cédula: ${userData?.userData?.document} %0A Dirección: ${userData?.userData?.address} %0A Teléfono: ${userData?.userData?.phone} %0A Correo: ${userData?.userData?.email}  %0A Cantidad: ${scheduleNumber} Método de pago: ${userData?.userData?.paymentMethod}`)
+    router.push('/')
+    dispatch(setUserData({ success: false }))
+    dispatch(setStatus({ alert: { ...alert, status: 0 } }))
+  }
 
   return (
     <>
