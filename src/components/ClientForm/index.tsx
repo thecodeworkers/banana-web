@@ -14,7 +14,7 @@ const ClientForm = () => {
   const [isLoading, setIsLoading] = useState(false)
   const dispatch = useDispatch()
   const formik = formikConfig(dispatch, setShowPayment, showPayment, isLoading, setIsLoading)
-  const { intermittence: { formModal }, userData } = useSelector((state: any) => state)
+  const { intermittence: { formModal, selectedLanguage }, userData } = useSelector((state: any) => state)
 
   const returnInputStyles = (key: string) => {
     if (formik.errors[key] && formik.touched[key]) return styles._inputError
@@ -44,10 +44,10 @@ const ClientForm = () => {
           <div className={styles._parent}>
             <form className={styles._form} onSubmit={formik.handleSubmit}>
               {!showPayment ? <>
-                <h1 className={styles._title}> Tus datos </h1>
+                <h1 className={styles._title}> {selectedLanguage == 'es' ? 'Tus datos' : 'Your data'}</h1>
                 <div className={styles._row}>
                   <div className={styles._columnThird}>
-                    <label className={styles._label}>Nombre</label>
+                    <label className={styles._label}>{selectedLanguage == 'es' ? 'Nombre' : 'Name'}</label>
                     <input
                       className={returnInputStyles('name')}
                       id="name"
@@ -59,7 +59,7 @@ const ClientForm = () => {
                     </input>
                   </div>
                   <div className={styles._columnThird}>
-                    <label className={styles._label}>Apellido</label>
+                    <label className={styles._label}>{selectedLanguage == 'es' ? 'Apellido' : 'Lastname'}</label>
                     <input
                       className={returnInputStyles('lastname')}
                       id="lastname"
@@ -71,7 +71,7 @@ const ClientForm = () => {
                     </input>
                   </div>
                   <div className={styles._columnThird}>
-                    <label className={styles._label}>Cédula</label>
+                    <label className={styles._label}>{selectedLanguage == 'es' ? 'Cédula' : 'Identification card'} </label>
                     <input
                       id="document"
                       name="document"
@@ -85,7 +85,7 @@ const ClientForm = () => {
                 </div>
                 <div className={styles._row}>
                   <div style={{ width: '100%' }}>
-                    <label className={styles._label}>Dirección (zona, urbanización, calle, casa/edificio)</label>
+                    <label className={styles._label}>{selectedLanguage == 'es' ? 'Dirección (zona, urbanización, calle, casa/edificio)' : 'Address (area, urbanization, street, house / building)'}</label>
                     <input
                       id="address"
                       name="address"
@@ -99,7 +99,7 @@ const ClientForm = () => {
                 </div>
                 <div className={styles._row}>
                   <div className={styles._columnMiddle}>
-                    <label className={styles._label}>Email</label>
+                    <label className={styles._label}>{selectedLanguage == 'es' ? 'Correo' : 'Email'}</label>
                     <input
                       id="email"
                       name="email"
@@ -111,7 +111,7 @@ const ClientForm = () => {
                     </input>
                   </div>
                   <div className={styles._columnMiddle}>
-                    <label className={styles._label}>Teléfono</label>
+                    <label className={styles._label}>{selectedLanguage == 'es' ? 'Teléfono' : 'Phone'}</label>
                     <input
                       id="phone"
                       name="phone"
@@ -121,18 +121,18 @@ const ClientForm = () => {
                       value={formik.values.phone}
                       className={returnInputStyles('phone')}>
                     </input>
-                  </div>
-                </div>
+                  </div >
+                </div >
               </> : <PaymentMethod />
               }
 
               <div className={styles._btnParent}>
-                <GeneralButton text='Siguiente' type='submit' />
+                <GeneralButton text={selectedLanguage == 'es' ? 'Siguiente' : 'Next'} type='submit' />
               </div>
 
-            </form>
-          </div>
-        </ModalLayout>
+            </form >
+          </div >
+        </ModalLayout >
       }
     </>
   )

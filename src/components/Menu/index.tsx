@@ -12,7 +12,14 @@ import { useRouter } from 'next/router'
 import { LogoBanana, CloseIcon } from '@icons/svg'
 import { Clok } from '@components'
 import Router from 'next/router'
-import { navigation } from '@utils'
+import { navigation, changeLanguage } from '@utils'
+
+const nextRoutes = [
+  { path: '/', query: 'home' },
+  { path: 'about-us', query: 'aboutUs' },
+  { path: '/portfolio', query: 'portfolio' },
+  { path: '/agendaunabeca', query: 'schedule' },
+]
 
 const commonStyles: any = `
   display: flex;
@@ -26,9 +33,12 @@ const Menu = ({ menuLight = false }) => {
   const router = useRouter()
   const dispatch = useDispatch()
 
+  const currentRoute = router.pathname
+  const currentQuery = nextRoutes.find((item: any) => item.path == currentRoute)
+
   const {
     page: { footer, header },
-    intermittence: { languages, selectedLanguage, classMenu },
+    intermittence: { languages, selectedLanguage, classMenu, opposedLang },
     scrollReference
   } = useSelector((state: any) => state)
 
@@ -42,17 +52,6 @@ const Menu = ({ menuLight = false }) => {
   }, [classMenu])
 
   const closeMenu = () => dispatch(setStatus({ classMenu: '_outAnimation' }))
-
-  const changeLanguage = () => {
-    const langs = Object.keys(languages)
-    const position = langs.reduce((prev: any, next: any, index: any) => {
-      if (selectedLanguage == next) prev = index
-      if (prev < index) return next
-      if (prev + 1 == langs.length) return 'es'
-      return prev
-    }, 0)
-    dispatch(getPage({ query: 'home', language: position }))
-  }
 
   const navigate = (item: any) => {
     navigation(item, router)
@@ -158,7 +157,7 @@ const Menu = ({ menuLight = false }) => {
             })
             }
             <div className={styles._bottomBtnParent}>
-              <GeneralButton icon={false} background={!menuLight ? '#FFF' : '#000'} textColor={!menuLight ? '#000' : '#FFF'} text={languages[selectedLanguage]} method={changeLanguage} height='1rem' />
+              <GeneralButton icon={false} background={!menuLight ? '#FFF' : '#000'} textColor={!menuLight ? '#000' : '#FFF'} text={languages[opposedLang]} method={() => changeLanguage(languages, selectedLanguage, dispatch, currentQuery?.query)} height='1rem' />
             </div>
           </div>
           <div className={styles._contactContainer}>

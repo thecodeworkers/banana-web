@@ -4,7 +4,7 @@ import { BoxArrow } from '@icons/svg'
 import Image from 'next/image'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPage, seletedReference, setStatus } from '@store/actions'
-import { fallbackRestUrl, navigation } from '@utils'
+import { fallbackRestUrl, navigation, changeLanguage } from '@utils'
 import { scrolling } from '@utils'
 import { useRouter } from 'next/router'
 
@@ -12,20 +12,6 @@ const Hero = ({ content, reference, data, contact }: any) => {
   const { intermittence: { languages, selectedLanguage, opposedLang }, scrollReference } = useSelector((state: any) => state)
   const dispatch = useDispatch()
   const router = useRouter()
-
-  const changeLanguage = () => {
-    const langs = Object.keys(languages)
-    const position = langs.reduce((prev: any, next: any, index: any) => {
-      if (selectedLanguage == next) prev = index
-      if (prev < index) return next
-      if (prev + 1 == langs.length) return 'es'
-      return prev
-    }, 0)
-
-    const opposed = langs.indexOf(position)
-    dispatch(setStatus({ opposedLang: langs[Number(!opposed)] }))
-    dispatch(getPage({ query: 'home', language: position }))
-  }
 
   const dispatchScrollTo = (...args) => {
     if (args[0]) {
@@ -75,7 +61,7 @@ const Hero = ({ content, reference, data, contact }: any) => {
       <div className={styles._information}>
         <div className={styles._linksParent}>
           <div className={styles._bottomBtnParent}>
-            <GeneralButton icon={false} height='2rem' padding='1.3rem' text={languages[opposedLang]} method={changeLanguage} />
+            <GeneralButton icon={false} height='2rem' padding='1.3rem' text={languages[opposedLang]} method={() => changeLanguage(languages, selectedLanguage, dispatch)} />
           </div>
           <a href="mailto:Hello@bananacreative.io">{contact?.FooterContact?.Contact[0]?.contactMail}</a>
           <a href="https://wa.me/584241872382" target='_blank' rel='noreferrer' >{contact?.FooterContact?.Contact[0]?.phoneOne}</a>
