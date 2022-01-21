@@ -44,7 +44,7 @@ const Testimonials = ({ content, router }) => {
                   <Image src={`${fallbackRestUrl}${item?.image?.url}`} alt={item?.image?.name} width={619} height={509} quality={100} />
                 </div>
                 <div className={'_imageContainerResponsive'}>
-                  <Image src={`${fallbackRestUrl}${item?.responsiveImage?.url}`} alt={item?.responsiveImage?.name} width={323} height={386} quality={100} />
+                  <Image src={`${fallbackRestUrl}${item?.responsiveImage?.url}`} alt={item?.responsiveImage?.name} width={323} height={206} quality={100} />
                 </div>
 
                 <div className={styles._testimonialContainer}>
