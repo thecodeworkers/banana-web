@@ -92,6 +92,7 @@ const Grid = (content) => {
                             alt={p?.portrait?.image?.name}
                             layout='fill'
                             quality={100}
+                            objectFit='cover'
                             placeholder="blur" />
                           <div className={styles._description}>
                             <p>{p?.categories?.name}</p>
