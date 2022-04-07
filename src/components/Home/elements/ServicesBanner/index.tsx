@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
-const ServiceBanner = ({ content }) => {
+const ServiceBanner = ({ content, paddingVertical = 0 }: any) => {
 
   gsap.registerPlugin(ScrollTrigger)
   const main = useRef(null)
@@ -169,7 +169,7 @@ const ServiceBanner = ({ content }) => {
 			font-size: 1.6rem;
 		}
     ._serviceBannerContent{
-      padding: 1rem 0
+      padding: ${paddingVertical}rem 0.5rem
     }
     ._scrollTitle{
       display:none

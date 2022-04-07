@@ -24,7 +24,6 @@ export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async ({ req, res }) => {
     const state = store.getState()
     const { intermittence: { selectedLanguage } } = state
-    console.log('SELECTEEED BETA', selectedLanguage)
     await mapProps(store, getPage({ query: 'aboutUs', language: selectedLanguage }))
   }
 )

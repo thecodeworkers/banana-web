@@ -2,8 +2,6 @@ import styles from './styles.module.scss'
 import { IconsButton } from '@components'
 
 const HeroAboutUs = ({ content }: any) => {
-
-  console.log(content)
   return (
     <div className={styles._main}>
       <div className={styles._motion}>
