@@ -48,7 +48,7 @@ const Home = () => {
           </div>
           <SecondBanner content={home?.SecondBanner} />
           {home?.serviceBanner && <div ref={servicesRef}><ServicesBanner content={home?.serviceBanner[0]} /></div>}
-          {home?.serviceBanner && <ServicesBanner content={home?.serviceBanner[1]} />}
+          {home?.serviceBanner && <ServicesBanner content={home?.serviceBanner[1]} paddingVertical={1}/>}
           <ThirdBanner content={home?.ThirdBanner} />
           <Contact content={home?.ContactBanner} />
           <RecentsVideos content={home?.VideoBanner} />
