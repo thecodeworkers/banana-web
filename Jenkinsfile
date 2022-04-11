@@ -14,9 +14,9 @@ pipeline {
           withSonarQubeEnv('Sonarqube TCW') {
             sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=banana-web"
           }
-          timeout(time: 1, unit: 'HOURS') {
+          /* timeout(time: 1, unit: 'HOURS') {
             waitForQualityGate abortPipeline: true
-          }
+          } */
         }
       }
       stage('Build Test') {

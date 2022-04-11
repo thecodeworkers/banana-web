@@ -93,7 +93,7 @@ export const changeLanguage = (languages, selectedLanguage, dispatch, query = 'h
   const position = langs.reduce((prev: any, next: any, index: any) => {
     if (selectedLanguage == next) prev = index
     if (prev < index) return next
-    if (prev + 1 == langs.length) return 'es'
+    if (prev + 1 == langs.length) return 'es-VE'
     return prev
   }, 0)
 

@@ -7,10 +7,9 @@ import { getUserData } from '../selectors'
 
 function* fetchUserData() {
   try {
-    const data = yield select(getUserData)
-    const { userData } = data
+    const { userData: { userData }, intermittence: { scheduleNumber } } = yield select((state: any) => state)
 
-    const response = yield call(GraphQlClient, UserData(userData))
+    const response = yield call(GraphQlClient, UserData({ ...userData, number: scheduleNumber }))
     if ((response?.errors && response?.errors?.length) || !Object.keys(response).length) {
       return yield call(showAlert, 'Error!', 'error', '#FF4F4F')
     }
