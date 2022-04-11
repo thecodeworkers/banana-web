@@ -24,7 +24,7 @@ const ClientForm = () => {
   useEffect(() => {
     if (userData?.success) {
       dispatch(setStatus({ formModal: false }))
-      redirectAndSendMessage()
+      router.push('/confirm')
       formik.resetForm()
       setIsLoading(false)
     }

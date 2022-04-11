@@ -33,7 +33,7 @@ $helveticaMedium: 'NormalFont';
 
 ._isImage {
 	@include imageCommon;
-  background-size: 100% 100%;
+  background-size: cover;
 }
 
 ._teamPhoto {
@@ -105,6 +105,10 @@ $helveticaMedium: 'NormalFont';
 		width: 100%;
     height: 50vh;
 	}
+  ._isImage{
+    height: 50vh;
+    background-size: 100% 100%;
+  }
 }
 
 @include responsive(lg) {

@@ -50,11 +50,11 @@ spec:
   tls:
     - hosts:
       - banana-stg-dev.thecodeworkers.com
-      secretName: banana-stg-dev-thecodeworkers-com-tls
+      secretName: banana-stg-web-thecodeworkers-com-tls
     - hosts:
       - bananacreative.io
-      secretName: banana-stg-dev-thecodeworkers-com-tls
+      secretName: banana-creative-thecodeworkers-com-tls
     - hosts:
       - www.bananacreative.io
-      secretName: banana-stg-dev-thecodeworkers-com-tls
+      secretName: www-banana-creative-thecodeworkers-com-tls
 

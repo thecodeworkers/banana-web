@@ -33,6 +33,7 @@ const GeneralButton = ({
           height: ${height};
           background-color: ${background};
           border: solid 1px ${borderColor};
+          border-color: ${background};
           box-sizing: border-box;
           color: ${textColor};
           padding: ${padding};

@@ -1,4 +1,4 @@
-const UserDataMutation = ({ name, lastname, document, address, email, phone }) => {
+const UserDataMutation = ({ name, lastname, document, address, email, phone, paymentMethod, number }) => {
   return (
     `
       mutation {
@@ -11,6 +11,8 @@ const UserDataMutation = ({ name, lastname, document, address, email, phone }) =
               address: "${address}"
               email: "${email}"
               phone: "${phone}"
+              payment_method : "${paymentMethod}"
+              number: "${number}"
             }
           }
         ) {
@@ -21,6 +23,8 @@ const UserDataMutation = ({ name, lastname, document, address, email, phone }) =
             address
             email
             phone
+            payment_method
+            number
           }
         }
       }
