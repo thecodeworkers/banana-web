@@ -51,10 +51,10 @@ const ClientForm = () => {
           <div className={styles._parent}>
             <form className={styles._form} onSubmit={formik.handleSubmit}>
               {!showPayment ? <>
-                <h1 className={styles._title}> {selectedLanguage == 'es' ? 'Tus datos' : 'Your data'}</h1>
+                <h1 className={styles._title}> {selectedLanguage == 'es-VE' ? 'Tus datos' : 'Your data'}</h1>
                 <div className={styles._row}>
                   <div className={styles._columnThird}>
-                    <label className={styles._label}>{selectedLanguage == 'es' ? 'Nombre' : 'Name'}</label>
+                    <label className={styles._label}>{selectedLanguage == 'es-VE' ? 'Nombre' : 'Name'}</label>
                     <input
                       className={returnInputStyles('name')}
                       id="name"
@@ -66,7 +66,7 @@ const ClientForm = () => {
                     </input>
                   </div>
                   <div className={styles._columnThird}>
-                    <label className={styles._label}>{selectedLanguage == 'es' ? 'Apellido' : 'Lastname'}</label>
+                    <label className={styles._label}>{selectedLanguage == 'es-VE' ? 'Apellido' : 'Lastname'}</label>
                     <input
                       className={returnInputStyles('lastname')}
                       id="lastname"
@@ -78,7 +78,7 @@ const ClientForm = () => {
                     </input>
                   </div>
                   <div className={styles._columnThird}>
-                    <label className={styles._label}>{selectedLanguage == 'es' ? 'Cédula' : 'Identification card'} </label>
+                    <label className={styles._label}>{selectedLanguage == 'es-VE' ? 'Cédula' : 'Identification card'} </label>
                     <input
                       id="document"
                       name="document"
@@ -92,7 +92,7 @@ const ClientForm = () => {
                 </div>
                 <div className={styles._row}>
                   <div style={{ width: '100%' }}>
-                    <label className={styles._label}>{selectedLanguage == 'es' ? 'Dirección (zona, urbanización, calle, casa/edificio)' : 'Address (area, urbanization, street, house / building)'}</label>
+                    <label className={styles._label}>{selectedLanguage == 'es-VE' ? 'Dirección (zona, urbanización, calle, casa/edificio)' : 'Address (area, urbanization, street, house / building)'}</label>
                     <input
                       id="address"
                       name="address"
@@ -106,7 +106,7 @@ const ClientForm = () => {
                 </div>
                 <div className={styles._row}>
                   <div className={styles._columnMiddle}>
-                    <label className={styles._label}>{selectedLanguage == 'es' ? 'Correo' : 'Email'}</label>
+                    <label className={styles._label}>{selectedLanguage == 'es-VE' ? 'Correo' : 'Email'}</label>
                     <input
                       id="email"
                       name="email"
@@ -118,7 +118,7 @@ const ClientForm = () => {
                     </input>
                   </div>
                   <div className={styles._columnMiddle}>
-                    <label className={styles._label}>{selectedLanguage == 'es' ? 'Teléfono' : 'Phone'}</label>
+                    <label className={styles._label}>{selectedLanguage == 'es-VE' ? 'Teléfono' : 'Phone'}</label>
                     <input
                       id="phone"
                       name="phone"
@@ -134,7 +134,7 @@ const ClientForm = () => {
               }
 
               <div className={styles._btnParent}>
-                <GeneralButton text={selectedLanguage == 'es' ? 'Siguiente' : 'Next'} type='submit' />
+                <GeneralButton text={selectedLanguage == 'es-VE' ? 'Siguiente' : 'Next'} type='submit' />
               </div>
 
             </form >
