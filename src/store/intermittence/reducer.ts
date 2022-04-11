@@ -2,8 +2,8 @@ import { AnyAction } from 'redux'
 import { SET_LANGUAGE, SET_MENU_STATUS, SET_ALERT } from './action-types'
 
 const initialState = {
-  languages: { es: 'Español', en: 'English' },
-  selectedLanguage: 'es',
+  languages: { "es-VE": 'Español', en: 'English' },
+  selectedLanguage: 'es-VE',
   opposedLang: 'en',
   classMenu: '_mainMenu',
   alert: {

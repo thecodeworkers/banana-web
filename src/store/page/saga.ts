@@ -29,7 +29,7 @@ const getQueryPages = (page = 'home', locale = 'en') => {
 function* getPageAsync({ payload }) {
 
   try {
-    const { query, language = 'es' } = payload
+    const { query, language = 'es-VE' } = payload
     const response = yield call(GraphQlClient, getQueryPages(query, language), { locale: language })
     const { page, font, header, footer, projects } = response?.data
     yield put(setFonts(font))

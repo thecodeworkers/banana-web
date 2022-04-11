@@ -9,9 +9,7 @@ const GraphQlClient = async (query, variables = {}) => {
     const headers = {
       'content-Type': 'application/json'
     }
-
     const response = await axios.post(STRAPI_API_URL, { query, variables }, { headers })
-
     return response.data
 
   } catch (err) {
